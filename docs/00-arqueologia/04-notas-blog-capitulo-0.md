@@ -1,6 +1,6 @@
 # Blog source notes — Chapter 0
 
-This is not the final article. It preserves facts, scenes and narrative structure for the future **Spanish and English** versions of the blog while keeping technical traceability.
+This file is the evidence-backed source notebook for the **Spanish and English** archaeology article. The public blog is maintained continuously as the project advances rather than written only after the build is finished. Facts can be promoted from these notes into the article as soon as they are sufficiently verified.
 
 ## Working titles
 
@@ -51,7 +51,7 @@ The machine will be completely dismantled and rebuilt from the ground up. Compon
 - enclosures;
 - firmware and control.
 
-The first stage will preserve approximately 3 mm extrusion so the surviving legacy filament stock can be used. The second stage will convert the machine to 1.75 mm.
+The restoration deliberately has three operational generations: first revive the installed Mega/RAMPS-era machine with legacy 3 mm / 2.85 mm extrusion; then document the recovered Re-ARM as a transitional 32-bit upgrade; finally build the Revival 2026 configuration with 1.75 mm extrusion and current autonomous networked electronics.
 
 ## Transition to the next chapter
 
@@ -61,7 +61,7 @@ The first stage will preserve approximately 3 mm extrusion so the surviving lega
 
 ## Visual material
 
-The master batch for this chapter is `ARQ-20260912`, containing 51 original photographs. Web-optimised and annotated derivatives will be generated for publication; originals will never be modified.
+The master archaeology batch for this chapter is `ARQ-20260912`, containing 72 original photographs. Web-optimised and annotated derivatives will be generated for publication; originals will never be modified.
 
 ## Rules for the future bilingual publication
 
@@ -70,3 +70,17 @@ The master batch for this chapter is `ARQ-20260912`, containing 51 original phot
 - Clearly separate personal recollection from verified technical identification.
 - Explicitly mark unresolved identifications.
 - Link each article to the repository/commit containing the underlying evidence and technical files.
+
+
+## Publication cadence
+
+Do not wait for the end of the project to write the story. At each milestone:
+
+1. update the technical repository first;
+2. select the evidence/photos that explain what changed;
+3. update the Spanish article;
+4. maintain the equivalent English edition;
+5. record unresolved questions explicitly rather than filling narrative gaps with assumptions;
+6. link the article to the relevant repository state/commit when useful.
+
+The archaeology article can therefore be created now and refined only when later teardown evidence resolves an identification that was explicitly left pending.
