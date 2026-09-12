@@ -1,45 +1,45 @@
-# 00 — Arqueología
+# 00 — Archaeology
 
-Esta fase documenta la máquina **antes de limpiar, desmontar o sustituir componentes**.
+This stage documents the machine **before cleaning, dismantling, or replacing components**.
 
-## Objetivos
+## Objectives
 
-- Identificar con precisión la variante de Prusa i3 de partida.
-- Fotografiar la máquina completa y cada subconjunto.
-- Inventariar por separado las piezas sueltas recuperadas.
-- Medir marco, varillas, rodamientos, tornillería, cama y transmisión durante el desmontaje.
-- Identificar extrusor, hotend, motores, fuente, electrónica y finales de carrera.
-- Clasificar cada elemento como conservar, revisar, sustituir, rediseñar o archivar.
-- No energizar la electrónica antigua hasta completar una inspección eléctrica.
-- Mantener trazabilidad suficiente para convertir esta fase en documentación técnica y en el Capítulo 0 del blog bilingüe.
+- Identify the exact Prusa i3 variant.
+- Photograph the complete machine and each subsystem.
+- Inventory loose recovered parts separately.
+- Measure the frame, rods, bearings, fasteners, bed and transmissions during teardown.
+- Identify the extruder, hotend, motors, power supply, controller and endstops.
+- Classify each component as reuse, restore, replace, redesign or archive.
+- Do not power the old electronics before an electrical inspection.
+- Preserve enough traceability to turn this stage into both technical documentation and Chapter 0 of the bilingual blog.
 
-## Estado actual
+## Current status
 
-La sesión inicial se realizó el **12 de septiembre de 2026**. La impresora todavía **no ha sido desmontada**.
+The initial archaeology session took place on **12 September 2026**. The printer has **not yet been dismantled**.
 
-Se han preservado **51 fotografías originales** en:
+A set of **51 original photographs** is preserved at:
 
 `photos/00-arqueologia/originals/`
 
-La identificación provisional apunta a una Prusa i3 de la familia clásica/Rework-era, con extrusor reductor Wade/Greg's-Wade-family y hotend de familia E3D. La variante exacta y varias revisiones de componentes permanecen pendientes hasta el desmontaje y la medición.
+The provisional identification points to a classic/Rework-era Prusa i3 / RepRap derivative with a Wade/Greg's-Wade-family geared extruder and an E3D-family hotend. The exact printer variant and several component revisions remain open until teardown and measurement.
 
-## Documentos de esta fase
+## Documents in this stage
 
-- [01 — Primer inventario](01-primer-inventario.md)
-- [02 — Catálogo fotográfico](02-catalogo-fotografico.md)
-- [03 — Metodología y procedencia](03-metodologia-y-procedencia.md)
-- [04 — Notas fuente para el blog / Capítulo 0](04-notas-blog-capitulo-0.md)
-- [Archivo fotográfico](../../photos/00-arqueologia/README.md)
+- [01 — Initial inventory](01-primer-inventario.md)
+- [02 — Photo catalogue](02-catalogo-fotografico.md)
+- [03 — Archaeology method and provenance](03-metodologia-y-procedencia.md)
+- [04 — Blog source notes / Chapter 0](04-notas-blog-capitulo-0.md)
+- [Photo archive](../../photos/00-arqueologia/README.md)
 
-## Distinción crítica
+## Critical distinction
 
-El proyecto mantiene dos evidencias diferentes:
+The project maintains two different kinds of evidence:
 
-1. **Lo que estaba instalado en la impresora.**
-2. **Lo que apareció suelto en cajas de la misma época.**
+1. **Components physically installed on the printer.**
+2. **Items found loose in boxes from the same period.**
 
-Un motor, placa o pieza encontrada junto a la Prusa no se considera parte de su configuración original salvo que exista evidencia que lo demuestre.
+A motor, board or printed part found near the Prusa is not considered part of its original configuration unless evidence demonstrates that relationship.
 
-## Próxima fase de arqueología
+## Next archaeology work
 
-Continuar fotografiando todo lo que aparezca. Cuando comience el desmontaje se aplicará el flujo definido en la metodología: fotografía → ID → conexiones/orientación → desmontaje → limpieza → medidas → prueba → decisión → registro.
+Continue photographing everything that appears. Once teardown begins, follow the documented workflow: photograph → ID → connections/orientation → removal → cleaning → measurements → test → decision → record.
