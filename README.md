@@ -40,6 +40,8 @@ The exact variant and every component will be identified during the archaeology 
 ## Repository
 
 - `docs/` — archaeology, teardown, design decisions and build documentation
+  - `docs/00-arqueologia/` — printer and loose-parts archaeology
+  - `docs/01-filaments/` — recovered legacy filament inventory and qualification
 - `hardware/` — mechanical and electrical documentation and BOM
 - `printed-parts/` — CAD sources, STEP, STL and slicer projects
 - `firmware/` — printer configurations
