@@ -1,3 +1,3 @@
 # Hardware
 
-Documentación mecánica, electrónica, esquemas y lista de materiales (BOM).
+Mechanical and electrical documentation, schematics and bill of materials (BOM).
