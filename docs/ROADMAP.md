@@ -1,10 +1,10 @@
 # Roadmap — Prusa i3 Revival 2026
 
-## 00 · Archaeology
-Photograph, identify, measure and inventory the printer and all recovered material.
+## 00 · Archaeology — COMPLETE (12 September 2026)
+Freeze the non-invasive as-found baseline: photograph, provisionally identify and inventory the printer and recovered material before dismantling. Unknown dimensions, exact revisions and hidden wiring details intentionally move to teardown rather than being guessed.
 
-## 01 · Teardown and assessment
-Controlled teardown, cleaning and component classification.
+## 01 · Teardown and assessment — NEXT
+Controlled teardown, cleaning, measurement, electrical/mechanical inspection and component classification. Preserve the archaeology baseline by assigning teardown evidence to its own photo/document batches.
 
 ## 02 · Mechanics
 Inspect the frame, Y axis, linear guides, bearings, belts, pulleys and fasteners.
@@ -32,3 +32,6 @@ Modular conversion of the extrusion system after the Legacy stock has been consu
 
 ## 10 · Results
 Comparisons, reliability, quality, noise, reasonable speed limits, lessons learned and a reproducible community guide.
+
+## Continuous workstream · Bilingual blog
+The Spanish and English blog is written and maintained throughout the project. Each completed stage should generate/update its article from repository evidence instead of postponing the narrative until the final build.
