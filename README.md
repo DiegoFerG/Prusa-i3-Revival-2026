@@ -46,9 +46,13 @@ The exact variant and every component will be identified during the archaeology 
 
 ## Status
 
-**Stage 00 — Archaeology / initial inspection**
+**Stage 00 — Archaeology: COMPLETE (12 September 2026)**
 
-The printer is still in storage. The first photographs were taken before moving, cleaning or dismantling it. This deliberately preserves the true starting condition of the project.
+The non-invasive as-found baseline is frozen. The original photographs, loose-parts inventory, detailed per-photo catalogue and legacy-filament archive preserve the starting condition without assuming answers that require dismantling.
+
+**Next: Stage 01 — controlled teardown and assessment.**
+
+The Spanish and English blog is maintained as a living project log alongside the technical repository, with each stage documented as it happens.
 
 ---
 
