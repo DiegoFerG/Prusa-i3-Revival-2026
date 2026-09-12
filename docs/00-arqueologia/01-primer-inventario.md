@@ -46,6 +46,12 @@ The exact variant remains pending until measurements can be taken and compared w
 
 **Revival decision:** document the original electronics, but redesign control, power distribution, wiring, enclosures and safety to current standards.
 
+### Loose controller hardware discovered during archaeology batch 02
+- Panucatt Devices **Re-ARM** ARM controller in Arduino Mega-compatible form factor.
+- **RAMPS 1.4sb** shield photographed separately and installed on the Re-ARM.
+- These boards are loose recovered hardware; they are **not yet attributed to the printer's original configuration**.
+- Power-up, firmware identification and electrical checks remain pending.
+
 ### Bed
 - Heated bed with a glass print surface.
 - Four-point screw-and-spring levelling arrangement.
