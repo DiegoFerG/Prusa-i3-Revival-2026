@@ -1,69 +1,67 @@
-# Metodología arqueológica y procedencia
+# Archaeology method and provenance
 
-Prusa i3 Revival 2026 trata la configuración original como evidencia técnica. El objetivo no es solo conseguir que la impresora vuelva a funcionar: también queremos poder explicar **qué había, cómo estaba construido, qué conservamos y por qué lo cambiamos**.
+Prusa i3 Revival 2026 treats the original configuration as technical evidence. The goal is not merely to make the printer work again; we also want to explain **what was there, how it was built, what we kept, and why we changed it**.
 
-## Regla principal
+## Primary rule
 
-**Documentar antes de desmontar.**
+**Document before dismantling.**
 
-No limpiar, cortar cables, retirar etiquetas, modificar conectores ni desechar piezas antes de registrar su estado y procedencia.
+Do not clean, cut wires, remove labels, alter connectors or discard parts before recording their condition and provenance.
 
-## Niveles de certeza
+## Confidence levels
 
-Cada identificación técnica utilizará uno de estos estados:
+Every technical identification uses one of these states:
 
-- **CONFIRMADO** — visible en serigrafía/etiqueta o demostrado mediante medición.
-- **PROBABLE** — la geometría y el contexto encajan, pero falta confirmación.
-- **PENDIENTE** — no existe evidencia suficiente todavía.
+- **CONFIRMED** — visible on a label/silkscreen or demonstrated by measurement.
+- **PROBABLE** — geometry and context fit, but confirmation is still missing.
+- **PENDING** — insufficient evidence.
 
-Una identificación probable nunca debe convertirse silenciosamente en un hecho histórico.
+A probable identification must never silently become a historical fact.
 
-## Procedencia
-
-Cada objeto se asignará a una clase:
+## Provenance classes
 
 ### PRINTER-AS-FOUND
-Estaba físicamente instalado en la impresora cuando comenzó el proyecto.
+Physically installed on the printer when the project began.
 
 ### LOOSE-FOUND
-Apareció suelto en cajas asociadas al antiguo material de impresión 3D. Puede ser repuesto, pieza retirada, experimento o material sin usar.
+Found loose in boxes associated with the old 3D-printing material. It may be a spare, removed part, experiment or unused component.
 
 ### DONATED-PURCHASED
-Se sabe que fue comprado o donado en aquella época, pero no necesariamente utilizado en esta impresora.
+Known to have been donated or purchased at the time, but not necessarily used on this printer.
 
 ### PERIOD-UNRELATED
-Hardware contemporáneo encontrado junto al material, sin relación demostrada con la Prusa.
+Contemporary hardware found with the material, with no demonstrated relationship to the Prusa.
 
 ### REVIVAL-2026
-Componente adquirido, fabricado o diseñado específicamente para la reconstrucción actual.
+Component purchased, manufactured or designed specifically for the current rebuild.
 
-## Flujo de desmontaje futuro
+## Future teardown workflow
 
-Para cada subconjunto:
+For every subsystem:
 
-1. fotografía antes de tocarlo;
-2. asignación de ID;
-3. fotografía de conexiones y orientación;
-4. retirada controlada;
-5. limpieza;
-6. medidas y referencias;
-7. prueba mecánica/eléctrica si procede;
-8. decisión: **REUSE / RESTORE / REPLACE / REDESIGN / ARCHIVE**;
-9. registro de la decisión y motivo;
-10. fotografía del componente ya clasificado.
+1. photograph before touching it;
+2. assign an ID;
+3. photograph connections and orientation;
+4. remove in a controlled manner;
+5. clean;
+6. record measurements and references;
+7. perform mechanical/electrical tests where appropriate;
+8. decide: **REUSE / RESTORE / REPLACE / REDESIGN / ARCHIVE**;
+9. record the decision and rationale;
+10. photograph the classified component.
 
-## Seguridad
+## Safety
 
-La impresora no se energizará simplemente para comprobar si todavía funciona. Fuente, red, cama, MOSFET, conectores, aislamiento y cableado deben inspeccionarse antes.
+The printer will not simply be powered to see whether it still works. The PSU, mains wiring, heated bed, MOSFETs, connectors, insulation and wiring must be inspected first.
 
-## Fotografía
+## Photography
 
-Los originales son evidencia y permanecen inmutables. Las versiones para el blog, anotaciones y comparativas se generan como derivados.
+Original files are evidence and remain immutable. Blog versions, annotations and comparisons are generated as derivatives.
 
-## Trazabilidad
+## Traceability
 
-Las decisiones de diseño futuras deberán enlazar, cuando sea posible:
+Future design decisions should link, whenever possible:
 
-`evidencia original → medida/prueba → decisión → pieza CAD/BOM → resultado`
+`original evidence → measurement/test → decision → CAD/BOM → result`
 
-Esta cadena es una de las partes centrales del valor comunitario del proyecto.
+This chain is a central part of the project's value to the community.
