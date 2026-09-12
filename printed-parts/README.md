@@ -1,3 +1,3 @@
 # Printed parts
 
-Las piezas nuevas se publicarán, siempre que sea posible, como fuente CAD editable, STEP, STL y proyecto 3MF de referencia.
+New parts will be published, whenever possible, as editable CAD source files together with STEP, STL and reference 3MF projects.
