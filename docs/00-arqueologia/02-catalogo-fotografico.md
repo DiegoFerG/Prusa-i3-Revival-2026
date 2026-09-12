@@ -1,71 +1,71 @@
-# Catálogo fotográfico — lote ARQ-20260912
+# Photo catalogue — ARQ-20260912 batch
 
-**Fecha:** 12 de septiembre de 2026  
-**Total:** 51 fotografías  
-**Ruta:** `photos/00-arqueologia/originals/`
+**Date:** 12 September 2026  
+**Total:** 51 photographs  
+**Path:** `photos/00-arqueologia/originals/`
 
-## Cómo usar este catálogo
+## Catalogue rules
 
-El identificador `ARQ-20260912-NNN` es permanente. Las identificaciones técnicas pueden cambiar durante el desmontaje, pero el ID de la fotografía no.
+The `ARQ-20260912-NNN` identifier is permanent. Technical identifications may change during teardown, but photo IDs do not.
 
-Este primer catálogo se basa en la secuencia de la sesión y en las observaciones realizadas durante la arqueología. No se atribuye a la impresora ningún objeto encontrado suelto sin evidencia adicional.
+This initial catalogue is based on the archaeology session sequence and the observations made while inspecting the material. No loose object is attributed to the printer without additional evidence.
 
-## Bloques documentales
+## Documentary blocks
 
-| Rango | Contexto | Procedencia |
+| Range | Context | Provenance |
 |---|---|---|
-| 001–005 | Primeras vistas de descubrimiento/almacenamiento | PRINTER-AS-FOUND |
-| 006–019 | Inspección visual de la impresora: estructura, Y, electrónica, Z, extrusor, vistas generales | PRINTER-AS-FOUND |
-| 020–021 | Detalles adicionales: ventilación/hotend E3D-family | PRINTER-AS-FOUND |
-| 022–027 | Material suelto encontrado: cableado, consumibles y piezas de época | LOOSE-FOUND |
-| 028–034 | Componentes sueltos/repuestos encontrados en cajas | LOOSE-FOUND |
-| 035–043 | Raspberry Pi 2, pantalla Waveshare dañada y otro hardware de época | PERIOD-UNRELATED / LOOSE-FOUND |
+| 001–005 | Initial discovery/storage views | PRINTER-AS-FOUND |
+| 006–019 | Visual inspection: structure, Y, electronics, Z, extruder and general views | PRINTER-AS-FOUND |
+| 020–021 | Additional details: cooling / E3D-family hotend | PRINTER-AS-FOUND |
+| 022–027 | Loose material: wiring, consumables and period parts | LOOSE-FOUND |
+| 028–034 | Loose components/spares found in boxes | LOOSE-FOUND |
+| 035–043 | Raspberry Pi 2, damaged Waveshare display and other period hardware | PERIOD-UNRELATED / LOOSE-FOUND |
 | 044 | 2× Alhambra II Open FPGA Board V1.0A | PERIOD-UNRELATED |
-| 045–051 | Lote de piezas impresas donadas o compradas en su día | DONATED-PURCHASED |
+| 045–051 | Batch of printed parts donated or purchased at the time | DONATED-PURCHASED |
 
-> Los rangos son una clasificación documental inicial. Durante la revisión de originales y el desmontaje podrán refinarse foto a foto sin alterar los IDs.
+> These ranges are an initial documentary classification. They can be refined photo by photo during review and teardown without changing the permanent IDs.
 
-## Identificaciones relevantes registradas
+## Recorded identifications
 
-### Instalado en la impresora — provisional hasta desmontaje
+### Installed on the printer — provisional until teardown
 
-- Familia Prusa i3 clásica / Rework-era / derivada RepRap.
-- Marco vertical de plancha metálica.
-- Estructura Y de varillas roscadas.
-- Guías de varilla lisa.
-- Z con dos NEMA17, acoplamientos flexibles y varilla roscada convencional.
-- Extrusor directo reductor Wade/Greg's-Wade-family para la etapa Legacy 3 mm.
-- Hotend recordado como E3D; las fotografías son compatibles con familia E3D. V5/V6 y variante exacta quedan pendientes.
-- Controlador gráfico RepRapDiscount/BigTreeTech 12864.
-- Electrónica de arquitectura Mega/RAMPS-era o equivalente, revisión exacta pendiente.
-- Cama calefactada con vidrio y nivelación por tornillos/muelles.
+- Classic Prusa i3 / Rework-era / RepRap-derived family.
+- Single-sheet metal vertical frame.
+- Threaded-rod Y structure.
+- Smooth-rod guides.
+- Z axis with two NEMA17 motors, flexible couplers and conventional threaded rods.
+- Direct Wade/Greg's-Wade-family geared extruder for the Legacy 3 mm stage.
+- Hotend remembered as E3D and visually compatible with the E3D family; exact V5/V6 revision and variant pending.
+- RepRapDiscount/BigTreeTech 12864 graphic controller.
+- Mega/RAMPS-era controller architecture or equivalent; exact revision pending.
+- Heated bed with glass and screw/spring levelling.
 
-### Encontrado suelto — no atribuir a la impresora
+### Found loose — do not attribute to the printer
 
-Entre los objetos documentados durante la sesión se identificaron o anotaron:
+Items identified or recorded during the session include:
 
-- Cableado multipolar y extensiones de 4 conductores.
-- Funda trenzada roja Aerzetix C14222, Ø4 mm / 3–7 mm, según etiqueta visible.
-- Cartucho calefactor suelto, especificaciones pendientes de medición.
-- Motor Longs Stepper Motor 17HS8401S1, NEMA17, etiqueta 2.8 A / 4 hilos.
-- Módulo de final de carrera mecánico GPLv3, modelo/fabricante pendiente.
-- Mazo etiquetado `MOTOR EJE E0`.
-- Raspberry Pi 2 Model B V1.1, candidata a pruebas de reutilización.
-- Waveshare 5inch HDMI LCD V2, 800×480, XPT2046, con pantalla físicamente rota.
-- Arduino UNO R3 compatible y protoboard/perfboard.
-- 2× Alhambra II Open FPGA Board V1.0A, hardware de época sin relación confirmada con la impresora.
-- Lote de piezas impresas antiguas donadas/compradas, pendiente de identificación individual.
+- Multi-core wiring and four-conductor extensions.
+- Aerzetix C14222 red braided sleeve, Ø4 mm / 3–7 mm, according to the visible label.
+- Loose heater cartridge; electrical specifications pending measurement.
+- Longs Stepper Motor 17HS8401S1, NEMA17, labelled 2.8 A / 4 wires.
+- GPLv3 mechanical endstop module; exact model/manufacturer pending.
+- Wiring loom labelled `MOTOR EJE E0`.
+- Raspberry Pi 2 Model B V1.1, candidate for reuse testing.
+- Waveshare 5inch HDMI LCD V2, 800×480, XPT2046, with physically broken display.
+- Arduino UNO R3-compatible board and prototyping/perfboard.
+- 2× Alhambra II Open FPGA Board V1.0A, period hardware with no confirmed relationship to the printer.
+- Batch of old donated/purchased printed parts, pending individual identification.
 
-## Pendiente para el desmontaje
+## Pending for teardown
 
-La arqueología visual no pretende resolver lo que puede medirse mejor después. Quedan expresamente pendientes:
+Visual archaeology deliberately leaves questions that can be answered better by measurement:
 
-1. variante exacta de la i3;
-2. revisión exacta del hotend E3D y diámetro interno;
-3. modelo/revisión de la controladora;
-4. especificaciones de la fuente;
-5. referencias de los motores instalados;
-6. diámetros, longitudes y pasos de todas las varillas;
-7. rodamientos, poleas, correas y estado de guías;
-8. trazado real del cableado;
-9. comprobación eléctrica de piezas sueltas candidatas a reutilización.
+1. exact i3 variant;
+2. exact E3D hotend revision and filament path;
+3. controller model/revision;
+4. power supply specifications;
+5. installed motor references;
+6. diameters, lengths and pitches of all rods;
+7. bearings, pulleys, belts and guide condition;
+8. actual wiring topology;
+9. electrical testing of loose components considered for reuse.
