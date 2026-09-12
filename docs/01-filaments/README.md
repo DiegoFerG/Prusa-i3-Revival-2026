@@ -20,6 +20,10 @@ The first filament archaeology batch contains FFF World / Smart Materials produc
 
 See [01-inventory.md](01-inventory.md) for the current inventory and reuse assessment.
 
-Planned photo location after upload:
+## Photo archive
+
+Batch 01 is now complete: **11/11 photographs uploaded** to:
 
 `photos/01-filaments/originals/`
+
+Every image is cross-referenced from [01-inventory.md](01-inventory.md), which also contains the per-photo catalogue.
