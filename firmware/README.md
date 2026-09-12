@@ -1,3 +1,3 @@
 # Firmware
 
-Configuraciones para la etapa Legacy 3 mm y la futura conversión a 1.75 mm.
+Configurations for the Legacy 3 mm stage and the future 1.75 mm conversion.
