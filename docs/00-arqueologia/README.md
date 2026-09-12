@@ -31,6 +31,7 @@ The provisional identification points to a classic/Rework-era Prusa i3 / RepRap 
 - [02 — Photo catalogue](02-catalogo-fotografico.md)
 - [03 — Archaeology method and provenance](03-metodologia-y-procedencia.md)
 - [04 — Blog source notes / Chapter 0](04-notas-blog-capitulo-0.md)
+- [05 — Detailed photo inventory (72 files)](05-detailed-photo-inventory.md)
 - [Photo archive](../../photos/00-arqueologia/README.md)
 
 ## Critical distinction
