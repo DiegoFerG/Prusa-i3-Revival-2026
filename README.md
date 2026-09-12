@@ -6,20 +6,15 @@
 
 The goal is not to turn it into a modern Prusa clone. We want to preserve the character of the original machine while rebuilding its mechanics, electronics and safety systems with current components and reproducible open documentation.
 
-## Project goals
+## Project roadmap
 
-### Phase 1 — Legacy 3 mm
-- Identify and document the original printer and all recovered parts.
-- Rebuild the mechanical system.
-- Replace the old threaded Z rods with proper leadscrews.
-- Reprint structural and functional parts, primarily in ASA.
-- Enclose and reorganize the electronics.
-- Modernize the controller, drivers, wiring and thermal safety.
-- Restore reliable printing with the original 3 mm / 2.85 mm filament system.
-- Test and consume the surviving stock of legacy filament.
+The project deliberately progresses through three generations of the same printer rather than replacing everything at once:
 
-### Phase 2 — 1.75 mm conversion
-Once the legacy filament stock has been consumed, convert the extrusion system to 1.75 mm. The Phase 1 design should make this conversion as modular as possible.
+1. **Original Hardware Revival** — recover a reliable printing baseline with the installed Mega/RAMPS-era hardware and legacy 3 mm / 2.85 mm extrusion system.
+2. **Re-ARM Upgrade** — move to the recovered Panucatt Re-ARM while preserving the RAMPS/RepRap-era machine for a documented 32-bit transitional stage.
+3. **Revival 2026 Final Build** — convert to 1.75 mm, proper Z leadscrews and current autonomous networked electronics while preserving the classic Prusa i3 appearance and kinematics.
+
+The complete stage-by-stage plan, validation gates and deliverables are maintained in **[docs/ROADMAP.md](docs/ROADMAP.md)**.
 
 ## Starting point
 
@@ -40,6 +35,7 @@ The exact variant and every component will be identified during the archaeology 
 ## Repository
 
 - `docs/` — archaeology, teardown, design decisions and build documentation
+  - [`docs/ROADMAP.md`](docs/ROADMAP.md) — complete staged restoration and modernization roadmap
   - `docs/00-arqueologia/` — printer and loose-parts archaeology
   - `docs/01-filaments/` — recovered legacy filament inventory and qualification
 - `hardware/` — mechanical and electrical documentation and BOM
