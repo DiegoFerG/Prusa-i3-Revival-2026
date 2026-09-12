@@ -1,34 +1,34 @@
 # Roadmap — Prusa i3 Revival 2026
 
-## 00 · Arqueología
-Fotografiar, identificar, medir e inventariar la impresora y todas las piezas recuperadas.
+## 00 · Archaeology
+Photograph, identify, measure and inventory the printer and all recovered material.
 
-## 01 · Desmontaje y evaluación
-Desmontaje controlado, limpieza y clasificación de componentes.
+## 01 · Teardown and assessment
+Controlled teardown, cleaning and component classification.
 
-## 02 · Mecánica
-Revisión del marco, eje Y, guías lineales, rodamientos, correas, poleas y tornillería.
+## 02 · Mechanics
+Inspect the frame, Y axis, linear guides, bearings, belts, pulleys and fasteners.
 
-## 03 · Eje Z Revival
-Sustitución de las antiguas varillas roscadas por husillos adecuados. Diseño de soportes y acoplamientos una vez conocidas las medidas reales.
+## 03 · Revival Z axis
+Replace the old threaded rods with suitable leadscrews. Design supports and couplings after the real machine geometry has been measured.
 
-## 04 · Piezas impresas
-Rediseño/adaptación de las piezas necesarias y fabricación principalmente en ASA con Bambu Lab P1S. Publicación de fuentes editables + STEP + STL + 3MF cuando proceda.
+## 04 · Printed parts
+Redesign/adapt required parts and manufacture them primarily in ASA on a Bambu Lab P1S. Publish editable sources plus STEP, STL and 3MF where appropriate.
 
-## 05 · Electrónica
-Nueva electrónica, drivers, distribución eléctrica, cableado, protecciones y carcasas. Los componentes originales se documentarán antes de decidir su reutilización.
+## 05 · Electronics
+New controller, drivers, power distribution, wiring, protection and enclosures. Original electronics will be documented before any reuse decision.
 
-## 06 · Extrusión Legacy 3 mm
-Restauración o sustitución modular del extrusor/hotend para consumir el stock histórico de filamento de aproximadamente 3 mm.
+## 06 · Legacy 3 mm extrusion
+Restore or modularly replace the extruder/hotend system to consume the surviving stock of approximately 3 mm filament.
 
-## 07 · Firmware y puesta en marcha
-Configuración, comprobaciones eléctricas, movimiento, PID, calibración dimensional y primeras impresiones.
+## 07 · Firmware and commissioning
+Configuration, electrical checks, motion tests, PID tuning, dimensional calibration and first prints.
 
 ## 08 · Legacy Filament Lab
-Inventario y pruebas del filamento antiguo: material, fabricante, diámetro, conservación, secado, parámetros y resultados.
+Inventory and test the old filament: material, manufacturer, diameter, storage condition, drying, print parameters and results.
 
-## 09 · Conversión 1.75 mm
-Conversión modular del sistema de extrusión después de agotar el stock Legacy.
+## 09 · 1.75 mm conversion
+Modular conversion of the extrusion system after the Legacy stock has been consumed.
 
-## 10 · Resultados
-Comparativas, fiabilidad, calidad, ruido, velocidad razonable, lecciones aprendidas y guía reproducible para la comunidad.
+## 10 · Results
+Comparisons, reliability, quality, noise, reasonable speed limits, lessons learned and a reproducible community guide.
