@@ -15,7 +15,9 @@ This stage documents the machine **before cleaning, dismantling, or replacing co
 
 ## Current status
 
-The initial archaeology session took place on **12 September 2026**. The printer has **not yet been dismantled**.
+**CLOSED — 12 September 2026.**
+
+The initial non-invasive archaeology session is now frozen as the project's pre-teardown baseline. The printer has **not yet been dismantled**. From this point onward, observations made while removing components belong to the teardown/assessment stage rather than being retroactively folded into the as-found archaeology.
 
 A set of **72 original photographs** is preserved at:
 
@@ -43,6 +45,16 @@ The project maintains two different kinds of evidence:
 
 A motor, board or printed part found near the Prusa is not considered part of its original configuration unless evidence demonstrates that relationship.
 
-## Next archaeology work
+## Archaeology closure
 
-Continue photographing everything that appears. Once teardown begins, follow the documented workflow: photograph → ID → connections/orientation → removal → cleaning → measurements → test → decision → record.
+The as-found evidence set is considered sufficient to begin controlled teardown. Open questions are intentionally carried forward instead of being guessed.
+
+During teardown, follow the documented workflow:
+
+photograph → ID → connections/orientation → removal → cleaning → measurements → test → decision → record
+
+New close-up photographs may clarify an existing ARQ identification, but teardown evidence must be documented as a new stage/batch so the original baseline remains immutable.
+
+## Blog workflow
+
+The blog is a **living project log**, not a final retrospective deliverable. Archaeology provides the source material for the first article/chapter, and every later project stage should update the Spanish and English blog as work actually happens. Technical conclusions in the blog should link back to repository evidence whenever practical.
