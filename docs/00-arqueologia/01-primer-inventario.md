@@ -1,72 +1,72 @@
-# Primer inventario arqueológico
+# Initial archaeology inventory
 
-Fecha: **12 de septiembre de 2026**
+**Date:** 12 September 2026
 
-Este documento registra lo que puede identificarse visualmente antes de desmontar la impresora.
+This document records what can be identified visually before dismantling the printer.
 
-## Identificación provisional
+## Provisional identification
 
-Familia: **Prusa i3 clásica / Rework-era / RepRap derivative**.
+Family: **classic Prusa i3 / Rework-era / RepRap derivative**.
 
-La identificación exacta de variante queda pendiente de mediciones y comparación con documentación histórica.
+The exact variant remains pending until measurements can be taken and compared with historical documentation.
 
-## Elementos observados
+## Observed components
 
-### Estructura
-- Marco vertical plano metálico.
-- Base Y construida con varillas roscadas, tuercas y piezas impresas.
-- Guías lineales sobre varilla lisa.
+### Structure
+- Flat metal vertical frame.
+- Y base built from threaded rods, nuts and printed parts.
+- Smooth-rod linear guides.
 
-### Eje Z
-- Dos motores NEMA17.
-- Varillas lisas verticales como guías.
-- Varillas roscadas convencionales como elementos de avance.
-- Acoplamientos flexibles de aluminio entre motor y varilla roscada.
+### Z axis
+- Two NEMA17 motors.
+- Smooth vertical guide rods.
+- Conventional threaded rods used for Z motion.
+- Flexible aluminium couplers between motors and threaded rods.
 
-**Decisión Revival:** sustituir las varillas roscadas Z por husillos trapezoidales seleccionados después de medir geometría y definir avance.
+**Revival decision:** replace the old threaded Z rods with proper leadscrews selected after the actual geometry is measured and the desired lead is defined.
 
-### Extrusor
-- Extrusor directo con reducción por engranajes, familia Wade / Greg's Wade.
-- Gran rueda dentada impresa y piñón de motor.
-- Sistema de presión mediante muelles.
-- Configuración histórica compatible con filamento de 3 mm.
+### Extruder
+- Direct geared extruder from the Wade / Greg's Wade family.
+- Large printed driven gear and motor pinion.
+- Spring-loaded idler system.
+- Historical configuration compatible with approximately 3 mm filament.
 
-**Decisión Revival Phase 1:** intentar conservar/reconstruir esta arquitectura para consumir el stock Legacy 3 mm.
+**Revival Phase 1 decision:** attempt to preserve/rebuild this architecture to consume the Legacy 3 mm filament stock.
 
 ### Hotend
-- El propietario recuerda que es un E3D.
-- La nueva fotografía lateral muestra un disipador E3D-family claramente reconocible.
-- Pendiente distinguir de forma concluyente entre generaciones V5/V6 y confirmar variante exacta para 3 mm.
+- The owner remembers the hotend as an E3D.
+- Side photographs show a recognisable E3D-family heatsink.
+- Exact V5/V6 generation and exact 3 mm variant remain pending until teardown.
 
-### Electrónica
-- Arquitectura de la era Arduino Mega / RAMPS o equivalente.
-- Stepper drivers en módulos con disipadores.
-- LCD RepRapDiscount / BigTreeTech Full Graphic Smart Controller 12864.
-- Fuente metálica con borneros expuestos.
+### Electronics
+- Arduino Mega / RAMPS-era architecture or equivalent.
+- Plug-in stepper drivers with heatsinks.
+- RepRapDiscount / BigTreeTech Full Graphic Smart Controller 12864.
+- Open-frame metal power supply with exposed terminals.
 
-**Decisión Revival:** documentar la electrónica original, pero rediseñar alimentación, control, cableado, carcasas y seguridad con criterios actuales.
+**Revival decision:** document the original electronics, but redesign control, power distribution, wiring, enclosures and safety to current standards.
 
-### Cama
-- Cama calefactada con superficie de vidrio.
-- Nivelación mediante tornillos y muelles.
+### Bed
+- Heated bed with a glass print surface.
+- Four-point screw-and-spring levelling arrangement.
 
-### Transmisión X/Y
-- Correas dentadas antiguas.
-- Poleas y tensado a revisar.
+### X/Y transmission
+- Old toothed belts.
+- Pulleys and tensioning system to be inspected.
 
-## Próximos datos necesarios
+## Data required during teardown
 
-1. Diámetro y longitud de varillas lisas X/Y/Z.
-2. Diámetro y paso de las varillas roscadas actuales de Z.
-3. Diámetro de las varillas estructurales Y.
-4. Dimensiones del marco.
-5. Etiquetas completas de todos los NEMA17.
-6. Fotografía frontal/perpendicular de la placa controladora.
-7. Etiqueta y especificaciones de la fuente.
-8. Identificación exacta del hotend E3D.
-9. Inventario de la caja de piezas y motores sueltos.
-10. Estado de rodamientos lineales, poleas, correas y cama.
+1. Diameter and length of X/Y/Z smooth rods.
+2. Diameter and pitch of the current Z threaded rods.
+3. Diameter of structural Y rods.
+4. Frame dimensions.
+5. Full labels of all installed NEMA17 motors.
+6. Straight-on high-resolution photograph of the controller board.
+7. Power supply label and specifications.
+8. Exact E3D hotend identification.
+9. Full inventory of loose parts and motors found in boxes.
+10. Condition of linear bearings, pulleys, belts, guides and bed.
 
-## Regla de seguridad
+## Safety rule
 
-No alimentar la electrónica antigua hasta completar inspección visual, continuidad, estado del cableado, terminales, fuente, cama y protecciones.
+Do not power the old electronics until the power supply, mains wiring, bed, connectors, insulation and protection arrangements have been inspected.
