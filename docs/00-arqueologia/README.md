@@ -17,9 +17,11 @@ This stage documents the machine **before cleaning, dismantling, or replacing co
 
 The initial archaeology session took place on **12 September 2026**. The printer has **not yet been dismantled**.
 
-A set of **51 original photographs** is preserved at:
+A set of **72 original photographs** is preserved at:
 
 `photos/00-arqueologia/originals/`
+
+The second archaeology batch also documents loose period electronics, notably a **Panucatt Devices Re-ARM** paired with a **RAMPS 1.4sb**, plus LCDs, Arduino-class boards, heater cartridges, heatsinks, an Ethernet module and assorted fans. Their relationship to the printer is not assumed and their electrical condition is still untested.
 
 The provisional identification points to a classic/Rework-era Prusa i3 / RepRap derivative with a Wade/Greg's-Wade-family geared extruder and an E3D-family hotend. The exact printer variant and several component revisions remain open until teardown and measurement.
 
