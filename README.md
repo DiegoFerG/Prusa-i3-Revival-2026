@@ -55,12 +55,13 @@ The long-term plan deliberately keeps three generations of the same machine visi
 6. **Publish editable source files**, not only STL exports.
 7. **Keep the legacy 3 mm stage functional** before the later 1.75 mm conversion.
 8. Record measurements, decisions, failures and test results so the work can be reproduced.
+9. **Preserve the historical red-and-black visual identity:** mechanical/structural printed parts are red in the final build, while frame and rods remain black; newly introduced enclosures may use other colours/materials when justified by function and design.
 
 ## Repository
 
 - `docs/` — archaeology, inventory, roadmap and project documentation
   - [`docs/ROADMAP.md`](docs/ROADMAP.md) — current project stages
-  - [`docs/final-build-architecture.md`](docs/final-build-architecture.md) — frozen Generation 3 control/electrical architecture
+  - [`docs/final-build-architecture.md`](docs/final-build-architecture.md) — frozen Generation 3 control/electrical architecture and final visual identity
   - `docs/00-archaeology/` — frozen as-found archaeology and provenance
   - `docs/01-filaments/` — recovered legacy-filament inventory and future qualification
   - [`docs/02-reassembly/`](docs/02-reassembly/) — Stage 02 historical source index and original-geometry reassembly manual
