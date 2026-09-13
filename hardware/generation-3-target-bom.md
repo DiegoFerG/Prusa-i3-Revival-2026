@@ -19,7 +19,8 @@ See [`../docs/final-build-architecture.md`](../docs/final-build-architecture.md)
 | Toolhead accelerometer | permanent LIS2DW associated with EBB36 Gen2 | Frozen |
 | Bed accelerometer | BIGTREETECH S2DW V1.0 (RP2040 + LIS2DW), permanent | Frozen |
 | Bed accelerometer link | USB to CB2 | Frozen |
-| Camera | fixed IMX219 / Raspberry Pi Camera Module 2-class CSI camera | Frozen architecture |
+| Main camera concept | fixed frame-mounted camera, CSI preferred and USB UVC permitted | Frozen architecture, model/interface open |
+| Camera styling | custom retro late-1980s/1990s CCTV/video-surveillance enclosure | Frozen concept |
 | Main DC voltage | 24 V | Frozen |
 | Heated-bed construction | original footprint; aluminium + silicone heater + magnetic base + flexible PEI sheet | Frozen architecture |
 | Bed switching | external DC MOSFET controlled by Manta | Frozen architecture |
@@ -29,6 +30,15 @@ See [`../docs/final-build-architecture.md`](../docs/final-build-architecture.md)
 | Hotend cooling | 24 V fan with tachometer feedback preferred | Frozen architecture |
 | Electronics cooling | large low-RPM temperature-controlled enclosure fan(s) | Frozen architecture |
 | Wiring | completely new harnesses | Frozen |
+
+## Possible future upgrades
+
+| Upgrade | Concept | Status |
+|---|---|---|
+| Nozzle camera | tiny camera fixed to toolhead/nozzle for nozzle-centred timelapse; likely USB/UVC and therefore requiring a separate moving USB service to the toolhead | Possible future upgrade only |
+| Nozzle-camera styling | miniature retro CCTV/video-surveillance enclosure, not an exposed PCB | Frozen aesthetic if upgrade is adopted |
+
+The nozzle camera is deliberately excluded from the base moving-harness design until cable flexibility, bend life, strain relief, toolhead mass, EMI and USB topology can be evaluated on the final head.
 
 ## Selections intentionally deferred
 
@@ -43,7 +53,9 @@ These items must fit the frozen architecture but their exact model or rating dep
 - fan makes/models and final duct geometry;
 - frame-light strip/diffuser;
 - connector families and wire gauges;
-- final electronics enclosure and airflow geometry.
+- final electronics enclosure and airflow geometry;
+- main frame-camera sensor, lens/FOV and final CSI-versus-USB choice;
+- optional nozzle-camera hardware/interface if that future upgrade is adopted.
 
 ## Bed size rule
 
