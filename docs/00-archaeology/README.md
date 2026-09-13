@@ -1,31 +1,46 @@
 # 00 — Archaeology
 
-This stage documents the machine **before cleaning, dismantling, or replacing components**.
+This stage documents the machine **before cleaning, dismantling or replacing components**.
 
-## Objectives
-
-- Identify the exact Prusa i3 variant.
-- Photograph the complete machine and each subsystem.
-- Inventory loose recovered parts separately.
-- Measure the frame, rods, bearings, fasteners, bed and transmissions during teardown.
-- Identify the extruder, hotend, motors, power supply, controller and endstops.
-- Classify each component as reuse, restore, replace, redesign or archive.
-- Do not power the old electronics before an electrical inspection.
-- Preserve enough traceability to turn this stage into both technical documentation and Chapter 0 of the bilingual blog.
-
-## Current status
+## Status
 
 **CLOSED — 12 September 2026.**
 
-The initial non-invasive archaeology session is frozen as the project's pre-teardown baseline. The printer has **not yet been dismantled**. From this point onward, observations made while removing components belong to the teardown/assessment stage rather than being retroactively folded into the as-found archaeology.
+Stage 00 remains a frozen non-invasive baseline. At the moment this stage closed, the printer had not yet been dismantled; that statement is historical context, not the current project state.
 
-A set of **80 original photographs** is preserved at:
+**Downstream update:** Stage 01 teardown, cleaning and component inventory was completed on **13 September 2026**. The printer is now dismantled and catalogued, and the next project step is original mechanical reassembly. Technical identifications resolved during teardown belong to Stage 01 and are cross-referenced rather than retroactively rewritten into the as-found evidence.
+
+## Objectives achieved
+
+- Photograph the complete machine and major subsystems before dismantling.
+- Inventory loose recovered parts separately from installed hardware.
+- Preserve provenance and confidence levels.
+- Avoid powering uninspected electrical hardware.
+- Create a traceable source for the technical documentation and bilingual blog.
+
+## Frozen evidence
+
+A set of **80 original ARQ photographs** is preserved at:
 
 `photos/00-archaeology/originals/`
 
-The archaeology archive also documents loose period electronics, notably a **Panucatt Devices Re-ARM** paired with a **RAMPS 1.4sb**, plus LCDs, Arduino-class boards, heater cartridges, heatsinks, an Ethernet module and assorted fans. Their relationship to the printer is not assumed and their electrical condition is still untested.
+The archive includes both printer-as-found evidence and loose period material. Loose material is never assumed to have been part of the printer without evidence.
 
-The provisional identification points to a classic/Rework-era Prusa i3 / RepRap derivative with a Wade/Greg's-Wade-family geared extruder and an E3D-family hotend. The exact printer variant and several component revisions remain open until teardown and measurement.
+## What later teardown resolved
+
+Stage 01 subsequently confirmed, among other things:
+
+- Arduino Mega 2560 + StaticBoards RAMPS 1.4SB installed controller stack;
+- 4× A4988-family plug-in driver modules;
+- 5× Wantai 42BYGHW811 NEMA17 motors;
+- JCPOWER JC-360-12, 12 V / 30 A PSU;
+- measured rod and Y-carriage dimensions;
+- T2.5 belt transmission;
+- LM8UU-family linear bearings and FAG 608Z radial bearings;
+- four IKEA SÖRLI 200 × 200 × 3 mm build-surface mirrors;
+- legacy E3D-family hotend and thermistor assembly.
+
+See [Stage 01 teardown photos](../../photos/02-teardown/README.md) and the [hardware baseline](../../hardware/README.md).
 
 ## Documents in this stage
 
@@ -33,28 +48,21 @@ The provisional identification points to a classic/Rework-era Prusa i3 / RepRap 
 - [02 — Photo catalogue](02-photo-catalogue.md)
 - [03 — Archaeology method and provenance](03-method-and-provenance.md)
 - [04 — Blog source notes / Chapter 0](04-blog-source-notes-chapter-0.md)
-- [05 — Detailed photo inventory](05-detailed-photo-inventory.md)
+- [05 — Detailed ARQ photo inventory](05-detailed-photo-inventory.md)
 - [Photo archive](../../photos/00-archaeology/README.md)
 
 ## Critical distinction
 
-The project maintains two different kinds of evidence:
+The project maintains separate evidence classes for:
 
-1. **Components physically installed on the printer.**
-2. **Items found loose in boxes from the same period.**
+1. components physically installed on the printer;
+2. items found loose in boxes from the same period;
+3. donated/purchased period material;
+4. unrelated period hardware;
+5. Revival-2026 additions.
 
 A motor, board or printed part found near the Prusa is not considered part of its original configuration unless evidence demonstrates that relationship.
 
-## Archaeology closure
+## Archaeology closure rule
 
-The as-found evidence set is considered sufficient to begin controlled teardown. Open questions are intentionally carried forward instead of being guessed.
-
-During teardown, follow the documented workflow:
-
-photograph → ID → connections/orientation → removal → cleaning → measurements → test → decision → record
-
-New close-up photographs may clarify an existing ARQ identification, but teardown evidence must be documented as a new stage/batch so the original baseline remains immutable.
-
-## Blog workflow
-
-The blog is a **living project log**, not a final retrospective deliverable. Archaeology provides the source material for the first article/chapter, and every later project stage should update the Spanish and English blog as work actually happens. Technical conclusions in the blog should link back to repository evidence whenever practical.
+Stage 00 IDs and original images remain stable. Later evidence may refine an identification, but it does not alter the fact that the earlier observation was provisional at the time.

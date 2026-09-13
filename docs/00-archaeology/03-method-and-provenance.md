@@ -1,18 +1,18 @@
 # Archaeology method and provenance
 
-Prusa i3 Revival 2026 treats the original configuration as technical evidence. The goal is not merely to make the printer work again; we also want to explain **what was there, how it was built, what we kept, and why we changed it**.
+Prusa i3 Revival 2026 treats the original configuration as technical evidence. The goal is not merely to make the printer work again; the project must be able to explain **what was there, how it was built, what was retained, and why anything was changed**.
 
 ## Primary rule
 
-**Document before dismantling.**
+**Document before changing.**
 
-Do not clean, cut wires, remove labels, alter connectors or discard parts before recording their condition and provenance.
+During Stage 00 this meant document before dismantling. During later stages the same rule applies before cleaning, repairing, modifying or replacing a component when that change would destroy useful evidence.
 
 ## Confidence levels
 
 Every technical identification uses one of these states:
 
-- **CONFIRMED** — visible on a label/silkscreen or demonstrated by measurement.
+- **CONFIRMED** — visible on a label/silkscreen or demonstrated by measurement/test.
 - **PROBABLE** — geometry and context fit, but confirmation is still missing.
 - **PENDING** — insufficient evidence.
 
@@ -35,32 +35,40 @@ Contemporary hardware found with the material, with no demonstrated relationship
 ### REVIVAL-2026
 Component purchased, manufactured or designed specifically for the current rebuild.
 
-## Future teardown workflow
+## Teardown workflow used in Stage 01
 
-For every subsystem:
+The controlled teardown followed this reusable sequence:
 
-1. photograph before touching it;
-2. assign an ID;
+1. photograph before touching the subsystem;
+2. assign/retain a stable evidence ID;
 3. photograph connections and orientation;
 4. remove in a controlled manner;
 5. clean;
 6. record measurements and references;
 7. perform mechanical/electrical tests where appropriate;
-8. decide: **REUSE / RESTORE / REPLACE / REDESIGN / ARCHIVE**;
-9. record the decision and rationale;
-10. photograph the classified component.
+8. decide or defer: **REUSE / RESTORE / REPLACE / REDESIGN / ARCHIVE**;
+9. record the evidence and rationale;
+10. create cleaned inventory photographs without altering the original evidence files.
+
+**Stage 01 teardown, cleaning and inventory closed on 13 September 2026.** Its photo sequence currently reaches `TD-20260913-228`.
+
+## Reassembly workflow
+
+Stage 02 adds a complementary rule: **reconstruct before redesigning**. The documented original geometry will first be reassembled and checked mechanically. Modernization ideas may be recorded during that work, but they should not be allowed to erase the evidence of how the original machine fit together.
 
 ## Safety
 
-The printer will not simply be powered to see whether it still works. The PSU, mains wiring, heated bed, MOSFETs, connectors, insulation and wiring must be inspected first.
+The printer will not simply be powered to see whether it still works. The PSU, mains wiring, heated bed, power connectors, insulation and protection arrangements must be inspected before electrical commissioning. The old mixed wiring harness is evidence only and is not selected for reuse.
 
 ## Photography
 
-Original files are evidence and remain immutable. Blog versions, annotations and comparisons are generated as derivatives.
+Original evidence files remain immutable. Crops, annotations, web-optimised images and cleaned component-inventory images are derivatives and must remain clearly separated from originals.
+
+The cleaned Stage 01 component inventory is intentionally stored under `photos/02-teardown/derived/component-inventory/` because those JPEGs were re-encoded from pixels after orientation and privacy metadata removal.
 
 ## Traceability
 
-Future design decisions should link, whenever possible:
+Design decisions should link, whenever possible:
 
 `original evidence → measurement/test → decision → CAD/BOM → result`
 

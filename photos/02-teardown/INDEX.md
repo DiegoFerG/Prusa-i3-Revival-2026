@@ -1,57 +1,51 @@
-# Photo index — Stage 01 Teardown, Batch 01
+# Photo index — Stage 01 Teardown and Inventory
 
-**Capture date:** 2026-09-13  
-**Stage:** 01 · Teardown and assessment  
-**Batch:** 01 · Pre-teardown baseline  
-**Status:** printer still assembled; no structural teardown completed before this baseline.
+**Capture / inventory date:** 2026-09-13  
+**Stage:** 01 · Teardown, cleaning and inventory  
+**Status:** COMPLETE  
+**Current TD sequence:** `TD-20260913-001` through `TD-20260913-228`
 
-## Catalogue
+## Archive layers
 
-| # | Filename | Subject |
-|---:|---|---|
-| 001 | `TD-20260913-001-workbench-preparation.jpg` | Work area prepared before teardown; printer, tools and teardown notes visible. |
-| 002 | `TD-20260913-002-extruder-front-large-gear.jpg` | Front view of geared Wade-style extruder and large printed drive gear. |
-| 003 | `TD-20260913-003-z-axis-side-a-overview.jpg` | Overview of one Z-axis side before teardown. |
-| 004 | `TD-20260913-004-z-axis-side-b-overview.jpg` | Overview of the opposite Z-axis side before teardown. |
-| 005 | `TD-20260913-005-y-frame-threaded-rods-base.jpg` | Lower Y-frame threaded-rod structure and printed corner parts. |
-| 006 | `TD-20260913-006-z-motor-coupler-side-a.jpg` | Z motor and flexible coupler on side A. |
-| 007 | `TD-20260913-007-z-motor-coupler-side-b.jpg` | Z motor and flexible coupler on side B. |
-| 008 | `TD-20260913-008-z-motor-mount-and-label.jpg` | Z stepper motor mount and visible Wantai motor label. |
-| 009 | `TD-20260913-009-z-endstop-mount.jpg` | Z endstop board and its mounting arrangement. |
-| 010 | `TD-20260913-010-z-axis-smooth-rod-threaded-rod-support.jpg` | Z smooth guide rod, threaded rod and printed support geometry. |
-| 011 | `TD-20260913-011-z-axis-side-a-full.jpg` | Full view of Z-axis side A. |
-| 012 | `TD-20260913-012-z-axis-side-b-full.jpg` | Full view of Z-axis side B. |
-| 013 | `TD-20260913-013-lcd-front.jpg` | Front view of the RepRapDiscount-style full graphic LCD controller. |
-| 014 | `TD-20260913-014-lcd-rear-sd-ribbon-cables.jpg` | Rear of LCD controller showing SD slot and ribbon cable connectors. |
-| 015 | `TD-20260913-015-psu-side-voltage-selector.jpg` | Power supply side view and 115/230 V selector. |
-| 016 | `TD-20260913-016-fans-and-controller-electronics.jpg` | Cooling fans and controller electronics as installed. |
-| 017 | `TD-20260913-017-ramps-electronics-overview.jpg` | Overall view of RAMPS-era controller electronics and stepper drivers. |
-| 018 | `TD-20260913-018-ramps-upper-terminals.jpg` | Upper RAMPS terminal blocks and connected high-current wiring. |
-| 019 | `TD-20260913-019-ramps-lcd-ribbon-cables.jpg` | LCD ribbon cables and lower controller connections. |
-| 020 | `TD-20260913-020-controller-wiring-harness.jpg` | Dense controller wiring harness before disconnection. |
-| 021 | `TD-20260913-021-y-axis-base-motor-and-rods.jpg` | Y-axis base showing motor, threaded rods and lower structure. |
-| 022 | `TD-20260913-022-printer-overview-top.jpg` | Top overview of complete printer immediately before controlled teardown. |
-| 023 | `TD-20260913-023-extruder-front-overview.jpg` | Front overview of the extruder assembly on the X carriage. |
-| 024 | `TD-20260913-024-extruder-side-motor.jpg` | Side view of extruder assembly and direct-mounted stepper motor. |
-| 025 | `TD-20260913-025-extruder-gears-detail.jpg` | Close-up of extruder reduction gears, tension screws and springs. |
-| 026 | `TD-20260913-026-ramps-stepper-drivers-detail.jpg` | Close-up of plug-in stepper drivers and heatsinks on the controller. |
-| 027 | `TD-20260913-027-x-axis-belt-and-side-electronics.jpg` | X-axis belt routing with side-mounted electronics in context. |
-| 028 | `TD-20260913-028-x-axis-belts-and-guide-rods.jpg` | X-axis belts and smooth guide rods. |
-| 029 | `TD-20260913-029-psu-terminal-connections.jpg` | Power supply AC and DC terminal block connections. |
-| 030 | `TD-20260913-030-x-axis-motor-mount.jpg` | X-axis stepper motor and printed mounting arrangement. |
-| 031 | `TD-20260913-031-psu-frame-and-wiring.jpg` | Power supply mounted to frame with surrounding wiring. |
-| 032 | `TD-20260913-032-y-axis-motor-and-wiring.jpg` | Y-axis motor area and nearby wiring. |
-| 033 | `TD-20260913-033-rear-wiring-and-motor.jpg` | Rear view showing wiring routes and motor placement. |
-| 034 | `TD-20260913-034-z-threaded-rod-detail.jpg` | Close-up of original conventional threaded Z rod. |
-| 035 | `TD-20260913-035-z-endstop-detail.jpg` | Close-up of the Z endstop PCB, switch and connector. |
-| 036 | `TD-20260913-036-bed-y-axis-and-extruder-context.jpg` | Context view combining heated bed, Y axis, Z assembly and extruder. |
-| 037 | `TD-20260913-037-z-coupler-and-guidance-detail.jpg` | Z flexible coupler with smooth rod and threaded rod guidance. |
-| 038 | `TD-20260913-038-y-motor-pulley-and-belt.jpg` | Y-axis motor, drive pulley and belt routing detail. |
-| 039 | `TD-20260913-039-hotend-side-view.jpg` | Side view of hotend, heatsink and heater area while installed. |
-| 040 | `TD-20260913-040-hotend-extruder-lower-detail.jpg` | Lower close-up of hotend mounted below the geared extruder. |
+| Range | Count | Location | Evidence role |
+|---|---:|---|---|
+| 001–040 | 40 | `originals/` | Pre-teardown baseline and installed subsystem details |
+| 041–159 | 119 | `originals/` | Controlled teardown, removed components and final disassembled state |
+| 160–228 | 69 | `derived/component-inventory/` | Cleaned, measured and privacy-sanitized component catalogue |
+| **Total** | **228** | | Stage 01 documented image sequence |
 
-## Notes
+## Authoritative file-level catalogues
 
-- These photographs continue the project record after the frozen Stage 00 archaeology / as-found baseline.
-- Hidden areas that could not be photographed without removing parts should be documented immediately when they become accessible during teardown.
-- The chronological `TD-` identifier should remain stable and be used when referring to photographs from teardown documentation.
+The photo index is intentionally split by acquisition layer rather than duplicating 228 rows in this Markdown file:
+
+- `manifest.csv` — `TD-20260913-001` through `040`;
+- `inventory-20260913.csv` — `TD-20260913-041` through `159`, including source filename, SHA-256 and byte count;
+- `derived/component-inventory/manifest.csv` — `TD-20260913-160` through `228`, including source-session filename, component ID where assigned, SHA-256, size and privacy processing.
+
+## Major subjects documented
+
+The archive includes:
+
+- original frame and threaded-rod geometry;
+- Y, X and Z motion systems;
+- bed, heated-bed PCB, levelling hardware and build surfaces;
+- Wade/Greg's-Wade-family geared extruder;
+- E3D-family hotend, heater block, captive heater cartridge and thermistor;
+- five Wantai 42BYGHW811 NEMA17 motors;
+- Arduino Mega 2560, StaticBoards RAMPS 1.4SB and A4988-family drivers;
+- graphic LCD, RAMPS smart adapter and Panasonic 16 GB SDHC card;
+- JCPOWER JC-360-12 PSU;
+- mechanical endstop modules;
+- T2.5 belt and drive pulley evidence;
+- LM8UU-family and FAG 608Z bearings;
+- smooth/threaded rod measurements;
+- mixed fasteners and the original bed springs;
+- removed original wiring harnesses.
+
+## Interpretation rule
+
+A photograph proves only what is visible or measured. Exact model/revision claims remain conservative where markings are unreadable. In particular, the hotend remains E3D-family / probable V5-era, the thermistor type remains electrically unconfirmed, and the plug-in stepper modules are treated as A4988-family unless exact clone/revision evidence is available.
+
+## Transition to Stage 02
+
+This archive is now the primary visual reference for **original mechanical reassembly**. New reassembly photographs should start a new stage/batch rather than extending the teardown sequence indefinitely.

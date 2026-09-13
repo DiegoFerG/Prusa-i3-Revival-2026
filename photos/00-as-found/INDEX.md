@@ -2,22 +2,15 @@
 
 **Capture date:** 2026-09-12  
 **Stage:** 00 · Archaeology / As Found  
-**Status:** before cleaning, dismantling or electrical power-up.
+**Status:** historical planning/index document; superseded by the canonical ARQ archaeology archive.
 
-The images in this set document the printer exactly as recovered from storage. They should be preserved as the visual baseline for the entire restoration.
+This file records the early proposed naming/cataloguing pass for the first as-found views. The authoritative preserved Stage 00 evidence now lives under:
 
-## Naming convention
+`photos/00-archaeology/originals/`
 
-`AF-YYYYMMDD-XX-subsystem-description.jpg`
+with permanent `ARQ-YYYYMMDD-NNN` identifiers. Do **not** create a second competing AF copy of those same photographs merely to satisfy the old proposed filenames below.
 
-Where:
-- `AF` = As Found
-- date = capture date
-- `XX` = chronological sequence
-- subsystem = frame / y-axis / z-axis / extruder / hotend / electronics / lcd / psu / overview
-- description = short human-readable subject
-
-## Planned catalogue
+## Legacy proposed catalogue
 
 | # | Proposed filename | Subject |
 |---|---|---|
@@ -32,7 +25,7 @@ Where:
 | 09 | AF-20260912-09-wade-extruder-top.jpg | Geared Wade-style extruder, top view |
 | 10 | AF-20260912-10-y-frame-bottom.jpg | Bottom / rear Y frame and belt routing |
 | 11 | AF-20260912-11-controller-board.jpg | Controller electronics and stepper drivers |
-| 12 | AF-20260912-12-z-motor-coupler-lcd.jpg | Z motor, flexible coupler and 12864 LCD |
+| 12 | AF-20260912-12-z-motor-coupler-lcd.jpg | Z motor, flexible coupler and graphic LCD |
 | 13 | AF-20260912-13-z-motor-coupler-closeup.jpg | Close-up of Z motor / coupler / threaded rod |
 | 14 | AF-20260912-14-wade-extruder-front.jpg | Wade extruder and geared drive |
 | 15 | AF-20260912-15-extruder-side.jpg | Extruder side view and filament drive |
@@ -42,17 +35,12 @@ Where:
 | 19 | AF-20260912-19-part-cooling-fan.jpg | Part cooling fan / duct |
 | 20 | AF-20260912-20-e3d-hotend-side.jpg | E3D-family hotend, side view |
 
-## Notes from this image set
+## Later resolution
 
-- Single-sheet vertical frame is clearly visible.
-- Y axis uses the classic threaded-rod RepRap structure.
-- Z uses smooth guide rods plus conventional threaded rods driven through flexible aluminium couplers.
-- Direct geared Wade/Greg's-Wade-family extruder is clearly visible.
-- The hotend appears to be from the E3D family; exact V5/V6 identification remains to be confirmed.
-- RepRapDiscount / BigTreeTech 12864 full graphic controller is present.
-- Electronics are from the Mega/RAMPS-era architecture; exact board revision still needs a straight-on identification photo.
-- Original wiring and PSU arrangement will be documented but are not assumed safe for reuse.
+Stage 01 teardown/inventory completed on 13 September 2026. It confirmed the installed Arduino Mega 2560 / StaticBoards RAMPS 1.4SB electronics, Wantai 42BYGHW811 motors, JCPOWER JC-360-12 PSU and many mechanical dimensions. The hotend remains conservatively identified as E3D-family, probably V5-era, rather than being assigned an unproven exact revision.
 
-## Preservation rule
+For current technical information use:
 
-Original image files should remain unedited. Any cropped, annotated or web-optimised derivatives should live in a separate `derived/` directory.
+- `docs/00-archaeology/` for the frozen Stage 00 interpretation;
+- `photos/02-teardown/` for Stage 01 evidence;
+- `hardware/README.md` for the current hardware baseline.

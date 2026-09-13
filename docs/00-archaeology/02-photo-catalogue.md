@@ -2,13 +2,14 @@
 
 **Primary capture date:** 12 September 2026  
 **Current archive total:** 80 photographs  
-**Path:** `photos/00-archaeology/originals/`
+**Path:** `photos/00-archaeology/originals/`  
+**Status:** frozen Stage 00 evidence set
 
 ## Catalogue rules
 
-The `ARQ-YYYYMMDD-NNN` identifier is a legacy permanent photo ID. It is retained as an opaque technical identifier for traceability even though all descriptive paths and filenames are now standardised in English. Technical identifications may change during teardown, but photo IDs do not.
+The `ARQ-YYYYMMDD-NNN` identifier is a legacy permanent photo ID. It is retained as an opaque technical identifier for traceability even though all descriptive paths and new filenames are standardised in English. Later teardown findings may refine an identification, but the Stage 00 photo IDs never change.
 
-This catalogue is based on the archaeology session sequence and the observations made while inspecting the material. No loose object is attributed to the printer without additional evidence.
+A loose object is never attributed to the printer solely because it was found in the same storage area.
 
 ## Documentary blocks
 
@@ -16,69 +17,49 @@ This catalogue is based on the archaeology session sequence and the observations
 |---|---|---|
 | 001–005 | Initial discovery/storage views | PRINTER-AS-FOUND |
 | 006–019 | Visual inspection: structure, Y, electronics, Z, extruder and general views | PRINTER-AS-FOUND |
-| 020–021 | Additional details: cooling / E3D-family hotend | PRINTER-AS-FOUND |
+| 020–021 | Cooling / E3D-family hotend details | PRINTER-AS-FOUND |
 | 022–027 | Loose material: wiring, consumables and period parts | LOOSE-FOUND |
 | 028–034 | Loose components/spares found in boxes | LOOSE-FOUND |
 | 035–043 | Raspberry Pi 2, damaged Waveshare display and other period hardware | PERIOD-UNRELATED / LOOSE-FOUND |
 | 044 | 2× Alhambra II Open FPGA Board V1.0A | PERIOD-UNRELATED |
 | 045–051 | Batch of printed parts donated or purchased at the time | DONATED-PURCHASED |
-| 052–056 | RAMPS 1.4sb and Panucatt Devices Re-ARM controller stack | LOOSE-FOUND |
+| 052–056 | RAMPS 1.4SB and Panucatt Devices Re-ARM controller material | LOOSE-FOUND |
 | 057–059 | Heater cartridges, Ethernet interface and assorted heatsinks | LOOSE-FOUND |
-| 060–061 | LCD modules, Arduino-class boards, RAMPS-style shield and related electronics | LOOSE-FOUND / PERIOD-UNRELATED |
+| 060–061 | LCD modules, Arduino-class boards, RAMPS-style hardware and related electronics | LOOSE-FOUND / PERIOD-UNRELATED |
 | 062 | Assorted cooling fans and wiring | LOOSE-FOUND |
 | 063–072 | Additional loose electronics, thermal/cooling hardware and documentary views | LOOSE-FOUND |
-| 073–080 | Additional archaeology photographs captured before teardown | PENDING DETAILED CLASSIFICATION |
+| 073–080 | Additional archaeology photographs preserved in the frozen archive | Stage 00 evidence; no new provenance should be inferred retrospectively |
 
-> These ranges are an initial documentary classification. They can be refined photo by photo during review and teardown without changing the permanent IDs.
+The detailed per-photo table currently covers ARQ 001–072 in [05-detailed-photo-inventory.md](05-detailed-photo-inventory.md). ARQ 073–080 remain preserved without invented per-image descriptions; later technical conclusions are documented in Stage 01 rather than retroactively guessed into the archaeology record.
 
-## Recorded identifications
+## Stage 00 observations
 
-### Installed on the printer — provisional until teardown
+The as-found printer showed:
 
-- Classic Prusa i3 / Rework-era / RepRap-derived family.
-- Single-sheet metal vertical frame.
-- Threaded-rod Y structure.
-- Smooth-rod guides.
-- Z axis with two NEMA17 motors, flexible couplers and conventional threaded rods.
-- Direct Wade/Greg's-Wade-family geared extruder for the Legacy 3 mm stage.
-- Hotend remembered as E3D and visually compatible with the E3D family; exact V5/V6 revision and variant pending.
-- RepRapDiscount/BigTreeTech 12864 graphic controller.
-- Mega/RAMPS-era controller architecture or equivalent; exact revision pending.
-- Heated bed with glass and screw/spring levelling.
+- classic Prusa i3 / Rework-era / RepRap-derived architecture;
+- single-sheet metal vertical frame;
+- threaded-rod Y structure;
+- smooth-rod guides;
+- dual-Z arrangement with flexible couplers and conventional threaded rods;
+- Wade/Greg's-Wade-family geared direct extruder;
+- E3D-family hotend;
+- Mega/RAMPS-era electronics with a 12864-style graphic controller;
+- heated bed and removable glass/mirror surface.
 
-### Found loose — do not attribute to the printer
+Loose archaeology material also included the Panucatt Devices Re-ARM, another RAMPS 1.4SB, heater cartridges, Raspberry Pi 2, broken Waveshare display, FPGA boards, fans, heatsinks and other period hardware. These remain separate from the proven installed configuration.
 
-Items identified or recorded during the session include:
+## Resolution provided by Stage 01
 
-- Multi-core wiring and four-conductor extensions.
-- Aerzetix C14222 red braided sleeve, Ø4 mm / 3–7 mm, according to the visible label.
-- Loose heater cartridge; electrical specifications pending measurement.
-- Longs Stepper Motor 17HS8401S1, NEMA17, labelled 2.8 A / 4 wires.
-- GPLv3 mechanical endstop module; exact model/manufacturer pending.
-- Wiring loom physically labelled `MOTOR EJE E0`; the original label is preserved verbatim as evidence.
-- Raspberry Pi 2 Model B V1.1, candidate for reuse testing.
-- Waveshare 5inch HDMI LCD V2, 800×480, XPT2046, with physically broken display.
-- Arduino UNO R3-compatible board and prototyping/perfboard.
-- 2× Alhambra II Open FPGA Board V1.0A, period hardware with no confirmed relationship to the printer.
-- Batch of old donated/purchased printed parts, pending individual identification.
-- Panucatt Devices **Re-ARM**, an ARM controller in Arduino Mega form factor, photographed separately and fitted beneath a **RAMPS 1.4sb** shield. Electrical condition and firmware status remain untested.
-- **RAMPS 1.4sb** shield (`staticboards.com` marking visible), photographed from both sides and assembled with the Re-ARM.
-- Loose heater cartridges/high-temperature leads, specifications pending.
-- Ethernet interface module, exact chipset/model and original use pending.
-- Assorted heatsinks, character LCD modules, Arduino-class electronics and cooling fans.
+The teardown/inventory completed on 13 September 2026 established the installed controller as an **Arduino Mega 2560 with StaticBoards RAMPS 1.4SB**, identified the five installed motors as **Wantai 42BYGHW811**, identified the main PSU as **JCPOWER JC-360-12 (12 V / 30 A)**, measured the principal rods and Y carriage, documented the T2.5 transmission and catalogued the hotend, bearings, build surfaces and bed hardware.
 
-## Pending for teardown
+The Stage 01 photo archive now reaches `TD-20260913-228`. See [the teardown archive](../../photos/02-teardown/README.md) and [hardware baseline](../../hardware/README.md) for the current technical state.
 
-Visual archaeology deliberately leaves questions that can be answered better by measurement:
+## Still deliberately unresolved
 
-1. exact i3 variant;
-2. exact E3D hotend revision and filament path;
-3. controller model/revision;
-4. power supply specifications;
-5. installed motor references;
-6. diameters, lengths and pitches of all rods;
-7. bearings, pulleys, belts and guide condition;
-8. actual wiring topology;
-9. electrical testing of loose components considered for reuse;
-10. Re-ARM hardware revision, boot/firmware state and practical compatibility with the revival architecture;
-11. RAMPS 1.4sb power-stage condition and suitability for bench testing or reuse.
+- exact historical Prusa i3 sub-variant;
+- exact E3D hotend revision;
+- exact thermistor type/curve;
+- exact clone/revision of the A4988-family driver modules;
+- bench-tested functional condition of old electrical hardware.
+
+These are open engineering questions, not missing archaeology records.
