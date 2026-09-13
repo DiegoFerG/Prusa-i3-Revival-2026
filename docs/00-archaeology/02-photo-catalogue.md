@@ -1,14 +1,14 @@
-# Photo catalogue — ARQ-20260912 batch
+# Photo catalogue — ARQ archaeology archive
 
-**Date:** 12 September 2026  
-**Total:** 72 photographs  
-**Path:** `photos/00-arqueologia/originals/`
+**Primary capture date:** 12 September 2026  
+**Current archive total:** 80 photographs  
+**Path:** `photos/00-archaeology/originals/`
 
 ## Catalogue rules
 
-The `ARQ-20260912-NNN` identifier is permanent. Technical identifications may change during teardown, but photo IDs do not.
+The `ARQ-YYYYMMDD-NNN` identifier is a legacy permanent photo ID. It is retained as an opaque technical identifier for traceability even though all descriptive paths and filenames are now standardised in English. Technical identifications may change during teardown, but photo IDs do not.
 
-This initial catalogue is based on the archaeology session sequence and the observations made while inspecting the material. No loose object is attributed to the printer without additional evidence.
+This catalogue is based on the archaeology session sequence and the observations made while inspecting the material. No loose object is attributed to the printer without additional evidence.
 
 ## Documentary blocks
 
@@ -27,6 +27,7 @@ This initial catalogue is based on the archaeology session sequence and the obse
 | 060–061 | LCD modules, Arduino-class boards, RAMPS-style shield and related electronics | LOOSE-FOUND / PERIOD-UNRELATED |
 | 062 | Assorted cooling fans and wiring | LOOSE-FOUND |
 | 063–072 | Additional loose electronics, thermal/cooling hardware and documentary views | LOOSE-FOUND |
+| 073–080 | Additional archaeology photographs captured before teardown | PENDING DETAILED CLASSIFICATION |
 
 > These ranges are an initial documentary classification. They can be refined photo by photo during review and teardown without changing the permanent IDs.
 
@@ -54,7 +55,7 @@ Items identified or recorded during the session include:
 - Loose heater cartridge; electrical specifications pending measurement.
 - Longs Stepper Motor 17HS8401S1, NEMA17, labelled 2.8 A / 4 wires.
 - GPLv3 mechanical endstop module; exact model/manufacturer pending.
-- Wiring loom labelled `MOTOR EJE E0`.
+- Wiring loom physically labelled `MOTOR EJE E0`; the original label is preserved verbatim as evidence.
 - Raspberry Pi 2 Model B V1.1, candidate for reuse testing.
 - Waveshare 5inch HDMI LCD V2, 800×480, XPT2046, with physically broken display.
 - Arduino UNO R3-compatible board and prototyping/perfboard.

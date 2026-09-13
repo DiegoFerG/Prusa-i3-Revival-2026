@@ -1,5 +1,5 @@
 # As found — 2026-09-12
 
-Fotografías iniciales tomadas con la impresora todavía almacenada, antes de limpieza, movimiento o desmontaje.
+Initial photographs taken while the printer was still in storage, before cleaning, moving or dismantling.
 
-Los originales se conservarán sin editar como evidencia del estado inicial.
+The original files are preserved without editing as evidence of the machine's initial condition.

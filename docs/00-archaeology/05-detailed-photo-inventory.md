@@ -1,10 +1,12 @@
-# Detailed photo inventory — ARQ-20260912
+# Detailed photo inventory — ARQ archaeology archive
 
-**Date:** 12 September 2026  
-**Coverage:** ARQ-20260912-001 through ARQ-20260912-072  
-**Archive:** `photos/00-arqueologia/originals/`
+**Primary capture date:** 12 September 2026  
+**Detailed coverage:** ARQ-20260912-001 through ARQ-20260912-072  
+**Archive:** `photos/00-archaeology/originals/`
 
 This is the per-image archaeology index. Each permanent photo ID records what is visible, the current identification, documentary value, and the most useful next action. Identifications marked provisional must be confirmed by teardown, labels, measurement or bench testing.
+
+Photographs 073–080 are preserved in the archive and are pending expansion of this detailed table.
 
 ## Action vocabulary
 
@@ -49,7 +51,7 @@ This is the per-image archaeology index. Each permanent photo ID records what is
 | 026 | Coiled multi-core cable | LOOSE-FOUND | Potential sensor/motor wiring stock | IDENTIFY, TEST |
 | 027 | Stripped end of multi-core cable showing conductors/shielding | LOOSE-FOUND | Determine conductor count/gauge and suitability for rewiring | MEASURE, TEST |
 | 028 | Cable loom/extensions with connectors | LOOSE-FOUND | Possible motor/sensor extension harness | IDENTIFY, TEST |
-| 029 | Loom label reading `MOTOR EJE E0` | LOOSE-FOUND | Strong provenance clue for extruder-motor wiring | REFERENCE, TEST |
+| 029 | Loom with original physical label `MOTOR EJE E0` | LOOSE-FOUND | Strong provenance clue for extruder-motor wiring; label preserved verbatim | REFERENCE, TEST |
 | 030 | Mechanical endstop module with cable | LOOSE-FOUND | Possible spare endstop for bench/original-style restoration | TEST, REUSE CANDIDATE |
 | 031 | Loose NEMA17 stepper with harness | LOOSE-FOUND | Spare motor candidate after electrical/mechanical checks | IDENTIFY, TEST |
 | 032 | Longs NEMA17 stepper, label visible (17HS8401S1 recorded) | LOOSE-FOUND | Known spare motor candidate; compare torque/current with Revival needs | TEST, REUSE CANDIDATE |
@@ -98,4 +100,4 @@ This is the per-image archaeology index. Each permanent photo ID records what is
 
 The archive deliberately distinguishes **what a photograph proves** from **what we currently suspect**. Loose items are never treated as original printer equipment merely because they were found in the same storage area.
 
-Future batches must append rows without renumbering existing IDs. If an identification changes, update the description/confidence/action but preserve the permanent ARQ ID.
+Future catalogue expansion must preserve existing IDs. If an identification changes, update the description/confidence/action but preserve the permanent ARQ ID.

@@ -1,11 +1,12 @@
 # Blog source notes — Chapter 0
 
-This file is the evidence-backed source notebook for the **Spanish and English** archaeology article. The public blog is maintained continuously as the project advances rather than written only after the build is finished. Facts can be promoted from these notes into the article as soon as they are sufficiently verified.
+This file is the evidence-backed source notebook for the bilingual archaeology article. The public blog is maintained continuously as the project advances rather than written only after the build is finished. Facts can be promoted from these notes into the article as soon as they are sufficiently verified.
 
-## Working titles
+## Working title
 
-**EN:** Chapter 0 — Basement Archaeology  
-**ES:** Capítulo 0 — Arqueología en el sótano
+**Chapter 0 — Basement Archaeology**
+
+The public blog will maintain equivalent Spanish and English editions, but repository documentation remains in English.
 
 ## Core idea
 
@@ -55,22 +56,19 @@ The restoration deliberately has three operational generations: first revive the
 
 ## Transition to the next chapter
 
-**EN:** Before deciding what to buy, we need to know exactly what we have.
-
-**ES:** Antes de decidir qué comprar, tenemos que saber exactamente qué tenemos.
+Before deciding what to buy, we need to know exactly what we have.
 
 ## Visual material
 
-The master archaeology batch for this chapter is `ARQ-20260912`, containing 72 original photographs. Web-optimised and annotated derivatives will be generated for publication; originals will never be modified.
+The archaeology archive currently contains 80 original photographs. Web-optimised and annotated derivatives will be generated for publication; originals will never be modified.
 
 ## Rules for the future bilingual publication
 
-- ES and EN will be equivalent editorial versions, not real-time machine translation.
+- Spanish and English editions will be equivalent editorial versions, not real-time machine translation.
 - Use the same photo IDs and technical references in both languages.
 - Clearly separate personal recollection from verified technical identification.
 - Explicitly mark unresolved identifications.
 - Link each article to the repository/commit containing the underlying evidence and technical files.
-
 
 ## Publication cadence
 

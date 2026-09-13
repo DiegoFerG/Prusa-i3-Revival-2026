@@ -17,24 +17,24 @@ This stage documents the machine **before cleaning, dismantling, or replacing co
 
 **CLOSED — 12 September 2026.**
 
-The initial non-invasive archaeology session is now frozen as the project's pre-teardown baseline. The printer has **not yet been dismantled**. From this point onward, observations made while removing components belong to the teardown/assessment stage rather than being retroactively folded into the as-found archaeology.
+The initial non-invasive archaeology session is frozen as the project's pre-teardown baseline. The printer has **not yet been dismantled**. From this point onward, observations made while removing components belong to the teardown/assessment stage rather than being retroactively folded into the as-found archaeology.
 
-A set of **72 original photographs** is preserved at:
+A set of **80 original photographs** is preserved at:
 
-`photos/00-arqueologia/originals/`
+`photos/00-archaeology/originals/`
 
-The second archaeology batch also documents loose period electronics, notably a **Panucatt Devices Re-ARM** paired with a **RAMPS 1.4sb**, plus LCDs, Arduino-class boards, heater cartridges, heatsinks, an Ethernet module and assorted fans. Their relationship to the printer is not assumed and their electrical condition is still untested.
+The archaeology archive also documents loose period electronics, notably a **Panucatt Devices Re-ARM** paired with a **RAMPS 1.4sb**, plus LCDs, Arduino-class boards, heater cartridges, heatsinks, an Ethernet module and assorted fans. Their relationship to the printer is not assumed and their electrical condition is still untested.
 
 The provisional identification points to a classic/Rework-era Prusa i3 / RepRap derivative with a Wade/Greg's-Wade-family geared extruder and an E3D-family hotend. The exact printer variant and several component revisions remain open until teardown and measurement.
 
 ## Documents in this stage
 
-- [01 — Initial inventory](01-primer-inventario.md)
-- [02 — Photo catalogue](02-catalogo-fotografico.md)
-- [03 — Archaeology method and provenance](03-metodologia-y-procedencia.md)
-- [04 — Blog source notes / Chapter 0](04-notas-blog-capitulo-0.md)
-- [05 — Detailed photo inventory (72 files)](05-detailed-photo-inventory.md)
-- [Photo archive](../../photos/00-arqueologia/README.md)
+- [01 — Initial inventory](01-initial-inventory.md)
+- [02 — Photo catalogue](02-photo-catalogue.md)
+- [03 — Archaeology method and provenance](03-method-and-provenance.md)
+- [04 — Blog source notes / Chapter 0](04-blog-source-notes-chapter-0.md)
+- [05 — Detailed photo inventory](05-detailed-photo-inventory.md)
+- [Photo archive](../../photos/00-archaeology/README.md)
 
 ## Critical distinction
 

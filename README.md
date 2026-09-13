@@ -36,7 +36,7 @@ The exact variant and every component will be identified during the archaeology 
 
 - `docs/` — archaeology, teardown, design decisions and build documentation
   - [`docs/ROADMAP.md`](docs/ROADMAP.md) — complete staged restoration and modernization roadmap
-  - `docs/00-arqueologia/` — printer and loose-parts archaeology
+  - `docs/00-archaeology/` — printer and loose-parts archaeology
   - `docs/01-filaments/` — recovered legacy filament inventory and qualification
 - `hardware/` — mechanical and electrical documentation and BOM
 - `printed-parts/` — CAD sources, STEP, STL and slicer projects
