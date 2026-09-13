@@ -25,6 +25,19 @@ The project generations are:
 - Build all mains and low-voltage wiring from scratch; the recovered harness remains archival evidence.
 - Safety-critical protection must not depend solely on Linux, Klipper or CAN.
 
+## Visual identity and colour policy
+
+The final machine preserves the historical **red-and-black** visual identity of the original build without requiring an exact colour match to the filament used thirteen years earlier.
+
+- All newly manufactured **mechanical and structural printed parts are red**.
+- The exact shade of red is **not constrained**; consistency of the red/black language matters more than matching a specific historical filament, manufacturer or colour code.
+- The **steel frame, rods and other exposed structural metalwork are black** where the design/material permits.
+- **ASA is the preferred final material** for red printed mechanical/structural parts where suitable and available. Material choice must still respect mechanical, thermal and dimensional requirements.
+- Electronics enclosures, camera housings, touchscreen housings and other newly introduced non-historical assemblies are **not bound to the red-printed-parts rule**. Their colour and material remain open until their design stage and will be selected according to function, thermal behaviour, ventilation, manufacturability and overall aesthetics.
+- New enclosures may deliberately introduce another colour or material if doing so improves the final industrial/retro design language without weakening the historical red-and-black identity of the printer itself.
+
+This is a design identity rule, not a requirement to reproduce the exact appearance or material of every original printed part.
+
 ## Core controller stack
 
 ### Main controller
@@ -260,6 +273,7 @@ Klipper heater checks, fan RPM monitoring, temperature limits and watchdog behav
 ## Frozen architectural decisions
 
 - original frame and original machine/bed envelope;
+- historical red-and-black machine identity: red printed mechanical/structural parts, black frame/rods, with no exact red shade requirement;
 - 24 V final system;
 - Manta M8P V2.0 + CB2 + 8× TMC2209 preferred bundle;
 - Klipper + Moonraker + Mainsail + KlipperScreen + Crowsnest;
