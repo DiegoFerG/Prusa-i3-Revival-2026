@@ -10,7 +10,7 @@ The project is not intended to turn the machine into a modern Prusa clone. The o
 
 - **Stage 00 — Archaeology: COMPLETE (12 September 2026).** The non-invasive as-found baseline is frozen and preserved.
 - **Stage 01 — Teardown, cleaning and inventory: COMPLETE (13 September 2026).** The printer has been fully dismantled, cleaned and catalogued. The teardown photo sequence currently reaches `TD-20260913-228`.
-- **Stage 02 — Original mechanical reassembly: NEXT.** The printer will first be rebuilt from the documented original geometry before modernization decisions are applied.
+- **Stage 02 — Original mechanical reassembly: IN PROGRESS (13 September 2026).** Historical assembly sources have been indexed and a project-specific reassembly manual has been created before physical reconstruction begins.
 - **Generation 3 target architecture: FROZEN (13 September 2026).** The final Manta/CB2/Klipper/CAN architecture is documented in **[docs/final-build-architecture.md](docs/final-build-architecture.md)** and will not be implemented until the earlier generations have been documented and tested.
 
 The complete stage-by-stage plan is maintained in **[docs/ROADMAP.md](docs/ROADMAP.md)**.
@@ -63,6 +63,7 @@ The long-term plan deliberately keeps three generations of the same machine visi
   - [`docs/final-build-architecture.md`](docs/final-build-architecture.md) — frozen Generation 3 control/electrical architecture
   - `docs/00-archaeology/` — frozen as-found archaeology and provenance
   - `docs/01-filaments/` — recovered legacy-filament inventory and future qualification
+  - [`docs/02-reassembly/`](docs/02-reassembly/) — Stage 02 historical source index and original-geometry reassembly manual
 - `hardware/` — mechanical/electrical baseline and future BOM documentation
 - `printed-parts/` — CAD sources, STEP, STL and reference 3MF projects
 - `firmware/` — printer configurations for the documented generations
