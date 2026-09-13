@@ -21,6 +21,7 @@ The project generations are:
 - Preserve original bed mounting geometry unless a hidden equivalent adapter is required.
 - Hide modern electronics/cable management where practical.
 - Give the 5-inch touchscreen a deliberately retro industrial enclosure/theme.
+- Give any integrated camera a deliberate **retro video-surveillance / CCTV visual language**, rather than exposing a modern bare camera board or generic webcam shell.
 - Build all mains and low-voltage wiring from scratch; the recovered harness remains archival evidence.
 - Safety-critical protection must not depend solely on Linux, Klipper or CAN.
 
@@ -134,17 +135,46 @@ The bed system is fixed at **24 V**. Heater wattage is selected only after the o
 
 The Manta controls the bed but the high-current heater path uses a **dedicated external DC MOSFET/power stage**. The bed circuit gets its own fuse, suitable wiring/connectors and an independent thermal fuse effective even if Klipper, CB2, Manta MCU or MOSFET fails.
 
-## Camera
+## Camera architecture
 
-Include a fixed **Sony IMX219 / Raspberry Pi Camera Module 2-class CSI camera**.
+Camera integration is part of the Generation 3 concept, but the **camera model and physical data interface are deliberately not frozen yet**. Optical framing and clean mechanical integration take priority over forcing a particular interface.
 
-- MIPI CSI to CB2;
-- Crowsnest -> Mainsail;
-- fixed to the frame, not the bed/toolhead;
-- used for live monitoring, documentation and timelapse;
-- housed in a custom retro/industrial ASA enclosure.
+### Main frame camera
 
-The camera does not use CAN.
+The baseline requirement is one **fixed camera mounted to the printer frame**, never to the moving bed or toolhead.
+
+Preferred implementation order:
+
+1. **CSI/MIPI camera to the CB2** if a practical ribbon length and routing can reach the selected frame position cleanly;
+2. migrate to a **USB UVC camera** if CSI ribbon routing proves too restrictive, fragile or visually intrusive.
+
+Requirements common to either interface:
+
+- fixed, stable view of the bed/nozzle work area;
+- wide enough field of view to remain inside the original printer envelope where practical;
+- integration with Crowsnest/Mainsail;
+- suitable for live monitoring, project documentation and timelapse;
+- custom ASA enclosure inspired by **late-1980s/1990s industrial CCTV/video-surveillance cameras**;
+- no exposed modern camera PCB and no generic consumer-webcam appearance.
+
+The final sensor, lens/FOV, CSI cable length or USB camera are selected only after physical framing mock-ups on the rebuilt printer.
+
+### Possible future upgrade — fixed nozzle camera
+
+A second camera is explicitly documented as a **possible future upgrade**, not part of the frozen base build.
+
+Concept:
+
+- a very small camera fixed to the toolhead/nozzle assembly;
+- optical axis arranged so the nozzle remains at a stable position in the image;
+- intended especially for timelapses in which the nozzle appears fixed while the printed part/bed moves through the frame;
+- same retro CCTV visual language, miniaturised for the toolhead rather than left as an exposed board.
+
+The likely implementation is **USB/UVC**, which would require an additional moving USB connection to the toolhead. This is intentionally deferred because it affects moving-harness flexibility, bend life, strain relief, electromagnetic routing, toolhead mass and available USB topology.
+
+The nozzle camera must not be allowed to compromise the primary 24 V + CAN toolhead harness. If later adopted, its USB routing will be designed and tested as a separate moving service, or replaced by another suitable camera transport if a cleaner solution exists at that time.
+
+The nozzle camera is **not** carried over CAN.
 
 ## Lighting
 
@@ -209,6 +239,8 @@ Klipper host on CB2
   +-- Manta M8P V2 MCU -> X / Y / Z0 / Z1 / bed / enclosure I/O
   +-- CAN -> EBB36 Gen2 -> extruder / hotend / fans / probe / LEDs / X accelerometer
   +-- USB -> BTT S2DW -> permanent Y/bed accelerometer
+  +-- CSI preferred or USB fallback -> fixed frame camera
+  +-- future USB/other link -> optional nozzle camera
 ```
 
 Final configuration, macros and calibration data must be versioned under `firmware/` rather than living only on printer storage.
@@ -237,13 +269,19 @@ Klipper heater checks, fan RPM monitoring, temperature limits and watchdog behav
 - EBB36 Gen2 toolhead node;
 - permanent X/toolhead LIS2DW;
 - permanent Y/bed BTT S2DW/LIS2DW over USB;
-- fixed CSI IMX219-class camera;
+- one fixed frame camera as part of the final concept, with **CSI preferred and USB permitted**; exact model/interface remains open;
+- retro CCTV/video-surveillance enclosure language for all cameras;
 - 24 V dimmable frame light and toolhead work/status light;
 - tachometer-monitored hotend cooling architecture;
 - temperature-controlled electronics ventilation;
 - layered original-footprint aluminium/silicone/magnetic/flexible-PEI bed;
 - external bed MOSFET and independent thermal fuse;
 - complete new wiring.
+
+## Possible future upgrades
+
+- fixed toolhead/nozzle camera for nozzle-centred timelapse, likely USB/UVC but intentionally not frozen;
+- additional CAN nodes only where they solve a demonstrated wiring/sensing problem rather than merely because CAN is available.
 
 ## Component-level selections still open
 
@@ -257,6 +295,6 @@ These selections do not change the architecture and will be frozen after their m
 - final aluminium bed thickness;
 - final silicone-heater dimensions/wattage after measuring the original bed PCB;
 - exact PSU wattage;
-- connector families, wire gauges and harness routing.
-
-Any future change to a frozen architectural decision must be recorded here with date, reason and compatibility impact rather than silently replacing the target design.
+- connector families, wire gauges and harness routing;
+- frame-camera sensor/lens/FOV and final CSI-versus-USB choice;
+- optional nozzle-camera implementation, if the future upgrade is adopted.
