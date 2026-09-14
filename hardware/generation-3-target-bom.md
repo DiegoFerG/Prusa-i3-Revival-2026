@@ -4,6 +4,8 @@ This is the target hardware set for the **Revival 2026 final build**. It records
 
 See [`../docs/final-build-architecture.md`](../docs/final-build-architecture.md) for the full architecture and safety boundaries.
 
+See [`generation-3-linear-motion.md`](generation-3-linear-motion.md) for the frozen Generation 3 linear-motion and alignment architecture.
+
 ## Frozen selections
 
 | Subsystem | Target component / architecture | Status |
@@ -16,6 +18,13 @@ See [`../docs/final-build-architecture.md`](../docs/final-build-architecture.md)
 | Toolhead MCU | BIGTREETECH EBB36 Gen2 | Frozen |
 | Toolhead network | CAN bus | Frozen |
 | CAN distribution | BIGTREETECH CEB V1.0 in electronics bay | Frozen |
+| X guidance | 1× MGN12-class rail, long MGN12H-class carriage preferred | Frozen architecture |
+| Y guidance | 2× MGN12-class rails, master/slave datum strategy | Frozen architecture |
+| Z guidance | 2× MGN12-class rails, primary/secondary datum strategy | Frozen architecture |
+| Linear-rail mounting | rigid metallic carriers with fine adjustment screws and independent locking fasteners | Frozen architecture |
+| X/Y drive | GT2 belt drive | Frozen architecture |
+| Z drive | 2× independent Tr8 lead screws and independent Z motors | Frozen architecture |
+| Z geometry rule | rails define Z motion; lead screws provide vertical drive only | Frozen |
 | Toolhead accelerometer | permanent LIS2DW associated with EBB36 Gen2 | Frozen |
 | Bed accelerometer | BIGTREETECH S2DW V1.0 (RP2040 + LIS2DW), permanent | Frozen |
 | Bed accelerometer link | USB to CB2 | Frozen |
@@ -47,6 +56,12 @@ These items must fit the frozen architecture but their exact model or rating dep
 - direct-drive extruder and hotend;
 - Z probe;
 - filament sensor;
+- exact MGN rail manufacturer, preload class and lengths;
+- exact rail-carrier dimensions and aluminium grade;
+- exact adjuster screw size/count and final adjustment range;
+- exact Y carriage count if testing shows one long carriage per rail is insufficient;
+- exact Tr8 lead (Tr8×2 and Tr8×4 remain candidates);
+- exact Z motor, nut and upper-support adjustment geometry;
 - exact bed aluminium thickness;
 - exact silicone-heater dimensions and power, after measuring the original heated-bed PCB;
 - exact Mean Well 24 V PSU wattage after heater loads are frozen;
