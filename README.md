@@ -10,7 +10,8 @@ The project is not intended to turn the machine into a modern Prusa clone. The o
 
 - **Stage 00 — Archaeology: COMPLETE (12 September 2026).** The non-invasive as-found baseline is frozen and preserved.
 - **Stage 01 — Teardown, cleaning and inventory: COMPLETE (13 September 2026).** The printer has been fully dismantled, cleaned and catalogued. The teardown photo sequence currently reaches `TD-20260913-228`.
-- **Stage 02 — Original mechanical reassembly: NEXT.** The printer will first be rebuilt from the documented original geometry before modernization decisions are applied.
+- **Stage 02 — Original mechanical reassembly: IN PROGRESS (13 September 2026).** Historical assembly sources have been indexed and a project-specific reassembly manual has been created before physical reconstruction begins.
+- **Generation 3 target architecture: FROZEN (13 September 2026).** The final Manta/CB2/Klipper/CAN architecture is documented in **[docs/final-build-architecture.md](docs/final-build-architecture.md)** and will not be implemented until the earlier generations have been documented and tested.
 
 The complete stage-by-stage plan is maintained in **[docs/ROADMAP.md](docs/ROADMAP.md)**.
 
@@ -40,9 +41,9 @@ The original mixed wiring harness has been documented but **will not be reused**
 
 The long-term plan deliberately keeps three generations of the same machine visible and documented:
 
-1. **Original Hardware Revival** — rebuild the original machine and establish a reliable legacy 3 mm / 2.85 mm printing baseline.
+1. **Original Hardware Revival** — rebuild the original machine and establish a reliable legacy 3 mm / 2.85 mm printing baseline using the Arduino Mega 2560 + RAMPS-era stack.
 2. **Re-ARM transitional study** — document and, if worthwhile, test the recovered Panucatt Re-ARM with RAMPS-era hardware as a period 32-bit upgrade path.
-3. **Revival 2026 final build** — move to 1.75 mm extrusion, proper Z leadscrews, modern electronics, new wiring and current safety practices while preserving the classic i3 character.
+3. **Revival 2026 final build** — move to 1.75 mm extrusion, 24 V power, modern electronics, CAN toolhead, new wiring and current safety practices while preserving the classic i3 character. The frozen target is defined in **[docs/final-build-architecture.md](docs/final-build-architecture.md)**.
 
 ## Design principles
 
@@ -54,16 +55,19 @@ The long-term plan deliberately keeps three generations of the same machine visi
 6. **Publish editable source files**, not only STL exports.
 7. **Keep the legacy 3 mm stage functional** before the later 1.75 mm conversion.
 8. Record measurements, decisions, failures and test results so the work can be reproduced.
+9. **Preserve the historical red-and-black visual identity:** mechanical/structural printed parts are red in the final build, while frame and rods remain black; newly introduced enclosures may use other colours/materials when justified by function and design.
 
 ## Repository
 
 - `docs/` — archaeology, inventory, roadmap and project documentation
   - [`docs/ROADMAP.md`](docs/ROADMAP.md) — current project stages
+  - [`docs/final-build-architecture.md`](docs/final-build-architecture.md) — frozen Generation 3 control/electrical architecture and final visual identity
   - `docs/00-archaeology/` — frozen as-found archaeology and provenance
   - `docs/01-filaments/` — recovered legacy-filament inventory and future qualification
+  - [`docs/02-reassembly/`](docs/02-reassembly/) — Stage 02 historical source index and original-geometry reassembly manual
 - `hardware/` — mechanical/electrical baseline and future BOM documentation
 - `printed-parts/` — CAD sources, STEP, STL and reference 3MF projects
-- `firmware/` — printer configurations
+- `firmware/` — printer configurations for the documented generations
 - `profiles/` — manufacturing and slicer profiles
 - `photos/00-archaeology/` — frozen Stage 00 evidence
 - `photos/02-teardown/` — Stage 01 teardown originals and cleaned component-inventory derivatives

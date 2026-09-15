@@ -10,8 +10,15 @@ Key outcomes include identification of the installed Arduino Mega 2560 / StaticB
 
 The removed legacy wiring harness is archived as evidence and will **not** be reused.
 
-## 02 · Original mechanical reassembly — NEXT
+## 02 · Original mechanical reassembly — IN PROGRESS (13 September 2026)
 Rebuild the printer from the documented original geometry before applying modernization changes. The purpose is to validate how every subsystem fits together and to establish a known mechanical baseline.
+
+Stage documentation:
+
+- [`02-reassembly/README.md`](02-reassembly/README.md) — Stage 02 scope and safety boundary;
+- [`02-reassembly/original-reassembly-manual.md`](02-reassembly/original-reassembly-manual.md) — project-specific historical reassembly manual;
+- [`02-reassembly/historical-references.md`](02-reassembly/historical-references.md) — period source catalogue and provenance;
+- `02-reassembly/historical-manuals/` — locally mirrored period source material where licensing and retrieval permit it.
 
 Planned order:
 
