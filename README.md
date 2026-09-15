@@ -9,8 +9,8 @@ The project is not intended to turn the machine into a modern Prusa clone. The o
 ## Current status
 
 - **Stage 00 — Archaeology: COMPLETE (12 September 2026).** The non-invasive as-found baseline is frozen and preserved.
-- **Stage 01 — Teardown, cleaning and inventory: COMPLETE (13 September 2026).** The printer has been fully dismantled, cleaned and catalogued. The teardown photo sequence currently reaches `TD-20260913-228`.
-- **Stage 02 — Original mechanical reassembly: IN PROGRESS (13 September 2026).** Historical assembly sources have been indexed and a project-specific reassembly manual has been created before physical reconstruction begins.
+- **Stage 01 — Teardown, cleaning and inventory: COMPLETE (13 September 2026).** The printer has been fully dismantled, cleaned and catalogued. The teardown photo sequence reaches `TD-20260913-228`.
+- **Stage 02 — Original mechanical reassembly: IN PROGRESS (13 September 2026).** Historical assembly sources have been indexed, a project-specific reassembly manual has been created and physical reconstruction is underway. The Stage 02 photographic sequence currently reaches `RA-20260914-035`.
 - **Generation 3 target architecture: FROZEN (13 September 2026).** The final Manta/CB2/Klipper/CAN architecture is documented in **[docs/final-build-architecture.md](docs/final-build-architecture.md)** and will not be implemented until the earlier generations have been documented and tested.
 
 The complete stage-by-stage plan is maintained in **[docs/ROADMAP.md](docs/ROADMAP.md)**.
@@ -70,7 +70,8 @@ The long-term plan deliberately keeps three generations of the same machine visi
 - `firmware/` — printer configurations for the documented generations
 - `profiles/` — manufacturing and slicer profiles
 - `photos/00-archaeology/` — frozen Stage 00 evidence
-- `photos/02-teardown/` — Stage 01 teardown originals and cleaned component-inventory derivatives
+- `photos/02-teardown/` — Stage 01 teardown originals and cleaned component-inventory derivatives (`TD-20260913-001` through `TD-20260913-228`)
+- [`photos/03-reassembly/`](photos/03-reassembly/) — Stage 02 sanitized reassembly evidence (`RA-20260914-001` through `RA-20260914-035`)
 
 ## Safety
 
