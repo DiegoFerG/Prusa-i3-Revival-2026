@@ -9,6 +9,10 @@ The repository remains the source of truth. Reassembly decisions must distinguis
 - `historical-manuals/` — period manuals that may be redistributed under their stated licenses.
 - `historical-references.md` — period web references, provenance, relevance and licensing notes.
 - `original-reassembly-manual.md` — project-specific assembly manual reconstructed from Stage 00/01 evidence and period documentation.
+- [`../../photos/03-reassembly/`](../../photos/03-reassembly/) — Stage 02 photographic evidence archive.
+- [`../../photos/03-reassembly/INDEX.md`](../../photos/03-reassembly/INDEX.md) — current reassembly photo inventory and evidence-group index.
+
+The first physical-reassembly photo batch contains **35 privacy-sanitized JPEGs**, `RA-20260914-001` through `RA-20260914-035`, documenting Stage A structural reconstruction and component-shape references.
 
 ## Temporary replacement parts during reassembly
 
