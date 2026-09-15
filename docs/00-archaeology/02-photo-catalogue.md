@@ -1,7 +1,7 @@
 # Photo catalogue — ARQ archaeology archive
 
 **Primary capture date:** 12 September 2026  
-**Current archive total:** 80 photographs  
+**Current archive total:** 89 photographs  
 **Path:** `photos/00-archaeology/originals/`  
 **Status:** frozen Stage 00 evidence set
 
@@ -29,8 +29,9 @@ A loose object is never attributed to the printer solely because it was found in
 | 062 | Assorted cooling fans and wiring | LOOSE-FOUND |
 | 063–072 | Additional loose electronics, thermal/cooling hardware and documentary views | LOOSE-FOUND |
 | 073–080 | Additional archaeology photographs preserved in the frozen archive | Stage 00 evidence; no new provenance should be inferred retrospectively |
+| 081–089 | Recovered motion-electronics spare box: endstops and A4988/DRV8825/TMC2130 drivers | LOOSE-FOUND |
 
-The detailed per-photo table currently covers ARQ 001–072 in [05-detailed-photo-inventory.md](05-detailed-photo-inventory.md). ARQ 073–080 remain preserved without invented per-image descriptions; later technical conclusions are documented in Stage 01 rather than retroactively guessed into the archaeology record.
+The detailed per-photo table currently covers ARQ 001–072 in [05-detailed-photo-inventory.md](05-detailed-photo-inventory.md). ARQ 073–080 remain preserved without invented per-image descriptions. ARQ 081–089 document the recovered motion-electronics spare box and are indexed in the detailed inventory.
 
 ## Stage 00 observations
 
