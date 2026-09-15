@@ -22,7 +22,7 @@ Stage documentation:
 - [`../photos/03-reassembly/README.md`](../photos/03-reassembly/README.md) — Stage 02 photographic evidence archive;
 - [`../photos/03-reassembly/INDEX.md`](../photos/03-reassembly/INDEX.md) — reassembly photo inventory and range index.
 
-The current Stage 02 photographic sequence is `RA-20260914-001` through `RA-20260914-035` (**35 sanitized JPEGs**), covering Stage A component references, Y-frame reconstruction, front idler and rear motor supports, frame-clamping hardware and installation of the original single-sheet steel frame.
+The current Stage 02 photographic archive contains **44 sanitized JPEGs** in two batches: `RA-20260914-001` through `RA-20260914-035` and `RA-20260915-001` through `RA-20260915-009`. The evidence now covers Stage A component references, Y-frame reconstruction, front idler and rear motor supports, frame-clamping hardware, installation of the original single-sheet steel frame and the final Stage A mechanical checkpoint before continuing to the next reassembly phase.
 
 Planned order:
 
