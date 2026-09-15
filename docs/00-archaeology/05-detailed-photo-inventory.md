@@ -1,12 +1,12 @@
 # Detailed photo inventory — ARQ archaeology archive
 
 **Primary capture date:** 12 September 2026  
-**Detailed coverage:** ARQ-20260912-001 through ARQ-20260912-072  
+**Detailed coverage:** ARQ-20260912-001 through ARQ-20260912-072, plus ARQ-20260915-081 through ARQ-20260915-089  
 **Archive:** `photos/00-archaeology/originals/`
 
 This is the per-image archaeology index. Each permanent photo ID records what is visible, the current identification, documentary value, and the most useful next action. Identifications marked provisional must be confirmed by teardown, labels, measurement or bench testing.
 
-Photographs 073–080 are preserved in the archive and are pending expansion of this detailed table.
+Photographs 073–080 are preserved in the archive and are pending expansion of this detailed table. Photographs 081–089 document the recovered motion-electronics spare box found on 15 September 2026.
 
 ## Action vocabulary
 
@@ -95,6 +95,16 @@ Photographs 073–080 are preserved in the archive and are pending expansion of 
 | 070 | Heated bed aluminium rear/backing face and cable | LOOSE-FOUND | Inspect wiring, insulation, flatness and mounting pattern | INSPECT, MEASURE |
 | 071 | Generic S-360-12 open-frame PSU, label: 12 V / 30 A | LOOSE-FOUND | Possible 12 V printer/bench PSU only after full safety and load testing | TEST, ARCHIVE |
 | 072 | Mean Well SP-240-24 open-frame PSU, label: 24 V / 10 A | LOOSE-FOUND | High-interest 24 V PSU candidate for bench/subsystems; capacity vs full Revival load must be calculated | TEST, REUSE CANDIDATE |
+
+| 081 | Mechanical endstop modules, component/front view | LOOSE-FOUND | Spare mechanical limit-switch modules for original-hardware revival | TEST, REUSE CANDIDATE |
+| 082 | Mechanical endstop modules, rear/alternate view | LOOSE-FOUND | Connector, PCB and microswitch reference for spare endstops | TEST, REUSE CANDIDATE |
+| 083 | DRV8825 stepper-driver module close-up | LOOSE-FOUND | Period motion-control spare; exact carrier condition requires bench test | INSPECT, TEST |
+| 084 | DRV8825 stepper-driver module, second close-up | LOOSE-FOUND | Marking/component-layout evidence for recovered DRV8825 stock | INSPECT, TEST |
+| 085 | Three A4988 StepStick driver modules | LOOSE-FOUND | Preferred period-style replacement stock if a Generation-1 driver fails | TEST, REUSE CANDIDATE |
+| 086 | Recovered stepper-driver group, first overview | LOOSE-FOUND | Inventory and condition reference for motion-electronics spare stock | IDENTIFY, TEST |
+| 087 | Recovered stepper-driver group, second overview | LOOSE-FOUND | Confirms quantity/layout of recovered driver modules | IDENTIFY, TEST |
+| 088 | Recovered driver group, closer detail | LOOSE-FOUND | Component-marking and potentiometer/orientation reference | INSPECT, TEST |
+| 089 | Five StaticBoards TMC2130 StepStick modules | LOOSE-FOUND | Strong Generation-2 experimentation candidate using SPI-capable drivers | TEST, REUSE CANDIDATE, BLOG |
 
 ## Notes
 
