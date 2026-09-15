@@ -74,4 +74,6 @@ The new photographs belong under:
 
 `photos/00-archaeology/originals/`
 
-Suggested permanent IDs are to continue the existing ARQ sequence after the current highest ID. Images must be metadata-sanitised before publication; filenames and documentation remain in English.
+Permanent photo IDs assigned: `ARQ-20260915-081` through `ARQ-20260915-089`. The published files use the archive naming convention and the `SRCSPARE01`–`SRCSPARE09` source tokens because the sanitised recovery copies no longer retain the original camera filename metadata.
+
+The nine published images were metadata-sanitised before repository upload; filenames and documentation remain in English.
