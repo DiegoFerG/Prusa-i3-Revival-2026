@@ -8,6 +8,7 @@ This directory contains privacy-sanitized photographic evidence for **Stage 02 �
 - Imported photographs: **35**
 - Naming prefix: `RA` = Reassembly
 - Current batch range: `RA-20260914-001` through `RA-20260914-035`
+- Duplicate exact pixel matches omitted: **0**
 
 ## Repository path
 
@@ -42,9 +43,11 @@ Where:
 
 ## Documentation
 
-- `manifest.csv` records original filename, sanitized filename, dimensions and SHA-256.
-- `derived/reassembly-evidence/SHA256SUMS.txt` provides integrity hashes for every repository JPEG.
-- `BATCH-20260914.md` describes the batch and evidence scope.
+- [INDEX.md](INDEX.md) — Stage 02 photo range and evidence-group overview;
+- `manifest.csv` — per-image source filename, sanitized filename, dimensions and SHA-256;
+- `duplicate-report.csv` — exact duplicate handling record;
+- `derived/reassembly-evidence/SHA256SUMS.txt` — integrity hashes for every repository JPEG;
+- [BATCH-20260914.md](BATCH-20260914.md) — batch provenance and evidence scope.
 
 ## Evidence scope
 
