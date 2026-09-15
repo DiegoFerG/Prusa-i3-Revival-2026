@@ -12,7 +12,9 @@ The repository remains the source of truth. Reassembly decisions must distinguis
 - [`../../photos/03-reassembly/`](../../photos/03-reassembly/) — Stage 02 photographic evidence archive.
 - [`../../photos/03-reassembly/INDEX.md`](../../photos/03-reassembly/INDEX.md) — current reassembly photo inventory and evidence-group index.
 
-The first physical-reassembly photo batch contains **35 privacy-sanitized JPEGs**, `RA-20260914-001` through `RA-20260914-035`, documenting Stage A structural reconstruction and component-shape references.
+The Stage 02 photo archive currently contains **44 privacy-sanitized JPEGs** in two batches: `RA-20260914-001` through `RA-20260914-035` and `RA-20260915-001` through `RA-20260915-009`. Together they document Stage A structural reconstruction, component-shape references, the front Y idler/pulley installation, rear Y motor support with stepper installed and the original steel frame mounted on the rebuilt Y base.
+
+The 15 September batch records the final Stage A mechanical checkpoint before proceeding to the next reassembly phase.
 
 ## Temporary replacement parts during reassembly
 
