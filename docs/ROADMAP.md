@@ -18,7 +18,11 @@ Stage documentation:
 - [`02-reassembly/README.md`](02-reassembly/README.md) — Stage 02 scope and safety boundary;
 - [`02-reassembly/original-reassembly-manual.md`](02-reassembly/original-reassembly-manual.md) — project-specific historical reassembly manual;
 - [`02-reassembly/historical-references.md`](02-reassembly/historical-references.md) — period source catalogue and provenance;
-- `02-reassembly/historical-manuals/` — locally mirrored period source material where licensing and retrieval permit it.
+- `02-reassembly/historical-manuals/` — locally mirrored period source material where licensing and retrieval permit it;
+- [`../photos/03-reassembly/README.md`](../photos/03-reassembly/README.md) — Stage 02 photographic evidence archive;
+- [`../photos/03-reassembly/INDEX.md`](../photos/03-reassembly/INDEX.md) — reassembly photo inventory and range index.
+
+The current Stage 02 photographic sequence is `RA-20260914-001` through `RA-20260914-035` (**35 sanitized JPEGs**), covering Stage A component references, Y-frame reconstruction, front idler and rear motor supports, frame-clamping hardware and installation of the original single-sheet steel frame.
 
 Planned order:
 
