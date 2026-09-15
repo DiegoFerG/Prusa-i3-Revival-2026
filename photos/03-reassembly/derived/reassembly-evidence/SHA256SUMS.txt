@@ -33,3 +33,12 @@ bc7c0d0520cba6bdbe5effce065ac9fcf12fc7b7a8ab3d05b1b42dc8f634cddf  RA-20260914-03
 2dcd4541601cbb3e45ee7dbfd1f2203736184837531caece5459dc6d2b8ea7e0  RA-20260914-033-original-black-front-y-idler-support-front-view.jpg
 678f22bf1302b5b67fd75a2e8d11c6f366890790e3561e595722dee6ccda713d  RA-20260914-034-original-black-front-y-idler-support-top-oblique-view.jpg
 6b920f6ee54a309c4fcade8ea459aa63b3226b95218454de19bc89e1887f42ac  RA-20260914-035-original-black-front-y-idler-support-side-view.jpg
+cb7c0e3e007f944e7a47876cf4c1f90a05e9d9ac5b77d31793949f32c0453b88  RA-20260915-001-y-frame-oblique-view-with-front-idler-and-guide-rods.jpg
+40a20a8a714f814377f9792f0b88b7af859e906c3ed1a1fc270a943b8976a754  RA-20260915-002-main-steel-frame-mounted-on-y-base-overview.jpg
+31e3b9ca4ab4d20dc274e57dd4c3ec9c2a9661180191865f26afe1231806d4bb  RA-20260915-003-front-y-idler-support-closeup-with-pulley-installed.jpg
+70ea269d7d40497e8fb88f2e4fec415130a26091a50f9cf11411d2fd8fb5852c  RA-20260915-004-front-y-idler-pulley-side-detail.jpg
+e7b34784e147f1610d6cb0ee3fd26b8b1dc3a794fae3553adeb7afdd7d6fb090  RA-20260915-005-front-y-idler-pulley-low-angle-detail.jpg
+db3a8f6d460714281b439c487d0bc0231a54efb040634d30328c17f89c1cfbb8  RA-20260915-006-main-steel-frame-mounted-on-y-base-portrait-overview.jpg
+6811ad60bb0f92dc7a6c428caf7ffe412cd0f3ccc78c772f06a2466285d4389c  RA-20260915-007-rear-y-motor-support-with-stepper-installed-side-view.jpg
+6cfdd317c08f44f6357d6ebf21b4902734203ab552eaf8782089310a95088b87  RA-20260915-008-rear-y-motor-support-fastener-detail.jpg
+7ada781780174831fb8615e41cbfa9f5569eb08e9704ae49265e5d447a2ccc5d  RA-20260915-009-front-y-crossmember-and-center-support-front-view.jpg

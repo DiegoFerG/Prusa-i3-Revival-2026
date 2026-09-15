@@ -2,13 +2,14 @@
 
 This directory contains privacy-sanitized photographic evidence for **Stage 02 — Original mechanical reassembly** of Prusa i3 Revival 2026.
 
-## Batch
+## Batches
 
-- Capture/context date: **14 September 2026**
-- Imported photographs: **35**
+- Imported batches: **2**
+- Imported photographs: **44**
 - Naming prefix: `RA` = Reassembly
-- Current batch range: `RA-20260914-001` through `RA-20260914-035`
-- Duplicate exact pixel matches omitted: **0**
+- Available ID ranges:
+  - `RA-20260914-001` through `RA-20260914-035`
+  - `RA-20260915-001` through `RA-20260915-009`
 
 ## Repository path
 
@@ -20,7 +21,7 @@ The user's untouched source files are intentionally **not** included in the repo
 
 ## Privacy and integrity processing
 
-Every repository JPEG in this batch was:
+Every repository JPEG in this archive was:
 
 1. decoded from the uploaded source image;
 2. orientation-normalized using EXIF orientation when present;
@@ -38,20 +39,20 @@ Where:
 
 - `RA` = Reassembly;
 - `YYYYMMDD` = reassembly capture/context date;
-- `NNN` = stable identifier within the Stage 02 batch;
+- `NNN` = stable identifier within the daily Stage 02 batch;
 - `subsystem-description` = concise English description.
 
 ## Documentation
 
-- [INDEX.md](INDEX.md) — Stage 02 photo range and evidence-group overview;
-- `manifest.csv` — per-image source filename, sanitized filename, dimensions and SHA-256;
-- `duplicate-report.csv` — exact duplicate handling record;
-- `derived/reassembly-evidence/SHA256SUMS.txt` — integrity hashes for every repository JPEG;
-- [BATCH-20260914.md](BATCH-20260914.md) — batch provenance and evidence scope.
+- `manifest.csv` records original filename, sanitized filename, dimensions and SHA-256.
+- `derived/reassembly-evidence/SHA256SUMS.txt` provides integrity hashes for every repository JPEG.
+- `BATCH-20260914.md` describes the initial Stage A archive.
+- `BATCH-20260915.md` records the final Stage A additions before the next reassembly phase.
+- `INDEX.md` summarizes the archive contents by content group.
 
 ## Evidence scope
 
-This batch covers:
+This archive covers:
 
 - Stage A component references;
 - M10 side rods and frame-clamping hardware;
@@ -59,6 +60,7 @@ This batch covers:
 - front Y idler support and pulley references;
 - rear Y motor support references;
 - rectangular Y-frame reconstruction;
-- installation of the original black steel single-plate frame.
+- installation of the original black steel single-plate frame;
+- late Stage A photographs with the main frame and Y-axis hardware mounted.
 
 Generated illustrations, manuals and assistant-created diagrams are **not** part of this evidence archive.
