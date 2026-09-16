@@ -8,6 +8,8 @@ See [`generation-3-linear-motion.md`](generation-3-linear-motion.md) for the fro
 
 See [`generation-3-smart-spool-system.md`](generation-3-smart-spool-system.md) for the Generation 3 spool-identification, vendor compatibility, adaptive tag learning and automatic-weighing architecture.
 
+See [`generation-3-enhancement-candidates.md`](generation-3-enhancement-candidates.md) for non-frozen fault-detection, probing, cleaning, safety-control, maintenance and electrical-monitoring candidates to evaluate later.
+
 ## Frozen selections
 
 | Subsystem | Target component / architecture | Status |
@@ -51,22 +53,34 @@ See [`generation-3-smart-spool-system.md`](generation-3-smart-spool-system.md) f
 | Electronics cooling | large low-RPM temperature-controlled enclosure fan(s) | Frozen architecture |
 | Wiring | completely new harnesses | Frozen |
 
-## Possible future upgrades
+## Possible future upgrades / candidates
 
-| Upgrade | Concept | Status |
+These items are intentionally **not frozen**. They are documented so they are evaluated at the correct design stage rather than forgotten.
+
+| Candidate | Concept | Status |
 |---|---|---|
 | Nozzle camera | tiny camera fixed to toolhead/nozzle for nozzle-centred timelapse; likely USB/UVC and therefore requiring a separate moving USB service to the toolhead | Possible future upgrade only |
 | Nozzle-camera styling | miniature retro CCTV/video-surveillance enclosure, not an exposed PCB | Frozen aesthetic if upgrade is adopted |
+| Filament motion/jam sensor | encoder/pulse sensor verifies that filament actually moves when extrusion is commanded | Strong candidate; exact sensor/mount open |
+| Eddy-current Z probe | rapid bed scan / dense mesh and possible contact-referenced Z strategy depending on final toolhead/bed support | Strong candidate; not frozen |
+| Nozzle cleaning station | compact purge/wipe/brush station integrated near the bed without materially increasing the envelope | Strong candidate; tied to final probe/toolhead |
+| Retro physical control panel | physical pause/resume/function controls matching the industrial Revival aesthetic | Candidate |
+| Hardware emergency stop | latching hardware safety control independent of Linux/Klipper/CAN/macros | High-priority safety candidate |
+| Maintenance telemetry | runtime, heater/fan cycles, filament throughput, maintenance dates, error history and resonance trends | Candidate; mainly software |
+| Electrical monitoring | 24 V voltage/current/power/energy and thermal warm-up trend logging for diagnostics | Candidate; non-safety telemetry |
+| Automated pre-print self-check | orchestration of spool ID/weight, filament motion, homing, Z alignment, nozzle clean, bed scan and fan/temperature checks | Candidate after underlying hardware is validated |
 
 The nozzle camera is deliberately excluded from the base moving-harness design until cable flexibility, bend life, strain relief, toolhead mass, EMI and USB topology can be evaluated on the final head.
+
+See [`generation-3-enhancement-candidates.md`](generation-3-enhancement-candidates.md) for evaluation criteria, safety boundaries and the intended relationship between these candidates.
 
 ## Selections intentionally deferred
 
 These items must fit the frozen architecture but their exact model or rating depends on later measurement/CAD/testing:
 
 - direct-drive extruder and hotend;
-- Z probe;
-- filament sensor;
+- Z probe technology, including evaluation of the Eddy candidate;
+- filament-presence / filament-motion sensing implementation;
 - exact MGN rail manufacturer, preload class and lengths;
 - exact rail-carrier dimensions and aluminium grade;
 - exact adjuster screw size/count and final adjustment range;
@@ -87,7 +101,10 @@ These items must fit the frozen architecture but their exact model or rating dep
 - connector families and wire gauges;
 - final electronics enclosure and airflow geometry;
 - main frame-camera sensor, lens/FOV and final CSI-versus-USB choice;
-- optional nozzle-camera hardware/interface if that future upgrade is adopted.
+- optional nozzle-camera hardware/interface if that future upgrade is adopted;
+- exact emergency-stop power-cut topology and physical controls;
+- exact electrical-monitoring sensor topology;
+- exact nozzle-cleaning mechanism and placement.
 
 ## Bed size rule
 
