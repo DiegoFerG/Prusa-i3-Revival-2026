@@ -6,7 +6,7 @@ See [`../docs/final-build-architecture.md`](../docs/final-build-architecture.md)
 
 See [`generation-3-linear-motion.md`](generation-3-linear-motion.md) for the frozen Generation 3 linear-motion and alignment architecture.
 
-See [`generation-3-smart-spool-system.md`](generation-3-smart-spool-system.md) for the Generation 3 spool-identification, Bambu-compatibility and automatic-weighing architecture.
+See [`generation-3-smart-spool-system.md`](generation-3-smart-spool-system.md) for the Generation 3 spool-identification, vendor compatibility, adaptive tag learning and automatic-weighing architecture.
 
 ## Frozen selections
 
@@ -31,7 +31,11 @@ See [`generation-3-smart-spool-system.md`](generation-3-smart-spool-system.md) f
 | Bed accelerometer | BIGTREETECH S2DW V1.0 (RP2040 + LIS2DW), permanent | Frozen |
 | Bed accelerometer link | USB to CB2 | Frozen |
 | Smart spool system | Revival-native RFID/NFC identification with local inventory/profile mapping | Frozen architecture |
+| Open smart-spool interoperability | OpenPrintTag read compatibility in the target decoder layer | Frozen architecture |
 | Bambu spool compatibility | read/import supported original Bambu RFID spool data and translate to Revival model/profile | Frozen architecture |
+| Additional vendor compatibility | decoder/plugin framework; Creality smart-spool RFID is a planned validation target | Frozen architecture |
+| Unknown-tag learning | fingerprint readable unknown tags, allow assisted manual identification, save samples/signatures and promote validated mappings into new decoders | Frozen architecture |
+| Brand database growth | create/update local brands, products, materials, spool families and tag signatures from user-confirmed observations | Frozen architecture |
 | Spool weighing | integrated load cell under spool-holder load path; remaining mass = gross mass − tare | Frozen architecture |
 | Spool measurement policy | stable weight readings are authoritative; dynamic printing readings are filtered/secondary | Frozen |
 | Smart spool host link | local reader/weighing controller, wired USB to CB2 preferred | Frozen architecture |
@@ -69,10 +73,12 @@ These items must fit the frozen architecture but their exact model or rating dep
 - exact Y carriage count if testing shows one long carriage per rail is insufficient;
 - exact Tr8 lead (Tr8×2 and Tr8×4 remain candidates);
 - exact Z motor, nut and upper-support adjustment geometry;
-- exact RFID/NFC reader IC, antenna geometry and Revival tag technology;
+- exact RFID/NFC reader IC and antenna geometry;
+- exact Revival tag technology/schema and degree of OpenPrintTag interoperability;
 - exact ESP32-S3-class spool-controller implementation;
 - exact load-cell type, rating, ADC and mechanical mounting arrangement;
-- exact smart-spool database/service implementation and UI integration;
+- exact smart-spool database/service implementation, on-disk decoder format and UI integration;
+- exact list of additional vendor decoders after real-tag validation;
 - exact bed aluminium thickness;
 - exact silicone-heater dimensions and power, after measuring the original heated-bed PCB;
 - exact Mean Well 24 V PSU wattage after heater loads are frozen;
