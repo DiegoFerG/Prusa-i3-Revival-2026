@@ -22,6 +22,6 @@ Camera housings follow a retro CCTV visual language. The optional nozzle camera 
 
 This page records the target experience; there is no claim that the new display, camera or interface is installed.
 
-The [smart-spool UI requirements](../../../hardware/generation-3-smart-spool-system.md#user-experience) add spool identity, remaining mass, profile mapping, calibration and assisted registration with manual fallback. Exact UI integration is still open. A retro physical control panel is a separate [enhancement candidate](../../../hardware/generation-3-enhancement-candidates.md), not a frozen implemented interface.
+The [smart-spool UI requirements](../../../hardware/generation-3-smart-spool-system.md#user-experience) add spool identity, remaining mass, profile mapping, calibration and assisted registration with manual fallback. RASS may additionally expose feeder state, buffer position, spool-drive state and feed warnings as described in the [RASS user experience](../../../hardware/generation-3-rass.md#user-experience). Exact UI integration is still open. A retro physical control panel is a separate [enhancement candidate](../../../hardware/generation-3-enhancement-candidates.md), not a frozen implemented interface.
 
 [Electronics](Electronics.md) · [Firmware](Firmware.md) · [Decision log](../decisions/Decision-Log.md) · [Systems](Systems.md)
