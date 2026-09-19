@@ -11,7 +11,7 @@ updated: 2026-09-19
 
 The project repository is also this Obsidian vault. Start here to find the current work, its evidence and the decisions that constrain the next steps.
 
-**Current work:** original mechanical reassembly, Roadmap Stage 02. The latest photographic batch records progress through manual Stages B–G; photographs do not close the mechanical acceptance checks. See [Current State](project/Current-State.md).
+**Current work:** original mechanical reassembly, Roadmap Stage 02. The latest photographic batch records progress through manual Stages B–G; photographs do not close the mechanical acceptance checks. Generation 3 target design now also includes the RASS single-spool active-feed architecture. See [Current State](project/Current-State.md).
 
 ## Project desk
 
