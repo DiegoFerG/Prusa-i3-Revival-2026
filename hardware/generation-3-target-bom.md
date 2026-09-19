@@ -8,6 +8,8 @@ See [`generation-3-linear-motion.md`](generation-3-linear-motion.md) for the fro
 
 See [`generation-3-smart-spool-system.md`](generation-3-smart-spool-system.md) for the Generation 3 spool-identification, vendor compatibility, adaptive tag learning and automatic-weighing architecture.
 
+See [`generation-3-rass.md`](generation-3-rass.md) for the RASS active single-spool feeding, driven-spool assistance and buffer/dancer architecture.
+
 See [`generation-3-enhancement-candidates.md`](generation-3-enhancement-candidates.md) for non-frozen fault-detection, probing, cleaning, safety-control, maintenance and electrical-monitoring candidates to evaluate later.
 
 ## Frozen selections
@@ -41,6 +43,10 @@ See [`generation-3-enhancement-candidates.md`](generation-3-enhancement-candidat
 | Spool weighing | integrated load cell under spool-holder load path; remaining mass = gross mass − tare | Frozen architecture |
 | Spool measurement policy | stable weight readings are authoritative; dynamic printing readings are filtered/secondary | Frozen |
 | Smart spool host link | local reader/weighing controller, wired USB to CB2 preferred | Frozen architecture |
+| RASS active feed | single-spool active feeder near spool + driven-spool assistance | Frozen architecture |
+| RASS control hierarchy | toolhead direct drive remains extrusion master; RASS follows via buffer/dancer feedback | Frozen |
+| RASS tension decoupling | intermediate buffer/dancer between upstream feeder and toolhead | Frozen architecture |
+| RASS fallback | passive/manual feed path remains possible if active feed subsystem is unavailable | Frozen design requirement |
 | Main camera concept | fixed frame-mounted camera, CSI preferred and USB UVC permitted | Frozen architecture, model/interface open |
 | Camera styling | custom retro late-1980s/1990s CCTV/video-surveillance enclosure | Frozen concept |
 | Main DC voltage | 24 V | Frozen |
