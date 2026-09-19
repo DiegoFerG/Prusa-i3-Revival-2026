@@ -15,6 +15,8 @@ The objective is to reproduce the useful part of the automatic-spool experience 
 
 The system is intentionally independent from the printer motion-control MCU. Failure of the spool-identification subsystem must not prevent safe manual operation of the printer.
 
+The Generation 3 spool system is extended by **RASS — Revival Active Spool System**, which adds active spool rotation assistance, an upstream feeder and buffer/dancer-based tension control. See [`generation-3-rass.md`](generation-3-rass.md).
+
 ## Architectural principles
 
 1. **Revival data model is native.** Every source tag is normalised into the same internal material/spool representation.
