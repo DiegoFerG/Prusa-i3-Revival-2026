@@ -21,7 +21,7 @@ Final configuration, macros and calibration data must be versioned under `firmwa
 
 ## Dependencies
 
-The [smart-spool architecture](../../../hardware/generation-3-smart-spool-system.md) adds a target local service, decoder registry, assisted unknown-tag learning and mappings to calibrated Revival profiles. Real-tag validation is required before claiming decoder support. [Maintenance telemetry and automated pre-print checks](../../../hardware/generation-3-enhancement-candidates.md) remain candidates to evaluate after their underlying hardware is validated.
+The [smart-spool architecture](../../../hardware/generation-3-smart-spool-system.md) adds a target local service, decoder registry, assisted unknown-tag learning and mappings to calibrated Revival profiles. The [RASS architecture](../../../hardware/generation-3-rass.md) adds a local active-feed controller whose upstream feeder follows toolhead demand through buffer/dancer feedback; exact control implementation and calibration remain future work. Real-tag validation is required before claiming decoder support. [Maintenance telemetry and automated pre-print checks](../../../hardware/generation-3-enhancement-candidates.md) remain candidates to evaluate after their underlying hardware is validated.
 
 - [Electronics](Electronics.md) — controller, drivers, sensors and wiring.
 - [Mechanics](Mechanics.md) — alignment before software compensation.
