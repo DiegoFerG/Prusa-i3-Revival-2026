@@ -24,7 +24,7 @@ Exact PSU wattage, connector families, wire gauges and routing remain open until
 
 ## Related work
 
-The [smart-spool target](../../../hardware/generation-3-smart-spool-system.md) adds separate reader/weighing electronics with wired USB to CB2 preferred; exact parts and integration are deferred. The [enhancement register](../../../hardware/generation-3-enhancement-candidates.md) separately records proposed motion sensing, physical controls and diagnostic electrical monitoring. These candidates are not installed or automatically frozen by their inclusion.
+The [smart-spool target](../../../hardware/generation-3-smart-spool-system.md) adds separate reader/weighing electronics with wired USB to CB2 preferred; exact parts and integration are deferred. The [RASS extension](../../../hardware/generation-3-rass.md) adds local motor control for spool assistance and the upstream feeder plus buffer/dancer sensing; it remains separate from the motion-control MCU and prefers USB to CB2. The [enhancement register](../../../hardware/generation-3-enhancement-candidates.md) separately records proposed motion sensing, physical controls and diagnostic electrical monitoring. These candidates are not installed or automatically frozen by their inclusion.
 
 - [Safety](Safety.md) — no mains power during Stage 02; independent future protections.
 - [Firmware](Firmware.md) — software responsibilities and configuration storage.
