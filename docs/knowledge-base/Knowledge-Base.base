@@ -1,0 +1,47 @@
+filters:
+  and:
+    - file.inFolder("docs/knowledge-base")
+    - file.ext == "md"
+properties:
+  file.name:
+    displayName: Note
+  note.type:
+    displayName: Type
+  note.area:
+    displayName: Area
+  note.status:
+    displayName: Status
+  note.phase:
+    displayName: Roadmap phase
+  note.priority:
+    displayName: Priority
+views:
+  - type: table
+    name: All notes
+    order:
+      - file.name
+      - type
+      - area
+      - status
+      - phase
+      - priority
+  - type: table
+    name: Systems
+    filters:
+      and:
+        - note.type == "system"
+    order:
+      - file.name
+      - area
+      - status
+      - phase
+  - type: table
+    name: Build phases
+    filters:
+      and:
+        - note.type == "build-phase"
+    order:
+      - file.name
+      - status
+      - phase
+      - priority

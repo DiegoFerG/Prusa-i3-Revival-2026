@@ -1,0 +1,8 @@
+# Obsidian: share only the repository's Markdown-link policy.
+# Keep window layouts, appearance, hotkeys, bookmarks, caches, community
+# plugin data and each user's core-plugin choices local.
+/.obsidian/*
+!/.obsidian/app.json
+
+# Obsidian's local trash must never become repository evidence.
+/.trash/

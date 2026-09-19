@@ -6,11 +6,15 @@
 
 The project is not intended to turn the machine into a modern Prusa clone. The objective is to preserve the character and documented history of the original printer while rebuilding it into a safe, reliable and reproducible machine.
 
+## Knowledge base
+
+Open [Home](docs/knowledge-base/Home.md) for project status, decisions, subsystem/build navigation and source-linked evidence indexes. The repository root is also the Obsidian vault. Follow the [maintenance guide](docs/knowledge-base/Maintenance.md) and [repository instructions](AGENTS.md) when changing project knowledge.
+
 ## Current status
 
 - **Stage 00 — Archaeology: COMPLETE (12 September 2026).** The non-invasive as-found baseline is frozen and preserved.
 - **Stage 01 — Teardown, cleaning and inventory: COMPLETE (13 September 2026).** The printer has been fully dismantled, cleaned and catalogued. The teardown photo sequence reaches `TD-20260913-228`.
-- **Stage 02 — Original mechanical reassembly: IN PROGRESS (13 September 2026).** Historical assembly sources have been indexed, a project-specific reassembly manual has been created and physical reconstruction is underway. The Stage 02 photo archive currently contains **44 sanitized JPEGs** in two batches: `RA-20260914-001` through `RA-20260914-035` and `RA-20260915-001` through `RA-20260915-009`.
+- **Stage 02 — Original mechanical reassembly: IN PROGRESS (13 September 2026).** Historical assembly sources have been indexed, a project-specific reassembly manual has been created and physical reconstruction is underway. The Stage 02 photo archive currently contains **102 sanitized JPEGs** in three batches: `RA-20260914-001` through `RA-20260914-035`, `RA-20260915-001` through `RA-20260915-009`, and `RA-20260916-001` through `RA-20260916-058`. The [16 September batch](photos/03-reassembly/BATCH-20260916.md) records progress through manual Stages B–G. Photographic coverage does not establish completion of every mechanical acceptance check.
 - **Generation 3 target architecture: FROZEN (13 September 2026).** The final Manta/CB2/Klipper/CAN architecture is documented in **[docs/final-build-architecture.md](docs/final-build-architecture.md)** and will not be implemented until the earlier generations have been documented and tested.
 
 The complete stage-by-stage plan is maintained in **[docs/ROADMAP.md](docs/ROADMAP.md)**.
@@ -71,7 +75,7 @@ The long-term plan deliberately keeps three generations of the same machine visi
 - `profiles/` — manufacturing and slicer profiles
 - `photos/00-archaeology/` — frozen Stage 00 evidence
 - `photos/02-teardown/` — Stage 01 teardown originals and cleaned component-inventory derivatives (`TD-20260913-001` through `TD-20260913-228`)
-- [`photos/03-reassembly/`](photos/03-reassembly/) — Stage 02 sanitized reassembly evidence: **44 photographs** across `RA-20260914-001`–`035` and `RA-20260915-001`–`009`
+- [`photos/03-reassembly/`](photos/03-reassembly/) — Stage 02 sanitized reassembly evidence: **102 photographs** across `RA-20260914-001`–`035`, `RA-20260915-001`–`009` and `RA-20260916-001`–`058`
 
 ## Safety
 
