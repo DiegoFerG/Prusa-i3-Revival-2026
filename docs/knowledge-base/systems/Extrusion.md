@@ -20,7 +20,7 @@ Assembly photographs currently indexed for Stage 02 reach manual Stage G. The in
 
 ## Later work
 
-[Roadmap Stage 06](../../ROADMAP.md) restores or modularly rebuilds legacy extrusion; Stage 09 provides the later 1.75 mm conversion. The [Generation 3 target BOM](../../../hardware/generation-3-target-bom.md) leaves the exact direct-drive extruder and hotend open. The toolhead node architecture is frozen separately in the [final-build architecture](../../final-build-architecture.md).
+[Roadmap Stage 06](../../ROADMAP.md) restores or modularly rebuilds legacy extrusion; Stage 09 provides the later 1.75 mm conversion. The preferred Generation 3 direction is now **E3D Roto + Revo**, 1.75 mm direct drive. It is a preferred candidate rather than a purchased/finally released component set; exact SKU, toolplate, fans and probe integration remain open. The Revival is quality-first for PLA, with PETG/TPU practical where suitable and only occasional ABS/ASA use because no heated chamber is part of the target architecture. See the [toolhead target](../../../hardware/generation-3-extrusion-toolhead.md), [target BOM](../../../hardware/generation-3-target-bom.md) and [final-build architecture](../../final-build-architecture.md).
 
 Filament-motion/jam detection and a nozzle cleaning/purge station are [Generation 3 candidates](../../../hardware/generation-3-enhancement-candidates.md). Their sensor, mounting and relationship to the final probe/toolhead require evaluation before adoption.
 
