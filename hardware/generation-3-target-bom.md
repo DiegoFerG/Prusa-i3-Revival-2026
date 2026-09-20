@@ -14,20 +14,22 @@ See [`generation-3-extrusion-toolhead.md`](generation-3-extrusion-toolhead.md) f
 
 See [`generation-3-enhancement-candidates.md`](generation-3-enhancement-candidates.md) for non-frozen fault-detection, probing, cleaning, safety-control, maintenance and electrical-monitoring candidates to evaluate later.
 
+See [`generation-3-procurement-status.md`](generation-3-procurement-status.md) for actual purchases, pending acquisitions and bench-test status.
+
 ## Frozen selections
 
 | Subsystem | Target component / architecture | Status |
 |---|---|---|
-| Main controller | BIGTREETECH Manta M8P V2.0 | Frozen |
-| Linux host | BIGTREETECH CB2 | Frozen |
-| Main stepper drivers | 8× TMC2209 purchased as the Manta/CB2 bundle | Frozen |
+| Main controller | BIGTREETECH Manta M8P V2.0 | Frozen; purchased |
+| Linux host | BIGTREETECH CB2 | Frozen; not yet purchased |
+| Main stepper drivers | TMC2209 plug-in modules for Manta; base allocation X/Y/Z0/Z1 | Frozen architecture; 6× BTT TMC2209 V1.3 purchased (4 base + 2 spare) |
 | Local display | BIGTREETECH HDMI5, 5-inch capacitive touchscreen | Frozen |
 | Display integration | Custom retro/industrial ASA enclosure + KlipperScreen theme | Frozen concept |
-| Toolhead MCU | BIGTREETECH EBB36 Gen2 | Frozen |
-| Generation 3 extruder/hotend | E3D Roto + Revo, 1.75 mm, direct drive | Frozen architecture; exact purchase SKU/revision still to confirm |
+| Toolhead MCU | BIGTREETECH EBB36 Gen2 | Frozen; purchased |
+| Generation 3 extruder/hotend | E3D Roto + Revo, 1.75 mm, direct drive | Frozen architecture; current purchase preference Roto Sensored + Revo 24 V / 40 W |
 | Primary material target | PLA, quality-first tuning | Frozen design intent |
 | ABS/ASA target | occasional open-frame use only; no heated-chamber requirement | Frozen design intent |
-| Z / bed probe | BIGTREETECH Eddy Duo eddy-current probe for fast/dense bed scanning | Frozen architecture; exact mounting and connection mode to be finalised |
+| Z / bed probe | BIGTREETECH Eddy Duo eddy-current probe for fast/dense bed scanning | Frozen architecture; 5 V CAN node after EBB36 passthrough; exact mount/harness to finalise |
 | Toolhead network | CAN bus | Frozen |
 | CAN distribution | BIGTREETECH CEB V1.0 in electronics bay | Frozen |
 | X guidance | 1× MGN12-class rail, long MGN12H-class carriage preferred | Frozen architecture |
@@ -90,7 +92,7 @@ See [`generation-3-enhancement-candidates.md`](generation-3-enhancement-candidat
 These items must fit the frozen architecture but their exact model or rating depends on later measurement/CAD/testing:
 
 - exact E3D Roto/Revo SKU/revision and final toolhead CAD after fit/thermal review;
-- exact Eddy Duo mounting geometry, offset, thermal compensation/calibration strategy and final EBB36/CAN/USB/I²C connection method;
+- exact Eddy Duo mounting geometry, offset, thermal compensation/calibration strategy and final CAN harness/connector implementation;
 - filament-presence / filament-motion sensing implementation;
 - exact MGN rail manufacturer, preload class and lengths;
 - exact rail-carrier dimensions and aluminium grade;
