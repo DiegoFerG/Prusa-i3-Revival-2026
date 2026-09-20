@@ -10,6 +10,8 @@ See [`generation-3-smart-spool-system.md`](generation-3-smart-spool-system.md) f
 
 See [`generation-3-rass.md`](generation-3-rass.md) for the RASS active single-spool feeding, driven-spool assistance and buffer/dancer architecture.
 
+See [`generation-3-extrusion-toolhead.md`](generation-3-extrusion-toolhead.md) for the preferred Roto + Revo Generation 3 extrusion/toolhead direction and material-use priorities.
+
 See [`generation-3-enhancement-candidates.md`](generation-3-enhancement-candidates.md) for non-frozen fault-detection, probing, cleaning, safety-control, maintenance and electrical-monitoring candidates to evaluate later.
 
 ## Frozen selections
@@ -22,6 +24,9 @@ See [`generation-3-enhancement-candidates.md`](generation-3-enhancement-candidat
 | Local display | BIGTREETECH HDMI5, 5-inch capacitive touchscreen | Frozen |
 | Display integration | Custom retro/industrial ASA enclosure + KlipperScreen theme | Frozen concept |
 | Toolhead MCU | BIGTREETECH EBB36 Gen2 | Frozen |
+| Generation 3 extruder/hotend direction | E3D Roto + Revo, 1.75 mm, direct drive | Preferred candidate; not yet frozen/purchased |
+| Primary material target | PLA, quality-first tuning | Frozen design intent |
+| ABS/ASA target | occasional open-frame use only; no heated-chamber requirement | Frozen design intent |
 | Toolhead network | CAN bus | Frozen |
 | CAN distribution | BIGTREETECH CEB V1.0 in electronics bay | Frozen |
 | X guidance | 1× MGN12-class rail, long MGN12H-class carriage preferred | Frozen architecture |
@@ -84,7 +89,7 @@ See [`generation-3-enhancement-candidates.md`](generation-3-enhancement-candidat
 
 These items must fit the frozen architecture but their exact model or rating depends on later measurement/CAD/testing:
 
-- direct-drive extruder and hotend;
+- exact E3D Roto/Revo SKU/revision and final toolhead CAD after fit/thermal review;
 - Z probe technology, including evaluation of the Eddy candidate;
 - filament-presence / filament-motion sensing implementation;
 - exact MGN rail manufacturer, preload class and lengths;
