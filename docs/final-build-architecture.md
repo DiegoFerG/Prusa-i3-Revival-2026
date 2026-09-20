@@ -42,7 +42,7 @@ This is a design identity rule, not a requirement to reproduce the exact appeara
 
 ### Main controller
 
-**BIGTREETECH Manta M8P V2.0 + CB2 + 8× TMC2209 bundle** is the preferred Generation 3 purchase/configuration.
+**BIGTREETECH Manta M8P V2.0 + CB2 + TMC2209** is the frozen Generation 3 controller family. The Manta M8P V2.0 and six BTT TMC2209 V1.3 plug-in modules have been purchased; CB2 remains the frozen final host but is intentionally deferred until a sensibly priced unit is available. Four Manta drivers are expected for X/Y/Z0/Z1, with the Roto driven by the TMC2209 integrated on the EBB36 Gen2.
 
 Initial Manta driver allocation:
 
@@ -68,6 +68,10 @@ The **CB2** runs:
 - Klipper resonance-analysis tools.
 
 A separate Raspberry Pi is not part of the target architecture.
+### Bench-test host before CB2
+
+The Manta M8P V2.0 may be bench-tested before the CB2 is purchased by using a temporary Linux PC or Raspberry Pi as the Klipper host over USB. This is explicitly a commissioning/learning aid and does not change CB2 as the frozen final host.
+
 
 ## Local display
 
@@ -277,14 +281,14 @@ Klipper heater checks, fan RPM monitoring, temperature limits and watchdog behav
 - original frame and original machine/bed envelope;
 - historical red-and-black machine identity: red printed mechanical/structural parts, black frame/rods, with no exact red shade requirement;
 - 24 V final system;
-- Manta M8P V2.0 + CB2 + 8× TMC2209 preferred bundle;
+- Manta M8P V2.0 + CB2 + TMC2209 controller architecture; Manta and 6× TMC2209 are already purchased, CB2 pending;
 - Klipper + Moonraker + Mainsail + KlipperScreen + Crowsnest;
 - HDMI5 5-inch touchscreen with retro enclosure/theme;
 - CAN as permanent toolhead bus;
 - CEB V1.0 CAN distribution/protection;
 - EBB36 Gen2 toolhead node;
 - E3D Roto + Revo direct-drive extrusion stack;
-- BIGTREETECH Eddy Duo for fast/dense eddy-current bed-surface scanning;
+- BIGTREETECH Eddy Duo for fast/dense eddy-current bed-surface scanning as an independent 5 V CAN node downstream of the EBB36 Gen2 passthrough;
 - permanent X/toolhead LIS2DW;
 - permanent Y/bed BTT S2DW/LIS2DW over USB;
 - one fixed frame camera as part of the final concept, with **CSI preferred and USB permitted**; exact model/interface remains open;
