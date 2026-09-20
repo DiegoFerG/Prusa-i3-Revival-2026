@@ -98,7 +98,7 @@ CAN does **not** carry bed-heater power, camera video, touchscreen video or main
 
 The moving toolhead harness is reduced to 24 V, ground, CAN-H and CAN-L, plus any required shield/drain arrangement.
 
-The preferred Generation 3 extrusion direction is **E3D Roto + Revo**, documented in [`../hardware/generation-3-extrusion-toolhead.md`](../hardware/generation-3-extrusion-toolhead.md). The machine is quality-first for PLA, with occasional ABS/ASA capability but no heated-chamber requirement.
+The frozen Generation 3 extrusion/probing direction is **E3D Roto + Revo + BIGTREETECH Eddy Duo**, documented in [`../hardware/generation-3-extrusion-toolhead.md`](../hardware/generation-3-extrusion-toolhead.md). The machine is quality-first for PLA, with occasional ABS/ASA capability but no heated-chamber requirement.
 
 The EBB36 Gen2 locally manages:
 
@@ -108,7 +108,7 @@ The EBB36 Gen2 locally manages:
 - hotend heatsink fan;
 - part-cooling fan;
 - third auxiliary fan/output if required;
-- Z probe interface;
+- BIGTREETECH Eddy Duo probe/scanner interface;
 - filament sensor interface if selected;
 - toolhead work/status lighting;
 - toolhead sensors.
@@ -283,6 +283,8 @@ Klipper heater checks, fan RPM monitoring, temperature limits and watchdog behav
 - CAN as permanent toolhead bus;
 - CEB V1.0 CAN distribution/protection;
 - EBB36 Gen2 toolhead node;
+- E3D Roto + Revo direct-drive extrusion stack;
+- BIGTREETECH Eddy Duo for fast/dense eddy-current bed-surface scanning;
 - permanent X/toolhead LIS2DW;
 - permanent Y/bed BTT S2DW/LIS2DW over USB;
 - one fixed frame camera as part of the final concept, with **CSI preferred and USB permitted**; exact model/interface remains open;
@@ -303,8 +305,8 @@ Klipper heater checks, fan RPM monitoring, temperature limits and watchdog behav
 
 These selections do not change the architecture and will be frozen after their mechanical interfaces are known:
 
-- exact Roto/Revo SKU/revision, toolplate geometry and final cooling/probe integration;
-- exact Z probe;
+- exact Roto/Revo SKU/revision, toolplate geometry and final cooling integration;
+- exact Eddy Duo mount, offsets, connection mode and calibration/thermal-compensation strategy;
 - exact filament sensor;
 - exact fan models and duct geometry;
 - exact frame-light strip/diffuser;
