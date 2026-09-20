@@ -17,6 +17,7 @@ The project generations are:
 ## Non-negotiable constraints
 
 - Preserve the original steel frame, classic i3 silhouette and machine envelope.
+- Preserve the historical lower threaded-rod structure as functional final hardware: **2× M10×350 mm longitudinal rods and 4× M8×200 mm transverse rods**. Do not replace this base with a modern aluminium-extrusion chassis.
 - Preserve the **original heated-bed footprint and travel envelope**; do not enlarge the printer to fit a modern standard bed.
 - Preserve original bed mounting geometry unless a hidden equivalent adapter is required.
 - Hide modern electronics/cable management where practical.
@@ -282,7 +283,9 @@ Klipper heater checks, fan RPM monitoring, temperature limits and watchdog behav
 
 ## Frozen architectural decisions
 
-- original frame and original machine/bed envelope;
+- original flat steel frame, original M8/M10 threaded-rod base and original machine/bed envelope;
+- commercial aluminium T-slot extrusion as the local X/Y MGN12 support structure, with exact 2020/2040-class sections deferred to measured CAD;
+- Z MGN12 mounting hierarchy: direct to the steel frame when metrology permits, thin aluminium backing plate if required, and T-slot extrusion only when necessary;
 - historical red-and-black machine identity: red printed mechanical/structural parts, black frame/rods, with no exact red shade requirement;
 - 24 V final system;
 - Manta M8P V2.0 + CB2 + TMC2209 controller architecture; Manta and 6× TMC2209 are already purchased, CB2 pending;

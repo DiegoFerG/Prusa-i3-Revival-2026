@@ -34,10 +34,14 @@ See [`generation-3-procurement-status.md`](generation-3-procurement-status.md) f
 | Z / bed probe | BIGTREETECH Eddy Duo eddy-current probe for fast/dense bed scanning | Frozen architecture; 5 V CAN node after EBB36 passthrough; exact mount/harness to finalise |
 | Toolhead network | CAN bus | Frozen |
 | CAN distribution | BIGTREETECH CEB V1.0 in electronics bay | Frozen |
+| Historical mechanical skeleton | original flat steel frame + 2× M10×350 mm longitudinal threaded rods + 4× M8×200 mm transverse threaded rods | Frozen; retained as functional final structure |
 | X guidance | 1× MGN12-class rail, long MGN12H-class carriage preferred | Frozen architecture |
+| X rail support | commercial aluminium T-slot extrusion used as the structural X beam; 2020/2040-class family to be evaluated | Frozen concept; exact section deferred |
 | Y guidance | 2× MGN12-class rails, master/slave datum strategy | Frozen architecture |
+| Y rail support | 2× longitudinal commercial aluminium T-slot extrusion carriers mounted to the historical M8/M10 base through adjustable interfaces | Frozen concept; exact 2020/2040-class section deferred |
 | Z guidance | 2× MGN12-class rails, primary/secondary datum strategy | Frozen architecture |
-| Linear-rail mounting | rigid metallic carriers with fine adjustment screws and independent locking fasteners | Frozen architecture |
+| Z rail support hierarchy | direct to steel frame if metrology permits; thin aluminium backing plate second; T-slot extrusion only if necessary | Frozen hierarchy; final implementation measurement-dependent |
+| Linear-rail alignment | metallic reference surfaces, controlled adjustment/shimming as required, and independent structural locking; rails are never forced to compensate for support error | Frozen architecture |
 | X/Y drive | GT2 belt drive | Frozen architecture |
 | Z drive | 2× independent Tr8 lead screws and independent Z motors | Frozen architecture |
 | Z geometry rule | rails define Z motion; lead screws provide vertical drive only | Frozen |
@@ -97,8 +101,11 @@ These items must fit the frozen architecture but their exact model or rating dep
 - exact Eddy Duo mounting geometry, offset, thermal compensation/calibration strategy and final CAN harness/connector implementation;
 - filament-presence / filament-motion sensing implementation;
 - exact MGN rail manufacturer, preload class and lengths;
-- exact rail-carrier dimensions and aluminium grade;
-- exact adjuster screw size/count and final adjustment range;
+- exact X/Y T-slot extrusion section, orientation, supplier and length; 2020/2040-class profiles remain the design candidates;
+- exact profile-to-historical-base bracket geometry and adjustment method;
+- whether final Z rails mount directly to the steel frame, use thin aluminium backing plates or require T-slot profiles, as determined by restored-frame metrology;
+- exact Z backing-plate/profile dimensions if required;
+- exact shim/adjuster screw size/count and final adjustment range;
 - exact Y carriage count if testing shows one long carriage per rail is insufficient;
 - exact Tr8 lead (Tr8×2 and Tr8×4 remain candidates);
 - exact Z motor, nut and upper-support adjustment geometry;
