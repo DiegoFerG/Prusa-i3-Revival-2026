@@ -68,6 +68,10 @@ The **CB2** runs:
 - Klipper resonance-analysis tools.
 
 A separate Raspberry Pi is not part of the target architecture.
+
+### Bench-test host before CB2
+
+The Manta M8P V2.0 may be bench-tested before the CB2 is purchased by using a temporary Linux PC or Raspberry Pi as the Klipper host over USB. This is explicitly a commissioning/learning aid and does not change CB2 as the frozen final host.
 ### Bench-test host before CB2
 
 The Manta M8P V2.0 may be bench-tested before the CB2 is purchased by using a temporary Linux PC or Raspberry Pi as the Klipper host over USB. This is explicitly a commissioning/learning aid and does not change CB2 as the frozen final host.
@@ -102,7 +106,7 @@ CAN does **not** carry bed-heater power, camera video, touchscreen video or main
 
 The moving toolhead harness is reduced to 24 V, ground, CAN-H and CAN-L, plus any required shield/drain arrangement.
 
-The frozen Generation 3 extrusion/probing direction is **E3D Roto + Revo + BIGTREETECH Eddy Duo**, documented in [`../hardware/generation-3-extrusion-toolhead.md`](../hardware/generation-3-extrusion-toolhead.md). The machine is quality-first for PLA, with occasional ABS/ASA capability but no heated-chamber requirement.
+The frozen Generation 3 extrusion/probing direction is **BIGTREETECH EBB36 Gen2 + E3D Roto + Revo + BIGTREETECH Eddy Duo**, documented in [`../hardware/generation-3-extrusion-toolhead.md`](../hardware/generation-3-extrusion-toolhead.md). The machine is quality-first for PLA, with occasional ABS/ASA capability but no heated-chamber requirement.
 
 The EBB36 Gen2 locally manages:
 
