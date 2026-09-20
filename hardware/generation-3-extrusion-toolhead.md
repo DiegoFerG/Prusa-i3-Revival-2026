@@ -12,16 +12,17 @@ The Revival is **not intended to be the user's primary production printer**. Its
 
 ## Preferred extrusion combination
 
-The current preferred combination is:
+The frozen Generation 3 combination is:
 
 - **E3D Roto** direct-drive extruder;
 - **E3D Revo** hotend ecosystem;
+- **BIGTREETECH Eddy Duo** eddy-current probe;
 - 1.75 mm filament;
 - 24 V heater system;
 - approximately 300 °C maximum operating class;
 - modular toolhead integration around the EBB36 Gen2 CAN node.
 
-This is the **preferred candidate**, not yet a frozen purchased component set. Final release requires confirming mechanical fit, mass, fan/probe integration and compatibility with the final X-carriage/toolplate.
+This **Roto + Revo + Eddy** functional stack is frozen as the Generation 3 toolhead direction. Exact purchase SKU/revision, physical mounts, offsets and final cooling/electrical routing remain engineering details to validate before release.
 
 ## Why Roto + Revo
 
@@ -112,12 +113,27 @@ Additional toolhead functions may include:
 - hotend heatsink fan with tachometer feedback;
 - part-cooling blower;
 - optional auxiliary cooling;
-- Z probe;
+- BTT Eddy Duo probe;
 - permanent X accelerometer;
 - nozzle work/status light;
 - future optional nozzle camera.
 
 The toolhead should remain modular: extruder/hotend, probe, cooling and electronics should be replaceable without redesigning the entire X axis.
+
+## Eddy probing and surface scanning
+
+Generation 3 uses a **BIGTREETECH Eddy Duo** as the bed-surface probe/scanner.
+
+Target functions:
+
+- rapid/dense Klipper bed-mesh acquisition using eddy-current scanning;
+- non-contact surface mapping over the final spring-steel/magnetic bed stack;
+- repeatable cold/hot bed characterisation during commissioning;
+- support for the final Z-reference strategy after calibration and nozzle-cleaning integration are validated.
+
+The mount must be mechanically adjustable and serviceable. Final X/Y offset, Z height, thermal compensation/calibration procedure and connection mode through the EBB36/toolhead architecture remain to be determined during CAD and bench testing.
+
+The Eddy does not replace the requirement for good mechanical bed/rail alignment; software mesh compensation is for residual surface variation.
 
 ## Cooling target
 
@@ -203,7 +219,7 @@ A well-calibrated PLA print with clean surfaces and predictable repeatability is
 
 - 1.75 mm final extrusion;
 - direct drive;
-- **E3D Roto + Revo as preferred Generation 3 combination**;
+- **E3D Roto + Revo + BTT Eddy Duo as the frozen Generation 3 extrusion/probing stack**;
 - PLA quality as primary design target;
 - occasional ABS/ASA support without heated-chamber requirement;
 - modular toolhead;
@@ -213,6 +229,7 @@ A well-calibrated PLA print with clean surfaces and predictable repeatability is
 ### Still open
 
 - exact Roto/Revo SKU/revision at purchase time;
+- exact Eddy Duo mounting, offset, connection mode and calibration strategy;
 - exact Revo heater/sensor cartridge;
 - exact nozzle set;
 - exact fans;
