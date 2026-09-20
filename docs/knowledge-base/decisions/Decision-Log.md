@@ -2,7 +2,7 @@
 type: decision-log
 area: project
 status: active
-updated: 2026-09-19
+updated: 2026-09-20
 ---
 
 # Decision Log
@@ -26,7 +26,8 @@ This register indexes decisions already present in the repository. It does not r
 | DEC-011 | Include smart-spool identification, assisted unknown-tag learning, local inventory/profile mapping and load-cell weighing in Generation 3 | Frozen architecture; hardware, software and real-tag support remain to be implemented/validated | [Smart-spool decisions](../../../hardware/generation-3-smart-spool-system.md#frozen-architectural-decisions), [target BOM](../../../hardware/generation-3-target-bom.md). Manual fallback and calibrated Revival profiles remain explicit. |
 | DEC-012 | Evaluate fault detection, fast probing/cleaning, physical controls, telemetry and pre-print automation separately from frozen requirements | Proposed candidates; no automatic promotion into the baseline | [Enhancement evaluation rule](../../../hardware/generation-3-enhancement-candidates.md#evaluation-rule) and [priorities](../../../hardware/generation-3-enhancement-candidates.md#promotion-priorities). |
 | DEC-013 | Use RASS as the Generation 3 single-spool active-feed architecture: driven spool assistance + upstream feeder + buffer/dancer, while the toolhead direct drive remains extrusion master | Frozen architecture; component selection and control tuning deferred | [RASS frozen decisions](../../../hardware/generation-3-rass.md#frozen-architectural-decisions), [target BOM](../../../hardware/generation-3-target-bom.md). |
-| DEC-014 | Prefer E3D Roto + Revo for Generation 3 direct-drive extrusion; optimise primarily for high-quality PLA, with occasional ABS/ASA and no heated-chamber requirement | Preferred component direction / frozen use-case intent; exact SKU and final CAD deferred | [Extrusion/toolhead target](../../../hardware/generation-3-extrusion-toolhead.md), [target BOM](../../../hardware/generation-3-target-bom.md). |
+| DEC-014 | Use E3D Roto + Revo for Generation 3 direct-drive extrusion; optimise primarily for high-quality PLA, with occasional ABS/ASA and no heated-chamber requirement | Frozen architecture / use-case intent; exact SKU and final CAD deferred | [Extrusion/toolhead target](../../../hardware/generation-3-extrusion-toolhead.md), [target BOM](../../../hardware/generation-3-target-bom.md). |
+| DEC-015 | Use BIGTREETECH Eddy Duo with the Roto + Revo toolhead for rapid/dense eddy-current scanning of the Generation 3 spring-steel/magnetic bed | Frozen architecture; mount, offsets, link and calibration details deferred | [Extrusion/toolhead target](../../../hardware/generation-3-extrusion-toolhead.md), [final architecture](../../final-build-architecture.md). |
 
 ## Recording the next decision
 
