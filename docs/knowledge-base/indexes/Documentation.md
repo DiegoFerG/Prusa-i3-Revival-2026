@@ -2,7 +2,7 @@
 type: index
 area: documentation
 status: active
-updated: 2026-09-19
+updated: 2026-09-20
 ---
 
 # Documentation
@@ -19,7 +19,7 @@ The knowledge base connects these canonical documents. Detailed inventories, pro
 | Original hardware | [Hardware baseline](../../../hardware/README.md) | [Teardown evidence](../../../photos/02-teardown/INDEX.md) |
 | Original mechanical reassembly | [Stage 02 scope](../../02-reassembly/README.md), [reassembly manual](../../02-reassembly/original-reassembly-manual.md) | [Historical references](../../02-reassembly/historical-references.md), [local source material](../../02-reassembly/historical-manuals/README.md), [latest photo index](../../../photos/03-reassembly/INDEX.md) |
 | Legacy filament | [Filament archive rules](../../01-filaments/README.md) | [Inventory and qualification work](../../01-filaments/01-inventory.md) |
-| Generation 3 design | [Frozen architecture](../../final-build-architecture.md) | [Target BOM](../../../hardware/generation-3-target-bom.md), [linear-motion architecture](../../../hardware/generation-3-linear-motion.md), [Roto + Revo extrusion/toolhead target](../../../hardware/generation-3-extrusion-toolhead.md) |
+| Generation 3 design | [Frozen architecture](../../final-build-architecture.md) | [Target BOM](../../../hardware/generation-3-target-bom.md), [linear-motion architecture](../../../hardware/generation-3-linear-motion.md), [Roto + Revo + Eddy extrusion/toolhead target](../../../hardware/generation-3-extrusion-toolhead.md) |
 | Generation 3 smart spools | [Identification, learning and weighing architecture](../../../hardware/generation-3-smart-spool-system.md) | [RASS active-feed architecture](../../../hardware/generation-3-rass.md), [Filament System](../systems/Filament-System.md), [target BOM](../../../hardware/generation-3-target-bom.md) |
 | Generation 3 proposals | [Enhancement candidates](../../../hardware/generation-3-enhancement-candidates.md) | Evaluation criteria and promotion priorities; intentionally separate from frozen requirements |
 | Manufacturing, configuration and profiles | [Printed parts](../../../printed-parts/README.md), [firmware](../../../firmware/README.md), [profiles](../../../profiles/README.md) | These currently describe intended publication areas; do not infer implemented designs, working firmware or validated profiles. |
