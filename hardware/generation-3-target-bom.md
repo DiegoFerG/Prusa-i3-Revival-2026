@@ -16,6 +16,8 @@ See [`generation-3-enhancement-candidates.md`](generation-3-enhancement-candidat
 
 See [`generation-3-procurement-status.md`](generation-3-procurement-status.md) for actual purchases, pending acquisitions and bench-test status.
 
+See [`generation-3-procurement-status.md`](generation-3-procurement-status.md) for actual purchases, pending acquisitions and bench-test status.
+
 ## Frozen selections
 
 | Subsystem | Target component / architecture | Status |
