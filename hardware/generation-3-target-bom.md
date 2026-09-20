@@ -24,9 +24,10 @@ See [`generation-3-enhancement-candidates.md`](generation-3-enhancement-candidat
 | Local display | BIGTREETECH HDMI5, 5-inch capacitive touchscreen | Frozen |
 | Display integration | Custom retro/industrial ASA enclosure + KlipperScreen theme | Frozen concept |
 | Toolhead MCU | BIGTREETECH EBB36 Gen2 | Frozen |
-| Generation 3 extruder/hotend direction | E3D Roto + Revo, 1.75 mm, direct drive | Preferred candidate; not yet frozen/purchased |
+| Generation 3 extruder/hotend | E3D Roto + Revo, 1.75 mm, direct drive | Frozen architecture; exact purchase SKU/revision still to confirm |
 | Primary material target | PLA, quality-first tuning | Frozen design intent |
 | ABS/ASA target | occasional open-frame use only; no heated-chamber requirement | Frozen design intent |
+| Z / bed probe | BIGTREETECH Eddy Duo eddy-current probe for fast/dense bed scanning | Frozen architecture; exact mounting and connection mode to be finalised |
 | Toolhead network | CAN bus | Frozen |
 | CAN distribution | BIGTREETECH CEB V1.0 in electronics bay | Frozen |
 | X guidance | 1× MGN12-class rail, long MGN12H-class carriage preferred | Frozen architecture |
@@ -73,7 +74,6 @@ These items are intentionally **not frozen**. They are documented so they are ev
 | Nozzle camera | tiny camera fixed to toolhead/nozzle for nozzle-centred timelapse; likely USB/UVC and therefore requiring a separate moving USB service to the toolhead | Possible future upgrade only |
 | Nozzle-camera styling | miniature retro CCTV/video-surveillance enclosure, not an exposed PCB | Frozen aesthetic if upgrade is adopted |
 | Filament motion/jam sensor | encoder/pulse sensor verifies that filament actually moves when extrusion is commanded | Strong candidate; exact sensor/mount open |
-| Eddy-current Z probe | rapid bed scan / dense mesh and possible contact-referenced Z strategy depending on final toolhead/bed support | Strong candidate; not frozen |
 | Nozzle cleaning station | compact purge/wipe/brush station integrated near the bed without materially increasing the envelope | Strong candidate; tied to final probe/toolhead |
 | Retro physical control panel | physical pause/resume/function controls matching the industrial Revival aesthetic | Candidate |
 | Hardware emergency stop | latching hardware safety control independent of Linux/Klipper/CAN/macros | High-priority safety candidate |
@@ -90,7 +90,7 @@ See [`generation-3-enhancement-candidates.md`](generation-3-enhancement-candidat
 These items must fit the frozen architecture but their exact model or rating depends on later measurement/CAD/testing:
 
 - exact E3D Roto/Revo SKU/revision and final toolhead CAD after fit/thermal review;
-- Z probe technology, including evaluation of the Eddy candidate;
+- exact Eddy Duo mounting geometry, offset, thermal compensation/calibration strategy and final EBB36/CAN/USB/I²C connection method;
 - filament-presence / filament-motion sensing implementation;
 - exact MGN rail manufacturer, preload class and lengths;
 - exact rail-carrier dimensions and aluminium grade;
