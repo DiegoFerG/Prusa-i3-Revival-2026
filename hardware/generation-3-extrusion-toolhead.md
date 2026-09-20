@@ -22,7 +22,7 @@ The frozen Generation 3 combination is:
 - approximately 300 °C maximum operating class;
 - modular toolhead integration around the EBB36 Gen2 CAN node.
 
-This **Roto + Revo + Eddy** functional stack is frozen as the Generation 3 toolhead direction. Exact purchase SKU/revision, physical mounts, offsets and final cooling/electrical routing remain engineering details to validate before release.
+This **EBB36 Gen2 + Roto + Revo + Eddy Duo** functional stack is frozen as the Generation 3 toolhead direction. The EBB36 Gen2 has already been purchased. Current purchase preference for the remaining extrusion hardware is **Roto Sensored + Revo 24 V / 40 W**. Exact retail SKU/revision, physical mounts, offsets and final cooling/electrical routing remain engineering details to validate before release.
 
 ## Why Roto + Revo
 
@@ -131,7 +131,7 @@ Target functions:
 - repeatable cold/hot bed characterisation during commissioning;
 - support for the final Z-reference strategy after calibration and nozzle-cleaning integration are validated.
 
-The mount must be mechanically adjustable and serviceable. Final X/Y offset, Z height, thermal compensation/calibration procedure and connection mode through the EBB36/toolhead architecture remain to be determined during CAD and bench testing.
+The mount must be mechanically adjustable and serviceable. Eddy Duo is treated as an independent 5 V CAN MCU/node downstream of the EBB36 Gen2 passthrough, not as an I2C peripheral of the EBB36. Final X/Y offset, Z height, thermal compensation/calibration procedure, connector pinout and physical CAN harness remain to be determined during CAD and bench testing.
 
 The Eddy does not replace the requirement for good mechanical bed/rail alignment; software mesh compensation is for residual surface variation.
 
@@ -228,7 +228,7 @@ A well-calibrated PLA print with clean surfaces and predictable repeatability is
 
 ### Still open
 
-- exact Roto/Revo SKU/revision at purchase time;
+- exact Roto/Revo retail SKU/revision at purchase time; current preference is Roto Sensored + Revo 24 V / 40 W;
 - exact Eddy Duo mounting, offset, connection mode and calibration strategy;
 - exact Revo heater/sensor cartridge;
 - exact nozzle set;
