@@ -46,35 +46,22 @@ The sensor must not add excessive drag or compromise flexible-material feeding.
 
 ---
 
-## 2. Eddy-current Z probe / fast bed scanning
+## 2. Eddy-current Z probe / fast bed scanning — promoted
 
-### Goal
+This candidate has been **promoted into the frozen Generation 3 architecture**.
 
-Evaluate an eddy-current probe for fast, repeatable bed measurement over the final magnetic/spring-steel bed system.
+The selected direction is **BIGTREETECH Eddy Duo** integrated with the frozen E3D Roto + Revo toolhead stack.
 
-Potential benefits:
+The remaining work is no longer a component-selection question; it is implementation engineering:
 
-- rapid bed-mesh scanning;
-- dense measurement grids without long probing cycles;
-- non-contact sensing during mesh acquisition;
-- potential use together with nozzle-contact/tap-style Z reference depending on the final supported hardware and Klipper state.
+- final mount geometry and adjustability;
+- X/Y/Z probe offsets;
+- EBB36/CAN/USB/I²C routing choice;
+- thermal calibration/compensation;
+- repeatability validation on the final spring-steel/magnetic bed;
+- interaction with the nozzle-cleaning strategy and final Z-reference workflow.
 
-### Constraints
-
-The final decision depends on:
-
-- final toolhead geometry;
-- final spring-steel / PEI / magnetic bed stack;
-- probe temperature stability;
-- real repeatability on the Revival bed;
-- compatibility with the selected nozzle-cleaning strategy;
-- CAN/USB/I/O routing.
-
-A BTT Eddy-class device is a reference candidate, but no exact probe is frozen.
-
-### Status
-
-**Strong candidate**, intentionally deferred until toolhead and bed CAD are available.
+Canonical source: [Generation 3 extrusion/toolhead target](generation-3-extrusion-toolhead.md).
 
 ---
 
