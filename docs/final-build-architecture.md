@@ -73,10 +73,6 @@ A separate Raspberry Pi is not part of the target architecture.
 ### Bench-test host before CB2
 
 The Manta M8P V2.0 may be bench-tested before the CB2 is purchased by using a temporary Linux PC or Raspberry Pi as the Klipper host over USB. This is explicitly a commissioning/learning aid and does not change CB2 as the frozen final host.
-### Bench-test host before CB2
-
-The Manta M8P V2.0 may be bench-tested before the CB2 is purchased by using a temporary Linux PC or Raspberry Pi as the Klipper host over USB. This is explicitly a commissioning/learning aid and does not change CB2 as the frozen final host.
-
 
 ## Local display
 
@@ -261,7 +257,8 @@ Mainsail / Moonraker
 Klipper host on CB2
   |
   +-- Manta M8P V2 MCU -> X / Y / Z0 / Z1 / bed / enclosure I/O
-  +-- CAN -> EBB36 Gen2 -> extruder / hotend / fans / probe / LEDs / X accelerometer
+  +-- CAN -> EBB36 Gen2 -> extruder / hotend / fans / LEDs / X accelerometer
+  |            +-- CAN passthrough -> Eddy Duo (separate 5 V CAN MCU/node)
   +-- USB -> BTT S2DW -> permanent Y/bed accelerometer
   +-- CSI preferred or USB fallback -> fixed frame camera
   +-- future USB/other link -> optional nozzle camera
@@ -317,7 +314,7 @@ Klipper heater checks, fan RPM monitoring, temperature limits and watchdog behav
 These selections do not change the architecture and will be frozen after their mechanical interfaces are known:
 
 - exact Roto/Revo SKU/revision, toolplate geometry and final cooling integration;
-- exact Eddy Duo mount, offsets, connection mode and calibration/thermal-compensation strategy;
+- exact Eddy Duo mount, offsets, connector pinout, physical CAN harness and calibration/thermal-compensation strategy;
 - exact filament sensor;
 - exact fan models and duct geometry;
 - exact frame-light strip/diffuser;

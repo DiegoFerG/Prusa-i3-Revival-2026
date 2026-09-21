@@ -5,7 +5,7 @@ status: in-progress
 phase: stage-02
 priority: high
 generation: original
-updated: 2026-09-20
+updated: 2026-09-21
 ---
 
 # Heated bed
@@ -22,6 +22,6 @@ The [final-build architecture](../../final-build-architecture.md) freezes an ori
 
 The permanent Y accelerometer is mounted to the moving bed/carriage and connects to CB2 by USB; this is a future architecture requirement.
 
-A **BIGTREETECH Eddy Duo** is now part of the frozen Generation 3 Roto + Revo toolhead architecture for rapid/dense surface scanning. Final mount, offsets, connection mode, thermal calibration and repeatability on the actual bed stack remain to be validated. See the [toolhead target](../../../hardware/generation-3-extrusion-toolhead.md).
+A **BIGTREETECH Eddy Duo** is now part of the frozen Generation 3 Roto + Revo toolhead architecture for rapid/dense surface scanning. Its independent 5 V CAN-node topology downstream of the EBB36 Gen2 passthrough is frozen. Final mount, offsets, connector pinout, physical CAN harness, thermal calibration and repeatability on the actual bed stack remain to be validated. See the [toolhead target](../../../hardware/generation-3-extrusion-toolhead.md).
 
 [Mechanics](Mechanics.md) · [Electronics](Electronics.md) · [Safety](Safety.md) · [Systems](Systems.md)

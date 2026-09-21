@@ -2,10 +2,11 @@
 
 ## Archive summary
 
-- Total photographs: **102**
+- Total photographs: **116**
 - Batch 1: `RA-20260914-001` → `RA-20260914-035`
 - Batch 2: `RA-20260915-001` → `RA-20260915-009`
 - Batch 3: `RA-20260916-001` → `RA-20260916-058`
+- Batch 4: `RA-20260921-001` → `RA-20260921-014`
 
 ## Existing Stage A groups
 
@@ -28,3 +29,11 @@
 - `RA-20260916-045` → `RA-20260916-051` (7 photographs)
 ### Stage G — Join X gantry to Z
 - `RA-20260916-052` → `RA-20260916-058` (7 photographs)
+
+
+## 21 September 2026 — Stage H geared extruder
+
+- `RA-20260921-001` → `RA-20260921-014` (14 photographs).
+- [Batch and photo links](BATCH-20260921.md) · [classification](BATCH-20260921-classification.csv) · [Phase H](../../docs/knowledge-base/build/Phase-H.md).
+
+Assembly is reported complete in the batch submission; the photographs document the geared-extruder subassembly. Stage H mounting/acceptance evidence and the final Stage 02 checks remain to be recorded. No dedicated Stage I or J batch is currently indexed.

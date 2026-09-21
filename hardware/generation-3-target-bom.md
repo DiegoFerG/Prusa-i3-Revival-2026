@@ -12,9 +12,7 @@ See [`generation-3-rass.md`](generation-3-rass.md) for the RASS active single-sp
 
 See [`generation-3-extrusion-toolhead.md`](generation-3-extrusion-toolhead.md) for the preferred Roto + Revo Generation 3 extrusion/toolhead direction and material-use priorities.
 
-See [`generation-3-enhancement-candidates.md`](generation-3-enhancement-candidates.md) for non-frozen fault-detection, probing, cleaning, safety-control, maintenance and electrical-monitoring candidates to evaluate later.
-
-See [`generation-3-procurement-status.md`](generation-3-procurement-status.md) for actual purchases, pending acquisitions and bench-test status.
+See [`generation-3-enhancement-candidates.md`](generation-3-enhancement-candidates.md) for remaining fault-detection, cleaning, safety-control, maintenance and electrical-monitoring candidates, plus the recorded promotion of Eddy Duo probing into the frozen architecture.
 
 See [`generation-3-procurement-status.md`](generation-3-procurement-status.md) for actual purchases, pending acquisitions and bench-test status.
 

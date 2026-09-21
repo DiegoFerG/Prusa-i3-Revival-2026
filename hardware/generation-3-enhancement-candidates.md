@@ -1,6 +1,6 @@
 # Generation 3 enhancement candidates
 
-This document records **non-frozen improvement candidates** for the Revival 2026 Generation 3 build. They are intentionally separated from the frozen architecture so they can be evaluated at the correct mechanical/electrical design stage without silently becoming requirements.
+This document records improvement candidates and their promotion history for the Revival 2026 Generation 3 build. Unpromoted candidates remain separate from the frozen architecture so they can be evaluated at the correct mechanical/electrical design stage without silently becoming requirements. **Eddy Duo probing has been promoted**; its current requirements belong to the [toolhead architecture](generation-3-extrusion-toolhead.md).
 
 The objective is to improve fault detection, automatic preparation, maintenance visibility and operator safety without turning the Revival into an unnecessarily complex machine.
 
@@ -56,7 +56,7 @@ The remaining work is no longer a component-selection question; it is implementa
 
 - final mount geometry and adjustability;
 - X/Y/Z probe offsets;
-- EBB36/CAN/USB/I²C routing choice;
+- connector pinout and physical harness for the frozen independent 5 V CAN node downstream of the EBB36 Gen2 passthrough;
 - thermal calibration/compensation;
 - repeatability validation on the final spring-steel/magnetic bed;
 - interaction with the nozzle-cleaning strategy and final Z-reference workflow.
@@ -260,7 +260,7 @@ When Generation 3 design reaches the relevant subsystems, evaluate in approximat
 
 1. filament-motion/jam sensor;
 2. hardware emergency-stop and physical controls;
-3. final probe technology and nozzle-cleaning station together;
+3. nozzle-cleaning station and its interaction with the frozen Eddy Duo probe and final Z-reference workflow;
 4. maintenance telemetry;
 5. electrical monitoring;
 6. integrated automated pre-print/self-check workflow.

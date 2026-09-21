@@ -100,3 +100,17 @@ cc6ce60a0be52d4fa847327ef7ce56585e795b123aaf5e22eab8f2ef7a65bf70  RA-20260916-05
 2f1504741809e5e70481f362cedd37fac7512e69327710bb3192187d5c1e473a  RA-20260916-056-stage-g-x-gantry-joined-to-z-05.jpg
 3852932dde077fa727596ed8ba57887f65ff3c89eb0f73eb388b9564472342f2  RA-20260916-057-stage-g-x-gantry-joined-to-z-06.jpg
 d9e70533b122423fba3ac27ae9b40e1a5860e62e6dc35a52a4d5111cf170f589  RA-20260916-058-stage-g-x-gantry-joined-to-z-07.jpg
+1f785228641200cb91d425ca7ca63c61df8b21a96307101288e21342c0f7a3ca  RA-20260921-001-stage-h-wade-extruder-overview-with-large-and-small-gears-installed.jpg
+46a0d77e2d81b8e7e977c4e2f415870618a38dc870f5fce68d485882cecd2857  RA-20260921-002-stage-h-wade-extruder-motor-side-overview.jpg
+19ae88dc87050852142bf9396a30556a318bd9790eacaf5c15ca24a9795b4ee3  RA-20260921-003-stage-h-wade-extruder-idler-and-spring-tension-assembly-overview.jpg
+c372eba19f8fa1afc229d2be2e505415696d6cadd941a4912bc467839ddc3c97  RA-20260921-004-stage-h-wade-extruder-motor-and-gear-train-oblique-view.jpg
+5e6f312e405ec5cbe9cb0e17ee9f2a42045ff9ff8f92092927fd047a13ac0ec9  RA-20260921-005-stage-h-wade-extruder-idler-spring-and-hobbed-bolt-area-close-up.jpg
+8e16dbbc11af9a3c56c4fc5f69b022eaa29d6d2fb55642c77cab66e4bdd3807c  RA-20260921-006-stage-h-wade-extruder-small-gear-and-hobbed-bolt-bearing-detail.jpg
+256ed7f98e17541f31e9c4ad18c175deeac26451bc7d13160b2834a69850421d  RA-20260921-007-stage-h-wade-extruder-gear-mesh-close-up.jpg
+5096e9be25cfdc170ac178b813b440e968978154eb05d5d9028f32b168f86664  RA-20260921-008-stage-h-wade-extruder-gear-train-and-idler-side-close-up.jpg
+aef2aee929dacaf34c907a241b1f17e8cd8a5d2a7a5e791114da3f5fd16bf33b  RA-20260921-009-stage-h-wade-extruder-assembled-overview-with-motor-wiring-visible.jpg
+497e90c50f0f8942ad286341cdb21a70817bd832351ef81ba773d6b5f9b4dcf8  RA-20260921-010-stage-h-wade-extruder-assembled-front-side-overview.jpg
+138137f9396ae3666bd49200922173ab4e4983d18e8f3f74fc858c3f69a403d6  RA-20260921-011-stage-h-wade-extruder-large-gear-and-central-hobbed-bolt-detail.jpg
+d6d8b5eb8f5e714bce44eaf5be8bf4946b8ea41d817f4b01e188c4a10dbb72cf  RA-20260921-012-stage-h-wade-extruder-assembled-top-oblique-view.jpg
+12817843f2700cada852af0e43fa6e6d10e31f2a5b0cf199901328326243dcbe  RA-20260921-013-stage-h-wade-extruder-large-gear-face-close-up.jpg
+f3baf4b2d0c15dd9e5b770921059a41d89240625a4ecc5c63e161eaee8f6cfb8  RA-20260921-014-stage-h-wade-extruder-large-gear-and-hub-close-up.jpg

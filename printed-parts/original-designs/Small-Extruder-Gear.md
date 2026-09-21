@@ -5,7 +5,7 @@ status: under-study
 phase: stage-02
 priority: high
 generation: original
-updated: 2026-09-19
+updated: 2026-09-21
 ---
 
 # Small Extruder Gear
@@ -23,6 +23,6 @@ This is the metric small herringbone gear from **Jonas Kühling's Greg's Wade Re
 5. Select the P1S and the real material/nozzle in use. Inspect the layer preview, bore and teeth before printing. The [project policy](../../docs/02-reassembly/README.md#temporary-replacement-parts-during-reassembly) allows ABS for a temporary Stage 02 replacement when ASA is unavailable.
 6. Record the chosen source/hash, material, orientation, print settings, measured dimensions and mechanical fit after the test. Store a saved 3MF/profile as a new project artifact; preserve the source STL unchanged.
 
-The archive has been checked for file integrity and readable STL geometry. It has not been sliced, printed or fit-tested on this printer. A successful print alone does not establish correct meshing.
+The archive has been checked for file integrity and readable STL geometry. No slicing, printing or fit-test record for this archived STL is linked in the repository. The [21 September assembly photographs](../../photos/03-reassembly/BATCH-20260921.md) show the installed gear pair on the extruder subassembly, but do not establish which STL was used, whether either gear was reprinted, or that measured compatibility checks passed. A successful print alone does not establish correct meshing.
 
 [Catalogue](Original-Printed-Parts.md#gregwade-extrusion) · [Provenance](Provenance.md) · [Extrusion system](../../docs/knowledge-base/systems/Extrusion.md)

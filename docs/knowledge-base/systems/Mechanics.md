@@ -5,7 +5,7 @@ status: in-progress
 phase: stage-02
 priority: high
 generation: original
-updated: 2026-09-20
+updated: 2026-09-21
 ---
 
 # Mechanics
@@ -14,7 +14,7 @@ updated: 2026-09-20
 
 Stage 02 rebuilds the original steel-frame machine using the recovered threaded base, smooth rods, LM8UU bearings, T2.5 transmission and M5 Z drive. Rod-to-axis assignments remain qualified as probable in the [hardware baseline](../../../hardware/README.md). Follow the [original reassembly manual](../../02-reassembly/original-reassembly-manual.md) for dimensions, orientation and checks.
 
-The [reassembly evidence index](../../../photos/03-reassembly/INDEX.md) documents Stage A and progress through manual Stages B–G. Photographic coverage does not by itself certify alignment, bearing condition or successful completion of the final mechanical checks.
+The [reassembly evidence index](../../../photos/03-reassembly/INDEX.md) documents Stage A, B–G reconstruction and the latest [Stage H geared-extruder assembly](../../../photos/03-reassembly/BATCH-20260921.md). Photographic coverage does not by itself certify alignment, bearing condition or successful completion of the final mechanical checks.
 
 For original replacement parts, use the [historical catalogue](../../../printed-parts/original-designs/Original-Printed-Parts.md#x-y-and-z-structure). It provides single-frame STL candidates and editable sources; compare the recovered T2.5 transmission, rod/bearing interfaces and frame holes before choosing a file. The catalogue separates published-set completeness from exact physical-part identification.
 

@@ -4,7 +4,7 @@ area: documentation
 status: documented
 phase: stage-02
 generation: original
-updated: 2026-09-19
+updated: 2026-09-21
 ---
 
 # Original designs — provenance and licenses
@@ -56,4 +56,4 @@ Jonas's six SCAD files are kept together to preserve local includes. They are ed
 
 Run `python verify_archive.py` from this directory to check all 62 manifest entries and parse all 23 STL files for complete triangles and finite coordinates. The tool also reports bounding boxes. It does not certify manifoldness, slicing, strength, material suitability or physical fit.
 
-The published file sets above have been archived completely within the declared selection. To complete the **exact as-built printer archive**, identify the remaining endstop mounts, hotend clamp/duct and loose accessory revisions, then link each to a measured inventory record. Keep this work open in [KB-013](../../docs/knowledge-base/project/Open-Issues.md). A downloaded candidate is not a closed identification issue.
+The published file sets above have been archived completely within the declared selection. To complete the **exact as-built printer archive**, identify the remaining endstop mounts, hotend clamp/duct and loose accessory revisions, then link each to a measured inventory record. Keep this work open in [KB-014](../../docs/knowledge-base/project/Open-Issues.md#kb-014--exact-original-printable-part-coverage). A downloaded candidate is not a closed identification issue.

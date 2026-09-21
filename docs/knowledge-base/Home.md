@@ -4,14 +4,14 @@ area: project
 status: active
 phase: stage-02
 priority: high
-updated: 2026-09-20
+updated: 2026-09-21
 ---
 
 # Prusa i3 Revival 2026
 
 The project repository is also this Obsidian vault. Start here to find the current work, its evidence and the decisions that constrain the next steps.
 
-**Current work:** original mechanical reassembly, Roadmap Stage 02. The latest photographic batch records progress through manual Stages B–G; photographs do not close the mechanical acceptance checks. Generation 3 architecture is frozen and initial electronics stock has now been purchased; see [Current State](project/Current-State.md) and the [procurement status](../../hardware/generation-3-procurement-status.md).
+**Current work:** original mechanical reassembly, Roadmap Stage 02. The latest [Stage H batch](../../photos/03-reassembly/BATCH-20260921.md) records the geared-extruder assembly, bringing the archive to 116 photographs. Review the remaining checks in [Phase H](build/Phase-H.md), then continue to [Phase I — Endstops](build/Phase-I.md). Photographs do not close the mechanical acceptance checks. Generation 3 architecture is frozen and initial electronics stock has now been purchased; see [Current State](project/Current-State.md) and the [procurement status](../../hardware/generation-3-procurement-status.md).
 
 ## Project desk
 

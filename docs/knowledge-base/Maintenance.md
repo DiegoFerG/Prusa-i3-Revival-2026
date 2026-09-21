@@ -2,7 +2,7 @@
 type: guide
 area: documentation
 status: active
-updated: 2026-09-19
+updated: 2026-09-21
 ---
 
 # Knowledge Base Maintenance
@@ -16,8 +16,8 @@ The repository root is the vault. The same files are visible in Obsidian and Git
 | Information | Authoritative location | Knowledge-base follow-through |
 | --- | --- | --- |
 | Scope, progress and workstreams | [README](../../README.md), [roadmap](../ROADMAP.md), stage records | Home, Project Overview, Current State, Roadmap, Build |
-| Design and decisions | [Architecture](../final-build-architecture.md), [motion architecture](../../hardware/generation-3-linear-motion.md), [smart-spool architecture](../../hardware/generation-3-smart-spool-system.md), [enhancement candidates](../../hardware/generation-3-enhancement-candidates.md), decision evidence | Decision Log, affected Systems, Open Issues |
-| Components and inventory | [Hardware](../../hardware/README.md), existing inventory and [target BOM](../../hardware/generation-3-target-bom.md) | Parts, affected Systems, Current State when progress changes |
+| Design and decisions | [Architecture](../final-build-architecture.md), [motion architecture](../../hardware/generation-3-linear-motion.md), [smart-spool architecture](../../hardware/generation-3-smart-spool-system.md), [RASS](../../hardware/generation-3-rass.md), [toolhead architecture](../../hardware/generation-3-extrusion-toolhead.md), [enhancement candidates](../../hardware/generation-3-enhancement-candidates.md), decision evidence | Decision Log, affected Systems, Open Issues |
+| Components and inventory | [Hardware](../../hardware/README.md), existing inventory, [target BOM](../../hardware/generation-3-target-bom.md) and [procurement/receiving status](../../hardware/generation-3-procurement-status.md) | Parts, affected Systems, Current State when progress changes |
 | Photos | Existing archive index, manifests and dated batch records | Photos, relevant Build notes, Current State and stale source summaries |
 | Illustrations | Actual editable source/export and provenance/licence record | Illustrations, relevant Systems or Build, Documentation |
 | Procedures and tests | Existing manual, measurement and test records | Build, Systems, Open Issues and status properties |
@@ -30,7 +30,7 @@ Use YAML frontmatter on knowledge-base notes. Scalar text properties are intenti
 
 | Property | Meaning / values |
 | --- | --- |
-| `type` | `dashboard`, `project`, `index`, `system`, `build-phase`, `decision-log`, `guide`; use `component` or `decision` only if a dedicated note adds useful context |
+| `type` | `dashboard`, `project`, `index`, `system`, `build-phase`, `decision-log`, `guide`; the original-design archive also uses `archive`, `catalogue`, `reference` and `part`. Use `component` or `decision` only if a dedicated note adds useful context |
 | `area` | Primary topic, such as `project`, `build`, `systems`, `mechanics`, `electronics`, `firmware`, `extrusion`, `filament`, `heated-bed`, `user-interface`, `safety`, `hardware`, `evidence`, `documentation` |
 | `status` | State of this note's subject; use the definitions below |
 | `phase` | Roadmap identifier such as `stage-02`; omit if no single roadmap stage applies |
@@ -46,11 +46,13 @@ When dedicated decision/component notes are needed, `proposed`, `under-study`, `
 ## Update checklist
 
 1. Update source facts, evidence/provenance and the applicable test or decision record.
-2. Follow the change through the table above. Review Current State, Roadmap, Open Issues, Decision Log and affected Systems/Build/indices in the same change.
+2. Follow the change through the table above. Review Current State, Roadmap, Open Issues, Decision Log and affected Systems/Build/indices in the same change. When a candidate is promoted, update candidate summaries, deferred-selection lists and diagrams; preserve the original decision and link its successor.
 3. Update dates and properties only where the state has changed. Preserve permanent evidence IDs and decision history.
 4. Check new relative links and heading anchors. Use `[Title](relative/path.md)` with forward slashes; avoid wikilinks and absolute machine paths.
 5. Reconcile affected counts/ranges in the root README, roadmap and stage summaries. Do not rewrite an old closure snapshot as if later findings had been known then.
 6. Review Git changes, including new files, before committing. Mention the knowledge-base updates, or state why the change has no knowledge-base impact.
+
+Before assigning new `KB-` or `DEC-` IDs, compare the latest published registers with pending local work. Reconcile collisions explicitly, retaining the established meaning and recording any reassignment with its old ID, new ID and date. Repair all references together and check for leftover merge markers.
 
 Renaming a file **inside Obsidian** updates internal links with this vault's settings. Git or external-editor renames still require explicit link checks. This rule is a contributor workflow, not a background watcher.
 

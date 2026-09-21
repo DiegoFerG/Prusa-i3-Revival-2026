@@ -5,7 +5,7 @@ status: in-progress
 phase: stage-02
 priority: high
 generation: original
-updated: 2026-09-20
+updated: 2026-09-21
 ---
 
 # Extrusion
@@ -16,7 +16,7 @@ The [hardware baseline](../../../hardware/README.md) identifies a Wade/Greg's-Wa
 
 [Manual Stage H](../build/Phase-H.md) describes mechanical reconstruction only. The heater cartridge remains captive because the retaining screw head is damaged; the source manual defers destructive removal. Thermistor type requires measurement. No heater is energized during Stage 02.
 
-Assembly photographs currently indexed for Stage 02 reach manual Stage G. The index does not establish completion of Stage H or a working extrusion system. See the [reassembly evidence index](../../../photos/03-reassembly/INDEX.md).
+The [21 September batch](../../../photos/03-reassembly/BATCH-20260921.md) documents Stage H geared-extruder assembly with 14 photographs and reports assembly complete. Hotend/carriage mounting and mechanical acceptance evidence remain to be recorded in [Phase H](../build/Phase-H.md); a working heated-extrusion system is not established. See the [reassembly evidence index](../../../photos/03-reassembly/INDEX.md).
 
 The [small extruder gear](../../../printed-parts/original-designs/Small-Extruder-Gear.md) and [historical extruder files](../../../printed-parts/original-designs/Original-Printed-Parts.md#gregwade-extrusion) are now available locally. Jonas Kühling's five-hole large gear and guided idler are strong visual candidates; the paired small gear, hotend interface and mounting dimensions require physical checks. This archive does not resolve the hotend revision or establish completed Stage H work.
 

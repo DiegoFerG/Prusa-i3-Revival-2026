@@ -229,7 +229,7 @@ A well-calibrated PLA print with clean surfaces and predictable repeatability is
 ### Still open
 
 - exact Roto/Revo retail SKU/revision at purchase time; current preference is Roto Sensored + Revo 24 V / 40 W;
-- exact Eddy Duo mounting, offset, connection mode and calibration strategy;
+- exact Eddy Duo mounting, offset, connector pinout, physical CAN harness and calibration strategy;
 - exact Revo heater/sensor cartridge;
 - exact nozzle set;
 - exact fans;

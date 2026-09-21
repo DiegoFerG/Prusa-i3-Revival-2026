@@ -4,7 +4,7 @@ area: build
 status: in-progress
 phase: stage-02
 priority: high
-updated: 2026-09-19
+updated: 2026-09-21
 ---
 
 # Build
@@ -31,7 +31,7 @@ The roadmap also defines a continuous bilingual blog workstream. It is not anoth
 
 Start with [Stage 02: original reassembly](Stage-02-Original-Reassembly.md). Follow the source manual for procedures and record condition decisions against the existing hardware inventory rather than creating a second inventory here.
 
-The [photo index](../../../photos/03-reassembly/INDEX.md) records evidence through manual Stage G. Completion of every operation and final mechanical acceptance are not established by that index.
+The [photo index](../../../photos/03-reassembly/INDEX.md) now records evidence through manual Stage H. The [latest batch](../../../photos/03-reassembly/BATCH-20260921.md) reports geared-extruder assembly complete, with remaining mounting/acceptance evidence tracked in [Phase H](Phase-H.md). Next in the manual are [Phase I](Phase-I.md) and [Phase J](Phase-J.md); final mechanical acceptance remains open.
 
 ## Future architecture
 

@@ -4,7 +4,12 @@ This directory contains the photographic evidence collected during **Stage 00 �
 
 ## Originals
 
-`originals/` currently contains **80 JPEG files** captured during the archaeology work on 12–13 September 2026 and committed without intentional image editing or recompression.
+`originals/` currently contains **89 JPEG files**, with two distinct provenance groups:
+
+- **80 historical baseline photographs**, ARQ 001–080, captured during the archaeology work on 12–13 September 2026 and committed without intentional image editing or recompression. This remains the frozen baseline.
+- **Nine later spare-box photographs**, `ARQ-20260915-081`–`ARQ-20260915-089`, published after metadata sanitization. Their legacy `originals/` location does not make them untouched camera originals. The [spare-box record](../../docs/00-archaeology/06-motion-electronics-spares.md) records their recovery and processing.
+
+This summary was reconciled with the [current photo catalogue](../../docs/00-archaeology/02-photo-catalogue.md) and repository files on 21 September 2026. No evidence files or permanent IDs were changed.
 
 Their filenames use the legacy permanent identifier format:
 

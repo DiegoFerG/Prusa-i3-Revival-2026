@@ -3,7 +3,7 @@ type: project
 area: build
 status: active
 phase: stage-02
-updated: 2026-09-19
+updated: 2026-09-21
 ---
 
 # Roadmap
@@ -32,4 +32,4 @@ Historical [original designs](../../../printed-parts/original-designs/Original-P
 
 Use [Current State](Current-State.md) for progress and [Decision Log](../decisions/Decision-Log.md) for constraints. The final architecture spans several workstreams; the table is not permission to skip the original or transitional generations.
 
-The [smart-spool target](../../../hardware/generation-3-smart-spool-system.md) spans final holder mechanics, electronics, host software and material profiles. Its [RASS extension](../../../hardware/generation-3-rass.md) adds active single-spool feeding, driven-spool assistance and buffer/dancer control without adding multi-material switching. The [enhancement evaluation priorities](../../../hardware/generation-3-enhancement-candidates.md#promotion-priorities) guide later review, not purchasing or an additional completed roadmap stage.
+The [smart-spool target](../../../hardware/generation-3-smart-spool-system.md) spans final holder mechanics, electronics, host software and material profiles. Its [RASS extension](../../../hardware/generation-3-rass.md) adds active single-spool feeding, driven-spool assistance and buffer/dancer control without adding multi-material switching. The [enhancement evaluation priorities](../../../hardware/generation-3-enhancement-candidates.md#promotion-priorities) guide review of the remaining candidates and their integration with the frozen Eddy Duo probe. They are not a purchasing order or an additional completed roadmap stage.

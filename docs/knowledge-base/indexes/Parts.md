@@ -2,7 +2,7 @@
 type: index
 area: hardware
 status: active
-updated: 2026-09-20
+updated: 2026-09-21
 ---
 
 # Parts
@@ -20,7 +20,7 @@ Use the existing inventories below for quantities, measurements, identification 
 | Generation 3 selections | [Target hardware BOM](../../../hardware/generation-3-target-bom.md) | Target selections and open details, not an as-built inventory. |
 | Generation 3 acquired stock | [Procurement status](../../../hardware/generation-3-procurement-status.md) | Manta M8P V2.0, EBB36 Gen2 kit and 6× TMC2209 V1.3 are purchased; purchased does not mean tested or commissioned. |
 | Smart-spool holder, reader and weighing hardware | [Smart-spool system](../../../hardware/generation-3-smart-spool-system.md) | Frozen architecture; exact components and mechanical integration remain open. |
-| Potential Generation 3 additions | [Enhancement candidates](../../../hardware/generation-3-enhancement-candidates.md) | Evaluation register, not purchased, installed or frozen hardware. |
+| Potential Generation 3 additions | [Enhancement candidates](../../../hardware/generation-3-enhancement-candidates.md) | Evaluation and promotion register; Eddy Duo has moved into the frozen target BOM. Remaining proposals are not purchased or installed hardware. |
 | Final rails, mounting and alignment | [Generation 3 linear motion](../../../hardware/generation-3-linear-motion.md) | Frozen architecture; final dimensions and implementation remain governed by the source. |
 | Original printable replacements | [Original printed-parts catalogue](../../../printed-parts/original-designs/Original-Printed-Parts.md), [small extruder gear](../../../printed-parts/original-designs/Small-Extruder-Gear.md) | Historical STL/SCAD archive with authors, hashes and matching evidence; physical fit remains to be verified. |
 | New part designs and manufacturing exports | [Printed parts](../../../printed-parts/README.md) | Keep project adaptations and future STEP/3MF exports separate from preserved originals. |
