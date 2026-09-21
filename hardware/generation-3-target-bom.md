@@ -10,24 +10,38 @@ See [`generation-3-smart-spool-system.md`](generation-3-smart-spool-system.md) f
 
 See [`generation-3-rass.md`](generation-3-rass.md) for the RASS active single-spool feeding, driven-spool assistance and buffer/dancer architecture.
 
+See [`generation-3-extrusion-toolhead.md`](generation-3-extrusion-toolhead.md) for the preferred Roto + Revo Generation 3 extrusion/toolhead direction and material-use priorities.
+
 See [`generation-3-enhancement-candidates.md`](generation-3-enhancement-candidates.md) for non-frozen fault-detection, probing, cleaning, safety-control, maintenance and electrical-monitoring candidates to evaluate later.
+
+See [`generation-3-procurement-status.md`](generation-3-procurement-status.md) for actual purchases, pending acquisitions and bench-test status.
+
+See [`generation-3-procurement-status.md`](generation-3-procurement-status.md) for actual purchases, pending acquisitions and bench-test status.
 
 ## Frozen selections
 
 | Subsystem | Target component / architecture | Status |
 |---|---|---|
-| Main controller | BIGTREETECH Manta M8P V2.0 | Frozen |
-| Linux host | BIGTREETECH CB2 | Frozen |
-| Main stepper drivers | 8× TMC2209 purchased as the Manta/CB2 bundle | Frozen |
+| Main controller | BIGTREETECH Manta M8P V2.0 | Frozen; purchased |
+| Linux host | BIGTREETECH CB2 | Frozen; not yet purchased |
+| Main stepper drivers | TMC2209 plug-in modules for Manta; base allocation X/Y/Z0/Z1 | Frozen architecture; 6× BTT TMC2209 V1.3 purchased (4 base + 2 spare) |
 | Local display | BIGTREETECH HDMI5, 5-inch capacitive touchscreen | Frozen |
 | Display integration | Custom retro/industrial ASA enclosure + KlipperScreen theme | Frozen concept |
-| Toolhead MCU | BIGTREETECH EBB36 Gen2 | Frozen |
+| Toolhead MCU | BIGTREETECH EBB36 Gen2 | Frozen; purchased |
+| Generation 3 extruder/hotend | E3D Roto + Revo, 1.75 mm, direct drive | Frozen architecture; current purchase preference Roto Sensored + Revo 24 V / 40 W |
+| Primary material target | PLA, quality-first tuning | Frozen design intent |
+| ABS/ASA target | occasional open-frame use only; no heated-chamber requirement | Frozen design intent |
+| Z / bed probe | BIGTREETECH Eddy Duo eddy-current probe for fast/dense bed scanning | Frozen architecture; 5 V CAN node after EBB36 passthrough; exact mount/harness to finalise |
 | Toolhead network | CAN bus | Frozen |
 | CAN distribution | BIGTREETECH CEB V1.0 in electronics bay | Frozen |
+| Historical mechanical skeleton | original flat steel frame + 2× M10×350 mm longitudinal threaded rods + 4× M8×200 mm transverse threaded rods | Frozen; retained as functional final structure |
 | X guidance | 1× MGN12-class rail, long MGN12H-class carriage preferred | Frozen architecture |
+| X rail support | commercial aluminium T-slot extrusion used as the structural X beam; 2020/2040-class family to be evaluated | Frozen concept; exact section deferred |
 | Y guidance | 2× MGN12-class rails, master/slave datum strategy | Frozen architecture |
+| Y rail support | 2× longitudinal commercial aluminium T-slot extrusion carriers mounted to the historical M8/M10 base through adjustable interfaces | Frozen concept; exact 2020/2040-class section deferred |
 | Z guidance | 2× MGN12-class rails, primary/secondary datum strategy | Frozen architecture |
-| Linear-rail mounting | rigid metallic carriers with fine adjustment screws and independent locking fasteners | Frozen architecture |
+| Z rail support hierarchy | direct to steel frame if metrology permits; thin aluminium backing plate second; T-slot extrusion only if necessary | Frozen hierarchy; final implementation measurement-dependent |
+| Linear-rail alignment | metallic reference surfaces, controlled adjustment/shimming as required, and independent structural locking; rails are never forced to compensate for support error | Frozen architecture |
 | X/Y drive | GT2 belt drive | Frozen architecture |
 | Z drive | 2× independent Tr8 lead screws and independent Z motors | Frozen architecture |
 | Z geometry rule | rails define Z motion; lead screws provide vertical drive only | Frozen |
@@ -68,7 +82,6 @@ These items are intentionally **not frozen**. They are documented so they are ev
 | Nozzle camera | tiny camera fixed to toolhead/nozzle for nozzle-centred timelapse; likely USB/UVC and therefore requiring a separate moving USB service to the toolhead | Possible future upgrade only |
 | Nozzle-camera styling | miniature retro CCTV/video-surveillance enclosure, not an exposed PCB | Frozen aesthetic if upgrade is adopted |
 | Filament motion/jam sensor | encoder/pulse sensor verifies that filament actually moves when extrusion is commanded | Strong candidate; exact sensor/mount open |
-| Eddy-current Z probe | rapid bed scan / dense mesh and possible contact-referenced Z strategy depending on final toolhead/bed support | Strong candidate; not frozen |
 | Nozzle cleaning station | compact purge/wipe/brush station integrated near the bed without materially increasing the envelope | Strong candidate; tied to final probe/toolhead |
 | Retro physical control panel | physical pause/resume/function controls matching the industrial Revival aesthetic | Candidate |
 | Hardware emergency stop | latching hardware safety control independent of Linux/Klipper/CAN/macros | High-priority safety candidate |
@@ -84,12 +97,15 @@ See [`generation-3-enhancement-candidates.md`](generation-3-enhancement-candidat
 
 These items must fit the frozen architecture but their exact model or rating depends on later measurement/CAD/testing:
 
-- direct-drive extruder and hotend;
-- Z probe technology, including evaluation of the Eddy candidate;
+- exact E3D Roto/Revo SKU/revision and final toolhead CAD after fit/thermal review;
+- exact Eddy Duo mounting geometry, offset, thermal compensation/calibration strategy and final CAN harness/connector implementation;
 - filament-presence / filament-motion sensing implementation;
 - exact MGN rail manufacturer, preload class and lengths;
-- exact rail-carrier dimensions and aluminium grade;
-- exact adjuster screw size/count and final adjustment range;
+- exact X/Y T-slot extrusion section, orientation, supplier and length; 2020/2040-class profiles remain the design candidates;
+- exact profile-to-historical-base bracket geometry and adjustment method;
+- whether final Z rails mount directly to the steel frame, use thin aluminium backing plates or require T-slot profiles, as determined by restored-frame metrology;
+- exact Z backing-plate/profile dimensions if required;
+- exact shim/adjuster screw size/count and final adjustment range;
 - exact Y carriage count if testing shows one long carriage per rail is insufficient;
 - exact Tr8 lead (Tr8×2 and Tr8×4 remain candidates);
 - exact Z motor, nut and upper-support adjustment geometry;

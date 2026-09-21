@@ -5,7 +5,7 @@ status: in-progress
 phase: stage-02
 priority: high
 generation: original
-updated: 2026-09-19
+updated: 2026-09-20
 ---
 
 # Mechanics
@@ -20,9 +20,13 @@ For original replacement parts, use the [historical catalogue](../../../printed-
 
 ## Future Generation 3
 
-The [frozen linear-motion architecture](../../../hardware/generation-3-linear-motion.md) specifies MGN12-class guides on X/Y/Z, GT2 on X/Y and independent Tr8 Z drives. Adjustable metallic carriers and independent locking are required; exact rail lengths, lead, interfaces and acceptance tolerances await restored-frame measurement. These are future design decisions, not installed hardware.
+The [frozen linear-motion architecture](../../../hardware/generation-3-linear-motion.md) specifies MGN12-class guides on X/Y/Z, GT2 on X/Y and independent Tr8 Z drives. The original flat steel frame plus the 2× M10×350 mm longitudinal and 4× M8×200 mm transverse threaded rods remain the functional Generation 3 skeleton.
 
-The original frame, bed footprint and machine envelope remain constraints in the [final-build architecture](../../final-build-architecture.md).
+X uses a commercial aluminium T-slot extrusion as the structural MGN12 beam. Y uses two longitudinal T-slot extrusion rail carriers mounted to the historical M8/M10 base; 2020/2040-class profiles are the current family to evaluate, with exact sections deferred to CAD and measurement.
+
+Z deliberately avoids adding profile unless needed: direct MGN12 mounting to the measured steel frame is preferred, a thin aluminium backing/reference plate is the second choice, and T-slot extrusion is the fallback only when metrology or packaging requires it. All final rail systems must remain alignable and independently lockable without forcing the rails.
+
+The original frame, threaded-rod base, bed footprint and machine envelope remain constraints in the [final-build architecture](../../final-build-architecture.md).
 
 ## Continue here
 

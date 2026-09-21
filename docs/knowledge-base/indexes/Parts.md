@@ -2,7 +2,7 @@
 type: index
 area: hardware
 status: active
-updated: 2026-09-19
+updated: 2026-09-20
 ---
 
 # Parts
@@ -18,6 +18,7 @@ Use the existing inventories below for quantities, measurements, identification 
 | Recovered endstops and A4988, DRV8825 and TMC2130 spares | [Motion-electronics spare box](../../00-archaeology/06-motion-electronics-spares.md) | Recovered on 15 September 2026; visually identified, untested. |
 | Legacy filament stock | [Filament inventory](../../01-filaments/01-inventory.md) | Qualification candidates; an inventory entry is not a successful print test. |
 | Generation 3 selections | [Target hardware BOM](../../../hardware/generation-3-target-bom.md) | Target selections and open details, not an as-built inventory. |
+| Generation 3 acquired stock | [Procurement status](../../../hardware/generation-3-procurement-status.md) | Manta M8P V2.0, EBB36 Gen2 kit and 6× TMC2209 V1.3 are purchased; purchased does not mean tested or commissioned. |
 | Smart-spool holder, reader and weighing hardware | [Smart-spool system](../../../hardware/generation-3-smart-spool-system.md) | Frozen architecture; exact components and mechanical integration remain open. |
 | Potential Generation 3 additions | [Enhancement candidates](../../../hardware/generation-3-enhancement-candidates.md) | Evaluation register, not purchased, installed or frozen hardware. |
 | Final rails, mounting and alignment | [Generation 3 linear motion](../../../hardware/generation-3-linear-motion.md) | Frozen architecture; final dimensions and implementation remain governed by the source. |

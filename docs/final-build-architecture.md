@@ -17,6 +17,7 @@ The project generations are:
 ## Non-negotiable constraints
 
 - Preserve the original steel frame, classic i3 silhouette and machine envelope.
+- Preserve the historical lower threaded-rod structure as functional final hardware: **2× M10×350 mm longitudinal rods and 4× M8×200 mm transverse rods**. Do not replace this base with a modern aluminium-extrusion chassis.
 - Preserve the **original heated-bed footprint and travel envelope**; do not enlarge the printer to fit a modern standard bed.
 - Preserve original bed mounting geometry unless a hidden equivalent adapter is required.
 - Hide modern electronics/cable management where practical.
@@ -42,7 +43,7 @@ This is a design identity rule, not a requirement to reproduce the exact appeara
 
 ### Main controller
 
-**BIGTREETECH Manta M8P V2.0 + CB2 + 8× TMC2209 bundle** is the preferred Generation 3 purchase/configuration.
+**BIGTREETECH Manta M8P V2.0 + CB2 + TMC2209** is the frozen Generation 3 controller family. The Manta M8P V2.0 and six BTT TMC2209 V1.3 plug-in modules have been purchased; CB2 remains the frozen final host but is intentionally deferred until a sensibly priced unit is available. Four Manta drivers are expected for X/Y/Z0/Z1, with the Roto driven by the TMC2209 integrated on the EBB36 Gen2.
 
 Initial Manta driver allocation:
 
@@ -68,6 +69,14 @@ The **CB2** runs:
 - Klipper resonance-analysis tools.
 
 A separate Raspberry Pi is not part of the target architecture.
+
+### Bench-test host before CB2
+
+The Manta M8P V2.0 may be bench-tested before the CB2 is purchased by using a temporary Linux PC or Raspberry Pi as the Klipper host over USB. This is explicitly a commissioning/learning aid and does not change CB2 as the frozen final host.
+### Bench-test host before CB2
+
+The Manta M8P V2.0 may be bench-tested before the CB2 is purchased by using a temporary Linux PC or Raspberry Pi as the Klipper host over USB. This is explicitly a commissioning/learning aid and does not change CB2 as the frozen final host.
+
 
 ## Local display
 
@@ -98,6 +107,8 @@ CAN does **not** carry bed-heater power, camera video, touchscreen video or main
 
 The moving toolhead harness is reduced to 24 V, ground, CAN-H and CAN-L, plus any required shield/drain arrangement.
 
+The frozen Generation 3 extrusion/probing direction is **BIGTREETECH EBB36 Gen2 + E3D Roto + Revo + BIGTREETECH Eddy Duo**, documented in [`../hardware/generation-3-extrusion-toolhead.md`](../hardware/generation-3-extrusion-toolhead.md). The machine is quality-first for PLA, with occasional ABS/ASA capability but no heated-chamber requirement.
+
 The EBB36 Gen2 locally manages:
 
 - extruder stepper motor/driver;
@@ -106,7 +117,7 @@ The EBB36 Gen2 locally manages:
 - hotend heatsink fan;
 - part-cooling fan;
 - third auxiliary fan/output if required;
-- Z probe interface;
+- BIGTREETECH Eddy Duo probe/scanner interface;
 - filament sensor interface if selected;
 - toolhead work/status lighting;
 - toolhead sensors.
@@ -272,15 +283,19 @@ Klipper heater checks, fan RPM monitoring, temperature limits and watchdog behav
 
 ## Frozen architectural decisions
 
-- original frame and original machine/bed envelope;
+- original flat steel frame, original M8/M10 threaded-rod base and original machine/bed envelope;
+- commercial aluminium T-slot extrusion as the local X/Y MGN12 support structure, with exact 2020/2040-class sections deferred to measured CAD;
+- Z MGN12 mounting hierarchy: direct to the steel frame when metrology permits, thin aluminium backing plate if required, and T-slot extrusion only when necessary;
 - historical red-and-black machine identity: red printed mechanical/structural parts, black frame/rods, with no exact red shade requirement;
 - 24 V final system;
-- Manta M8P V2.0 + CB2 + 8× TMC2209 preferred bundle;
+- Manta M8P V2.0 + CB2 + TMC2209 controller architecture; Manta and 6× TMC2209 are already purchased, CB2 pending;
 - Klipper + Moonraker + Mainsail + KlipperScreen + Crowsnest;
 - HDMI5 5-inch touchscreen with retro enclosure/theme;
 - CAN as permanent toolhead bus;
 - CEB V1.0 CAN distribution/protection;
 - EBB36 Gen2 toolhead node;
+- E3D Roto + Revo direct-drive extrusion stack;
+- BIGTREETECH Eddy Duo for fast/dense eddy-current bed-surface scanning as an independent 5 V CAN node downstream of the EBB36 Gen2 passthrough;
 - permanent X/toolhead LIS2DW;
 - permanent Y/bed BTT S2DW/LIS2DW over USB;
 - one fixed frame camera as part of the final concept, with **CSI preferred and USB permitted**; exact model/interface remains open;
@@ -301,8 +316,8 @@ Klipper heater checks, fan RPM monitoring, temperature limits and watchdog behav
 
 These selections do not change the architecture and will be frozen after their mechanical interfaces are known:
 
-- exact hotend/direct-drive extruder;
-- exact Z probe;
+- exact Roto/Revo SKU/revision, toolplate geometry and final cooling integration;
+- exact Eddy Duo mount, offsets, connection mode and calibration/thermal-compensation strategy;
 - exact filament sensor;
 - exact fan models and duct geometry;
 - exact frame-light strip/diffuser;
