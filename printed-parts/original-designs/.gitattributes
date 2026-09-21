@@ -1,0 +1,2 @@
+# Preserve downloaded source/model bytes so manifest hashes survive Git checkout.
+upstream/** -text

@@ -16,6 +16,8 @@ Stage 02 rebuilds the original steel-frame machine using the recovered threaded 
 
 The [reassembly evidence index](../../../photos/03-reassembly/INDEX.md) documents Stage A and progress through manual Stages B–G. Photographic coverage does not by itself certify alignment, bearing condition or successful completion of the final mechanical checks.
 
+For original replacement parts, use the [historical catalogue](../../../printed-parts/original-designs/Original-Printed-Parts.md#x-y-and-z-structure). It provides single-frame STL candidates and editable sources; compare the recovered T2.5 transmission, rod/bearing interfaces and frame holes before choosing a file. The catalogue separates published-set completeness from exact physical-part identification.
+
 ## Future Generation 3
 
 The [frozen linear-motion architecture](../../../hardware/generation-3-linear-motion.md) specifies MGN12-class guides on X/Y/Z, GT2 on X/Y and independent Tr8 Z drives. Adjustable metallic carriers and independent locking are required; exact rail lengths, lead, interfaces and acceptance tolerances await restored-frame measurement. These are future design decisions, not installed hardware.

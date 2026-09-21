@@ -23,6 +23,7 @@ This snapshot was checked against the local repository on 19 September 2026. Its
 | Generation 3 smart spools | Identification, assisted tag learning and weighing architecture frozen; RASS extends it with single-spool active feed, driven-spool assistance and buffer/dancer control; exact implementation and decoder support require validation | [Smart-spool architecture](../../../hardware/generation-3-smart-spool-system.md), [RASS](../../../hardware/generation-3-rass.md), [Filament System](../systems/Filament-System.md) |
 | Generation 3 enhancements | Non-frozen candidates for fault detection, probing/cleaning, controls, telemetry and automated preparation | [Candidate register](../../../hardware/generation-3-enhancement-candidates.md); adoption requires the documented evaluation |
 | Firmware and print profiles | Repository areas reserved for configuration/profile records; successful commissioning is not established here | [Firmware](../../../firmware/README.md), [profiles](../../../profiles/README.md) |
+| Original printable designs | Historical single-frame and Greg/Wade files archived locally; leading gear/idler candidates identified visually, exact fit and accessory coverage still open | [Catalogue](../../../printed-parts/original-designs/Original-Printed-Parts.md), [small gear](../../../printed-parts/original-designs/Small-Extruder-Gear.md), [provenance](../../../printed-parts/original-designs/Provenance.md) |
 
 ## Current evidence boundary
 

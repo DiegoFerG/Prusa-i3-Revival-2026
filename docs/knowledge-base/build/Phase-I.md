@@ -15,6 +15,8 @@ This is a navigation page within Roadmap Stage 02. The authoritative procedure i
 
 The manual describes historical placement and mechanical actuation checks. Electrical NO/NC validation is a separate later task.
 
+Original-family [endstop clamp and adapter sources](../../../printed-parts/original-designs/Original-Printed-Parts.md#auxiliary-parts-and-coverage-gaps) are archived. The exact recovered holder geometry is still unidentified; compare it before generating a replacement STL.
+
 ## Evidence and status
 
 The current reassembly photo index does not contain a dedicated Stage I group; electrical endstop validation remains pending in the hardware baseline.

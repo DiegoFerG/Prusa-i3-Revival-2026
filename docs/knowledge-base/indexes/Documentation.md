@@ -22,7 +22,8 @@ The knowledge base connects these canonical documents. Detailed inventories, pro
 | Generation 3 design | [Frozen architecture](../../final-build-architecture.md) | [Target BOM](../../../hardware/generation-3-target-bom.md), [linear-motion architecture](../../../hardware/generation-3-linear-motion.md) |
 | Generation 3 smart spools | [Identification, learning and weighing architecture](../../../hardware/generation-3-smart-spool-system.md) | [RASS active-feed architecture](../../../hardware/generation-3-rass.md), [Filament System](../systems/Filament-System.md), [target BOM](../../../hardware/generation-3-target-bom.md) |
 | Generation 3 proposals | [Enhancement candidates](../../../hardware/generation-3-enhancement-candidates.md) | Evaluation criteria and promotion priorities; intentionally separate from frozen requirements |
-| Manufacturing, configuration and profiles | [Printed parts](../../../printed-parts/README.md), [firmware](../../../firmware/README.md), [profiles](../../../profiles/README.md) | These currently describe intended publication areas; do not infer implemented designs, working firmware or validated profiles. |
+| Original printable designs | [Part catalogue](../../../printed-parts/original-designs/Original-Printed-Parts.md), [archive provenance](../../../printed-parts/original-designs/Provenance.md) | Preserved historical STL/SCAD files, licenses and hashes; exact part matching remains open. |
+| Manufacturing, configuration and profiles | [Printed parts](../../../printed-parts/README.md), [firmware](../../../firmware/README.md), [profiles](../../../profiles/README.md) | Historical models are available; new project CAD, working firmware and validated profiles require their own implementation records. |
 
 ## Reading evidence correctly
 

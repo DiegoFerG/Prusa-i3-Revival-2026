@@ -14,6 +14,8 @@ Reconstruct the historical geometry before modernization. The [Stage 02 scope](.
 
 ## Manual navigation
 
+Use the [original printed-parts catalogue](../../../printed-parts/original-designs/Original-Printed-Parts.md) to find replacement candidates by manual phase. The [small extruder gear](../../../printed-parts/original-designs/Small-Extruder-Gear.md) now has a direct file link for Stage H. Verify physical fit and preserve upstream files when making adaptations.
+
 | Manual stage | Scope | Evidence in the current index |
 |---|---|---|
 | [A](Phase-A.md) | Y-frame structural base and steel frame | 14–15 September batches; Stage A checkpoint recorded |

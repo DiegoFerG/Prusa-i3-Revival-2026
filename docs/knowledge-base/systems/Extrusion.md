@@ -18,6 +18,8 @@ The [hardware baseline](../../../hardware/README.md) identifies a Wade/Greg's-Wa
 
 Assembly photographs currently indexed for Stage 02 reach manual Stage G. The index does not establish completion of Stage H or a working extrusion system. See the [reassembly evidence index](../../../photos/03-reassembly/INDEX.md).
 
+The [small extruder gear](../../../printed-parts/original-designs/Small-Extruder-Gear.md) and [historical extruder files](../../../printed-parts/original-designs/Original-Printed-Parts.md#gregwade-extrusion) are now available locally. Jonas Kühling's five-hole large gear and guided idler are strong visual candidates; the paired small gear, hotend interface and mounting dimensions require physical checks. This archive does not resolve the hotend revision or establish completed Stage H work.
+
 ## Later work
 
 [Roadmap Stage 06](../../ROADMAP.md) restores or modularly rebuilds legacy extrusion; Stage 09 provides the later 1.75 mm conversion. The [Generation 3 target BOM](../../../hardware/generation-3-target-bom.md) leaves the exact direct-drive extruder and hotend open. The toolhead node architecture is frozen separately in the [final-build architecture](../../final-build-architecture.md).

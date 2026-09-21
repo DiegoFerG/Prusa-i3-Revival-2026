@@ -15,6 +15,13 @@ This is a navigation page within Roadmap Stage 02. The authoritative procedure i
 
 Reconstruct the geared extruder and hotend mechanically using the source manual. The captive heater cartridge and unconfirmed thermistor remain documented limitations, and no heater is energized.
 
+## Original printable files
+
+- [Small Extruder Gear](../../../printed-parts/original-designs/Small-Extruder-Gear.md): direct STL link and Bambu Studio workflow for the leading historical candidate.
+- [Greg/Wade catalogue](../../../printed-parts/original-designs/Original-Printed-Parts.md#gregwade-extrusion): matching large gear, idler, body variants, provenance and remaining measurements.
+
+Downloaded models are not proof of compatibility. Record the selected revision and measured fit before treating a replacement as restored.
+
 ## Evidence and status
 
 The current reassembly photo index ends at Stage G and does not establish completion of this stage.

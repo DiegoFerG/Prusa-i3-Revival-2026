@@ -40,6 +40,8 @@ The project repository is also this Obsidian vault. Start here to find the curre
 
 ## First steps in Obsidian
 
+**Find an original part:** [Original Printed Parts](../../printed-parts/original-designs/Original-Printed-Parts.md) → choose the assembly role → open its STL. For the Stage H example, open [Small Extruder Gear](../../printed-parts/original-designs/Small-Extruder-Gear.md).
+
 1. Open a link above. Use Back to return, or `Ctrl+O` and search for `Home`.
 2. Open the Backlinks or Outline pane to explore a note's context. Use `Ctrl+Shift+F` to search the vault.
 3. Edit the authoritative source linked by the note, then update affected summaries using the [maintenance guide](Maintenance.md).

@@ -1,0 +1,484 @@
+{
+  "schema_version": 1,
+  "retrieved": "2026-09-19",
+  "policy": "Upstream bytes are preserved; paths are relative to this manifest. Presence is not confirmation of physical fit.",
+  "files": [
+    {
+      "path": "upstream/josefprusa-prusa3/LICENSE.md",
+      "bytes": 32386,
+      "sha256": "6e7817538ea3593e660e1052c8ab2a0f9394669902b7ace5b9169794bd014136",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "LICENSE.md"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/README.md",
+      "bytes": 337,
+      "sha256": "c3712c0a1170cc31d5c6027ecdea34ebdf83faf1b661e1cd79cb25a071cf0ad5",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "README.md"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/box_frame/configuration.scad.dist",
+      "bytes": 4303,
+      "sha256": "6eb51b287ce54e624c3e6a25ee98a2aef32c826b69a1fb72350d8734abb1a9c0",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "box_frame/configuration.scad.dist"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/box_frame/extras/endstop-holder-extra.scad",
+      "bytes": 2273,
+      "sha256": "9b43825f8b289ce4a93cae64ee6e07d3e7d4910e44eba7b6e2413ca2f015c91a",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "box_frame/extras/endstop-holder-extra.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/box_frame/extras/endstop-holder.scad",
+      "bytes": 2095,
+      "sha256": "534817527d3ca73d6fa099d183778c8ec9afdef97e9289d3002767d05ec1183e",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "box_frame/extras/endstop-holder.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/box_frame/inc/bearing-guide.scad",
+      "bytes": 2187,
+      "sha256": "57197c1daa592d59925ced539a744b3cf4b4de67b9e4005700ee215fd6a08486",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "box_frame/inc/bearing-guide.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/box_frame/inc/conf_bushing.scad",
+      "bytes": 2421,
+      "sha256": "fd41289b65912ac69e35a7f18e83d1f42bae675dbdb34b32c4a728c59b334ce6",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "box_frame/inc/conf_bushing.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/box_frame/inc/functions.scad",
+      "bytes": 6117,
+      "sha256": "4a6de597455d7bc59722142b1cf4bc43313a12bd69be28be37c2e4360eac160c",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "box_frame/inc/functions.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/box_frame/inc/metric.scad",
+      "bytes": 747,
+      "sha256": "f52721576285efef1b2d4a8ef40bff4395afb704c8c1732a2060fc9a07d22387",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "box_frame/inc/metric.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/box_frame/inc/settings.scad",
+      "bytes": 523,
+      "sha256": "9cf2c976d6d15d8b93206ebb03b062ee09e861e64fdab33f788063fdf98c99b5",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "box_frame/inc/settings.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/Makefile",
+      "bytes": 297,
+      "sha256": "c25d2b07d4ce230366da50724e55a872dc8adb2e129688db1c268d7287607f83",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/Makefile"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/README",
+      "bytes": 446,
+      "sha256": "740de376db73e0e0504d3e50881596338a0a63c6bfd3fbe18784086261668d8d",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/README"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/configuration.scad-dist",
+      "bytes": 594,
+      "sha256": "e04768766b341e7c001cf873bbc17351e9f1558cb8a5f8b9cb7e97d742867eee",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/configuration.scad-dist"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/src/belt-guide.scad",
+      "bytes": 623,
+      "sha256": "93aa2638b6ac3e83226d6c869d261ee64390e6bd44184c400296195c41e742ff",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/src/belt-guide.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/src/compact-extruder.scad",
+      "bytes": 4582,
+      "sha256": "2f64b7f924fe0c63d6c46ef3cfdce6982f2117965faf09a14d70289e7e823f3c",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/src/compact-extruder.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/src/dual-extruder.scad",
+      "bytes": 4283,
+      "sha256": "c23f8f2519d6219658a182f7268a4db7d98b3963638f46bcded00992f7180457",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/src/dual-extruder.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/src/fan-mount.scad",
+      "bytes": 626,
+      "sha256": "68362d21372af469a38937cdc49bf2c9e467d3dacdf43c4692e4fee8d16da655",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/src/fan-mount.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/src/inc/bearing.scad",
+      "bytes": 2283,
+      "sha256": "f7e1e1801ad7ce60de7bdc6ce8a8b6474e5628836ddf889cf298a7fe671eaee3",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/src/inc/bearing.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/src/inc/nuts_and_bolts.scad",
+      "bytes": 2630,
+      "sha256": "bf9eaf6131880c34f68ee116391ce12e494f3b2112734c0512fa0ff4b5b7dee3",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/src/inc/nuts_and_bolts.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/src/inc/roundCornersCube.scad",
+      "bytes": 2630,
+      "sha256": "230bda4e745c9053bdb4572c285e6af4de309c7a32acfe9fbcb30a3d2f2841f1",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/src/inc/roundCornersCube.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/src/inc/x-end.scad",
+      "bytes": 1395,
+      "sha256": "abd31e181d45192c380c173237e44f1eaf457275fec8303de18492c360906361",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/src/inc/x-end.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/src/magnetic-holder.scad",
+      "bytes": 266,
+      "sha256": "982fa7b93529671b5c4282d57b74cfb8d9925ac666622ca8f8fa4515402aa52b",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/src/magnetic-holder.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/src/x-carriage.scad",
+      "bytes": 2300,
+      "sha256": "f1cfe9ab103d7247cca29407cb4a758265aa5b2a178aa3df5dc3e133925058d9",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/src/x-carriage.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/src/x-end-idler.scad",
+      "bytes": 503,
+      "sha256": "e3074b442e09a115045ef7bc9924ea7bc373248bfb0ecf4ce5958b2bd316cb76",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/src/x-end-idler.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/src/x-end-motor.scad",
+      "bytes": 1160,
+      "sha256": "645c1ee38ba858342417ed6cbbf602e86efda6aad0d205d0223a8ab1457c15bf",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/src/x-end-motor.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/src/y-belt-holder.scad",
+      "bytes": 1104,
+      "sha256": "0b585043196f5e92f8e6ffb538ca1a05d3e9cf90f52dc1b38883524a0b9bcd03",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/src/y-belt-holder.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/src/y-corners.scad",
+      "bytes": 1663,
+      "sha256": "e5442165c7767d4b90a87bdb509f61b77fa1bf915a40594750d4b4dad18cf2f6",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/src/y-corners.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/src/y-idler.scad",
+      "bytes": 744,
+      "sha256": "3d3965859673874ad74a8a5dc98b5bda338a157f0be1610fcf719c4ca2edd7bd",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/src/y-idler.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/src/y-motor.scad",
+      "bytes": 1282,
+      "sha256": "65795909b88a77bc5679ef7c247001b4bb66837ec53c4e6503d1c48c1de21b6f",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/src/y-motor.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/src/z-axis-bottom.scad",
+      "bytes": 2855,
+      "sha256": "69b771783abbb41ea595b0eb2f70c1fd129cb9e9eaef3208ed71ef2f00d2d559",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/src/z-axis-bottom.scad"
+    },
+    {
+      "path": "upstream/josefprusa-prusa3/old_single_plate/src/z-axis-top.scad",
+      "bytes": 2005,
+      "sha256": "9e7bc5b8800bb2e7bc142cd7d3c43a700b289bf81f68c161536c07d4c0d13e1f",
+      "source": "https://github.com/josefprusa/Prusa3",
+      "revision": "7ab0186d94b4a9af7c4d832b6a4f0245dd165bc1",
+      "upstream_path": "old_single_plate/src/z-axis-top.scad"
+    },
+    {
+      "path": "upstream/clone-wars/Printers/Prusa3/Single_frame/Extras/jonas_mount_i3.stl",
+      "bytes": 1004634,
+      "sha256": "eea8809542c67893a9e5415c1d1f8cd3f87ae0143c8b790201b967fe654dfbbf",
+      "source": "https://github.com/Obijuan/Clone-wars",
+      "revision": "b0bf2cafcef9b367e14d01f21bb3a408e5ffa054",
+      "upstream_path": "Printers/Prusa3/Single_frame/Extras/jonas_mount_i3.stl"
+    },
+    {
+      "path": "upstream/clone-wars/Printers/Prusa3/Single_frame/Extras/y-motor.stl",
+      "bytes": 88434,
+      "sha256": "cf8109d5d02bc9e1b5706dbfc0a70e3948057edb7cdbf35b30553882335f5477",
+      "source": "https://github.com/Obijuan/Clone-wars",
+      "revision": "b0bf2cafcef9b367e14d01f21bb3a408e5ffa054",
+      "upstream_path": "Printers/Prusa3/Single_frame/Extras/y-motor.stl"
+    },
+    {
+      "path": "upstream/clone-wars/Printers/Prusa3/Single_frame/x-carriage.stl",
+      "bytes": 396763,
+      "sha256": "c8426abd2e3f84ea0a04737b9715c431e51fb33478f88eaab64c0a511be3cfe0",
+      "source": "https://github.com/Obijuan/Clone-wars",
+      "revision": "b0bf2cafcef9b367e14d01f21bb3a408e5ffa054",
+      "upstream_path": "Printers/Prusa3/Single_frame/x-carriage.stl"
+    },
+    {
+      "path": "upstream/clone-wars/Printers/Prusa3/Single_frame/x-carriageV2.stl",
+      "bytes": 364998,
+      "sha256": "c4a94eeee27f6d8aaa111eecf52ed988a793c361e27011071d717116f35d686e",
+      "source": "https://github.com/Obijuan/Clone-wars",
+      "revision": "b0bf2cafcef9b367e14d01f21bb3a408e5ffa054",
+      "upstream_path": "Printers/Prusa3/Single_frame/x-carriageV2.stl"
+    },
+    {
+      "path": "upstream/clone-wars/Printers/Prusa3/Single_frame/x-end-idler.stl",
+      "bytes": 145620,
+      "sha256": "c221b39a93ce1751b9c0a3ae69da6a2b0cd658f8037ae63dac56e4c8aa9f3382",
+      "source": "https://github.com/Obijuan/Clone-wars",
+      "revision": "b0bf2cafcef9b367e14d01f21bb3a408e5ffa054",
+      "upstream_path": "Printers/Prusa3/Single_frame/x-end-idler.stl"
+    },
+    {
+      "path": "upstream/clone-wars/Printers/Prusa3/Single_frame/x-end-motor.stl",
+      "bytes": 130977,
+      "sha256": "7fba4ba01e03981924d8a19d43d80a16a0d565630d8670a29679801b39e9e6b7",
+      "source": "https://github.com/Obijuan/Clone-wars",
+      "revision": "b0bf2cafcef9b367e14d01f21bb3a408e5ffa054",
+      "upstream_path": "Printers/Prusa3/Single_frame/x-end-motor.stl"
+    },
+    {
+      "path": "upstream/clone-wars/Printers/Prusa3/Single_frame/y-belt-holder.stl",
+      "bytes": 49875,
+      "sha256": "b6ba5f22bd0f7d5da9f3dd4b013cc5e70cef8957f960f176880706ced8476cc4",
+      "source": "https://github.com/Obijuan/Clone-wars",
+      "revision": "b0bf2cafcef9b367e14d01f21bb3a408e5ffa054",
+      "upstream_path": "Printers/Prusa3/Single_frame/y-belt-holder.stl"
+    },
+    {
+      "path": "upstream/clone-wars/Printers/Prusa3/Single_frame/y-corners.stl",
+      "bytes": 102372,
+      "sha256": "922566ceb45e61fa60b070f4dd7a3522d030d2b9c08a5c235ea1952f8cb32e01",
+      "source": "https://github.com/Obijuan/Clone-wars",
+      "revision": "b0bf2cafcef9b367e14d01f21bb3a408e5ffa054",
+      "upstream_path": "Printers/Prusa3/Single_frame/y-corners.stl"
+    },
+    {
+      "path": "upstream/clone-wars/Printers/Prusa3/Single_frame/y-idler.stl",
+      "bytes": 46081,
+      "sha256": "6c0f7187a602793601ec585b927e11219a0a95c281d6dfdd58b9bdc43d56b277",
+      "source": "https://github.com/Obijuan/Clone-wars",
+      "revision": "b0bf2cafcef9b367e14d01f21bb3a408e5ffa054",
+      "upstream_path": "Printers/Prusa3/Single_frame/y-idler.stl"
+    },
+    {
+      "path": "upstream/clone-wars/Printers/Prusa3/Single_frame/y-motor.stl",
+      "bytes": 69626,
+      "sha256": "8520f594174c3553bf1eb78666e159be226dbb90c6ec12776ef472df76e3fc23",
+      "source": "https://github.com/Obijuan/Clone-wars",
+      "revision": "b0bf2cafcef9b367e14d01f21bb3a408e5ffa054",
+      "upstream_path": "Printers/Prusa3/Single_frame/y-motor.stl"
+    },
+    {
+      "path": "upstream/clone-wars/Printers/Prusa3/Single_frame/z-axis-bottom.stl",
+      "bytes": 389115,
+      "sha256": "253ffc868a56217790b14eda07c6dac5211ca23867b0505c11e64711646ebc07",
+      "source": "https://github.com/Obijuan/Clone-wars",
+      "revision": "b0bf2cafcef9b367e14d01f21bb3a408e5ffa054",
+      "upstream_path": "Printers/Prusa3/Single_frame/z-axis-bottom.stl"
+    },
+    {
+      "path": "upstream/clone-wars/Printers/Prusa3/Single_frame/z-axis-top.stl",
+      "bytes": 190479,
+      "sha256": "be7ada3a1d321e0da9e93ba299a2f6ef88defbbacda1d285a71b737b628686bb",
+      "source": "https://github.com/Obijuan/Clone-wars",
+      "revision": "b0bf2cafcef9b367e14d01f21bb3a408e5ffa054",
+      "upstream_path": "Printers/Prusa3/Single_frame/z-axis-top.stl"
+    },
+    {
+      "path": "upstream/jonaskuehling-18379/files/big-gear-mod_SAE.stl",
+      "bytes": 394584,
+      "sha256": "56106214001f0fce362134b23b102a99c0f3c440ca91fd3e1b8b9ff7daf17283",
+      "source": "https://www.thingiverse.com/thing:18379",
+      "upstream_path": "files/big-gear-mod_SAE.stl"
+    },
+    {
+      "path": "upstream/jonaskuehling-18379/files/biggearmod_fixed.stl",
+      "bytes": 394584,
+      "sha256": "b429b2ec9889b1fcf05ce4d5b3496b99c61c025146f2fd76d8d3f4ed388554c9",
+      "source": "https://www.thingiverse.com/thing:18379",
+      "upstream_path": "files/biggearmod_fixed.stl"
+    },
+    {
+      "path": "upstream/jonaskuehling-18379/files/configuration.scad",
+      "bytes": 1288,
+      "sha256": "389d1b38d0d22510afd11457867aa34fbd877ab50b27592c4a8da594b207f8d2",
+      "source": "https://www.thingiverse.com/thing:18379",
+      "upstream_path": "files/configuration.scad"
+    },
+    {
+      "path": "upstream/jonaskuehling-18379/files/functions.scad",
+      "bytes": 838,
+      "sha256": "eb91da196afea8d1c7adc3e0b0cd18187ed42d476bbfd01585257b1e2e872b87",
+      "source": "https://www.thingiverse.com/thing:18379",
+      "upstream_path": "files/functions.scad"
+    },
+    {
+      "path": "upstream/jonaskuehling-18379/files/gregs-wadebits.scad",
+      "bytes": 1698,
+      "sha256": "76b7b8ebf0f0288e794e542b79e9a9a2508c96f41eb338b2f4200d101243cd9e",
+      "source": "https://www.thingiverse.com/thing:18379",
+      "upstream_path": "files/gregs-wadebits.scad"
+    },
+    {
+      "path": "upstream/jonaskuehling-18379/files/jonaskuehling-default.scad",
+      "bytes": 2148,
+      "sha256": "40897b137856f69ef167cfda74b8fe1e891987b69a478e2ee6a4e00b48113f54",
+      "source": "https://www.thingiverse.com/thing:18379",
+      "upstream_path": "files/jonaskuehling-default.scad"
+    },
+    {
+      "path": "upstream/jonaskuehling-18379/files/jonaskuehling_gregs-wade-v3.scad",
+      "bytes": 26163,
+      "sha256": "1cc722f4bcb5c0b4212b5131fec91f52c09287a2c22304712dd8eb9f45618ad6",
+      "source": "https://www.thingiverse.com/thing:18379",
+      "upstream_path": "files/jonaskuehling_gregs-wade-v3.scad"
+    },
+    {
+      "path": "upstream/jonaskuehling-18379/files/jonaskuehling_gregs-wade-v3_groovemount.stl",
+      "bytes": 880385,
+      "sha256": "c5c6e49bc715162121cd636c9f361dbb3aa551aef1213995de83ce95181582e2",
+      "source": "https://www.thingiverse.com/thing:18379",
+      "upstream_path": "files/jonaskuehling_gregs-wade-v3_groovemount.stl"
+    },
+    {
+      "path": "upstream/jonaskuehling-18379/files/jonaskuehling_gregs-wade-v3_idler-only.stl",
+      "bytes": 57684,
+      "sha256": "c777de0662aea1846d19f19677d841b50863ed5cccd615f693926c7ba07ccbf2",
+      "source": "https://www.thingiverse.com/thing:18379",
+      "upstream_path": "files/jonaskuehling_gregs-wade-v3_idler-only.stl"
+    },
+    {
+      "path": "upstream/jonaskuehling-18379/files/jonaskuehling_gregs-wade-v3_jhead-BODY-ONLY.stl",
+      "bytes": 240584,
+      "sha256": "66199e03f7361ae457b03ffa0ac9a73c3fd028c6779b4f4c893860130a352e9b",
+      "source": "https://www.thingiverse.com/thing:18379",
+      "upstream_path": "files/jonaskuehling_gregs-wade-v3_jhead-BODY-ONLY.stl"
+    },
+    {
+      "path": "upstream/jonaskuehling-18379/files/jonaskuehling_gregs-wade-v3_jhead-LAYER-0-35.stl",
+      "bytes": 297684,
+      "sha256": "77b08d47f9a9dee7d14e37a81dce054f477004a852d8967057bf5571de32c0a4",
+      "source": "https://www.thingiverse.com/thing:18379",
+      "upstream_path": "files/jonaskuehling_gregs-wade-v3_jhead-LAYER-0-35.stl"
+    },
+    {
+      "path": "upstream/jonaskuehling-18379/files/jonaskuehling_gregs-wade-v3_jhead.stl",
+      "bytes": 925005,
+      "sha256": "d3cfe5852b3cb17eea044d7f0aec01994efdff09a0a397fe60d838c7ef4a86f6",
+      "source": "https://www.thingiverse.com/thing:18379",
+      "upstream_path": "files/jonaskuehling_gregs-wade-v3_jhead.stl"
+    },
+    {
+      "path": "upstream/jonaskuehling-18379/files/jonaskuehling_gregs-wade-v3_reprapfaborg.stl",
+      "bytes": 893761,
+      "sha256": "dcc7ebee726738c991a4118e5ac6570cd29a6c36f327db2d8e2ae0dcc358d34b",
+      "source": "https://www.thingiverse.com/thing:18379",
+      "upstream_path": "files/jonaskuehling_gregs-wade-v3_reprapfaborg.stl"
+    },
+    {
+      "path": "upstream/jonaskuehling-18379/files/jonaskuehling_gregs-wade-v3_SAE_groovemount.stl",
+      "bytes": 284884,
+      "sha256": "d8ab62528528a94aa1e1d7297e7dfcb37db8f079b2cd88d52cb6a4b205794fb8",
+      "source": "https://www.thingiverse.com/thing:18379",
+      "upstream_path": "files/jonaskuehling_gregs-wade-v3_SAE_groovemount.stl"
+    },
+    {
+      "path": "upstream/jonaskuehling-18379/files/metric.scad",
+      "bytes": 713,
+      "sha256": "0dd9fa898c8f72e71fdaee9cd2edc1eb02d868efaf781086237a5e1080a74e69",
+      "source": "https://www.thingiverse.com/thing:18379",
+      "upstream_path": "files/metric.scad"
+    },
+    {
+      "path": "upstream/jonaskuehling-18379/files/small-gear-mod_holedia-4-2.stl",
+      "bytes": 86084,
+      "sha256": "b1efb547cb6f83aa6832d577ea5606e1115e71512b3aff361f0c7ac3cbb5ec74",
+      "source": "https://www.thingiverse.com/thing:18379",
+      "upstream_path": "files/small-gear-mod_holedia-4-2.stl"
+    },
+    {
+      "path": "upstream/jonaskuehling-18379/files/smallgearmod_fixed.stl",
+      "bytes": 81684,
+      "sha256": "a35db43c4d9e8c0aab711718d8e17a9dfb433cb06f4d481ae074261aa1088f65",
+      "source": "https://www.thingiverse.com/thing:18379",
+      "upstream_path": "files/smallgearmod_fixed.stl"
+    },
+    {
+      "path": "upstream/jonaskuehling-18379/LICENSE.txt",
+      "bytes": 124,
+      "sha256": "e12c5015e4383ed25269715c7bb8757f2084388d415e2d646319d38420aaf3c6",
+      "source": "https://www.thingiverse.com/thing:18379",
+      "upstream_path": "LICENSE.txt"
+    },
+    {
+      "path": "upstream/jonaskuehling-18379/README.txt",
+      "bytes": 2534,
+      "sha256": "e824c4fd25965fe2e76ec799d337a65e02fd2fb01c8bc5c14e7997695efe582e",
+      "source": "https://www.thingiverse.com/thing:18379",
+      "upstream_path": "README.txt"
+    }
+  ]
+}

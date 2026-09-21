@@ -20,6 +20,8 @@ The 15 September batch records the Stage A checkpoint. The [16 September batch](
 
 Stage 02 should reuse original parts wherever they remain mechanically suitable, but broken or unusable printed parts may be reproduced when they block reconstruction.
 
+Historical replacement candidates are now available in the [original printed-parts catalogue](../../printed-parts/original-designs/Original-Printed-Parts.md), including the [small Wade extruder gear](../../printed-parts/original-designs/Small-Extruder-Gear.md). Check the catalogue's identification status and physical interfaces before printing; an archived model is not a confirmed fit or completed reassembly step.
+
 - Temporary/replacement printed parts should preserve the printer's historical **red-and-black** palette where practical.
 - The colour of a replacement should preferably follow the original part if that can be established from the photographic record.
 - **ABS is acceptable for Stage 02 replacement prints** when ASA is unavailable.

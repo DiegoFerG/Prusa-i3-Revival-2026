@@ -8,6 +8,7 @@ This repository is the Obsidian vault for Prusa-i3-Revival-2026. The knowledge-b
 - Follow the existing [method and provenance](docs/00-archaeology/03-method-and-provenance.md), [roadmap](docs/ROADMAP.md), [reassembly scope](docs/02-reassembly/README.md) and frozen [Generation 3 architecture](docs/final-build-architecture.md).
 - Preserve original evidence and distinguish originals, sanitized later batches and derivatives. Do not infer installed hardware or successful tests from possession or photographs alone.
 - Keep detailed procedures, inventories, BOMs and media in their canonical locations. Knowledge-base pages should link to them and summarize only what navigation or status requires.
+- Preserve the original-design files under `printed-parts/original-designs/upstream/` byte-for-byte. New imports require source/license notes and manifest hashes; adaptations belong outside `upstream/` and must link their parent design and measured fit results. Keep published design sets distinct from confirmed as-built parts.
 
 ## Required knowledge-base maintenance
 

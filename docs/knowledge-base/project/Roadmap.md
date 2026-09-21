@@ -28,6 +28,8 @@ The authoritative plan remains [docs/ROADMAP.md](../../ROADMAP.md). This page ro
 
 The bilingual blog is a continuous workstream. Its [source notes](../../00-archaeology/04-blog-source-notes-chapter-0.md) derive from repository evidence.
 
+Historical [original designs](../../../printed-parts/original-designs/Original-Printed-Parts.md) are now archived for Stage 02 repairs and later reference. This closes the absence of local candidate files, not the measured replacement/fit work in Stage 04.
+
 Use [Current State](Current-State.md) for progress and [Decision Log](../decisions/Decision-Log.md) for constraints. The final architecture spans several workstreams; the table is not permission to skip the original or transitional generations.
 
 The [smart-spool target](../../../hardware/generation-3-smart-spool-system.md) spans final holder mechanics, electronics, host software and material profiles. Its [RASS extension](../../../hardware/generation-3-rass.md) adds active single-spool feeding, driven-spool assistance and buffer/dancer control without adding multi-material switching. The [enhancement evaluation priorities](../../../hardware/generation-3-enhancement-candidates.md#promotion-priorities) guide later review, not purchasing or an additional completed roadmap stage.

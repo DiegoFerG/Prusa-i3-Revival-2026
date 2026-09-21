@@ -19,6 +19,8 @@ Open [Home](docs/knowledge-base/Home.md) for project status, decisions, subsyste
 
 The complete stage-by-stage plan is maintained in **[docs/ROADMAP.md](docs/ROADMAP.md)**.
 
+Original printable-design candidates are available in the [historical parts catalogue](printed-parts/original-designs/Original-Printed-Parts.md), including the [small Greg/Wade extruder gear](printed-parts/original-designs/Small-Extruder-Gear.md). The archive preserves source files and provenance; exact part matching and fit checks remain open.
+
 ## Confirmed original baseline
 
 The teardown and component inventory established a substantially clearer baseline than the initial visual archaeology:

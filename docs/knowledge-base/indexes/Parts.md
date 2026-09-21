@@ -21,7 +21,8 @@ Use the existing inventories below for quantities, measurements, identification 
 | Smart-spool holder, reader and weighing hardware | [Smart-spool system](../../../hardware/generation-3-smart-spool-system.md) | Frozen architecture; exact components and mechanical integration remain open. |
 | Potential Generation 3 additions | [Enhancement candidates](../../../hardware/generation-3-enhancement-candidates.md) | Evaluation register, not purchased, installed or frozen hardware. |
 | Final rails, mounting and alignment | [Generation 3 linear motion](../../../hardware/generation-3-linear-motion.md) | Frozen architecture; final dimensions and implementation remain governed by the source. |
-| Editable part designs and manufacturing exports | [Printed parts](../../../printed-parts/README.md) | Publication location; no CAD, STEP, STL or 3MF assets were present at setup. |
+| Original printable replacements | [Original printed-parts catalogue](../../../printed-parts/original-designs/Original-Printed-Parts.md), [small extruder gear](../../../printed-parts/original-designs/Small-Extruder-Gear.md) | Historical STL/SCAD archive with authors, hashes and matching evidence; physical fit remains to be verified. |
+| New part designs and manufacturing exports | [Printed parts](../../../printed-parts/README.md) | Keep project adaptations and future STEP/3MF exports separate from preserved originals. |
 
 ## Updating a component
 

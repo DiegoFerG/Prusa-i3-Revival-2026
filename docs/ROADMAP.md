@@ -43,6 +43,8 @@ After the original geometry has been validated, replace the conventional threade
 ## 04 · Printed parts
 Redesign or reproduce required parts and manufacture them primarily in ASA on a Bambu Lab P1S. Publish editable sources plus STEP, STL and reference 3MF where appropriate.
 
+Historical preparation added on 19 September 2026: [original single-frame and Greg/Wade designs](../printed-parts/original-designs/Original-Printed-Parts.md) are archived locally with provenance. Use them as measured replacement candidates during Stage 02 where needed. Exact accessory identification, adaptation, printing and fit validation remain outstanding; this does not mark Stage 04 complete.
+
 ## 05 · Electronics, power and new wiring
 Design the new controller architecture, drivers, power distribution, protection, connectors and enclosures. The printer will be rewired from scratch; the original mixed harness will not be reused.
 
