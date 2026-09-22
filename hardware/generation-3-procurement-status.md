@@ -4,7 +4,7 @@ This document tracks **actual Generation 3 purchases and near-term acquisition d
 
 It must not be used as evidence that a purchased component has been electrically tested, installed or commissioned.
 
-Last reviewed: **20 September 2026**.
+Last reviewed: **22 September 2026**.
 
 ## Purchased
 
@@ -56,6 +56,14 @@ Current procurement rule:
 > Wait for a sensibly priced CB2 unless a later engineering reason justifies switching the frozen host architecture.
 
 CM5 is not the target host.
+
+## Bench-test pack
+
+A versioned acceptance-test pack for the purchased Manta M8P V2.0, six TMC2209 V1.3 modules and EBB36 Gen2 kit is stored at [`bench-tests/generation-3-electronics/`](bench-tests/generation-3-electronics/README.md).
+
+The pack defines receiving inspection, Raspberry Pi 2 temporary-host setup, conservative driver tests, all-eight-socket Manta coverage, EBB36 USB validation and a two-node Manta/EBB36 CAN test. It also provides an acceptance CSV and evidence-capture scripts.
+
+**The existence of the test pack does not change any component to Tested.** That status requires reviewed evidence and a recorded PASS.
 
 ## Manta bench testing before CB2 purchase
 

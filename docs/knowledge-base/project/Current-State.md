@@ -4,7 +4,7 @@ area: project
 status: in-progress
 phase: stage-02
 priority: high
-updated: 2026-09-21
+updated: 2026-09-22
 ---
 
 # Current State
@@ -19,7 +19,7 @@ This snapshot was checked against the published repository on 21 September 2026.
 | Stage 01 — Teardown, cleaning and inventory | Complete, closed 13 September | [Roadmap](../../ROADMAP.md), [teardown inventory](../../../photos/02-teardown/INDEX.md) |
 | Stage 02 — Original mechanical reassembly | In progress; photo evidence covers manual Stages A–H, with the latest batch documenting the geared-extruder subassembly | [Photo index](../../../photos/03-reassembly/INDEX.md), [21 September batch](../../../photos/03-reassembly/BATCH-20260921.md) |
 | Remaining original reassembly and validation | Stage H assembly is reported complete; its mounting/acceptance evidence, manual I–J completion and the final mechanical gate remain unrecorded | [Build sequence](../build/Build.md), [manual](../../02-reassembly/original-reassembly-manual.md) |
-| Generation 3 | Architecture frozen; historical steel frame and M8/M10 threaded base retained, MGN12 guidance uses X/Y T-slot extrusion supports and the direct/plate/profile Z hierarchy; first electronics acquired but not yet recorded as tested/commissioned | [Architecture](../../final-build-architecture.md), [linear motion](../../../hardware/generation-3-linear-motion.md), [target BOM](../../../hardware/generation-3-target-bom.md), [procurement status](../../../hardware/generation-3-procurement-status.md) |
+| Generation 3 | Architecture frozen; historical steel frame and M8/M10 threaded base retained, MGN12 guidance uses X/Y T-slot extrusion supports and the direct/plate/profile Z hierarchy; first electronics acquired and a bench-test pack is prepared, but no purchased Generation 3 electronics are yet recorded as tested/commissioned | [Architecture](../../final-build-architecture.md), [linear motion](../../../hardware/generation-3-linear-motion.md), [target BOM](../../../hardware/generation-3-target-bom.md), [procurement status](../../../hardware/generation-3-procurement-status.md), [electronics bench-test pack](../../../hardware/bench-tests/generation-3-electronics/README.md) |
 | Generation 3 smart spools | Identification, assisted tag learning and weighing architecture frozen; RASS extends it with single-spool active feed, driven-spool assistance and buffer/dancer control; exact implementation and decoder support require validation | [Smart-spool architecture](../../../hardware/generation-3-smart-spool-system.md), [RASS](../../../hardware/generation-3-rass.md), [Filament System](../systems/Filament-System.md) |
 | Generation 3 extrusion/probing | E3D Roto + Revo + BTT Eddy Duo is the frozen 1.75 mm direct-drive / bed-scan direction; PLA quality is primary and ABS/ASA is occasional open-frame use only | [Toolhead target](../../../hardware/generation-3-extrusion-toolhead.md), [Extrusion](../systems/Extrusion.md) |
 | Generation 3 enhancements | Remaining candidates cover fault detection, nozzle cleaning, controls, telemetry and automated preparation; Eddy Duo probing has been promoted to the frozen architecture | [Candidate register](../../../hardware/generation-3-enhancement-candidates.md); adoption requires the documented evaluation |

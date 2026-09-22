@@ -1,0 +1,11 @@
+# Manta M8P V2.0 — bench test over USB
+[mcu]
+serial: __MANTA_SERIAL__
+
+[printer]
+kinematics: none
+max_velocity: 1
+max_accel: 1
+
+# Enable exactly one slot include at a time.
+[include manta-slots/M1.cfg]

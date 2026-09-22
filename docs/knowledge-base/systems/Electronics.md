@@ -5,7 +5,7 @@ status: documented
 phase: stage-02
 priority: high
 generation: original
-updated: 2026-09-21
+updated: 2026-09-22
 ---
 
 # Electronics
@@ -20,7 +20,7 @@ During Stage 02, [manual Stage J](../build/Phase-J.md) permits historical mechan
 
 The [final-build architecture](../../final-build-architecture.md) separates the original hardware, the Re-ARM transitional study and the future Generation 3 machine. Generation 3 targets Manta M8P V2.0 + CB2 + TMC2209, 24 V power, CEB distribution and an EBB36 Gen2 CAN toolhead. The Manta M8P V2.0, EBB36 Gen2 kit and 6× BTT TMC2209 V1.3 have now been purchased; purchase does not establish electrical testing or commissioning. See the [target BOM](../../../hardware/generation-3-target-bom.md) for frozen versus deferred selections; a target entry is not proof of purchase or installation.
 
-CB2 remains the frozen final host but is not yet purchased; a temporary Linux PC/Raspberry Pi may host Klipper over USB solely for Manta bench testing. Exact PSU wattage, connector families, wire gauges and routing remain open until loads and interfaces are defined. New electrical design and wiring belong to [Roadmap Stage 05](../../ROADMAP.md).
+CB2 remains the frozen final host but is not yet purchased; a temporary Linux PC/Raspberry Pi may host Klipper over USB solely for Manta bench testing. A [Generation 3 electronics bench-test pack](../../../hardware/bench-tests/generation-3-electronics/README.md) now defines the receiving, Manta/TMC, EBB36 and CAN acceptance sequence. Preparing the procedure is not evidence that any part passed. Exact PSU wattage, connector families, wire gauges and routing remain open until loads and interfaces are defined. New electrical design and wiring belong to [Roadmap Stage 05](../../ROADMAP.md).
 
 ## Related work
 

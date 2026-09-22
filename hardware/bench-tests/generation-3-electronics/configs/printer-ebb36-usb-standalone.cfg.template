@@ -1,0 +1,34 @@
+# EBB36 Gen2 — standalone USB bench test
+[mcu]
+serial: __EBB_SERIAL__
+
+[printer]
+kinematics: none
+max_velocity: 1
+max_accel: 1
+
+[temperature_sensor ebb36_driver_ntc]
+sensor_type: Generic 3950
+sensor_pin: PA0
+pullup_resistor: 2200
+
+[manual_stepper ebb_motor]
+step_pin: PB14
+dir_pin: PA8
+enable_pin: !PB6
+microsteps: 16
+rotation_distance: 40
+velocity: 2
+accel: 5
+
+[tmc2209 manual_stepper ebb_motor]
+uart_pin: PB3
+run_current: 0.30
+sense_resistor: 0.110
+interpolate: False
+stealthchop_threshold: 0
+
+[lis2dw]
+cs_pin: PB1
+spi_bus: spi2_PB2_PB11_PB10
+axes_map: x,y,z

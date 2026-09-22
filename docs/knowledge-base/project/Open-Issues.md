@@ -4,7 +4,7 @@ area: project
 status: active
 phase: stage-02
 priority: high
-updated: 2026-09-21
+updated: 2026-09-22
 ---
 
 # Open Issues
@@ -26,7 +26,7 @@ This is a source-linked register of unresolved work. IDs are local knowledge-bas
 | KB-010 | Medium / Generation 3 smart spools | Resolve reader/antenna, tag schema, load cell/holder, controller, service/database and UI details; validate real-tag decoders and profile mappings before claiming support. Follow the [smart-spool open decisions](../../../hardware/generation-3-smart-spool-system.md#open-component-level-decisions), preserving manual fallback and stable weighing as the inventory reference. |
 | KB-011 | High / Generation 3 candidate evaluation | Evaluate filament-motion sensing, hardware emergency stop/controls, nozzle cleaning, maintenance/electrical telemetry and automated pre-print checks according to the [candidate register](../../../hardware/generation-3-enhancement-candidates.md). Record integration, failure-mode and maintenance review before promoting any candidate. Hardware emergency-stop topology remains an open final-safety design item. |
 | KB-012 | Medium / Generation 3 RASS | Resolve RASS feeder/spool-drive motors, motor drivers, feeder geometry/encoder, buffer-dancer mechanism and sensing, spool-rotation feedback, PTFE routing, fallback/freewheel design and control calibration. Preserve the toolhead direct-drive extruder as master and keep the full spool support inside the calibrated load-cell path. See [RASS open decisions](../../../hardware/generation-3-rass.md#open-component-level-decisions). |
-| KB-013 | Medium / Generation 3 procurement/bench test | Receive, photograph and bench-test the purchased Manta M8P V2.0, EBB36 Gen2 kit and 6× TMC2209 V1.3 while warranty/return windows are open. CB2 remains pending; temporary Linux host over USB is permitted for Manta testing. Close only with recorded test evidence in the [procurement status](../../../hardware/generation-3-procurement-status.md). |
+| KB-013 | Medium / Generation 3 procurement/bench test | Receive, photograph and bench-test the purchased Manta M8P V2.0, EBB36 Gen2 kit and 6× TMC2209 V1.3 while warranty/return windows are open. The [versioned bench-test pack](../../../hardware/bench-tests/generation-3-electronics/README.md) is now prepared, including Raspberry Pi 2 host setup, six-driver isolation, eight Manta-socket coverage, EBB36 USB checks and a two-node CAN test. CB2 remains pending. Close only after reviewed PASS evidence is recorded in the [procurement status](../../../hardware/generation-3-procurement-status.md). |
 | KB-014 | High / original printable parts | Confirm exact design-to-part matches, remaining accessory coverage and source attribution; see [coverage details](#kb-014--exact-original-printable-part-coverage). |
 
 Further commissioning, spare-electronics evaluation and legacy-filament qualification remain planned work in the [roadmap](../../ROADMAP.md), [spares record](../../00-archaeology/06-motion-electronics-spares.md) and [filament inventory](../../01-filaments/01-inventory.md). Their presence in inventory does not establish a passing test.
