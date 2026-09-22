@@ -51,10 +51,8 @@ MANUAL_STEPPER STEPPER=ebb_motor SET_POSITION=0
 MANUAL_STEPPER STEPPER=ebb_motor ENABLE=1
 MANUAL_STEPPER STEPPER=ebb_motor MOVE=2 SPEED=1
 MANUAL_STEPPER STEPPER=ebb_motor MOVE=0 SPEED=1
-MANUAL_STEPPER STEPPER=m1 ENABLE=0
+MANUAL_STEPPER STEPPER=ebb_motor ENABLE=0
 ACCELEROMETER_QUERY
 ```
-
-Correct the final `MANUAL_STEPPER` target to `ebb_motor` if copied manually; the command file in `scripts/` already contains the correct sequence.
 
 PASS requires stable USB, working integrated TMC2209, motor movement in both directions, plausible LIS2DW response, plausible onboard temperature and no abnormal heating.
