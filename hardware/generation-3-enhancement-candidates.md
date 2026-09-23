@@ -1,10 +1,10 @@
-# Generation 3 enhancement candidates
+# Revival Intelligence & Diagnostics — candidate backlog
 
-This document is the canonical backlog for non-frozen improvements to the Revival 2026 Generation 3 machine. It records candidate functions, their relative study priority and promotion history without silently turning ideas into requirements.
+This document is the prioritised candidate backlog for **Revival Intelligence & Diagnostics (RID)** in the Revival 2026 Generation 3 machine. The RID concept, responsibility split, autonomy model and safety boundary are defined in [generation-3-revival-intelligence-diagnostics.md](generation-3-revival-intelligence-diagnostics.md). This backlog records candidate functions, study priority and promotion history without silently turning ideas into requirements.
 
 **Eddy Duo probing has already been promoted** into the frozen architecture; its current requirements belong to the [toolhead architecture](generation-3-extrusion-toolhead.md).
 
-The objective is to improve reliability, print-failure detection, automatic preparation, diagnostics, maintenance visibility and operator safety while preserving the classic i3 character and avoiding complexity that does not earn its place.
+The RID objective is to improve reliability, print-failure detection, automatic preparation, diagnostics, maintenance visibility and operator awareness while preserving the classic i3 character and avoiding complexity that does not earn its place.
 
 ## Evaluation rule
 
@@ -215,7 +215,7 @@ Electrical telemetry is diagnostic only and never replaces fuses, rated wiring/c
 
 If studied, this is an additional warning layer, not the primary fire-safety system. Sensor placement, contamination, false-positive behaviour and independent response paths must be reviewed before any promotion.
 
-### H08 — nozzle/toolhead camera
+### H10 — nozzle/toolhead camera
 
 The baseline fixed frame camera should be exhausted first. A second moving camera is only justified if it materially improves nozzle/first-layer inspection.
 
@@ -228,7 +228,7 @@ The study must include:
 - EMI/routing alongside CAN and 24 V;
 - field of view and lighting.
 
-### H10 — independent axis-position verification
+### H13 — independent axis-position verification
 
 Linear/rotary encoders could provide true-motion verification, but this is deliberately low in the initial study order because it adds mechanics, wiring, calibration and software complexity. It should only advance if tests show that the diagnostic value justifies the integration cost.
 

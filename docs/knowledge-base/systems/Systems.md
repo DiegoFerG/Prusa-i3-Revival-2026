@@ -2,7 +2,7 @@
 type: index
 area: systems
 status: active
-updated: 2026-09-19
+updated: 2026-09-23
 ---
 
 # Systems
@@ -18,6 +18,7 @@ These pages connect the recovered machine, current reconstruction and future arc
 | Filament system | Qualify the recovered stock before later conversion | [Filament system](Filament-System.md) |
 | Heated bed | Reconstruct the original stack; measure before final-bed design | [Heated bed](Heated-Bed.md) |
 | User interface | Document the historical LCD and planned final interface | [User interface](User-Interface.md) |
+| Revival Intelligence & Diagnostics | Plan CB2-hosted supervisory intelligence, vision, condition monitoring and diagnostics without replacing deterministic control or independent safety | [Revival Intelligence & Diagnostics](Revival-Intelligence-Diagnostics.md) |
 | Safety | Apply the current unpowered boundary and future independent protection requirements | [Safety](Safety.md) |
 
 The workflow is defined by [Roadmap stages 00–10](../../ROADMAP.md). The [Generation 3 architecture](../../final-build-architecture.md) describes a future machine configuration; Generation 3 does not mean Roadmap Stage 03.

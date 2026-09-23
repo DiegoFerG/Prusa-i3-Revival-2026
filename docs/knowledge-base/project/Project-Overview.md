@@ -2,7 +2,7 @@
 type: project
 area: project
 status: active
-updated: 2026-09-21
+updated: 2026-09-23
 ---
 
 # Project Overview
@@ -21,7 +21,7 @@ Restore and modernize the recovered classic Prusa i3 while preserving its docume
 
 A **roadmap stage** is a workstream numbered 00–10. A **manual stage** is a reconstruction step lettered A–J inside roadmap Stage 02. A **generation** is a machine configuration. Generation 3 is not roadmap Stage 03.
 
-Generation 3 also includes the frozen [smart-spool architecture](../../../hardware/generation-3-smart-spool-system.md). The [enhancement register](../../../hardware/generation-3-enhancement-candidates.md) records proposals and their promotion history. Eddy Duo probing has been promoted into the frozen [toolhead architecture](../../../hardware/generation-3-extrusion-toolhead.md); the remaining candidates require their own explicit decisions.
+Generation 3 also includes the frozen [smart-spool architecture](../../../hardware/generation-3-smart-spool-system.md). [Revival Intelligence & Diagnostics](../../../hardware/generation-3-revival-intelligence-diagnostics.md) is the supervisory-intelligence and diagnostics umbrella; its [candidate backlog](../../../hardware/generation-3-enhancement-candidates.md) records software-only and selected hardware proposals plus their promotion history. Eddy Duo probing has been promoted into the frozen [toolhead architecture](../../../hardware/generation-3-extrusion-toolhead.md); the remaining candidates require their own explicit decisions.
 
 ## Constraints to carry forward
 

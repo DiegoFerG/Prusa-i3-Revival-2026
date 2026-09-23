@@ -266,6 +266,22 @@ Klipper host on CB2
 
 Final configuration, macros and calibration data must be versioned under `firmware/` rather than living only on printer storage.
 
+## Revival Intelligence & Diagnostics
+
+**Revival Intelligence & Diagnostics (RID)** is the Generation 3 supervisory-intelligence and diagnostic umbrella hosted primarily on the CB2. It provides a common framework for future pre-flight checks, maintenance history, condition monitoring, vision, anomaly capture, sensor fusion and diagnostic user experience.
+
+The concept and subsystem boundary are documented in [`../hardware/generation-3-revival-intelligence-diagnostics.md`](../hardware/generation-3-revival-intelligence-diagnostics.md). The prioritised feature backlog remains in [`../hardware/generation-3-enhancement-candidates.md`](../hardware/generation-3-enhancement-candidates.md).
+
+RID does **not** move deterministic motion/heater control away from Klipper/Manta/EBB36/Eddy and does not replace independent hardware safety. Individual RID features remain candidates until separately promoted.
+
+The intended responsibility split is:
+
+- CB2/RID: observation, correlation, history, vision, diagnostics, notifications and tested reversible high-level actions;
+- Klipper/Manta/EBB36/Eddy: deterministic machine control and normal firmware protections;
+- independent hardware: mains, over-current, protective-earth, thermal-fuse and emergency-energy-removal functions.
+
+RID should be local-first and should reuse already-frozen data sources before new hardware is added.
+
 ## Safety boundaries
 
 The following must remain effective independently of normal host communication:

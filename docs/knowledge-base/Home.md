@@ -4,7 +4,7 @@ area: project
 status: active
 phase: stage-02
 priority: high
-updated: 2026-09-21
+updated: 2026-09-23
 ---
 
 # Prusa i3 Revival 2026
@@ -25,7 +25,7 @@ The project repository is also this Obsidian vault. Start here to find the curre
 
 ## Systems and build
 
-- [Systems](systems/Systems.md): [Mechanics](systems/Mechanics.md), [Electronics](systems/Electronics.md), [Firmware](systems/Firmware.md), [Extrusion](systems/Extrusion.md), [Filament System](systems/Filament-System.md), [Heated Bed](systems/Heated-Bed.md), [User Interface](systems/User-Interface.md), [Safety](systems/Safety.md).
+- [Systems](systems/Systems.md): [Mechanics](systems/Mechanics.md), [Electronics](systems/Electronics.md), [Firmware](systems/Firmware.md), [Extrusion](systems/Extrusion.md), [Filament System](systems/Filament-System.md), [Heated Bed](systems/Heated-Bed.md), [User Interface](systems/User-Interface.md), [Safety](systems/Safety.md), [Revival Intelligence & Diagnostics](systems/Revival-Intelligence-Diagnostics.md).
 - [Build](build/Build.md): workflow, reassembly sequence and evidence checkpoints.
 - [Knowledge Base table](Knowledge-Base.base): native Obsidian Bases views of these notes and their properties. The linked Markdown pages remain usable on GitHub.
 

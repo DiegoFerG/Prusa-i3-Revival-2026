@@ -2,7 +2,7 @@
 type: index
 area: documentation
 status: active
-updated: 2026-09-22
+updated: 2026-09-23
 ---
 
 # Documentation
@@ -21,7 +21,8 @@ The knowledge base connects these canonical documents. Detailed inventories, pro
 | Legacy filament | [Filament archive rules](../../01-filaments/README.md) | [Inventory and qualification work](../../01-filaments/01-inventory.md) |
 | Generation 3 design | [Frozen architecture](../../final-build-architecture.md) | [Procurement status](../../../hardware/generation-3-procurement-status.md), [electronics bench-test pack](../../../hardware/bench-tests/generation-3-electronics/README.md), [Target BOM](../../../hardware/generation-3-target-bom.md), [linear-motion architecture](../../../hardware/generation-3-linear-motion.md), [Roto + Revo + Eddy extrusion/toolhead target](../../../hardware/generation-3-extrusion-toolhead.md) |
 | Generation 3 smart spools | [Identification, learning and weighing architecture](../../../hardware/generation-3-smart-spool-system.md) | [RASS active-feed architecture](../../../hardware/generation-3-rass.md), [Filament System](../systems/Filament-System.md), [target BOM](../../../hardware/generation-3-target-bom.md) |
-| Generation 3 proposals and promotions | [Enhancement candidates](../../../hardware/generation-3-enhancement-candidates.md) | Evaluation criteria and promotion history; Eddy Duo is now frozen, while unpromoted candidates remain separate from requirements |
+| Revival Intelligence & Diagnostics | [RID subsystem concept](../../../hardware/generation-3-revival-intelligence-diagnostics.md) | CB2 supervisory role, functional layers, autonomy boundary, local-first data model and promotion rules |
+| RID candidates and promotions | [RID candidate backlog](../../../hardware/generation-3-enhancement-candidates.md) | Prioritised software-only and minimal-hardware/high-impact studies; unpromoted candidates remain separate from requirements |
 | Original printable designs | [Part catalogue](../../../printed-parts/original-designs/Original-Printed-Parts.md), [archive provenance](../../../printed-parts/original-designs/Provenance.md) | Preserved historical STL/SCAD files, licenses and hashes; exact part matching remains open. |
 | Manufacturing, configuration and profiles | [Printed parts](../../../printed-parts/README.md), [firmware](../../../firmware/README.md), [profiles](../../../profiles/README.md) | Historical models are available; new project CAD, working firmware and validated profiles require their own implementation records. |
 
