@@ -1,268 +1,269 @@
 # Generation 3 enhancement candidates
 
-This document records improvement candidates and their promotion history for the Revival 2026 Generation 3 build. Unpromoted candidates remain separate from the frozen architecture so they can be evaluated at the correct mechanical/electrical design stage without silently becoming requirements. **Eddy Duo probing has been promoted**; its current requirements belong to the [toolhead architecture](generation-3-extrusion-toolhead.md).
+This document is the canonical backlog for non-frozen improvements to the Revival 2026 Generation 3 machine. It records candidate functions, their relative study priority and promotion history without silently turning ideas into requirements.
 
-The objective is to improve fault detection, automatic preparation, maintenance visibility and operator safety without turning the Revival into an unnecessarily complex machine.
+**Eddy Duo probing has already been promoted** into the frozen architecture; its current requirements belong to the [toolhead architecture](generation-3-extrusion-toolhead.md).
+
+The objective is to improve reliability, print-failure detection, automatic preparation, diagnostics, maintenance visibility and operator safety while preserving the classic i3 character and avoiding complexity that does not earn its place.
 
 ## Evaluation rule
 
-A candidate may be promoted into the frozen Generation 3 architecture only after its mechanical integration, wiring, software support, failure modes and maintenance burden have been reviewed.
+A candidate may be promoted into the frozen Generation 3 architecture only after the relevant integration, software support, failure modes, maintenance burden and safety implications have been reviewed.
 
-The preferred design philosophy is:
+The preferred design philosophy remains:
 
 > mechanical correctness first, independent hardware safety second, software automation third.
 
-## 1. Filament motion / jam detection
+Candidate status means **study later**, not purchase, installation or guaranteed implementation.
 
-### Goal
+## Prioritisation model
 
-Add a physical filament-motion sensor that verifies that filament is **actually moving** when the extruder commands motion.
+Candidates are ordered primarily by **functional value**, using **implementation complexity as the tie-breaker**. The intent is to investigate high-value, low-complexity features first.
 
-This is separate from:
+Scores are deliberately coarse and are only planning aids:
 
-- spool RFID/NFC identification;
-- spool weighing;
-- slicer-predicted filament consumption;
-- a simple filament-presence switch.
+- **Functional value:** 5 = very high, 1 = marginal.
+- **Complexity:** 1 = straightforward, 5 = substantial integration/research.
+- **Hardware:** none means no hardware beyond the already frozen Generation 3 baseline; minimal means one small sensor/interface or similarly limited addition.
+- Safety-critical functions are not allowed to depend solely on CB2/Linux/Klipper software even if they score highly.
 
-### Target failure detection
+The priority order may be revised after real commissioning data exists.
 
-- filament run-out;
+# A. Software-only candidates
+
+These candidates require **no additional hardware beyond the frozen Generation 3 baseline**. Vision candidates assume the already-frozen fixed frame camera is installed. Condition-monitoring candidates use the already-frozen permanent X/toolhead and Y/bed accelerometers plus normal Klipper/Manta/EBB telemetry.
+
+| Priority | Candidate | Value | Complexity | Main benefit |
+| ---: | --- | :---: | :---: | --- |
+| S01 | Automated pre-flight / pre-print self-check | 5 | 2 | Prevent avoidable starts by checking homing, Z alignment, Eddy, temperatures, fans, spool state and available validated sensors before printing |
+| S02 | Maintenance counters and service history | 5 | 2 | Track printer/print hours, heater cycles, fan runtime, nozzle throughput, lubrication and service events |
+| S03 | Startup subsystem health check | 4 | 2 | Verify expected Klipper MCUs, CAN/USB nodes, sensors, cameras and sane temperature readings before use |
+| S04 | Smart notifications and fault escalation | 4 | 1 | Send useful alerts for intervention, completion or abnormal state without adding local hardware |
+| S05 | Post-print report and diagnostic event log | 4 | 2 | Record job result, temperatures, duration, material, warnings, calibration state and selected images/telemetry |
+| S06 | Heater warm-up / thermal-response trend analysis | 4 | 2 | Detect gradual changes in bed/hotend heating behaviour using existing temperature and heater-duty data |
+| S07 | Resonance and mechanical-condition trend tracking | 5 | 3 | Compare permanent accelerometer measurements over time for clues about belts, fasteners, rails and structural changes |
+| S08 | Automated belt-frequency / tension trend check | 4 | 3 | Reuse the permanent accelerometers to compare belt-related response against the machine's own baseline |
+| S09 | Camera-based general print-failure detection | 5 | 3 | Detect likely spaghetti, detached parts, gross layer shifts or abnormal print appearance using the fixed camera |
+| S10 | First-layer visual inspection | 5 | 4 | Combine camera evidence with Eddy/Z state to detect poor adhesion, missing extrusion or dragged first-layer lines |
+| S11 | Machine-health baseline and condition score | 4 | 3 | Summarise trends from resonance, thermal response, failure history and maintenance state into actionable diagnostics |
+| S12 | Sensor-fusion fault confidence engine | 5 | 4 | Combine camera, accelerometers, temperatures, Klipper state, filament data when available and other validated telemetry instead of trusting one sensor |
+| S13 | Automatic anomaly snapshot / local black-box capture | 4 | 3 | Preserve images and recent telemetry around pauses, errors or detected anomalies for later diagnosis |
+| S14 | Expected-geometry / G-code versus camera comparison | 4 | 5 | Compare what should exist at a layer/position with what the fixed camera observes to detect geometric deviations |
+| S15 | Automated maintenance recommendations | 4 | 4 | Convert measured trends and service history into specific prompts such as inspect Y belt or re-run resonance baseline |
+
+## Software-candidate notes
+
+### S01 — Automated pre-flight
+
+The target is an orchestrated Klipper/Moonraker workflow, not one giant opaque macro. It should only test hardware that actually exists and has passed commissioning.
+
+Possible sequence:
+
+```text
+configuration/version sanity
+        |
+MCU / CAN / USB node presence
+        |
+temperature plausibility
+        |
+home axes
+        |
+Z gantry alignment
+        |
+Eddy health + scan/reference
+        |
+fan checks where RPM feedback exists
+        |
+spool/material checks where available
+        |
+optional nozzle-cleaning workflow
+        |
+READY TO PRINT
+```
+
+Optional/non-critical telemetry faults should degrade gracefully rather than creating an unsafe or unrecoverable state.
+
+### S02 / S07 / S08 / S11 / S15 — condition history
+
+The Revival should be compared primarily against **its own commissioned baseline**. A resonance shift or thermal trend is diagnostic evidence, not automatic proof of one specific fault.
+
+Useful retained history may include:
+
+- powered and printing hours;
+- heater hours/cycles and warm-up curves;
+- fan runtime/RPM events where feedback exists;
+- filament throughput by nozzle/material;
+- nozzle install/change date;
+- rail lubrication/service date;
+- belt checks;
+- X/Y resonance measurements;
+- PID/calibration history;
+- jam/run-out/failed-print events;
+- user-confirmed maintenance actions.
+
+Data should remain locally exportable. Important configuration/calibration records should be versioned where practical.
+
+### S09 / S10 / S12 / S14 — vision and sensor fusion
+
+The first study should use the already-planned fixed frame camera before adding a second moving camera.
+
+Possible visual states include:
+
+- normal print;
+- detached or shifted object;
+- spaghetti-like extrusion;
+- major layer-shift suspicion;
+- first-layer adhesion failure;
+- no visible extrusion where extrusion is expected;
+- material accumulation/blob suspicion.
+
+Any automatic pause policy must be conservative, logged and reversible. Vision must not become a safety system for heaters or mains power.
+
+Local CB2 inference is desirable if performance and software support prove adequate, but candidate status does not freeze an AI runtime, model family or cloud dependency.
+
+# B. Minimal-hardware or high-impact hardware candidates
+
+These additions are candidates because they either require very little extra hardware or could provide a sufficiently large reliability/safety/diagnostic improvement to justify dedicated study.
+
+| Priority | Candidate | Value | Complexity | Added hardware / reason to study |
+| ---: | --- | :---: | :---: | --- |
+| H01 | Filament-motion / jam sensor | 5 | 2 | Small encoder/pulse sensor; directly detects commanded extrusion without actual filament motion |
+| H02 | Hardware emergency stop plus essential physical controls | 5 | 3 | High safety/operability value; E-stop must act independently of CB2/Linux/Klipper |
+| H03 | Nozzle cleaning / purge station | 5 | 3 | Small mechanical station; improves probe/reference reliability and unattended preparation |
+| H04 | DC power/energy monitoring | 4 | 2 | Small current/voltage monitor; enables PSU/heater diagnostics and energy history |
+| H05 | Ambient temperature/humidity sensor | 3 | 1 | Very small sensor; useful context for print records, materials and diagnostics |
+| H06 | Dedicated abnormal-air/smoke monitoring | 4 | 2 | Small independent sensor path for warning/diagnostics; never substitutes for electrical/thermal protection |
+| H07 | Additional motor/electronics temperature sensing | 3 | 2 | Small sensors can identify overheating or changing operating conditions |
+| H08 | Nozzle/toolhead camera | 4 | 3 | Significant first-layer/nozzle visibility; moving USB/power, mass and strain relief require study |
+| H09 | CB2 hold-up / graceful-shutdown power support | 4 | 3 | Small UPS/supercapacitor-class subsystem could preserve logs and shut Linux down cleanly after input loss |
+| H10 | Independent axis-position verification / encoders | 5 | 5 | Larger integration burden but potentially strong detection of lost motion or true-position errors |
+| H11 | Acoustic condition monitoring microphone | 2 | 2 | Very small hardware addition; experimental detection of fan/bearing/periodic mechanical changes |
+| H12 | Low-resolution thermal imaging | 3 | 4 | Potential heater/bed/nozzle diagnostic value, but cost, mounting and interpretation require proof before promotion |
+
+## Hardware-candidate notes
+
+### H01 — filament motion / jam detection
+
+The sensor should verify that filament is **actually moving**, rather than only detecting presence.
+
+Target faults:
+
+- run-out;
 - filament break;
 - extruder grinding/slipping;
 - blocked or partially blocked hotend;
-- spool unable to rotate;
-- feed path obstruction.
+- spool/feed-path obstruction.
 
-### Candidate implementation
+A compact encoder/wheel-style Klipper-compatible sensor is the reference concept. Exact hardware and mounting remain open and must not add excessive drag, especially for flexible filament.
 
-A compact encoder/wheel-style motion sensor mounted in the filament path, with Klipper-compatible pulse monitoring. A BTT Smart Filament Sensor-class implementation is a reference candidate, but the exact sensor is not frozen.
+### H02 — hardware emergency stop and controls
 
-The sensor must not add excessive drag or compromise flexible-material feeding.
+A physical panel may include pause/resume/function controls, but the emergency-stop function is different: if adopted, hazardous actuator/heater energy must be removable without relying on Linux, Klipper, Moonraker, CAN or a software macro.
 
-### Status
+The E-stop does not replace mains fusing, protective earth, branch fusing, bed thermal fuse or firmware heater protections.
 
-**Strong candidate for promotion to base Generation 3 hardware.** Exact sensor and mounting remain open.
+### H03 — nozzle cleaning / purge station
 
----
+Potential functions:
 
-## 2. Eddy-current Z probe / fast bed scanning — promoted
+- purge position;
+- heat-resistant brush/wiper;
+- controlled wipe sequence;
+- removable debris collection;
+- optional purge catcher.
 
-This candidate has been **promoted into the frozen Generation 3 architecture**.
+It should remain within or very close to the historical envelope and must not contaminate guides/electronics or compromise usable travel.
+
+### H04 — electrical power and health monitoring
+
+Candidate measurements:
+
+- 24 V bus voltage;
+- total DC current;
+- selected branch current if useful;
+- power/energy;
+- heater warm-up behaviour;
+- voltage sag or abnormal trends.
+
+Electrical telemetry is diagnostic only and never replaces fuses, rated wiring/connectors, thermal protection or protective earth.
+
+### H06 — abnormal-air/smoke monitoring
+
+If studied, this is an additional warning layer, not the primary fire-safety system. Sensor placement, contamination, false-positive behaviour and independent response paths must be reviewed before any promotion.
+
+### H08 — nozzle/toolhead camera
+
+The baseline fixed frame camera should be exhausted first. A second moving camera is only justified if it materially improves nozzle/first-layer inspection.
+
+The study must include:
+
+- moving cable bend life;
+- strain relief;
+- USB topology/bandwidth;
+- toolhead mass;
+- EMI/routing alongside CAN and 24 V;
+- field of view and lighting.
+
+### H10 — independent axis-position verification
+
+Linear/rotary encoders could provide true-motion verification, but this is deliberately low in the initial study order because it adds mechanics, wiring, calibration and software complexity. It should only advance if tests show that the diagnostic value justifies the integration cost.
+
+# C. Candidate study order
+
+The recommended first pass is:
+
+1. S01 pre-flight checks;
+2. S02 maintenance/service history;
+3. S03 startup subsystem health;
+4. S04 notifications;
+5. S05 post-print/event reporting;
+6. S06 thermal-response trends;
+7. H01 filament-motion sensor;
+8. S07/S08 resonance and belt trends;
+9. H02 hardware emergency stop / essential controls;
+10. H03 nozzle cleaning;
+11. S09 fixed-camera failure detection;
+12. H04 power monitoring;
+13. S10 first-layer vision;
+14. S11/S12 condition scoring and sensor fusion;
+15. the remaining candidates in table order.
+
+This is a **study order**, not a purchasing order and not an architecture commitment.
+
+# D. Study protocol
+
+Each candidate should be reviewed independently before promotion. Record at least:
+
+1. exact problem being solved;
+2. existing baseline hardware/data it can reuse;
+3. required new hardware, if any;
+4. software integration path;
+5. expected benefit and measurable success criteria;
+6. false-positive / false-negative behaviour where relevant;
+7. failure mode if the feature itself stops working;
+8. safety implications;
+9. maintenance burden;
+10. mechanical envelope, mass and wiring impact;
+11. prototype result;
+12. promote / defer / reject outcome with rationale.
+
+A candidate that can be implemented in software should normally be prototyped before adding hardware intended to solve the same problem.
+
+# E. Promoted candidate history
+
+## Eddy-current Z probe / fast bed scanning — promoted
+
+Eddy-current probing has been promoted into the frozen Generation 3 architecture.
 
 The selected direction is **BIGTREETECH Eddy Duo** integrated with the frozen E3D Roto + Revo toolhead stack.
 
-The remaining work is no longer a component-selection question; it is implementation engineering:
+Remaining work is implementation engineering rather than candidate selection:
 
 - final mount geometry and adjustability;
 - X/Y/Z probe offsets;
 - connector pinout and physical harness for the frozen independent 5 V CAN node downstream of the EBB36 Gen2 passthrough;
 - thermal calibration/compensation;
 - repeatability validation on the final spring-steel/magnetic bed;
-- interaction with the nozzle-cleaning strategy and final Z-reference workflow.
+- interaction with nozzle cleaning and the final Z-reference workflow.
 
 Canonical source: [Generation 3 extrusion/toolhead target](generation-3-extrusion-toolhead.md).
-
----
-
-## 3. Nozzle cleaning / purge station
-
-### Goal
-
-Provide a compact fixed station that can clean the nozzle before probing and, where useful, before printing.
-
-### Possible functions
-
-- purge position;
-- heat-resistant brush or wiping surface;
-- controlled nozzle wipe sequence;
-- removable debris collection area;
-- optional purge catcher.
-
-### Design constraints
-
-- remain inside or very close to the original machine envelope;
-- not reduce useful bed travel unnecessarily;
-- be easy to remove and clean;
-- tolerate nozzle temperatures safely;
-- avoid dropping debris into electronics or linear guides;
-- integrate with Klipper macros only after the mechanical geometry is proven.
-
-This feature becomes especially valuable if the final Z reference requires a clean nozzle.
-
-### Status
-
-**Strong candidate**, linked to the final probe/toolhead decision.
-
----
-
-## 4. Retro physical control panel and hardware emergency stop
-
-### Goal
-
-Complement the HDMI5/KlipperScreen interface with a small physical control panel that reinforces the Revival aesthetic and provides immediate hardware control.
-
-### Candidate controls
-
-- illuminated main power control;
-- PAUSE button;
-- RESUME button;
-- user-programmable function button;
-- rotary encoder or selector if useful;
-- hardware emergency-stop control.
-
-### Emergency-stop requirement
-
-If implemented, the emergency-stop function must **not depend on Linux, Klipper, Moonraker, CAN or a software macro** to remove hazardous actuator/heater energy.
-
-The exact power architecture must be designed later, but the target is a latching hardware mechanism that places the machine in a safe state and requires deliberate reset.
-
-The emergency-stop function is not a substitute for mains fusing, protective earth, branch fuses, thermal protection or firmware heater checks.
-
-### Aesthetic direction
-
-Industrial/retro instrumentation rather than a modern gaming/control-panel appearance: physical buttons, restrained indicator lamps and lab/industrial visual language consistent with the HDMI5 enclosure and CCTV camera styling.
-
-### Status
-
-**Candidate subsystem. Hardware emergency-stop functionality has high priority during the final safety design.**
-
----
-
-## 5. Maintenance and condition telemetry
-
-### Goal
-
-Use the sensors already present in Generation 3 to build a local maintenance record and detect gradual degradation.
-
-### Candidate data
-
-- total printer powered hours;
-- total printing hours;
-- hotend heater hours and heating cycles;
-- bed heater hours and cycles;
-- individual fan runtime;
-- hotend-fan RPM history and low-RPM events;
-- total filament consumed by material/profile;
-- rail/lubrication maintenance date;
-- nozzle install date and estimated filament throughput;
-- belt service/tension checks;
-- resonance-test history;
-- temperature-calibration/PID history;
-- jam/run-out events;
-- failed or cancelled print history.
-
-### Resonance trend tracking
-
-Because X/toolhead and Y/bed accelerometers are permanently installed, repeated resonance tests may be stored and compared over time. Large changes can be used as a maintenance clue for:
-
-- loose fasteners;
-- rail/block degradation;
-- belt-tension changes;
-- toolhead changes;
-- bearing/roller problems;
-- frame looseness.
-
-This is diagnostic telemetry, not automatic proof of a specific mechanical fault.
-
-### Storage policy
-
-Maintenance data should remain exportable and locally stored. Important configuration/calibration data belongs in version-controlled project files where practical rather than existing only in a printer-local database.
-
-### Status
-
-**Software-oriented candidate with low hardware cost.** Evaluate once the final sensor set is known.
-
----
-
-## 6. Electrical power and health monitoring
-
-### Goal
-
-Add non-safety-critical measurement of DC power behaviour for diagnostics, energy logging and degradation detection.
-
-### Candidate measurements
-
-- 24 V bus voltage;
-- total DC current;
-- selected branch current where useful;
-- calculated power/energy;
-- bed heater warm-up time;
-- hotend warm-up time;
-- abnormal current or voltage trends.
-
-### Potential uses
-
-- energy-per-print statistics;
-- detect unexpected PSU voltage sag;
-- identify a heater that is taking progressively longer to reach temperature;
-- correlate electrical behaviour with thermal faults;
-- log abnormal operating conditions.
-
-### Safety boundary
-
-Electrical telemetry is **diagnostic only**. It must never replace:
-
-- fuses;
-- properly rated wiring/connectors;
-- thermal fuse on the bed;
-- protective earth;
-- hardware emergency-stop design;
-- Klipper heater protections.
-
-### Status
-
-**Candidate**, exact sensor topology and whether per-branch measurement is worthwhile remain open.
-
----
-
-## 7. Automated pre-print self-check sequence
-
-These candidates can ultimately be combined into a controlled pre-print workflow. The sequence itself is a software concept and will only be enabled for hardware that has been installed and validated.
-
-Possible future flow:
-
-```text
-spool detected
-   |
-RFID/NFC identity + remaining mass
-   |
-filament-motion sensor ready
-   |
-home axes
-   |
-Z gantry alignment
-   |
-nozzle clean / purge
-   |
-fast bed scan / Z reference
-   |
-verify temperatures / fans / selected sensors
-   |
-print
-```
-
-During printing the machine may monitor:
-
-```text
-filament motion
-hotend-fan RPM
-temperatures
-spool inventory estimate
-selected electrical telemetry
-```
-
-The machine should fail gracefully: optional telemetry or identification subsystems must not turn a recoverable non-critical sensor fault into an unsafe state.
-
-## Promotion priorities
-
-When Generation 3 design reaches the relevant subsystems, evaluate in approximately this order:
-
-1. filament-motion/jam sensor;
-2. hardware emergency-stop and physical controls;
-3. nozzle-cleaning station and its interaction with the frozen Eddy Duo probe and final Z-reference workflow;
-4. maintenance telemetry;
-5. electrical monitoring;
-6. integrated automated pre-print/self-check workflow.
-
-This order is not a purchasing order and may change with the final mechanical design.

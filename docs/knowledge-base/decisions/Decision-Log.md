@@ -2,7 +2,7 @@
 type: decision-log
 area: project
 status: active
-updated: 2026-09-21
+updated: 2026-09-23
 ---
 
 # Decision Log
@@ -33,6 +33,7 @@ This register indexes decisions already present in the repository. It does not r
 | DEC-018 | Preserve the original flat steel frame and the complete 2× M10×350 + 4× M8×200 threaded-rod lower structure as functional Generation 3 mechanics; do not replace them with an extrusion chassis | Frozen Generation 3 constraint; agreed 20 September 2026 | [Final architecture](../../final-build-architecture.md#non-negotiable-constraints), [linear-motion architecture](../../../hardware/generation-3-linear-motion.md#design-intent) |
 | DEC-019 | Use commercial aluminium T-slot profiles as X/Y MGN12 support structures, with exact 2020/2040-class sections deferred; for Z prefer direct rail mounting to the steel frame, then thin aluminium backing plates, and use profiles only if metrology requires them | Frozen mechanical architecture; exact dimensions and final Z implementation deferred to measured CAD | [Linear-motion architecture](../../../hardware/generation-3-linear-motion.md#frozen-axis-architecture), [target BOM](../../../hardware/generation-3-target-bom.md) |
 | DEC-020 | Preserve the original printable designs locally, retaining upstream bytes, attribution, revisions and hashes; keep adaptations separate | Archive implemented locally, 19 September 2026; exact physical fit remains open | [Archive](../../../printed-parts/original-designs/README.md), requested by the owner after finding the missing small-gear file; [KB-014](../project/Open-Issues.md#kb-014--exact-original-printable-part-coverage) tracks remaining identification and fit. |
+| DEC-021 | Maintain a prioritised Generation 3 enhancement backlog: software-only functions are candidates by default when they reuse frozen hardware; minimal-hardware or exceptionally high-value additions are also candidates for one-by-one study, ordered by functional value with complexity as the tie-breaker | Candidate-governance decision; no listed feature is promoted by this entry | [Enhancement candidate register](../../../hardware/generation-3-enhancement-candidates.md#prioritisation-model), agreed 23 September 2026 |
 
 On 21 September 2026, a synchronization conflict had left two different DEC-014 entries in the published register. The established Roto/Revo decision retains DEC-014; the archive-preservation decision is now DEC-020. Its original 19 September implementation date is unchanged.
 

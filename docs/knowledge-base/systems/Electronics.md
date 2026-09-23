@@ -5,7 +5,7 @@ status: documented
 phase: stage-02
 priority: high
 generation: original
-updated: 2026-09-22
+updated: 2026-09-23
 ---
 
 # Electronics
@@ -24,7 +24,7 @@ CB2 remains the frozen final host but is not yet purchased; a temporary Linux PC
 
 ## Related work
 
-The [procurement status](../../../hardware/generation-3-procurement-status.md) is the canonical record for Generation 3 purchases and receiving tests. The [smart-spool target](../../../hardware/generation-3-smart-spool-system.md) adds separate reader/weighing electronics with wired USB to CB2 preferred; exact parts and integration are deferred. The [RASS extension](../../../hardware/generation-3-rass.md) adds local motor control for spool assistance and the upstream feeder plus buffer/dancer sensing; it remains separate from the motion-control MCU and prefers USB to CB2. The [enhancement register](../../../hardware/generation-3-enhancement-candidates.md) separately records proposed motion sensing, physical controls and diagnostic electrical monitoring. These candidates are not installed or automatically frozen by their inclusion.
+The [procurement status](../../../hardware/generation-3-procurement-status.md) is the canonical record for Generation 3 purchases and receiving tests. The [smart-spool target](../../../hardware/generation-3-smart-spool-system.md) adds separate reader/weighing electronics with wired USB to CB2 preferred; exact parts and integration are deferred. The [RASS extension](../../../hardware/generation-3-rass.md) adds local motor control for spool assistance and the upstream feeder plus buffer/dancer sensing; it remains separate from the motion-control MCU and prefers USB to CB2. The [enhancement register](../../../hardware/generation-3-enhancement-candidates.md) separately prioritises minimal-hardware/high-impact studies including filament-motion sensing, hardware emergency stop/controls, nozzle cleaning, DC power monitoring, ambient/abnormal-air sensing, optional additional temperature sensing, nozzle camera, CB2 graceful-shutdown support and later position/acoustic/thermal diagnostics. These candidates are not installed, purchased or automatically frozen by their inclusion.
 
 - [Safety](Safety.md) — no mains power during Stage 02; independent future protections.
 - [Firmware](Firmware.md) — software responsibilities and configuration storage.

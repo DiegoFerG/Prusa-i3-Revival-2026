@@ -4,7 +4,7 @@ area: firmware
 status: planned
 phase: stage-07
 priority: normal
-updated: 2026-09-22
+updated: 2026-09-23
 ---
 
 # Firmware
@@ -21,7 +21,7 @@ Final configuration, macros and calibration data must be versioned under `firmwa
 
 ## Dependencies
 
-The [smart-spool architecture](../../../hardware/generation-3-smart-spool-system.md) adds a target local service, decoder registry, assisted unknown-tag learning and mappings to calibrated Revival profiles. The [RASS architecture](../../../hardware/generation-3-rass.md) adds a local active-feed controller whose upstream feeder follows toolhead demand through buffer/dancer feedback; exact control implementation and calibration remain future work. Real-tag validation is required before claiming decoder support. [Maintenance telemetry and automated pre-print checks](../../../hardware/generation-3-enhancement-candidates.md) remain candidates to evaluate after their underlying hardware is validated.
+The [smart-spool architecture](../../../hardware/generation-3-smart-spool-system.md) adds a target local service, decoder registry, assisted unknown-tag learning and mappings to calibrated Revival profiles. The [RASS architecture](../../../hardware/generation-3-rass.md) adds a local active-feed controller whose upstream feeder follows toolhead demand through buffer/dancer feedback; exact control implementation and calibration remain future work. Real-tag validation is required before claiming decoder support. The [enhancement candidate register](../../../hardware/generation-3-enhancement-candidates.md) now prioritises software-only work that can reuse the frozen baseline: pre-flight checks, service history, subsystem-health checks, notifications, job/event reports, thermal-response trends, resonance/belt trends, fixed-camera failure detection, first-layer vision, health scoring and later sensor fusion. Candidate status does not imply implementation, and automatic safety actions remain bounded by the independent hardware-safety architecture.
 
 - [Electronics](Electronics.md) — controller, drivers, sensors and wiring.
 - [Mechanics](Mechanics.md) — alignment before software compensation.
