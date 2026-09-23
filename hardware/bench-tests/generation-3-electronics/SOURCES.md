@@ -16,3 +16,7 @@
   https://www.klipper3d.org/CANBUS.html
 
 Before wiring or flashing, verify the exact PCB revision physically received against the current vendor documentation.
+
+## Local pinned archive
+
+The official BIGTREETECH source material used by this bench-test pack is also preserved locally under [the vendor reference archive](../../reference/bigtreetech/README.md), with pinned upstream commits and SHA-256 hashes.

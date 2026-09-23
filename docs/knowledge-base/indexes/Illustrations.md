@@ -2,20 +2,21 @@
 type: index
 area: documentation
 status: active
-updated: 2026-09-21
+updated: 2026-09-23
 ---
 
 # Illustrations
 
 [Home](../Home.md) · [Photos](Photos.md) · [Documentation](Documentation.md)
 
-No standalone project illustrations, diagrams, manual renders or local PDF manuals were present in the repository at setup. This index records the existing reference locations without introducing an empty asset archive or treating photographic derivatives as illustrations.
+At initial Obsidian setup no standalone project illustrations or local PDF manuals were present. The repository now also contains a pinned BIGTREETECH vendor-reference archive for the purchased Generation 3 electronics. Those imported manuals and diagrams remain third-party references, not project-authored illustrations or physical test evidence.
 
 | Resource | What exists |
 |---|---|
 | [Project reassembly manual](../../02-reassembly/original-reassembly-manual.md) | Project-specific assembly instructions derived from measured evidence and historical sources. |
 | [Historical reference catalogue](../../02-reassembly/historical-references.md) | External visual instructions and period manuals, with relevance, provenance and licensing notes. Follow its source links where no local copy exists. |
 | [Locally preserved historical material](../../02-reassembly/historical-manuals/README.md) | Text manual, dimension notes and license information. The [archived text manual](../../02-reassembly/historical-manuals/josefprusa-prusa3-manual.txt) mentions `ystep1.png`–`ystep11.png`; these image assets are not included locally. |
+| [BIGTREETECH vendor reference archive](../../../hardware/reference/bigtreetech/README.md) | Local upstream manuals, schematics, pinouts, connection diagrams and wiki illustrations for the purchased Manta M8P V2.0, EBB36 Gen2 / USB adapter and TMC2209 V1.3. Source revisions and hashes are retained; these files do not establish a passed test. |
 | [Photo archives](Photos.md) | Physical evidence and sanitized photographic derivatives; these retain their evidence classification. |
 | [Smart-spool architecture](../../../hardware/generation-3-smart-spool-system.md) | Inline text diagrams of the target data flow, load path, weighing electronics and UI concepts; these are design references, not physical evidence. |
 | [Linear-motion architecture](../../../hardware/generation-3-linear-motion.md) | Inline layouts for Y rail carriers and the Z mounting hierarchy; exact dimensions remain subject to measurement and CAD. |

@@ -94,3 +94,9 @@ Modernization ideas should be recorded during Stage 02, but the original geometr
 ## Electrical safety
 
 No mains-powered component is cleared for use merely because it looks intact. The JCPOWER PSU, heated bed, RAMPS power stage, connectors and all mains-side arrangements require separate electrical/safety inspection before commissioning.
+
+## Generation 3 vendor reference documentation
+
+Official BIGTREETECH manuals, pinouts, schematics, connection diagrams, reference Klipper configurations and self-contained wiki snapshots for the purchased Manta M8P V2.0, EBB36 Gen2 / USB adapter and TMC2209 V1.3 are preserved in the [BIGTREETECH vendor reference archive](reference/bigtreetech/README.md).
+
+These are pinned third-party references. They do not change any component from purchased to tested or commissioned.
