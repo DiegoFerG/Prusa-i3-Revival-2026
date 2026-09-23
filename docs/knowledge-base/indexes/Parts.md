@@ -2,7 +2,7 @@
 type: index
 area: hardware
 status: active
-updated: 2026-09-21
+updated: 2026-09-23
 ---
 
 # Parts
@@ -19,6 +19,7 @@ Use the existing inventories below for quantities, measurements, identification 
 | Legacy filament stock | [Filament inventory](../../01-filaments/01-inventory.md) | Qualification candidates; an inventory entry is not a successful print test. |
 | Generation 3 selections | [Target hardware BOM](../../../hardware/generation-3-target-bom.md) | Target selections and open details, not an as-built inventory. |
 | Generation 3 acquired stock | [Procurement status](../../../hardware/generation-3-procurement-status.md) | Manta M8P V2.0, EBB36 Gen2 kit and 6× TMC2209 V1.3 are purchased; purchased does not mean tested or commissioned. |
+| RASS prototype stock | [RASS architecture](../../../hardware/generation-3-rass.md), [procurement status](../../../hardware/generation-3-procurement-status.md) | Existing 28BYJ-48 5 V + ULN2003 set is the preferred spool-drive prototype candidate; not frozen production hardware and not suitable as the precision feeder. |
 | Smart-spool holder, reader and weighing hardware | [Smart-spool system](../../../hardware/generation-3-smart-spool-system.md) | Frozen architecture; exact components and mechanical integration remain open. |
 | Potential Generation 3 additions | [Enhancement candidates](../../../hardware/generation-3-enhancement-candidates.md) | Evaluation and promotion register; Eddy Duo has moved into the frozen target BOM. Remaining proposals are not purchased or installed hardware. |
 | Final rails, mounting and alignment | [Generation 3 linear motion](../../../hardware/generation-3-linear-motion.md) | Frozen architecture; final dimensions and implementation remain governed by the source. |
