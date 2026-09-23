@@ -41,6 +41,10 @@ A component may be marked **TESTED / PASS** only after:
 
 Bench configurations are intentionally conservative and are **not final printer settings**.
 
+## Bench fixture
+
+Before CAD, use the [bench-fixture dimensional survey](bench-fixture-dimensional-survey.md) to record the exact mounting, connector and service-clearance geometry of the Manta, temporary Raspberry Pi 2, 24 V bench power supply and EBB USB Adapter.
+
 ## Records
 
 - [Acceptance register](records/acceptance.csv)
