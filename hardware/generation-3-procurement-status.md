@@ -4,7 +4,7 @@ This document tracks **actual Generation 3 purchases and near-term acquisition d
 
 It must not be used as evidence that a purchased component has been electrically tested, installed or commissioned.
 
-Last reviewed: **22 September 2026**.
+Last reviewed: **23 September 2026**.
 
 ## Purchased
 
@@ -33,6 +33,17 @@ Therefore the six purchased plug-in TMC2209 modules provide:
 - two immediate spares / future expansion modules.
 
 Additional Manta drivers should only be purchased if a later subsystem actually requires them.
+
+## Existing prototype stock
+
+### RASS prototype parts already on hand
+
+| Component | Quantity | Status | Intended test |
+|---|---:|---|---|
+| 28BYJ-48 5 V geared stepper | at least 1 observed | Existing part; untested for RASS | Candidate spool-drive motor only |
+| ULN2003 5 V stepper driver board | at least 1 observed | Existing part; untested for RASS | Early ESP32-S3 spool-drive bench control |
+
+These parts are **not** frozen production selections and are **not** candidates for the precision filament feeder. They are retained as the preferred no-cost prototype for active spool rotation and must be tested with a full spool and the final load-cell/roller concept.
 
 ## Frozen but not yet purchased
 
