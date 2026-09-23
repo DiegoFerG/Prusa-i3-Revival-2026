@@ -3,7 +3,7 @@ type: system
 area: filament
 status: documented
 priority: normal
-updated: 2026-09-19
+updated: 2026-09-23
 ---
 
 # Filament system
@@ -26,7 +26,7 @@ The [smart-spool architecture](../../../hardware/generation-3-smart-spool-system
 
 The target includes Revival-native tags, OpenPrintTag and supported Bambu import, with Creality as a planned validation target. Readable unknown tags use assisted registration/learning; protected or unsupported tags retain manual fallback. Exact reader, antenna, tag schema, load cell, holder, controller and service/UI implementation remain open in the [source decisions](../../../hardware/generation-3-smart-spool-system.md#open-component-level-decisions).
 
-RASS is the frozen active-feed extension to this subsystem. The [RASS architecture](../../../hardware/generation-3-rass.md) adds driven-spool assistance, a feeder near the spool and an intermediate buffer/dancer so the toolhead direct-drive extruder remains the master extrusion actuator. Exact motors, feeder mechanics, buffer sensing and control calibration remain open.
+RASS is the frozen active-feed extension to this subsystem. The [RASS architecture](../../../hardware/generation-3-rass.md) adds driven-spool assistance, a feeder near the spool and an intermediate buffer/dancer so the toolhead direct-drive extruder remains the master extrusion actuator. Exact production motors, feeder mechanics, buffer sensing and control calibration remain open. An existing **28BYJ-48 5 V geared stepper + ULN2003 board** has been selected as the preferred prototype candidate for spool-rotation assistance only; it is explicitly not the precision feeder motor. See the [RASS motor-selection section](../../../hardware/generation-3-rass.md#motor-selection-philosophy).
 
 A filament-motion/jam sensor is a separate [enhancement candidate](../../../hardware/generation-3-enhancement-candidates.md), although its future signals may complement RASS diagnostics. It is not proof of spool identification or weighing and is not yet frozen hardware.
 
