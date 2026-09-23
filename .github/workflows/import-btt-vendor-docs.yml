@@ -1,0 +1,306 @@
+name: Import BIGTREETECH vendor reference documentation
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/import-btt-vendor-docs.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  import-vendor-reference:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out project
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download pinned BIGTREETECH reference files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          DEST="hardware/reference/bigtreetech"
+          MANTA="$DEST/manta-m8p-v2.0"
+          EBB="$DEST/ebb36-gen2-v1.0"
+          TMC="$DEST/tmc2209-v1.3"
+          WIKI="$DEST/wiki"
+
+          MANTA_COMMIT="fabdfb8bdc4ab15db95ca48db4549e36c2b73ee2"
+          EBB_COMMIT="2b839d629b174dc1da4f470cd703e5b5fcb43cbe"
+          TMC_COMMIT="9f9680040e7f696f132b1c0d75a6f79c9f288b13"
+          DOCS_COMMIT="64b4f46c86c7c74d4d83215d901e72e3b6ea6a81"
+
+          mkdir -p "$MANTA" "$EBB" "$TMC" "$WIKI"
+
+          get() {
+            local url="$1"
+            local out="$2"
+            mkdir -p "$(dirname "$out")"
+            curl --fail --location --retry 3 --silent --show-error "$url" -o "$out"
+            test -s "$out"
+          }
+
+          # Manta M8P V2.0: official manual, pinout, connection diagram,
+          # schematic, dimensions and reference Klipper configuration.
+          get "https://raw.githubusercontent.com/bigtreetech/Manta-M8P/$MANTA_COMMIT/V2.0/BIGTREETECH%20MANTA%20M8P%20V2.0%20User%20Manual.pdf" \
+              "$MANTA/BIGTREETECH-MANTA-M8P-V2.0-User-Manual.pdf"
+          get "https://raw.githubusercontent.com/bigtreetech/Manta-M8P/$MANTA_COMMIT/V2.0/Hardware/BIGTREETECH%20MANTA%20M8P%20V2.0%20PinOut.png" \
+              "$MANTA/BIGTREETECH-MANTA-M8P-V2.0-PinOut.png"
+          get "https://raw.githubusercontent.com/bigtreetech/Manta-M8P/$MANTA_COMMIT/V2.0/Hardware/M8P%20V2.0-connect.png" \
+              "$MANTA/M8P-V2.0-connect.png"
+          get "https://raw.githubusercontent.com/bigtreetech/Manta-M8P/$MANTA_COMMIT/V2.0/Hardware/BIGTREETECH%20MANTA%20M8P%20V2.0-SCH.pdf" \
+              "$MANTA/BIGTREETECH-MANTA-M8P-V2.0-SCH.pdf"
+          get "https://raw.githubusercontent.com/bigtreetech/Manta-M8P/$MANTA_COMMIT/V2.0/Hardware/BIGTREETECH%20MANTA%20M8P%20V2.0-SIZE.pdf" \
+              "$MANTA/BIGTREETECH-MANTA-M8P-V2.0-SIZE.pdf"
+          get "https://raw.githubusercontent.com/bigtreetech/Manta-M8P/$MANTA_COMMIT/V2.0/Firmware/generic-bigtreetech-manta-m8p-V2_0.cfg" \
+              "$MANTA/generic-bigtreetech-manta-m8p-V2_0.cfg"
+
+          # EBB36 Gen2 V1.0: official schematic, pinout and reference Klipper config.
+          get "https://raw.githubusercontent.com/bigtreetech/EBB/$EBB_COMMIT/EBB_GEN2/EBB36_GEN2/Hardware/BIGTREETECH_EBB36_GEN2_SCH.pdf" \
+              "$EBB/BIGTREETECH-EBB36-GEN2-SCH.pdf"
+          get "https://raw.githubusercontent.com/bigtreetech/EBB/$EBB_COMMIT/EBB_GEN2/EBB36_GEN2/Hardware/EBB36_GEN2_pin_en.jpg" \
+              "$EBB/EBB36-GEN2-pin-en.jpg"
+          get "https://raw.githubusercontent.com/bigtreetech/EBB/$EBB_COMMIT/EBB_GEN2/EBB36_GEN2/sample-bigtreetech-ebb36-gen2-v1.0.cfg" \
+              "$EBB/sample-bigtreetech-ebb36-gen2-v1.0.cfg"
+
+          # TMC2209 V1.3: official manual, pinout, schematic and dimensions.
+          get "https://raw.githubusercontent.com/bigtreetech/BIGTREETECH-Stepper-Motor-Driver/$TMC_COMMIT/TMC2209/V1.3/manual/BIGTREETECH%20TMC2209%20V1.3%20User%20Manual.pdf" \
+              "$TMC/BIGTREETECH-TMC2209-V1.3-User-Manual.pdf"
+          get "https://raw.githubusercontent.com/bigtreetech/BIGTREETECH-Stepper-Motor-Driver/$TMC_COMMIT/TMC2209/V1.3/Schematic/TMC2209-V1.3-Pin.jpg" \
+              "$TMC/TMC2209-V1.3-Pin.jpg"
+          get "https://raw.githubusercontent.com/bigtreetech/BIGTREETECH-Stepper-Motor-Driver/$TMC_COMMIT/TMC2209/V1.3/Schematic/TMC2209%20V1.3-SCH.pdf" \
+              "$TMC/TMC2209-V1.3-SCH.pdf"
+          get "https://raw.githubusercontent.com/bigtreetech/BIGTREETECH-Stepper-Motor-Driver/$TMC_COMMIT/TMC2209/V1.3/Schematic/TMC2209%20V1.3-SIZE.pdf" \
+              "$TMC/TMC2209-V1.3-SIZE.pdf"
+
+          # Exact source snapshots of the official BIGTREETECH wiki pages.
+          for doc in M8P-V2_0.md EBB36_GEN2.md TMC2209.md; do
+            get "https://raw.githubusercontent.com/bigtreetech/docs/$DOCS_COMMIT/docs/$doc" "$WIKI/$doc"
+          done
+
+          # Mirror every image referenced by the three wiki source files so that
+          # the snapshots remain locally readable without depending on live wiki assets.
+          python3 - "$WIKI" <<'PY' > /tmp/btt-wiki-images.txt
+          from pathlib import Path
+          import re, sys
+          root = Path(sys.argv[1])
+          refs = set()
+          pattern = re.compile(r'(?:src=|!\[[^\]]*\]\()(?:"|\')?([^"\'\s)>]+\.(?:png|jpg|jpeg|webp))', re.I)
+          for md in root.glob("*.md"):
+              refs.update(pattern.findall(md.read_text(encoding="utf-8")))
+          for ref in sorted(refs):
+              if ref.startswith("img/"):
+                  print(ref)
+          PY
+
+          while IFS= read -r ref; do
+            get "https://raw.githubusercontent.com/bigtreetech/docs/$DOCS_COMMIT/docs/$ref" "$WIKI/$ref"
+          done < /tmp/btt-wiki-images.txt
+
+      - name: Write provenance and archive index
+        shell: bash
+        run: |
+          set -euo pipefail
+          DEST="hardware/reference/bigtreetech"
+
+          cat > "$DEST/README.md" <<'EOF'
+          # BIGTREETECH vendor reference archive
+
+          This directory preserves pinned, local copies of official BIGTREETECH reference material used to identify, wire, configure and bench-test the purchased **Generation 3** electronics.
+
+          Imported on **23 September 2026**.
+
+          These files are **vendor references**, not project-authored documentation and not evidence that any component passed inspection, testing or commissioning.
+
+          ## Manta M8P V2.0
+
+          - [User manual](manta-m8p-v2.0/BIGTREETECH-MANTA-M8P-V2.0-User-Manual.pdf)
+          - [Official pinout](manta-m8p-v2.0/BIGTREETECH-MANTA-M8P-V2.0-PinOut.png)
+          - [Connection diagram](manta-m8p-v2.0/M8P-V2.0-connect.png)
+          - [Schematic](manta-m8p-v2.0/BIGTREETECH-MANTA-M8P-V2.0-SCH.pdf)
+          - [Board dimensions](manta-m8p-v2.0/BIGTREETECH-MANTA-M8P-V2.0-SIZE.pdf)
+          - [Reference Klipper configuration](manta-m8p-v2.0/generic-bigtreetech-manta-m8p-V2_0.cfg)
+          - [Official wiki source snapshot](wiki/M8P-V2_0.md)
+
+          ## EBB36 Gen2 V1.0 and EBB USB Adapter V1.0
+
+          - [EBB36 Gen2 schematic](ebb36-gen2-v1.0/BIGTREETECH-EBB36-GEN2-SCH.pdf)
+          - [EBB36 Gen2 pinout](ebb36-gen2-v1.0/EBB36-GEN2-pin-en.jpg)
+          - [Reference Klipper configuration](ebb36-gen2-v1.0/sample-bigtreetech-ebb36-gen2-v1.0.cfg)
+          - [Official wiki source snapshot](wiki/EBB36_GEN2.md)
+          - The wiki snapshot is self-contained with its referenced images, including the USB adapter, communication-mode/termination, power, motor, fan, probe and passthrough diagrams.
+
+          ## TMC2209 V1.3
+
+          - [User manual](tmc2209-v1.3/BIGTREETECH-TMC2209-V1.3-User-Manual.pdf)
+          - [Pinout](tmc2209-v1.3/TMC2209-V1.3-Pin.jpg)
+          - [Schematic](tmc2209-v1.3/TMC2209-V1.3-SCH.pdf)
+          - [Board dimensions](tmc2209-v1.3/TMC2209-V1.3-SIZE.pdf)
+          - [Official wiki source snapshot](wiki/TMC2209.md)
+
+          ## Archive rules
+
+          - Keep imported vendor files unmodified.
+          - Put Revival-specific annotations, wiring decisions and derived diagrams outside the imported files and link back to the source.
+          - Verify the physical PCB revision in hand before applying any pinout, jumper or flashing instruction.
+          - See [SOURCE-MANIFEST.md](SOURCE-MANIFEST.md) for pinned upstream revisions and [SHA256SUMS.txt](SHA256SUMS.txt) for local file hashes.
+          - See [THIRD-PARTY-NOTICE.md](THIRD-PARTY-NOTICE.md) for attribution/licensing notes.
+          EOF
+
+          cat > "$DEST/SOURCE-MANIFEST.md" <<'EOF'
+          # BIGTREETECH reference source manifest
+
+          Import date: **23 September 2026**
+
+          ## Pinned upstream repositories
+
+          | Upstream repository | Pinned commit | Material mirrored |
+          |---|---|---|
+          | `bigtreetech/Manta-M8P` | `fabdfb8bdc4ab15db95ca48db4549e36c2b73ee2` | Manta M8P V2.0 English manual, pinout, connection diagram, schematic, dimensions and reference Klipper config |
+          | `bigtreetech/EBB` | `2b839d629b174dc1da4f470cd703e5b5fcb43cbe` | EBB36 Gen2 V1.0 schematic, English pinout and reference Klipper config |
+          | `bigtreetech/BIGTREETECH-Stepper-Motor-Driver` | `9f9680040e7f696f132b1c0d75a6f79c9f288b13` | TMC2209 V1.3 English manual, pinout, schematic and dimensions |
+          | `bigtreetech/docs` | `64b4f46c86c7c74d4d83215d901e72e3b6ea6a81` | Official M8P V2.0, EBB36 Gen2 and TMC2209 wiki source pages plus every image referenced by those pages |
+
+          ## Canonical upstream locations
+
+          - https://github.com/bigtreetech/Manta-M8P
+          - https://github.com/bigtreetech/EBB
+          - https://github.com/bigtreetech/BIGTREETECH-Stepper-Motor-Driver
+          - https://github.com/bigtreetech/docs
+
+          Local filenames are normalized to the project's English naming policy where useful; file contents are downloaded directly from the pinned upstream commits and are not edited.
+
+          Content-integrity hashes for the imported local copies are recorded in [SHA256SUMS.txt](SHA256SUMS.txt).
+          EOF
+
+          cat > "$DEST/THIRD-PARTY-NOTICE.md" <<'EOF'
+          # Third-party notice — BIGTREETECH reference material
+
+          The files in this directory originate from BIGTREETECH's official public GitHub repositories and are retained here as engineering reference/provenance material for the specific hardware used by Prusa-i3-Revival-2026.
+
+          BIGTREETECH names, logos, documentation, diagrams and other third-party material remain the property of their respective rights holders.
+
+          At the time of this import, no single repository-level licence file was identified that clearly grants a uniform licence for all of the mirrored Manta M8P V2.0, EBB36 Gen2, wiki and TMC2209 V1.3 documentation assets. The project therefore does **not** relicense these files or represent them as project-authored material.
+
+          Preserve:
+
+          - the pinned upstream repository and commit information in [SOURCE-MANIFEST.md](SOURCE-MANIFEST.md);
+          - the original file contents;
+          - the local integrity hashes in [SHA256SUMS.txt](SHA256SUMS.txt).
+
+          Project-specific annotations and derivative diagrams should be stored separately and should identify the vendor source used.
+          EOF
+
+      - name: Update project documentation indexes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 <<'PY'
+          from pathlib import Path
+
+          def replace_once(path, old, new):
+              p = Path(path)
+              text = p.read_text(encoding="utf-8")
+              if new in text:
+                  return
+              if old not in text:
+                  raise SystemExit(f"Expected text not found in {path}")
+              p.write_text(text.replace(old, new, 1), encoding="utf-8")
+
+          # Documentation index
+          p = Path("docs/knowledge-base/indexes/Documentation.md")
+          t = p.read_text(encoding="utf-8")
+          row = "| Generation 3 vendor references | [BIGTREETECH local reference archive](../../../hardware/reference/bigtreetech/README.md) | Pinned upstream manuals, pinouts, schematics, connection diagrams, wiki snapshots and reference configs for Manta M8P V2.0, EBB36 Gen2 / USB adapter and TMC2209 V1.3; provenance and hashes are retained locally. |\n"
+          anchor = "| Generation 3 design |"
+          if row not in t:
+              idx = t.index(anchor)
+              t = t[:idx] + row + t[idx:]
+              p.write_text(t, encoding="utf-8")
+
+          # Illustrations index: preserve the historical setup statement while recording
+          # that vendor reference artwork is now mirrored locally.
+          p = Path("docs/knowledge-base/indexes/Illustrations.md")
+          t = p.read_text(encoding="utf-8")
+          t = t.replace("updated: 2026-09-21", "updated: 2026-09-23", 1)
+          old_para = "No standalone project illustrations, diagrams, manual renders or local PDF manuals were present in the repository at setup. This index records the existing reference locations without introducing an empty asset archive or treating photographic derivatives as illustrations."
+          new_para = "At initial Obsidian setup no standalone project illustrations or local PDF manuals were present. The repository now also contains a pinned BIGTREETECH vendor-reference archive for the purchased Generation 3 electronics. Those imported manuals and diagrams remain third-party references, not project-authored illustrations or physical test evidence."
+          if old_para in t:
+              t = t.replace(old_para, new_para, 1)
+          row = "| [BIGTREETECH vendor reference archive](../../../hardware/reference/bigtreetech/README.md) | Local upstream manuals, schematics, pinouts, connection diagrams and wiki illustrations for the purchased Manta M8P V2.0, EBB36 Gen2 / USB adapter and TMC2209 V1.3. Source revisions and hashes are retained; these files do not establish a passed test. |\n"
+          anchor = "| [Photo archives](Photos.md) |"
+          if row not in t:
+              idx = t.index(anchor)
+              t = t[:idx] + row + t[idx:]
+          p.write_text(t, encoding="utf-8")
+
+          # Electronics system
+          p = Path("docs/knowledge-base/systems/Electronics.md")
+          t = p.read_text(encoding="utf-8")
+          sentence = " Local upstream manuals, pinouts, schematics, connection diagrams and reference configurations for the purchased controller/toolboard/drivers are preserved in the [BIGTREETECH vendor reference archive](../../../hardware/reference/bigtreetech/README.md); their presence establishes documentation provenance, not electrical acceptance."
+          anchor = "Preparing the procedure is not evidence that any part passed."
+          if sentence.strip() not in t:
+              t = t.replace(anchor, anchor + sentence, 1)
+          p.write_text(t, encoding="utf-8")
+
+          # Hardware top-level index
+          p = Path("hardware/README.md")
+          t = p.read_text(encoding="utf-8")
+          section = """
+          ## Generation 3 vendor reference documentation
+
+          Official BIGTREETECH manuals, pinouts, schematics, connection diagrams, reference Klipper configurations and self-contained wiki snapshots for the purchased Manta M8P V2.0, EBB36 Gen2 / USB adapter and TMC2209 V1.3 are preserved in the [BIGTREETECH vendor reference archive](reference/bigtreetech/README.md).
+
+          These are pinned third-party references. They do not change any component from purchased to tested or commissioned.
+          """
+          if "## Generation 3 vendor reference documentation" not in t:
+              t = t.rstrip() + "\n\n" + section.strip() + "\n"
+              p.write_text(t, encoding="utf-8")
+
+          # Bench-test source list
+          p = Path("hardware/bench-tests/generation-3-electronics/SOURCES.md")
+          t = p.read_text(encoding="utf-8")
+          note = """
+          ## Local pinned archive
+
+          The official BIGTREETECH source material used by this bench-test pack is also preserved locally under [the vendor reference archive](../../reference/bigtreetech/README.md), with pinned upstream commits and SHA-256 hashes.
+          """
+          if "## Local pinned archive" not in t:
+              t = t.rstrip() + "\n\n" + note.strip() + "\n"
+              p.write_text(t, encoding="utf-8")
+          PY
+
+      - name: Generate SHA-256 manifest and verify files
+        shell: bash
+        run: |
+          set -euo pipefail
+          DEST="hardware/reference/bigtreetech"
+          find "$DEST" -type f ! -name SHA256SUMS.txt -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > "$DEST/SHA256SUMS.txt"
+
+          test -s "$DEST/manta-m8p-v2.0/BIGTREETECH-MANTA-M8P-V2.0-User-Manual.pdf"
+          test -s "$DEST/manta-m8p-v2.0/BIGTREETECH-MANTA-M8P-V2.0-PinOut.png"
+          test -s "$DEST/ebb36-gen2-v1.0/EBB36-GEN2-pin-en.jpg"
+          test -s "$DEST/tmc2209-v1.3/BIGTREETECH-TMC2209-V1.3-User-Manual.pdf"
+          test -s "$DEST/wiki/img/EBB36_GEN2/en/interface_adapter.jpg"
+
+      - name: Commit imported documentation
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add hardware/reference/bigtreetech \
+                  hardware/README.md \
+                  hardware/bench-tests/generation-3-electronics/SOURCES.md \
+                  docs/knowledge-base/indexes/Documentation.md \
+                  docs/knowledge-base/indexes/Illustrations.md \
+                  docs/knowledge-base/systems/Electronics.md
+          git diff --cached --check
+          git commit -m "Import BIGTREETECH vendor reference documentation"
+          git push origin HEAD:main
