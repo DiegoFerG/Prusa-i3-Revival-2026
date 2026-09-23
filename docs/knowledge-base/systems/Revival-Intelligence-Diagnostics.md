@@ -34,6 +34,12 @@ Candidate inclusion is not implementation. Promotion requires the RID study prot
 
 RID uses R0–R3 for observe, inform, recommend and reversible action. Safety-critical energy control is outside RID software authority.
 
+## Moonshots
+
+The RID backlog also preserves **M01–M15 Moonshots**: deliberately extreme research ideas such as autonomous recovery, in-situ metrology, adaptive process control, self-calibrating geometry and autonomous material experiments.
+
+They are intentionally scored **1/5 for production promotion**. They do not enter the normal implementation queue and do not constrain Generation 3 hardware/software architecture.
+
 ## Next study
 
 The first recommended implementation candidate is **S01 automated pre-flight**, followed by low-complexity maintenance/history and startup-health functions.

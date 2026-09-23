@@ -142,6 +142,23 @@ Current families are:
 
 Candidate inclusion does not freeze a component, purchase or implementation.
 
+## Moonshot research tier
+
+RID also maintains a deliberately separate **Moonshot** tier for ideas whose research value may be high but whose expected path to the production Revival is very weak.
+
+Moonshots:
+
+- are assigned IDs `M01...`;
+- are recorded with a **production score of 1/5** by default;
+- do not enter the normal S/H study order;
+- must not impose hardware, software, packaging or safety requirements on the production machine;
+- are revisited only after the standard RID baseline is stable or when a practical candidate produces a clear enabling result;
+- may be decomposed into smaller normal candidates if a realistic subset becomes feasible.
+
+The current Moonshot set includes in-situ metrology, autonomous recovery, real-time process adaptation, full structural fingerprinting, self-calibrating geometry, nozzle-wear metrology, closed-loop extrusion supervision, causal diagnostics, self-experimentation, per-layer quality mapping, remaining-useful-life prediction, collision prediction, autonomous material calibration, full forensic recording and cross-print self-learning.
+
+The canonical list and scores are maintained in the [RID candidate backlog](generation-3-enhancement-candidates.md#e-rid-moonshots--experimental--very-low-production-score).
+
 ## Candidate study protocol
 
 Every RID candidate should record:

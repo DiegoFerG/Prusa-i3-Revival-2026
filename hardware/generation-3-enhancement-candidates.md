@@ -290,7 +290,50 @@ Each candidate should be reviewed independently before promotion. Record at leas
 
 A candidate that can be implemented in software should normally be prototyped before adding hardware intended to solve the same problem.
 
-# E. Promoted candidate history
+# E. RID Moonshots — experimental / very-low production score
+
+These ideas are deliberately separated from the normal S/H backlog.
+
+They are **valid RID research candidates**, but their implementation difficulty, validation burden or potential to destabilise normal printer behaviour makes them unlikely to enter the production Revival configuration.
+
+For Moonshots, add one extra planning score:
+
+- **Production score:** 5 = strong expectation of eventually becoming a production feature; 1 = very unlikely to be promoted.
+- All current Moonshots are intentionally recorded at **1/5**.
+- A high functional-value score does not override the low production score.
+- Moonshots do **not** enter the normal candidate study order. Revisit them only after the standard RID stack is commissioned and stable, or when a lower-level candidate creates a clear enabling path.
+
+| ID | Moonshot candidate | Value | Complexity | Production score | Experimental goal |
+| ---: | --- | :---: | :---: | :---: | --- |
+| M01 | In-situ dimensional metrology | 5 | 5 | **1/5** | Estimate real part dimensions during printing and compare them with expected geometry |
+| M02 | Autonomous print recovery | 5 | 5 | **1/5** | Determine the last valid state/layer after a failure and attempt a controlled recovery path |
+| M03 | Real-time adaptive G-code / process adaptation | 5 | 5 | **1/5** | Change speed, acceleration, flow, cooling or temperature in response to observed print behaviour |
+| M04 | Full structural digital fingerprint | 5 | 5 | **1/5** | Build a multi-signal physical identity of the complete machine and detect subtle structural ageing/change |
+| M05 | Self-calibrating machine geometry | 5 | 5 | **1/5** | Reconstruct and monitor XYZ geometry using camera, fiducials, Eddy and motion/accelerometer data |
+| M06 | Automatic nozzle-wear metrology | 4 | 5 | **1/5** | Estimate effective nozzle wear/diameter without manual measurement |
+| M07 | Closed-loop extrusion supervisor | 5 | 5 | **1/5** | Compare commanded extrusion with observed/measured material delivery and adapt or diagnose deviations |
+| M08 | Causal diagnostics engine | 5 | 5 | **1/5** | Move from anomaly detection to ranked root-cause hypotheses backed by machine evidence |
+| M09 | Autonomous diagnostic self-experimentation | 5 | 5 | **1/5** | Design and run controlled diagnostic motions/tests to isolate the cause of an anomaly |
+| M10 | Per-layer quality/confidence map | 4 | 5 | **1/5** | Produce a layer-by-layer quality/confidence record for each completed part |
+| M11 | Predictive remaining useful life | 4 | 5 | **1/5** | Estimate remaining useful life of selected components from long-term degradation trends |
+| M12 | Predictive collision avoidance | 5 | 5 | **1/5** | Maintain a geometric occupancy model and detect likely collisions before commanded motion executes |
+| M13 | Autonomous material-calibration laboratory | 5 | 5 | **1/5** | Design, print and evaluate its own calibration experiments for unknown/new filament profiles |
+| M14 | Full forensic print recorder | 4 | 4 | **1/5** | Maintain deeply synchronised G-code, video, sensor and state evidence for post-failure reconstruction |
+| M15 | Cross-print self-learning | 5 | 5 | **1/5** | Learn from this machine's prior prints to improve future diagnostics or recommendations |
+
+## Moonshot interpretation rules
+
+Some Moonshots intentionally overlap with realistic RID candidates. The distinction is scope:
+
+- **S07/S11** may track resonance and machine-health trends; **M04** is the much broader full-machine physical fingerprint.
+- **S12** may fuse sensor evidence; **M08** attempts causal root-cause inference rather than confidence scoring alone.
+- **S13** may capture a bounded anomaly snapshot; **M14** is a comprehensive forensic recorder.
+- **S09/S10/S15** may inspect prints visually; **M01/M10** attempt quantitative metrology or layer-level quality records.
+- normal profile tuning remains conventional; **M13** would autonomously design and evaluate its own experiments.
+
+A Moonshot may be decomposed later into smaller practical candidates. If that happens, the practical subset should receive a normal S/H candidate ID rather than raising the Moonshot's production score automatically.
+
+# F. Promoted candidate history
 
 ## Eddy-current Z probe / fast bed scanning — promoted
 
