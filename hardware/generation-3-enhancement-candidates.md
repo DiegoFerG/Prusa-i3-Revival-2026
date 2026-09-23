@@ -48,8 +48,11 @@ These candidates require **no additional hardware beyond the frozen Generation 3
 | S11 | Machine-health baseline and condition score | 4 | 3 | Summarise trends from resonance, thermal response, failure history and maintenance state into actionable diagnostics |
 | S12 | Sensor-fusion fault confidence engine | 5 | 4 | Combine camera, accelerometers, temperatures, Klipper state, filament data when available and other validated telemetry instead of trusting one sensor |
 | S13 | Automatic anomaly snapshot / local black-box capture | 4 | 3 | Preserve images and recent telemetry around pauses, errors or detected anomalies for later diagnosis |
-| S14 | Expected-geometry / G-code versus camera comparison | 4 | 5 | Compare what should exist at a layer/position with what the fixed camera observes to detect geometric deviations |
-| S15 | Automated maintenance recommendations | 4 | 4 | Convert measured trends and service history into specific prompts such as inspect Y belt or re-run resonance baseline |
+| S14 | Visual fiducial / homing geometry sanity check | 4 | 4 | Use fixed-camera reference marks to detect gross pose, frame or homing discrepancies independently of commanded coordinates |
+| S15 | Expected-geometry / G-code versus camera comparison | 4 | 5 | Compare what should exist at a layer/position with what the fixed camera observes to detect geometric deviations |
+| S16 | Automated maintenance recommendations | 4 | 4 | Convert measured trends and service history into specific prompts such as inspect Y belt or re-run resonance baseline |
+| S17 | State-aware frame/toolhead lighting | 3 | 1 | Reuse the frozen controllable lights for inspection brightness, camera capture and restrained print/error/completion signalling |
+| S18 | Local digital-twin / diagnostic dashboard | 3 | 3 | Present axes, temperatures, sensors, maintenance state, current job and anomaly history in one CB2-hosted view |
 
 ## Software-candidate notes
 
@@ -121,6 +124,24 @@ Any automatic pause policy must be conservative, logged and reversible. Vision m
 
 Local CB2 inference is desirable if performance and software support prove adequate, but candidate status does not freeze an AI runtime, model family or cloud dependency.
 
+### S14 — visual fiducial / homing sanity check
+
+Simple fixed reference marks on the frame/bed may allow the baseline camera to verify that the observed machine pose remains broadly consistent with Klipper's expected homed geometry. This is a diagnostic cross-check, not closed-loop axis control and not a replacement for endstops/probing.
+
+### S17 — state-aware lighting
+
+The frozen frame and toolhead lighting can be software-orchestrated without new hardware. Candidate behaviours include:
+
+- consistent high-brightness illumination during camera inspection;
+- lower print brightness;
+- nozzle-focused light during first-layer analysis;
+- restrained completion/warning/error indication;
+- automatic restoration of normal light state after diagnostic capture.
+
+### S18 — local digital twin / diagnostic dashboard
+
+A CB2-hosted dashboard may combine current machine state with historical context: commanded/actual-known positions, temperatures, MCU/CAN node status, spool identity/estimate, camera state, resonance history, maintenance counters and active warnings. It is an operator/diagnostic view, not a second motion controller.
+
 # B. Minimal-hardware or high-impact hardware candidates
 
 These additions are candidates because they either require very little extra hardware or could provide a sufficiently large reliability/safety/diagnostic improvement to justify dedicated study.
@@ -134,11 +155,14 @@ These additions are candidates because they either require very little extra har
 | H05 | Ambient temperature/humidity sensor | 3 | 1 | Very small sensor; useful context for print records, materials and diagnostics |
 | H06 | Dedicated abnormal-air/smoke monitoring | 4 | 2 | Small independent sensor path for warning/diagnostics; never substitutes for electrical/thermal protection |
 | H07 | Additional motor/electronics temperature sensing | 3 | 2 | Small sensors can identify overheating or changing operating conditions |
-| H08 | Nozzle/toolhead camera | 4 | 3 | Significant first-layer/nozzle visibility; moving USB/power, mass and strain relief require study |
-| H09 | CB2 hold-up / graceful-shutdown power support | 4 | 3 | Small UPS/supercapacitor-class subsystem could preserve logs and shut Linux down cleanly after input loss |
-| H10 | Independent axis-position verification / encoders | 5 | 5 | Larger integration burden but potentially strong detection of lost motion or true-position errors |
-| H11 | Acoustic condition monitoring microphone | 2 | 2 | Very small hardware addition; experimental detection of fan/bearing/periodic mechanical changes |
-| H12 | Low-resolution thermal imaging | 3 | 4 | Potential heater/bed/nozzle diagnostic value, but cost, mounting and interpretation require proof before promotion |
+| H08 | Build-sheet identification | 3 | 2 | Small tag/sensor scheme could confirm the installed PEI/surface profile before a job starts |
+| H09 | Audible local alert / buzzer | 2 | 1 | Minimal hardware for intervention/error/completion alerts when the operator is near the printer |
+| H10 | Nozzle/toolhead camera | 4 | 3 | Significant first-layer/nozzle visibility; moving USB/power, mass and strain relief require study |
+| H11 | CB2 hold-up / graceful-shutdown power support | 4 | 3 | Small UPS/supercapacitor-class subsystem could preserve logs and shut Linux down cleanly after input loss |
+| H12 | Independent nozzle/contact Z-reference | 5 | 4 | Additional physical reference could cross-check/calibrate the Eddy-to-nozzle relationship if the benefit justifies mechanics and wiring |
+| H13 | Independent axis-position verification / encoders | 5 | 5 | Larger integration burden but potentially strong detection of lost motion or true-position errors |
+| H14 | Acoustic condition monitoring microphone | 2 | 2 | Very small hardware addition; experimental detection of fan/bearing/periodic mechanical changes |
+| H15 | Low-resolution thermal imaging | 3 | 4 | Potential heater/bed/nozzle diagnostic value, but cost, mounting and interpretation require proof before promotion |
 
 ## Hardware-candidate notes
 
@@ -208,6 +232,18 @@ The study must include:
 
 Linear/rotary encoders could provide true-motion verification, but this is deliberately low in the initial study order because it adds mechanics, wiring, calibration and software complexity. It should only advance if tests show that the diagnostic value justifies the integration cost.
 
+### H08 — build-sheet identification
+
+A small coded tag, RFID/NFC marker or other robust identification method could let pre-flight logic confirm that the selected print profile matches the physically installed sheet/surface. The mechanism must not interfere with Eddy probing or the magnetic build surface.
+
+### H09 — audible local alert
+
+A simple buzzer/sounder is only a candidate because the hardware burden is negligible. It should use restrained, distinct patterns and remain user-disableable; remote notifications are preferred for richer information.
+
+### H12 — independent nozzle/contact Z-reference
+
+This candidate exists to test whether a second physical reference materially improves long-term Eddy/nozzle offset confidence. It must not be added merely for redundancy. The study should first establish whether normal Eddy thermal calibration and nozzle-cleaning procedures already meet repeatability requirements.
+
 # C. Candidate study order
 
 The recommended first pass is:
@@ -218,15 +254,20 @@ The recommended first pass is:
 4. S04 notifications;
 5. S05 post-print/event reporting;
 6. S06 thermal-response trends;
-7. H01 filament-motion sensor;
-8. S07/S08 resonance and belt trends;
-9. H02 hardware emergency stop / essential controls;
-10. H03 nozzle cleaning;
-11. S09 fixed-camera failure detection;
-12. H04 power monitoring;
-13. S10 first-layer vision;
-14. S11/S12 condition scoring and sensor fusion;
-15. the remaining candidates in table order.
+7. S17 state-aware lighting;
+8. H01 filament-motion sensor;
+9. S07/S08 resonance and belt trends;
+10. H05 ambient temperature/humidity;
+11. H02 hardware emergency stop / essential controls;
+12. H03 nozzle cleaning;
+13. S09 fixed-camera failure detection;
+14. H04 power monitoring;
+15. S10 first-layer vision;
+16. S11/S12 condition scoring and sensor fusion;
+17. S13/S14 diagnostic capture and visual geometry cross-check;
+18. H06/H07/H08 low-burden environmental, temperature and sheet-ID studies;
+19. S15/S16/S18 advanced geometry comparison, maintenance advice and digital-twin UI;
+20. H10–H15 higher-integration hardware candidates in table order.
 
 This is a **study order**, not a purchasing order and not an architecture commitment.
 
