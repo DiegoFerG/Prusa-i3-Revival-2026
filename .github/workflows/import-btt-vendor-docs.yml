@@ -301,6 +301,13 @@ jobs:
                   docs/knowledge-base/indexes/Documentation.md \
                   docs/knowledge-base/indexes/Illustrations.md \
                   docs/knowledge-base/systems/Electronics.md
-          git diff --cached --check
+          # Imported vendor files are preserved byte-for-byte and may contain upstream trailing whitespace.
+          # Check only project-authored index/reference changes for whitespace errors.
+          git diff --cached --check -- \
+                  hardware/README.md \
+                  hardware/bench-tests/generation-3-electronics/SOURCES.md \
+                  docs/knowledge-base/indexes/Documentation.md \
+                  docs/knowledge-base/indexes/Illustrations.md \
+                  docs/knowledge-base/systems/Electronics.md
           git commit -m "Import BIGTREETECH vendor reference documentation"
           git push origin HEAD:main
