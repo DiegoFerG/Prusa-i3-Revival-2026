@@ -316,6 +316,36 @@ Requirements:
 
 A geared DC motor or compact stepper are both candidates.
 
+#### Prototype candidate already on hand — 28BYJ-48 5 V + ULN2003
+
+A **28BYJ-48 5 V geared stepper** with its common **ULN2003 driver board** is available from existing parts and is now the preferred **prototype candidate for spool-rotation assistance**.
+
+Why it is worth testing:
+
+- integrated reduction gives useful low-speed torque;
+- naturally suited to slow spool rotation;
+- direction can be reversed under MCU control;
+- the ULN2003 board is already available for early bench tests;
+- its cost to prototype is effectively zero because the parts are already on hand.
+
+Intended use:
+
+```text
+ESP32-S3
+   |
+IN1..IN4
+   |
+ULN2003
+   |
+28BYJ-48 5 V
+   |
+driven spool roller / spool assist
+```
+
+This motor is **not a feeder candidate**. The gearbox backlash and modest dynamics make it unsuitable for the filament-feeder function that must respond accurately to buffer demand. The upstream filament feeder still targets a compact stepper, likely NEMA14-class or equivalent, with a dual-drive filament mechanism.
+
+The 28BYJ-48 remains a **prototype candidate**, not frozen production hardware. It must be validated with a full 1 kg spool, the real roller geometry and the final load-cell arrangement. Acceptance criteria include sufficient torque, acceptable noise, controlled reversing, no harmful vibration into the weighing system and graceful freewheel/disengagement behaviour if RASS is disabled.
+
 ## Filament compatibility
 
 RASS must be designed to work with:
@@ -401,7 +431,7 @@ Normal printing should not require the user to manually tune feeder speed.
 ## Open component-level decisions
 
 - feeder motor type/model;
-- spool-drive motor type/model;
+- spool-drive production motor type/model; **28BYJ-48 5 V + ULN2003 is the preferred prototype candidate**;
 - motor-driver topology;
 - dual-drive feeder geometry;
 - feeder encoder/motion sensor;
