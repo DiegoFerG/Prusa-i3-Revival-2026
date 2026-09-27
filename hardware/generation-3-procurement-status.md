@@ -4,7 +4,7 @@ This document tracks **actual Generation 3 purchases and near-term acquisition d
 
 It must not be used as evidence that a purchased component has been electrically tested, installed or commissioned.
 
-Last reviewed: **23 September 2026**.
+Last reviewed: **27 September 2026**.
 
 ## Purchased
 
@@ -55,6 +55,13 @@ These parts are **not** frozen production selections and are **not** candidates 
 | BIGTREETECH CEB V1.0 | Frozen CAN distribution | Not yet purchased |
 | BIGTREETECH HDMI5 | Frozen local display | Not yet purchased |
 | BIGTREETECH S2DW V1.0 | Frozen permanent bed accelerometer | Not yet purchased |
+| Mean Well LRS-600-24 | Preferred final PSU | 24 V / 25 A / 600 W; future purchase; Amazon Spain reference: https://www.amazon.es/dp/B0D173X5V3 |
+
+## Existing 24 V PSU for prototype use
+
+An existing **NUOFUWEI S-24-600, 24 V / 25 A / 600 W** supply can be recovered from a previous project and may be used for bench/prototype work after inspection and electrical validation.
+
+It is **not** the preferred final PSU. The final-machine target is the Mean Well LRS-600-24 above.
 
 ## Host decision: CB2 versus CM4
 
