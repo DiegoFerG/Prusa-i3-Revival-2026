@@ -2,7 +2,7 @@
 type: decision-log
 area: project
 status: active
-updated: 2026-09-23
+updated: 2026-09-27
 ---
 
 # Decision Log
@@ -36,6 +36,8 @@ This register indexes decisions already present in the repository. It does not r
 | DEC-021 | Maintain a prioritised Generation 3 enhancement backlog: software-only functions are candidates by default when they reuse frozen hardware; minimal-hardware or exceptionally high-value additions are also candidates for one-by-one study, ordered by functional value with complexity as the tie-breaker | Candidate-governance decision; no listed feature is promoted by this entry | [Enhancement candidate register](../../../hardware/generation-3-enhancement-candidates.md#prioritisation-model), agreed 23 September 2026 |
 | DEC-022 | Use **Revival Intelligence & Diagnostics (RID)** as the Generation 3 umbrella for CB2-hosted supervisory intelligence, vision, condition monitoring, maintenance history, diagnostics and sensor fusion; keep deterministic control in Klipper/Manta/EBB36/Eddy and safety-critical energy protection independent of RID | Subsystem concept and responsibility boundary established; individual RID features remain candidates unless explicitly promoted | [RID concept](../../../hardware/generation-3-revival-intelligence-diagnostics.md), [RID backlog](../../../hardware/generation-3-enhancement-candidates.md), agreed 23 September 2026 |
 | DEC-023 | Record extreme RID concepts as a separate **Moonshot** research tier with a default **production score of 1/5**; Moonshots do not compete with or constrain the normal S/H backlog and are revisited only after the practical RID baseline is stable or a clear enabling path appears | Candidate-governance decision; records ideas without creating a production expectation | [RID Moonshots](../../../hardware/generation-3-enhancement-candidates.md#e-rid-moonshots--experimental--very-low-production-score), agreed 23 September 2026 |
+
+| DEC-024 | Use a **Mean Well LRS-600-24 (24 V / 25 A / 600 W)** as the preferred final Generation 3 PSU; reuse the existing NUOFUWEI S-24-600 only for bench/prototype work after validation | Preferred final component / procurement decision; final purchase deferred until load budget confirmation | [Target BOM](../../../hardware/generation-3-target-bom.md), [procurement status](../../../hardware/generation-3-procurement-status.md), agreed 27 September 2026. Amazon Spain reference: https://www.amazon.es/dp/B0D173X5V3 |
 
 On 21 September 2026, a synchronization conflict had left two different DEC-014 entries in the published register. The established Roto/Revo decision retains DEC-014; the archive-preservation decision is now DEC-020. Its original 19 September implementation date is unchanged.
 
