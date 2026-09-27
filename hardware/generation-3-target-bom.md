@@ -62,6 +62,8 @@ See [`generation-3-procurement-status.md`](generation-3-procurement-status.md) f
 | Main camera concept | fixed frame-mounted camera, CSI preferred and USB UVC permitted | Frozen architecture, model/interface open |
 | Camera styling | custom retro late-1980s/1990s CCTV/video-surveillance enclosure | Frozen concept |
 | Main DC voltage | 24 V | Frozen |
+| Final PSU target | Mean Well LRS-600-24, 24 V / 25 A / 600 W | Preferred final model; future purchase |
+| Temporary/prototype PSU | existing NUOFUWEI S-24-600, 24 V / 25 A / 600 W | Reuse candidate for bench/prototype work; inspect and test before use |
 | Heated-bed construction | original footprint; aluminium + silicone heater + magnetic base + flexible PEI sheet | Frozen architecture |
 | Bed switching | external DC MOSFET controlled by Manta | Frozen architecture |
 | Bed protection | dedicated fuse + independent thermal fuse | Frozen architecture |
@@ -115,7 +117,7 @@ These items must fit the frozen architecture but their exact model or rating dep
 - exact list of additional vendor decoders after real-tag validation;
 - exact bed aluminium thickness;
 - exact silicone-heater dimensions and power, after measuring the original heated-bed PCB;
-- exact Mean Well 24 V PSU wattage after heater loads are frozen;
+- exact PSU purchase timing after final heater-load confirmation; **Mean Well LRS-600-24 (24 V / 25 A / 600 W)** is the preferred final PSU model;
 - fan makes/models and final duct geometry;
 - frame-light strip/diffuser;
 - connector families and wire gauges;
