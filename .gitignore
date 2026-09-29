@@ -6,3 +6,9 @@
 
 # Obsidian's local trash must never become repository evidence.
 /.trash/
+
+# BIGTREETECH / Phoenix local secrets
+# Real host configuration contains Wi-Fi credentials and must never be committed.
+system.cfg
+*.secrets.cfg
+*.secrets

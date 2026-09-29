@@ -1,0 +1,18 @@
+# BIGTREETECH CB1 host configuration template
+# Prusa i3 Revival 2026 - PHOENIX
+#
+# Copy the required values to the system.cfg file on the CB1 boot
+# partition. Never commit the real system.cfg because it contains
+# Wi-Fi credentials.
+
+check_interval=5
+
+eth=eth0
+wlan=wlan0
+
+hostname='PHOENIX-CB1'
+
+TimeZone='Europe/Madrid'
+
+WIFI_SSID='YOUR_WIFI_SSID'
+WIFI_PASSWD='YOUR_WIFI_PASSWORD'
