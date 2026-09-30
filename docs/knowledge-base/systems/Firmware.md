@@ -78,3 +78,29 @@ The [smart-spool architecture](../../../hardware/generation-3-smart-spool-system
 - [Filament system](Filament-System.md) — measured material data and later profiles.
 
 [Systems](Systems.md) · [Roadmap](../project/Roadmap.md)
+
+
+## RID and LLM integration
+
+RID core software on CB2 is independent of any LLM.
+
+Local CB2 responsibilities:
+
+- collect and normalise machine telemetry;
+- perform deterministic checks;
+- run signal-processing / anomaly-detection pipelines;
+- run validated lightweight vision where practical;
+- maintain machine history and baseline data;
+- perform sensor fusion;
+- expose provider-neutral diagnostic context.
+
+Optional LLM responsibilities:
+
+- explain RID findings in natural language;
+- answer historical and maintenance questions;
+- perform high-level reasoning over already-processed evidence;
+- summarise incidents and suggested inspection sequences.
+
+The LLM may be a service on the local network or an external provider. Provider choice is configuration, not firmware architecture.
+
+No machine safety authority is delegated to the LLM.
