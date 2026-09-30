@@ -120,14 +120,14 @@ The EBB36 Gen2 locally manages:
 
 ## Revival Bed Node
 
-The final Generation 3 bed uses a custom **Revival Bed Node**, documented in [`../hardware/generation-3-bed-node.md`](../hardware/generation-3-bed-node.md).
+The final Generation 3 bed uses a custom **Revival Bed Node**, documented in [`../hardware/generation-3-bed-node.md`](../hardware/generation-3-bed-node.md). The board is fixed in a printed enclosure on the rear cross-member of the historical lower frame; it is not carried by the moving bed.
 
 The implementation is deliberately staged:
 
 1. **Initial commissioning:** conventional separate wiring — bed thermistor to Manta, external MOSFET controlled from the main electronics, and a separate USB S2DW-class bed accelerometer.
 2. **Final architecture:** USB-connected custom bed MCU near the moving Y assembly, integrating bed thermistor acquisition, permanent bed accelerometer and local heater power-stage control.
 
-The final moving bed harness therefore targets **a dedicated 24 V high-current pair plus USB**. USB never carries heater power.
+The fixed/semi-fixed feed into the Bed Node is **24 V + USB**. Only the short Bed Node-to-bed harness is continuously flexed and carries heater power, thermistor and the remote moving IMU connection. USB never carries heater power.
 
 The Bed Node is a normal secondary Klipper MCU. Safety-critical bed protection remains independent of it: dedicated branch fuse and independent thermal fuse remain mandatory even after migration.
 
@@ -141,7 +141,7 @@ Use the **LIS2DW associated with the EBB36 Gen2**. It remains permanently instal
 
 ### Y / bed
 
-During initial commissioning, use a permanent/semi-permanent **BIGTREETECH S2DW V1.0 (RP2040 + LIS2DW)** or equivalent USB accelerometer rigidly mounted to the moving bed/Y-carriage assembly. In the final architecture, this function migrates into the custom Revival Bed Node.
+During initial commissioning, use a permanent/semi-permanent **BIGTREETECH S2DW V1.0 (RP2040 + LIS2DW)** or equivalent USB accelerometer rigidly mounted to the moving bed/Y-carriage assembly. In the final architecture, the Bed Node remains fixed and a tiny LIS2DW-class IMU daughterboard remains rigidly attached to the moving bed/carriage.
 
 Connection: **USB directly to the CB2**, not another CAN toolboard. This avoids adding unnecessary mass and electronics under the moving bed while still providing an independent Klipper MCU for the Y sensor.
 
