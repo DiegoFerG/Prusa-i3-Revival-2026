@@ -204,3 +204,29 @@ Independent hardware protections and Klipper's normal heater/watchdog protection
 - Candidate-governance model: **established**.
 - Individual software/hardware candidates: **not promoted unless separately recorded**.
 - First recommended implementation study: **S01 automated pre-flight**, followed by low-complexity maintenance and health-history functions.
+
+
+## Bed Node vibration sensor fusion
+
+The Revival Bed Node is a planned RID data source for multi-point structural vibration analysis.
+
+Target channels:
+
+- EBB36/toolhead accelerometer;
+- remote moving-bed accelerometer;
+- fixed Bed Node/chassis accelerometer;
+- remote upper-frame accelerometer.
+
+RID may compare spectra and trends across these locations to distinguish axis-local motion from frame-coupled resonances and to detect changes over the machine lifetime.
+
+The Bed Node also contributes electrical/thermal telemetry:
+
+- heater current;
+- 24 V rail voltage;
+- heater power/resistance estimates;
+- primary/secondary bed temperature;
+- PCB/power-stage temperature.
+
+These measurements remain supervisory/diagnostic. Heater safety continues to rely on dedicated branch protection, thermal fuse and Klipper's normal safety checks.
+
+RGB status lighting driven by the Bed Node may be used by Klipper/RID to expose machine states locally, but colour indication is never a safety mechanism.
