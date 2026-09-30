@@ -118,6 +118,19 @@ The EBB36 Gen2 locally manages:
 - toolhead work/status lighting;
 - toolhead sensors.
 
+## Revival Bed Node
+
+The final Generation 3 bed uses a custom **Revival Bed Node**, documented in [`../hardware/generation-3-bed-node.md`](../hardware/generation-3-bed-node.md).
+
+The implementation is deliberately staged:
+
+1. **Initial commissioning:** conventional separate wiring — bed thermistor to Manta, external MOSFET controlled from the main electronics, and a separate USB S2DW-class bed accelerometer.
+2. **Final architecture:** USB-connected custom bed MCU near the moving Y assembly, integrating bed thermistor acquisition, permanent bed accelerometer and local heater power-stage control.
+
+The final moving bed harness therefore targets **a dedicated 24 V high-current pair plus USB**. USB never carries heater power.
+
+The Bed Node is a normal secondary Klipper MCU. Safety-critical bed protection remains independent of it: dedicated branch fuse and independent thermal fuse remain mandatory even after migration.
+
 ## Permanent accelerometers
 
 Generation 3 uses **two permanently installed accelerometers** because X and Y are different moving masses on a bed-slinger.
@@ -128,7 +141,7 @@ Use the **LIS2DW associated with the EBB36 Gen2**. It remains permanently instal
 
 ### Y / bed
 
-Use a permanent **BIGTREETECH S2DW V1.0 (RP2040 + LIS2DW)** rigidly mounted to the moving bed/Y-carriage assembly.
+During initial commissioning, use a permanent/semi-permanent **BIGTREETECH S2DW V1.0 (RP2040 + LIS2DW)** or equivalent USB accelerometer rigidly mounted to the moving bed/Y-carriage assembly. In the final architecture, this function migrates into the custom Revival Bed Node.
 
 Connection: **USB directly to the CB2**, not another CAN toolboard. This avoids adding unnecessary mass and electronics under the moving bed while still providing an independent Klipper MCU for the Y sensor.
 
@@ -310,7 +323,7 @@ Klipper heater checks, fan RPM monitoring, temperature limits and watchdog behav
 - E3D Roto + Revo direct-drive extrusion stack;
 - BIGTREETECH Eddy Duo for fast/dense eddy-current bed-surface scanning as an independent 5 V CAN node downstream of the EBB36 Gen2 passthrough;
 - permanent X/toolhead LIS2DW;
-- permanent Y/bed BTT S2DW/LIS2DW over USB;
+- staged Y/bed sensing: initial USB S2DW-class accelerometer, final custom Revival Bed Node over USB;
 - one fixed frame camera as part of the final concept, with **CSI preferred and USB permitted**; exact model/interface remains open;
 - retro CCTV/video-surveillance enclosure language for all cameras;
 - 24 V dimmable frame light and toolhead work/status light;
