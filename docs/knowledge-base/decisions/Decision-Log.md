@@ -2,7 +2,7 @@
 type: decision-log
 area: project
 status: active
-updated: 2026-09-27
+updated: 2026-09-30
 ---
 
 # Decision Log
@@ -38,6 +38,8 @@ This register indexes decisions already present in the repository. It does not r
 | DEC-023 | Record extreme RID concepts as a separate **Moonshot** research tier with a default **production score of 1/5**; Moonshots do not compete with or constrain the normal S/H backlog and are revisited only after the practical RID baseline is stable or a clear enabling path appears | Candidate-governance decision; records ideas without creating a production expectation | [RID Moonshots](../../../hardware/generation-3-enhancement-candidates.md#e-rid-moonshots--experimental--very-low-production-score), agreed 23 September 2026 |
 
 | DEC-024 | Use a **Mean Well LRS-600-24 (24 V / 25 A / 600 W)** as the preferred final Generation 3 PSU; reuse the existing NUOFUWEI S-24-600 only for bench/prototype work after validation | Preferred final component / procurement decision; final purchase deferred until load budget confirmation | [Target BOM](../../../hardware/generation-3-target-bom.md), [procurement status](../../../hardware/generation-3-procurement-status.md), agreed 27 September 2026. Amazon Spain reference: https://www.amazon.es/dp/B0D173X5V3 |
+
+| DEC-025 | Use a custom **Revival Bed Node** as the final Generation 3 bed-local controller: USB secondary Klipper MCU integrating bed temperature sensing, permanent Y accelerometer and local heater-stage control; commission the printer first with conventional separate bed wiring so PCB development is non-blocking | Frozen architecture; exact PCB components/layout and final Klipper pin map deferred | [Bed Node architecture](../../../hardware/generation-3-bed-node.md), [final architecture](../../final-build-architecture.md), agreed 30 September 2026. |
 
 On 21 September 2026, a synchronization conflict had left two different DEC-014 entries in the published register. The established Roto/Revo decision retains DEC-014; the archive-preservation decision is now DEC-020. Its original 19 September implementation date is unchanged.
 
