@@ -201,6 +201,8 @@ Independent hardware protections and Klipper's normal heater/watchdog protection
 ## Current status
 
 - RID concept and subsystem boundary: **documented**.
+- RID compute philosophy: **ML-first, LLM-assisted; core operation does not depend on an LLM**.
+- LLM deployment direction: **external/LAN provider abstraction; no local LLM requirement on CB2**.
 - RID compute philosophy: **ML-first, LLM-assisted; core operation must not depend on an LLM**.
 - LLM deployment direction: **external/LAN provider abstraction; no local LLM requirement on CB2**.
 - Candidate-governance model: **established**.
