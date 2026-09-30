@@ -43,6 +43,8 @@ This register indexes decisions already present in the repository. It does not r
 
 | DEC-026 | Mount the Revival Bed Node in a printed enclosure on the fixed rear cross-member; feed it with fixed/semi-fixed 24 V + USB and use only a short flexible harness to the moving bed. Keep the Y accelerometer on a tiny remote moving IMU daughterboard connected to the fixed Bed Node | Frozen mechanical/electrical architecture; connector and daughterboard details deferred | [Bed Node architecture](../../../hardware/generation-3-bed-node.md), agreed 30 September 2026. |
 
+| DEC-027 | Expand the Revival Bed Node into a structural/thermal/electrical sensing hub: keep the moving-bed IMU, add a local chassis IMU and a remote frame-top IMU, add 24 V RGB status/decorative lighting, and reserve heater current, 24 V rail, secondary temperature, PCB temperature and auxiliary sensor channels for RID | Frozen capability architecture; exact sensor ICs, long-link signalling, RGB strip and PCB implementation deferred | [Bed Node architecture](../../../hardware/generation-3-bed-node.md), [RID architecture](../../../hardware/generation-3-revival-intelligence-diagnostics.md), agreed 30 September 2026. |
+
 On 21 September 2026, a synchronization conflict had left two different DEC-014 entries in the published register. The established Roto/Revo decision retains DEC-014; the archive-preservation decision is now DEC-020. Its original 19 September implementation date is unchanged.
 
 ## Recording the next decision
