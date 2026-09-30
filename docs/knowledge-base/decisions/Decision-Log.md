@@ -41,6 +41,8 @@ This register indexes decisions already present in the repository. It does not r
 
 | DEC-025 | Use a custom **Revival Bed Node** as the final Generation 3 bed-local controller: USB secondary Klipper MCU integrating bed temperature sensing, permanent Y accelerometer and local heater-stage control; commission the printer first with conventional separate bed wiring so PCB development is non-blocking | Frozen architecture; exact PCB components/layout and final Klipper pin map deferred | [Bed Node architecture](../../../hardware/generation-3-bed-node.md), [final architecture](../../final-build-architecture.md), agreed 30 September 2026. |
 
+| DEC-026 | Mount the Revival Bed Node in a printed enclosure on the fixed rear cross-member; feed it with fixed/semi-fixed 24 V + USB and use only a short flexible harness to the moving bed. Keep the Y accelerometer on a tiny remote moving IMU daughterboard connected to the fixed Bed Node | Frozen mechanical/electrical architecture; connector and daughterboard details deferred | [Bed Node architecture](../../../hardware/generation-3-bed-node.md), agreed 30 September 2026. |
+
 On 21 September 2026, a synchronization conflict had left two different DEC-014 entries in the published register. The established Roto/Revo decision retains DEC-014; the archive-preservation decision is now DEC-020. Its original 19 September implementation date is unchanged.
 
 ## Recording the next decision
