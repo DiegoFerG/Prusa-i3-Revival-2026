@@ -4,7 +4,7 @@ area: firmware
 status: planned
 phase: stage-07
 priority: normal
-updated: 2026-09-23
+updated: 2026-09-30
 ---
 
 # Firmware
@@ -18,6 +18,28 @@ The current [firmware directory](../../../firmware/README.md) is a placeholder f
 The [Generation 3 architecture](../../final-build-architecture.md) freezes Klipper on CB2 with Moonraker, Mainsail, KlipperScreen and Crowsnest. CB2 is not yet purchased; until it is available, a temporary Linux PC/Raspberry Pi may run the Klipper host and connect to the Manta M8P V2.0 by USB for bench testing without changing the final architecture. Manta manages machine axes and enclosure/bed I/O; EBB36 manages local toolhead functions; Eddy Duo is a separate 5 V CAN MCU/node downstream of the EBB36 passthrough; the permanent bed accelerometer connects over USB.
 
 Final configuration, macros and calibration data must be versioned under `firmware/`. The temporary [Generation 3 electronics bench-test pack](../../../hardware/bench-tests/generation-3-electronics/README.md) intentionally keeps its disposable acceptance-test templates beside the hardware procedure; they are not commissioned printer configuration. Any future files should identify the machine generation and actual hardware they were validated against. The architecture is a target, not evidence that this software is already deployed.
+
+## Revival Bed Node integration
+
+The custom Bed Node is treated as an ordinary secondary Klipper MCU over USB.
+
+Conceptual structure:
+
+```ini
+[mcu bed]
+serial: /dev/serial/by-id/<REVIVAL_BED_NODE_ID>
+
+[heater_bed]
+heater_pin: bed:<HEATER_GATE_PIN>
+sensor_pin: bed:<BED_THERMISTOR_PIN>
+sensor_type: <FINAL_SENSOR_TYPE>
+```
+
+The integrated Y accelerometer is likewise defined on the `bed:` MCU and used for Y resonance measurements.
+
+Exact pins and syntax belong to the future released PCB/configuration and must be validated against the Klipper version used at commissioning. Loss of the Bed Node must be treated as an MCU failure; physical thermal protection remains independent of firmware.
+
+During the initial non-Bed-Node stage, the Manta remains responsible for bed temperature/heater control and the separate USB S2DW-class accelerometer is configured independently.
 
 ## Dependencies
 
