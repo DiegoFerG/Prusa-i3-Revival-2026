@@ -1,6 +1,6 @@
 # Generation 3 Revival Bed Node
 
-This document defines the planned **Revival Bed Node**, a custom USB-connected Klipper MCU mounted on or near the moving Y/bed assembly.
+This document defines the planned **Revival Bed Node**, a custom USB-connected Klipper MCU mounted in a printed enclosure on the **fixed rear cross-member of the historical lower frame**, close to the moving Y/bed assembly.
 
 The design follows the same distributed-control philosophy used by the EBB36 Gen2 on the toolhead, but it is intentionally optimized for the heated bed rather than reusing a toolhead board with unused functions.
 
@@ -24,27 +24,29 @@ This stage is deliberately valid and supported. The Bed Node must **not** block 
 
 ### Stage B — custom Revival Bed Node
 
-After the custom PCB is designed, assembled and validated, bed-local functions migrate to a dedicated MCU connected to the CB2 over USB.
+After the custom PCB is designed, assembled and validated, bed-local functions migrate to a dedicated MCU connected to the CB2 over USB. The Bed Node itself remains **fixed to the chassis**; only the short output harness from the rear cross-member to the moving bed must be highly flexible.
 
-Target moving services:
+Target topology:
 
 ```text
-electronics bay
+electronics bay / CB2
    |
-   +-- 24 V high-current pair -------------------+
-   |                                             |
-   +-- USB data/power ----------------------+    |
-                                            |    |
-                                      Revival Bed Node
-                                            |
-                    +-----------------------+-------------------+
-                    |                       |                   |
-               bed thermistor          LIS2DW/IMU        heater control
-                                                                |
-                                                          local MOSFET
-                                                                |
-                                                         silicone heater
+   +-- fixed/semi-fixed 24 V feed ------------------+
+   |                                                |
+   +-- fixed/semi-fixed USB --------------------+   |
+                                               |   |
+                                  Revival Bed Node
+                                fixed rear cross-member
+                                               |
+                     short flexible bed harness
+                     +-----------+-----------+-----------+
+                     |           |           |           |
+                  heater      thermistor   remote IMU  thermal fuse path
+                     |           |           |
+                     +-----------+-----------+----> moving bed
 ```
+
+The 24 V + USB **feed into the Bed Node does not need to be highly flexible** because the board is fixed to the rear cross-member. Only the short Bed Node-to-bed harness sees continuous Y-axis motion.
 
 The USB link carries **control/data only**. Heater energy remains on the dedicated 24 V high-current path.
 
@@ -55,7 +57,7 @@ A dedicated bed board avoids carrying several separate moving signal cables and 
 Target local functions:
 
 - bed temperature sensing;
-- permanent Y-axis accelerometer;
+- permanent Y-axis accelerometer through a **small remote IMU PCB mounted rigidly on the moving bed/carriage**;
 - local bed-heater MOSFET gate control;
 - optional secondary temperature sensor;
 - optional 24 V voltage/current monitoring;
@@ -105,7 +107,23 @@ The exact pins, thermistor type and temperature limits remain placeholders until
 
 ### Bed accelerometer
 
-The final custom node should integrate a LIS2DW-class accelerometer or equivalent supported sensor rigidly coupled to the moving bed/carriage.
+Because the Bed Node PCB is fixed to the rear frame cross-member, the accelerometer must **not** be mounted on the main Bed Node PCB. A small remote IMU daughterboard is mounted rigidly on the moving bed/Y-carriage and connected to the Bed Node by a short flexible cable.
+
+Preferred topology:
+
+```text
+Revival Bed Node (fixed)
+        |
+      SPI
+        |
+short flexible cable
+        |
+Revival Bed IMU (moving)
+        |
+      LIS2DW
+```
+
+The remote IMU PCB should contain as little as practical beyond the accelerometer, decoupling and connector so moving mass remains negligible.
 
 Conceptual Klipper structure:
 
@@ -127,6 +145,66 @@ probe_points:
 ```
 
 The final syntax must be validated against the Klipper version in use when the board is commissioned.
+
+## Building and flashing Klipper firmware
+
+The custom board does **not** require a special Revival fork of Klipper if it uses an MCU already supported by upstream Klipper.
+
+For an RP2040-class design, the normal process is:
+
+1. Install/maintain the Klipper source tree on the CB2 or temporary Linux host.
+2. Run `make menuconfig`.
+3. Select the MCU family matching the Bed Node hardware, for example RP2040.
+4. Select the required communication interface, normally **USB** for the Bed Node.
+5. Build with `make`.
+6. Flash the resulting firmware using the MCU's supported bootloader/recovery method.
+7. Reconnect the board and identify its stable Linux serial path under `/dev/serial/by-id/`.
+8. Add that path to the printer configuration as `[mcu bed]`.
+9. Restart Klipper and verify MCU communication before enabling any heater output.
+
+For an RP2040 reference implementation, initial flashing is expected to use the ROM USB mass-storage boot mode (BOOTSEL) or a documented equivalent. The exact boot/reset buttons or test pads will be designed into the custom PCB so recovery does not require desoldering.
+
+Conceptually:
+
+```text
+Klipper source
+   |
+make menuconfig
+   |
+select MCU + USB
+   |
+make
+   |
+klipper firmware image
+   |
+BOOT/DFU/UF2 method
+   |
+Revival Bed Node
+   |
+USB enumeration
+   |
+/dev/serial/by-id/...
+   |
+[mcu bed]
+```
+
+### Firmware-update strategy
+
+The PCB should support **two levels of recovery**:
+
+- normal in-system firmware update over the supported USB bootloader path;
+- hardware recovery using accessible BOOT/RESET controls or test pads.
+
+The design must never require heater power to be connected merely to flash or recover the MCU.
+
+The repository should eventually contain:
+
+- the exact `make menuconfig` selections;
+- generated/validated firmware-build instructions;
+- the Bed Node pin map;
+- the Klipper include file;
+- first-flash and recovery procedures;
+- firmware revision/hash used during validation.
 
 ## USB behavior and failure handling
 
@@ -178,18 +256,25 @@ The exact MOSFET, gate driver, connector and PCB copper geometry remain open.
 
 ## Mechanical placement
 
-The Bed Node should mount below the Y carriage / heated-bed assembly, thermally separated from the heater and rigidly coupled where required for accelerometer accuracy.
+The Bed Node is mounted in a **printed fixed enclosure on the rear transverse member of the original threaded-rod structure**.
 
-The board should not be attached directly to the hottest heater surface.
+This location is preferred because:
 
-Design goals:
+- the incoming 24 V and USB harness can be fixed or only gently flexed;
+- the power stage and MCU do not add moving Y mass;
+- the board can be larger and better cooled than a bed-mounted PCB;
+- service access is easier;
+- only a short harness must flex with the bed;
+- the local MOSFET remains close to the heater while still being chassis-mounted.
 
-- short thermistor wiring;
-- short accelerometer connection;
-- short MOSFET-to-heater wiring;
-- protected USB and 24 V connectors;
-- strain relief suitable for repeated Y motion;
-- easy board replacement without dismantling the complete bed stack.
+The moving harness from Bed Node to bed carries only the functions that physically terminate on the moving assembly:
+
+- heater power pair;
+- thermistor pair;
+- remote-IMU cable;
+- thermal-fuse/heater series path as required by final wiring.
+
+The printed enclosure must provide protected connectors, strain relief, ventilation appropriate to the MOSFET losses and finger-safe separation from any exposed power terminals.
 
 ## Initial-to-final migration
 
@@ -244,7 +329,7 @@ These are diagnostic aids and do not replace physical protection.
 
 - a custom **Revival Bed Node** will be designed for the final Generation 3 bed;
 - it communicates with CB2 by **USB** as a secondary Klipper MCU;
-- it integrates bed temperature sensing and the permanent Y accelerometer;
+- it integrates bed temperature sensing and interfaces to a **remote moving Y accelerometer daughterboard**;
 - it controls the local bed-heater power stage;
 - high-current heater power remains a separate 24 V moving pair;
 - safety-critical thermal protection remains independent of Klipper/USB;
@@ -254,7 +339,7 @@ These are diagnostic aids and do not replace physical protection.
 ## Open decisions
 
 - exact MCU / RP2040 implementation;
-- exact LIS2DW or alternative accelerometer part;
+- exact LIS2DW or alternative accelerometer part and remote IMU daughterboard connector/cable;
 - USB connector family and cable/strain-relief scheme;
 - 24 V connector and wire gauge;
 - MOSFET and gate-driver topology;
