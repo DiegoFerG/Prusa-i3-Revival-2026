@@ -353,3 +353,18 @@ These selections do not change the architecture and will be frozen after their m
 - connector families, wire gauges and harness routing;
 - frame-camera sensor/lens/FOV and final CSI-versus-USB choice;
 - optional nozzle-camera implementation, if the future upgrade is adopted.
+
+
+## RID computation policy
+
+RID remains a local-first supervisory subsystem, but **LLM inference is not required locally**.
+
+The CB2 runs the deterministic/specialist RID stack: sensor acquisition, feature extraction, anomaly detection, lightweight ML/vision, history and sensor fusion.
+
+Any LLM is optional and may run on:
+- a local-network server; or
+- a configured external provider.
+
+The machine remains fully printable and diagnostically useful when no LLM provider is available.
+
+A future higher-performance compute module is not required merely to host an LLM.
