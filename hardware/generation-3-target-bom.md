@@ -16,6 +16,8 @@ See [`generation-3-enhancement-candidates.md`](generation-3-enhancement-candidat
 
 See [`generation-3-procurement-status.md`](generation-3-procurement-status.md) for actual purchases, pending acquisitions and bench-test status.
 
+See [`generation-3-bed-node.md`](generation-3-bed-node.md) for the staged heated-bed control architecture and custom USB Klipper MCU.
+
 ## Frozen selections
 
 | Subsystem | Target component / architecture | Status |
@@ -44,8 +46,10 @@ See [`generation-3-procurement-status.md`](generation-3-procurement-status.md) f
 | Z drive | 2× independent Tr8 lead screws and independent Z motors | Frozen architecture |
 | Z geometry rule | rails define Z motion; lead screws provide vertical drive only | Frozen |
 | Toolhead accelerometer | permanent LIS2DW associated with EBB36 Gen2 | Frozen |
-| Bed accelerometer | BIGTREETECH S2DW V1.0 (RP2040 + LIS2DW), permanent | Frozen |
-| Bed accelerometer link | USB to CB2 | Frozen |
+| Initial bed accelerometer | BIGTREETECH S2DW V1.0 (RP2040 + LIS2DW) or equivalent USB solution before Bed Node | Transitional implementation |
+| Final bed node | Custom Revival Bed Node, USB secondary Klipper MCU with integrated bed sensing/accelerometer and local heater control | Frozen architecture |
+| Final bed accelerometer | Integrated in Revival Bed Node; LIS2DW-class target | Frozen architecture; exact part open |
+| Bed-node link | USB to CB2 | Frozen |
 | Smart spool system | Revival-native RFID/NFC identification with local inventory/profile mapping | Frozen architecture |
 | Open smart-spool interoperability | OpenPrintTag read compatibility in the target decoder layer | Frozen architecture |
 | Bambu spool compatibility | read/import supported original Bambu RFID spool data and translate to Revival model/profile | Frozen architecture |
@@ -65,7 +69,8 @@ See [`generation-3-procurement-status.md`](generation-3-procurement-status.md) f
 | Final PSU target | Mean Well LRS-600-24, 24 V / 25 A / 600 W | Preferred final model; future purchase |
 | Temporary/prototype PSU | existing NUOFUWEI S-24-600, 24 V / 25 A / 600 W | Reuse candidate for bench/prototype work; inspect and test before use |
 | Heated-bed construction | original footprint; aluminium + silicone heater + magnetic base + flexible PEI sheet | Frozen architecture |
-| Bed switching | external DC MOSFET controlled by Manta | Frozen architecture |
+| Initial bed switching | external DC MOSFET controlled by Manta | Transitional implementation before Bed Node |
+| Final bed switching | local Bed Node-controlled MOSFET/power stage near the moving bed | Frozen architecture; exact power stage open |
 | Bed protection | dedicated fuse + independent thermal fuse | Frozen architecture |
 | Frame lighting | dimmable 24 V diffused white work light | Frozen architecture |
 | Toolhead lighting | EBB36-controlled nozzle work/status light | Frozen architecture |
@@ -116,6 +121,7 @@ These items must fit the frozen architecture but their exact model or rating dep
 - exact smart-spool database/service implementation, on-disk decoder format and UI integration;
 - exact list of additional vendor decoders after real-tag validation;
 - exact bed aluminium thickness;
+- exact Revival Bed Node MCU, accelerometer, MOSFET/gate driver, connectors, PCB layout, diagnostics and Klipper pin map;
 - exact silicone-heater dimensions and power, after measuring the original heated-bed PCB;
 - exact PSU purchase timing after final heater-load confirmation; **Mean Well LRS-600-24 (24 V / 25 A / 600 W)** is the preferred final PSU model;
 - fan makes/models and final duct geometry;
