@@ -35,9 +35,36 @@ sensor_pin: bed:<BED_THERMISTOR_PIN>
 sensor_type: <FINAL_SENSOR_TYPE>
 ```
 
-The integrated Y accelerometer is likewise defined on the `bed:` MCU and used for Y resonance measurements.
+The remote moving Y accelerometer is connected electrically to the fixed `bed:` MCU and is defined as a sensor on that MCU for Y resonance measurements.
 
-Exact pins and syntax belong to the future released PCB/configuration and must be validated against the Klipper version used at commissioning. Loss of the Bed Node must be treated as an MCU failure; physical thermal protection remains independent of firmware.
+Exact pins and syntax belong to the future released PCB/configuration and must be validated against the Klipper version used at commissioning.
+
+### Custom-board firmware build and first flash
+
+The Revival Bed Node should use an MCU supported by upstream Klipper so no private firmware fork is required.
+
+Reference workflow:
+
+```text
+cd ~/klipper
+make menuconfig
+make
+        |
+        v
+firmware image
+        |
+BOOT/DFU/UF2 recovery mode
+        |
+Revival Bed Node
+        |
+USB
+        |
+/dev/serial/by-id/<stable-id>
+```
+
+For an RP2040 implementation, the PCB should expose convenient BOOTSEL/RESET access or recovery test pads. The exact `menuconfig` selections, first-flash procedure, pin map and validated firmware hash will be versioned in the repository when the PCB is released.
+
+ Loss of the Bed Node must be treated as an MCU failure; physical thermal protection remains independent of firmware.
 
 During the initial non-Bed-Node stage, the Manta remains responsible for bed temperature/heater control and the separate USB S2DW-class accelerometer is configured independently.
 
