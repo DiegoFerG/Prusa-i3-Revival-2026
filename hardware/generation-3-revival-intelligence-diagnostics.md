@@ -201,6 +201,8 @@ Independent hardware protections and Klipper's normal heater/watchdog protection
 ## Current status
 
 - RID concept and subsystem boundary: **documented**.
+- RID compute philosophy: **ML-first, LLM-assisted; core operation must not depend on an LLM**.
+- LLM deployment direction: **external/LAN provider abstraction; no local LLM requirement on CB2**.
 - Candidate-governance model: **established**.
 - Individual software/hardware candidates: **not promoted unless separately recorded**.
 - First recommended implementation study: **S01 automated pre-flight**, followed by low-complexity maintenance and health-history functions.
@@ -230,3 +232,220 @@ The Bed Node also contributes electrical/thermal telemetry:
 These measurements remain supervisory/diagnostic. Heater safety continues to rely on dedicated branch protection, thermal fuse and Klipper's normal safety checks.
 
 RGB status lighting driven by the Bed Node may be used by Klipper/RID to expose machine states locally, but colour indication is never a safety mechanism.
+
+
+## RID computation architecture
+
+RID is explicitly **ML-first and LLM-assisted**.
+
+The core diagnostic system must work correctly with **no LLM available**.
+
+Responsibility split:
+
+```text
+hardware protection
+        |
+     Klipper
+ deterministic control
+        |
+       RID
+ rules + feature extraction
+ ML/anomaly detection + vision
+ sensor fusion + history
+        |
+ optional LLM layer
+ explanation / dialogue / high-level reasoning
+```
+
+### Deterministic and specialist models
+
+RID should use the simplest suitable method for each data type.
+
+Mechanical/vibration data:
+- FFT / spectral features;
+- RMS, kurtosis and band energy;
+- cross-sensor coherence and relative amplitudes;
+- trend comparison with the machine's commissioned baseline;
+- anomaly-detection models such as PCA, Isolation Forest, One-Class SVM or autoencoders if they demonstrate value.
+
+Thermal/electrical data:
+- physical/empirical warm-up and cooldown models;
+- heater duty/current/voltage correlations;
+- resistance/power trend calculations;
+- statistical anomaly detection.
+
+Vision:
+- purpose-built lightweight vision models for first-layer quality, spaghetti, detachment, warping, gross layer shift and nozzle contamination;
+- fixed-camera analysis first;
+- nozzle-camera analysis only if that upgrade is implemented.
+
+The project should not use a general-purpose LLM for raw waveform analysis when deterministic signal processing or a purpose-built model is better suited.
+
+## Sensor-fusion model
+
+RID should maintain four primary internal health domains:
+
+1. **Mechanical** — toolhead, bed, chassis and frame vibration; belts; rails; structural changes.
+2. **Thermal / electrical** — heater behaviour, temperatures, fan state, current, voltage and power trends.
+3. **Filament / extrusion** — RASS, buffer, Roto/Revo, filament presence/motion and material context.
+4. **Vision / print quality** — first layer, adhesion, geometry, spaghetti, detachment and visible extrusion anomalies.
+
+A fifth **sensor-fusion layer** correlates evidence across the four domains.
+
+Example:
+
+```text
+vision: under-extrusion suspected
+RASS: buffer tension rising
+Roto: commanded extrusion normal
+hotend: temperature stable
+
+=> likely upstream filament-supply problem
+```
+
+or:
+
+```text
+vision: first-layer lines too compressed
+Eddy: surface map normal
+extrusion: flow normal
+Z state: repeatable
+
+=> likely Z-offset / first-layer setup issue
+```
+
+Sensor fusion should produce evidence and confidence, not pretend that every fault can be identified uniquely from one observation.
+
+## Machine baseline and health history
+
+RID should establish a commissioned **known-good machine baseline** and preserve longitudinal history.
+
+Target baseline families:
+
+- toolhead / bed / lower-chassis / upper-frame vibration spectra;
+- bed and hotend thermal-response curves;
+- heater current, voltage, apparent resistance and power;
+- Eddy bed surfaces at useful reference temperatures;
+- fan RPM behaviour;
+- RASS/feed behaviour;
+- representative camera views and first-layer results.
+
+RID may then compare later measurements against the Revival's own history to identify drift.
+
+Examples:
+
+- progressive resonance-frequency shift;
+- increasing structural coupling between bed and frame;
+- longer bed warm-up at normal electrical power;
+- decreasing heater current at the same supply voltage;
+- changing Eddy surface shape at the same temperature;
+- new feed anomalies associated with a spool/path state.
+
+## Autonomy policy refinement
+
+RID uses three operational severity classes in addition to the R0-R4 autonomy model:
+
+- **INFO** — log and expose the observation.
+- **WARNING** — notify and recommend inspection/action.
+- **CRITICAL** — request a validated reversible Klipper action such as PAUSE/CANCEL when policy and confidence allow.
+
+No RID or LLM component may bypass hardware safety or Klipper's deterministic heater/motion protections.
+
+## LLM architecture
+
+A local LLM on the printer is **not required and is not part of the frozen CB2 requirement**.
+
+RID's LLM layer is optional and used for:
+
+- natural-language explanations of RID evidence;
+- high-level correlation of already-processed subsystem findings;
+- answering questions about historical machine behaviour;
+- summarising maintenance, anomalies and changes;
+- conversational interaction with the operator.
+
+The LLM should receive **processed diagnostic context**, not raw high-rate sensor streams unless an explicit analysis workflow requires it.
+
+Example input:
+
+```text
+Mechanical:
+- Y dominant resonance shifted 41.8 -> 38.9 Hz
+- bed amplitude +24 %
+- upper-frame coupling +31 %
+- lower-chassis coupling +7 %
+
+Thermal:
+- nominal
+
+Extrusion:
+- nominal
+
+Vision:
+- nominal
+```
+
+The LLM may explain the evidence and suggest an inspection sequence, but the numeric/signal conclusion remains owned by RID's deterministic/specialist analysis.
+
+## External / LAN LLM provider abstraction
+
+The preferred architecture delegates LLM work to either:
+
+- a server on the local network; or
+- a configured external service such as OpenAI/ChatGPT, Anthropic/Claude or another compatible provider.
+
+RID should expose a provider-neutral interface conceptually similar to:
+
+```text
+RID
+ |
+ +-- provider = local-network
+ +-- provider = external-A
+ +-- provider = external-B
+ +-- provider = disabled
+```
+
+A practical preference order may be:
+
+1. local-network LLM server when configured and available;
+2. configured external provider;
+3. LLM disabled.
+
+RID core diagnostics must continue to operate in mode 3.
+
+Provider choice must not require changes to Klipper or the machine-control layer.
+
+## Privacy and data minimisation
+
+External LLM integrations should send only the minimum useful diagnostic context.
+
+Normally permitted:
+- processed metrics;
+- anomaly summaries;
+- selected logs;
+- maintenance history relevant to the question;
+- selected images only when the user/configuration explicitly permits vision analysis.
+
+Do not send:
+- API credentials;
+- unrelated local-network information;
+- secrets;
+- unnecessary raw data.
+
+A local-network provider may be granted broader diagnostic context under explicit local configuration.
+
+## Compute-platform rule
+
+The CB2 remains the frozen Generation 3 host.
+
+RID must be designed so that adding an LLM does **not** require replacing the CB2 with a more powerful compute module.
+
+A future CM4/CM5 or other host may be evaluated for unrelated engineering reasons, but local LLM execution is not a justification or dependency for the baseline architecture.
+
+The CB2 should reserve its resources for:
+- Klipper/Moonraker/Mainsail/KlipperScreen;
+- sensor acquisition;
+- RID rules and feature extraction;
+- lightweight ML/anomaly detection;
+- camera handling / validated lightweight vision;
+- local history/database;
+- orchestration and provider communication.
