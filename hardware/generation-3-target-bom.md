@@ -48,8 +48,12 @@ See [`generation-3-bed-node.md`](generation-3-bed-node.md) for the staged heated
 | Toolhead accelerometer | permanent LIS2DW associated with EBB36 Gen2 | Frozen |
 | Initial bed accelerometer | BIGTREETECH S2DW V1.0 (RP2040 + LIS2DW) or equivalent USB solution before Bed Node | Transitional implementation |
 | Final bed node | Custom Revival Bed Node, USB secondary Klipper MCU with integrated bed sensing/accelerometer and local heater control | Frozen architecture |
-| Final bed accelerometer | Integrated in Revival Bed Node; LIS2DW-class target | Frozen architecture; exact part open |
+| Final bed accelerometer | Remote LIS2DW-class IMU daughterboard on moving bed, connected to Bed Node | Frozen architecture; exact part/link open |
+| Bed Node chassis accelerometer | LIS2DW-class IMU on fixed Bed Node PCB | Frozen architecture; structural diagnostics |
+| Frame-top accelerometer | Remote LIS2DW-class IMU near top of original flat steel frame, connected to Bed Node | Frozen architecture; long-link implementation open |
+| Under-bed status lighting | 24 V RGB strip driven by Bed Node PWM/MOSFET outputs | Frozen architecture; exact strip/current/routing open |
 | Bed-node link | USB to CB2 | Frozen |
+| Bed Node telemetry | heater current / 24 V telemetry / secondary temperature / PCB temperature channels | Frozen capability; exact sensors open |
 | Smart spool system | Revival-native RFID/NFC identification with local inventory/profile mapping | Frozen architecture |
 | Open smart-spool interoperability | OpenPrintTag read compatibility in the target decoder layer | Frozen architecture |
 | Bambu spool compatibility | read/import supported original Bambu RFID spool data and translate to Revival model/profile | Frozen architecture |
