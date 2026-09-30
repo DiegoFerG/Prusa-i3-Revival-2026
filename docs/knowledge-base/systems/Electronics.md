@@ -5,7 +5,7 @@ status: documented
 phase: stage-02
 priority: high
 generation: original
-updated: 2026-09-27
+updated: 2026-09-30
 ---
 
 # Electronics
@@ -21,6 +21,10 @@ During Stage 02, [manual Stage J](../build/Phase-J.md) permits historical mechan
 The [final-build architecture](../../final-build-architecture.md) separates the original hardware, the Re-ARM transitional study and the future Generation 3 machine. Generation 3 targets Manta M8P V2.0 + CB2 + TMC2209, 24 V power, CEB distribution and an EBB36 Gen2 CAN toolhead. The Manta M8P V2.0, EBB36 Gen2 kit and 6× BTT TMC2209 V1.3 have now been purchased; purchase does not establish electrical testing or commissioning. See the [target BOM](../../../hardware/generation-3-target-bom.md) for frozen versus deferred selections; a target entry is not proof of purchase or installation.
 
 CB2 remains the frozen final host but is not yet purchased; a temporary Linux PC/Raspberry Pi may host Klipper over USB solely for Manta bench testing. A [Generation 3 electronics bench-test pack](../../../hardware/bench-tests/generation-3-electronics/README.md) now defines the receiving, Manta/TMC, EBB36 and CAN acceptance sequence. Preparing the procedure is not evidence that any part passed. Local upstream manuals, pinouts, schematics, connection diagrams and reference configurations for the purchased controller/toolboard/drivers are preserved in the [BIGTREETECH vendor reference archive](../../../hardware/reference/bigtreetech/README.md); their presence establishes documentation provenance, not electrical acceptance. The final PSU target is now **Mean Well LRS-600-24 (24 V / 25 A / 600 W)**, with purchase deferred until the final load budget is rechecked. An existing NUOFUWEI S-24-600 of the same nominal rating may be reused for bench/prototype work after inspection. Connector families, wire gauges and routing remain open until loads and interfaces are defined. New electrical design and wiring belong to [Roadmap Stage 05](../../ROADMAP.md).
+
+## Bed-local electronics
+
+The final bed uses a custom [Revival Bed Node](../../../hardware/generation-3-bed-node.md) over USB. Initial commissioning intentionally uses separate thermistor/heater/accelerometer wiring so PCB development does not block the printer. The final node integrates bed sensing, permanent Y acceleration measurement and local heater-stage control while retaining an independent branch fuse and thermal fuse.
 
 ## Related work
 
