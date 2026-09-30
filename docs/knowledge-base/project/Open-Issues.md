@@ -31,6 +31,8 @@ This is a source-linked register of unresolved work. IDs are local knowledge-bas
 
 | KB-015 | Medium / Generation 3 Bed Node | Design and validate the custom Revival Bed Node PCB: USB-native Klipper MCU fixed to the rear cross-member; remote moving-bed IMU; local chassis IMU; remote frame-top IMU interface; primary/secondary temperature channels; heater voltage/current/PCB-temperature telemetry; 24 V RGB status-light outputs; local heater MOSFET/power stage; connectors/strain relief; boot/recovery access and auxiliary expansion. Initial conventional bed wiring remains valid until this PCB passes bench and thermal testing. Close with schematic/PCB review, firmware/config, current/thermal validation and documented fail-safe tests. See [Bed Node architecture](../../../hardware/generation-3-bed-node.md). |
 
+| KB-016 | Medium / RID software architecture | Define the provider-neutral RID software interfaces and data contracts: mechanical/thermal-electrical/extrusion/vision domain models, sensor-fusion evidence format, machine-baseline storage, severity/confidence model and optional LLM provider abstraction. Core RID must run with LLM disabled; local-network and external providers are optional. Close with a versioned schema/API and one end-to-end prototype. See [RID architecture](../../../hardware/generation-3-revival-intelligence-diagnostics.md). |
+
 Further commissioning, spare-electronics evaluation and legacy-filament qualification remain planned work in the [roadmap](../../ROADMAP.md), [spares record](../../00-archaeology/06-motion-electronics-spares.md) and [filament inventory](../../01-filaments/01-inventory.md). Their presence in inventory does not establish a passing test.
 
 ## KB-014 — Exact original printable-part coverage
