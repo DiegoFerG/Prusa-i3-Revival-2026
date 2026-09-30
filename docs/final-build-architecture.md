@@ -129,7 +129,7 @@ The implementation is deliberately staged:
 
 The fixed/semi-fixed feed into the Bed Node is **24 V + USB**. Only the short Bed Node-to-bed harness is continuously flexed and carries heater power, thermistor and the remote moving IMU connection. USB never carries heater power.
 
-The Bed Node is a normal secondary Klipper MCU. Safety-critical bed protection remains independent of it: dedicated branch fuse and independent thermal fuse remain mandatory even after migration.
+The Bed Node is a normal secondary Klipper MCU. Beyond bed control, it is also the local acquisition hub for a moving-bed IMU, a chassis IMU on the fixed PCB and a remote frame-top IMU, plus RGB status lighting and electrical/thermal telemetry. Safety-critical bed protection remains independent of it: dedicated branch fuse and independent thermal fuse remain mandatory even after migration.
 
 ## Permanent accelerometers
 
