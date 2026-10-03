@@ -41,7 +41,7 @@ Additional Manta drivers should only be purchased if a later subsystem actually 
 | Component | Quantity | Status | Intended test |
 |---|---:|---|---|
 | 28BYJ-48 5 V geared stepper | at least 1 observed | Existing part; untested for RASS | Candidate spool-drive motor only |
-| ULN2003 5 V stepper driver board | at least 1 observed | Existing part; untested for RASS | Early ESP32-S3 spool-drive bench control |
+| ULN2003 5 V stepper driver board | at least 1 observed | Existing part; untested for RASS | Early standalone spool-drive bench prototype only; not the production CAN-node driver |
 
 These parts are **not** frozen production selections and are **not** candidates for the precision filament feeder. They are retained as the preferred no-cost prototype for active spool rotation and must be tested with a full spool and the final load-cell/roller concept.
 
@@ -52,7 +52,8 @@ These parts are **not** frozen production selections and are **not** candidates 
 | BIGTREETECH CB2 | Frozen host choice | Wait for a reasonable price/availability; do not buy a CM4 merely because CB2 is temporarily harder to source |
 | E3D Roto + Revo | Frozen extrusion architecture | Current purchase preference is **Roto Sensored + Revo 24 V / 40 W**; exact retail bundle/SKU to confirm at purchase |
 | BIGTREETECH Eddy Duo | Frozen probe/scanner | Buy when a good offer is found; final mount/routing remains future CAD work |
-| BIGTREETECH CEB V1.0 | Frozen CAN backbone/distribution for EBB36/Eddy and Revival Bed Node | Not yet purchased |
+| BIGTREETECH CEB V1.0 | Frozen CAN backbone/distribution for EBB36/Eddy, Revival Bed Node and RASS CAN Node | Not yet purchased |
+| Custom Revival RASS CAN Node | Frozen production controller architecture | Custom PCB to design; Klipper-compatible CAN MCU, exact MCU/transceiver/drivers open |
 | BIGTREETECH HDMI5 | Frozen local display | Not yet purchased |
 | BIGTREETECH S2DW V1.0 | Transitional USB bed accelerometer for commissioning/bench work before the custom Bed Node | Not yet purchased |
 | Mean Well LRS-600-24 | Preferred final PSU | 24 V / 25 A / 600 W; future purchase; Amazon Spain reference: https://www.amazon.es/dp/B0D173X5V3 |
@@ -124,8 +125,12 @@ BIGTREETECH CEB V1.0
        |      +-- CAN passthrough -> Eddy Duo
        |
        +-- Revival Bed Node
+       |      |
+       |      +-- USB-C service / recovery / optional alternate runtime
+       |
+       +-- Custom RASS CAN Node
               |
-              +-- USB-C service / recovery / optional alternate runtime
+              +-- feeder / spool assist / buffer / encoder sensing
 ```
 
 The CEB is the Generation 3 CAN backbone/distribution point. Bed-heater power remains on its own dedicated fused 24 V high-current path and is not routed through the CEB.
