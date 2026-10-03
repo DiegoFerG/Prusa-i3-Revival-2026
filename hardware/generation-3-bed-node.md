@@ -78,7 +78,7 @@ The board must not include unnecessary toolhead-specific functions such as an ex
 
 ## MCU direction
 
-A **Klipper-supported MCU with a robust CAN implementation and native/accessible USB recovery path** is preferred. The production design must support:
+A **Klipper-supported MCU with a robust CAN implementation and native/accessible USB recovery path** is required. The Bed Node follows the common [custom CAN-node design rules](generation-3-custom-can-node-design-rules.md). The production design must support:
 
 - normal Klipper communication over CAN;
 - USB-C first-flash and recovery access;
@@ -86,7 +86,8 @@ A **Klipper-supported MCU with a robust CAN implementation and native/accessible
 - SPI for LIS2DW-class accelerometers;
 - ADC inputs for thermistors and diagnostics;
 - sufficient GPIO;
-- low-cost, serviceable components with good upstream support.
+- low-cost, serviceable components with good upstream support;
+- enough unused hardware resources to satisfy the mandatory expansion reserve after all frozen Bed Node functions are assigned.
 
 The CAN physical layer requires a dedicated transceiver, ESD/transient protection appropriate to the final harness, and a selectable **120-ohm termination** so the Bed Node can be used correctly at an end of the physical bus. RP2040 remains a candidate only with a validated Klipper/Katapult CAN implementation; STM32 parts with well-supported CAN peripherals are also candidates. The exact MCU, transceiver and PCB implementation are not yet frozen at component level.
 
@@ -291,18 +292,23 @@ P_heater = V * I
 
 These values are diagnostic only and do not replace electrical protection.
 
-The PCB should also reserve:
+The PCB must preserve the mandatory expansion reserve defined in [Generation 3 custom CAN node design rules](generation-3-custom-can-node-design-rules.md), **after** the bed heater, thermistors, current/voltage telemetry, RGB outputs and all production accelerometers are allocated.
 
-- spare ADC input(s);
-- spare digital GPIO;
-- auxiliary I2C;
-- optional fast digital input;
-- 3.3 V / 5 V / GND service pins;
-- status LEDs and test points.
+At minimum the released Bed Node must still expose:
+
+- one spare SPI-capable expansion position with its own CS and event/IRQ-capable GPIO;
+- one spare I2C expansion interface;
+- one unused UART-capable TX/RX pair;
+- at least two spare ADC-capable inputs;
+- at least four spare GPIOs, preferably including two timer/PWM-capable pins;
+- regulated 3.3 V, GND and documented 5 V service power where the final regulator budget permits it;
+- BOOT/RESET and the native debug interface/test pads appropriate to the selected MCU.
+
+The production accelerometer interfaces do **not** consume this reserve. MCU selection and pin mapping must be changed if the final design cannot preserve it.
 
 ## Building and flashing Klipper firmware
 
-The custom board does **not** require a special Revival fork of Klipper if it uses an MCU already supported by upstream Klipper.
+The Bed Node shall use **unmodified upstream Klipper MCU firmware**. A private Revival Klipper MCU fork, patched Klipper `src/` tree or custom MCU command is outside the frozen architecture. Revival-specific behaviour must remain in normal Klipper configuration/macros or Linux-host software wherever practical.
 
 For an RP2040-class design, the normal process is:
 
@@ -500,6 +506,8 @@ These are diagnostic aids and do not replace physical protection.
 - a custom **Revival Bed Node** will be designed for the final Generation 3 bed;
 - it communicates normally as a secondary Klipper MCU over **CAN through the BIGTREETECH CEB V1.0**;
 - it retains **USB-C** for first flash, recovery, bench diagnostics and optional alternate USB runtime operation;
+- its MCU firmware is built from **unmodified upstream Klipper**; no production feature depends on a private Revival MCU firmware fork;
+- after all production functions are allocated, it still exposes the mandatory spare SPI/I2C/UART/ADC/GPIO/PWM expansion resources defined by the common custom-node rules;
 - it integrates bed temperature sensing and interfaces to a **remote moving Y accelerometer daughterboard**;
 - it includes a **local chassis accelerometer** and a **remote frame-top accelerometer interface**;
 - it controls the local bed-heater power stage;
@@ -512,7 +520,7 @@ These are diagnostic aids and do not replace physical protection.
 
 ## Open decisions
 
-- exact MCU / RP2040 implementation;
+- exact MCU/package selection that satisfies both the frozen Bed Node functions and the mandatory expansion reserve;
 - exact LIS2DW or alternative accelerometer parts and daughterboard connector/cable choices;
 - final long-distance frame-top IMU signalling method (direct SPI at reduced speed vs buffered/differential adapter after testing);
 - CAN transceiver/protection implementation, connector family, bus-stub length and selectable 120-ohm termination;
