@@ -52,9 +52,9 @@ These parts are **not** frozen production selections and are **not** candidates 
 | BIGTREETECH CB2 | Frozen host choice | Wait for a reasonable price/availability; do not buy a CM4 merely because CB2 is temporarily harder to source |
 | E3D Roto + Revo | Frozen extrusion architecture | Current purchase preference is **Roto Sensored + Revo 24 V / 40 W**; exact retail bundle/SKU to confirm at purchase |
 | BIGTREETECH Eddy Duo | Frozen probe/scanner | Buy when a good offer is found; final mount/routing remains future CAD work |
-| BIGTREETECH CEB V1.0 | Frozen CAN distribution | Not yet purchased |
+| BIGTREETECH CEB V1.0 | Frozen CAN backbone/distribution for EBB36/Eddy and Revival Bed Node | Not yet purchased |
 | BIGTREETECH HDMI5 | Frozen local display | Not yet purchased |
-| BIGTREETECH S2DW V1.0 | Frozen permanent bed accelerometer | Not yet purchased |
+| BIGTREETECH S2DW V1.0 | Transitional USB bed accelerometer for commissioning/bench work before the custom Bed Node | Not yet purchased |
 | Mean Well LRS-600-24 | Preferred final PSU | 24 V / 25 A / 600 W; future purchase; Amazon Spain reference: https://www.amazon.es/dp/B0D173X5V3 |
 
 ## Existing 24 V PSU for prototype use
