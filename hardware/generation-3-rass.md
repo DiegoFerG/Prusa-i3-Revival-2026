@@ -268,7 +268,7 @@ These diagnoses are advisory until validated experimentally.
 
 ## Controller and host link
 
-The **production RASS motion/sensing controller is a custom Klipper-compatible CAN node** designed specifically for the Revival and connected to the Generation 3 CAN backbone through the BIGTREETECH CEB V1.0.
+The **production RASS motion/sensing controller is a custom Klipper-compatible CAN node** designed specifically for the Revival and connected to the Generation 3 CAN backbone through the BIGTREETECH CEB V1.0. It follows the common [custom CAN-node design rules](generation-3-custom-can-node-design-rules.md).
 
 Production-controller requirements:
 
@@ -279,7 +279,7 @@ Production-controller requirements:
 - buffer/dancer sensor inputs;
 - feeder encoder/motion inputs;
 - filament-presence and optional spool-rotation feedback inputs;
-- spare GPIO/ADC/I2C/SPI for future validated RASS sensing;
+- the full mandatory expansion reserve from the common custom-node rules **after** the feeder, spool-drive, RFID reader, buffer, encoder and production sensors are allocated;
 - service/status LEDs;
 - accessible boot/recovery interface; USB-C service/recovery is preferred where the selected MCU supports it cleanly.
 
@@ -289,7 +289,7 @@ The RASS CAN Node may host the **physical RFID/NFC reader interface** and acquir
 
 All RFID/NFC interpretation belongs to the host service: **CB1 during bench/prototype work and CB2 in the final Generation 3 machine**. The host owns decoder plugins, vendor-format interpretation, Revival Spool Tag parsing, database/inventory logic and profile mapping.
 
-The exact upstream-compatible transport for variable RFID/NFC payloads over the RASS CAN/Klipper link remains an implementation item. Prefer a host-side service/extension and MCU response mechanism that preserves normal Klipper operation; do not move decoder logic into the MCU merely to simplify transport.
+The exact upstream-compatible transport for variable RFID/NFC payloads over the RASS CAN/Klipper link remains an implementation item. Prefer a host-side service/extension and standard upstream Klipper bus/MCU mechanisms. **The production RASS MCU shall run unmodified upstream Klipper firmware.** If a proposed RFID reader or transport would require patched Klipper MCU C code or a private MCU protocol command, change the reader/interface/host architecture instead of embedding that requirement in the production firmware.
 
 ## Motor selection philosophy
 
@@ -427,15 +427,18 @@ Normal printing should not require the user to manually tune feeder speed.
 - the complete spool-support mechanism remains inside the calibrated load-cell path;
 - RASS diagnostics compare multiple signals to detect feed anomalies;
 - RASS is controlled by a **custom Klipper-compatible CAN MCU** connected through the CEB V1.0;
+- the RASS MCU runs **unmodified upstream Klipper firmware**; Revival-specific semantics and decoding remain on the Linux host;
 - CAN is the normal production RASS host link;
 - the RASS node acquires RFID/NFC reader data but performs **no tag/vendor/material interpretation**;
 - raw/low-level RFID/NFC observations are forwarded to the Linux host for decoding and inventory/profile logic;
 - passive/manual fallback remains a design requirement;
+- after all production functions are allocated, the RASS PCB still exposes the mandatory spare SPI/I2C/UART/ADC/GPIO/PWM expansion resources defined by the common custom-node rules;
 - exact MCU, CAN transceiver, motors, motor drivers, buffer geometry and spool-drive mechanism remain open until electrical/mechanical prototyping.
 
 ## Open component-level decisions
 
-- production RASS MCU and CAN transceiver/protection implementation;
+- production RASS MCU/package selection that satisfies both the frozen RASS functions and the mandatory expansion reserve;
+- CAN transceiver/protection implementation;
 - exact RFID/NFC reader electrical interface on the RASS PCB;
 - exact host transport/API for forwarding raw RFID/NFC observations over the CAN/Klipper path without embedding decoder logic in the MCU;
 - CAN connector family, physical bus position/stub length and termination-jumper policy;
