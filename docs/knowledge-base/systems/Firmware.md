@@ -15,19 +15,22 @@ The current [firmware directory](../../../firmware/README.md) is a placeholder f
 
 ## Future software architecture
 
-The [Generation 3 architecture](../../final-build-architecture.md) freezes Klipper on CB2 with Moonraker, Mainsail, KlipperScreen and Crowsnest. CB2 is not yet purchased; until it is available, a temporary Linux PC/Raspberry Pi may run the Klipper host and connect to the Manta M8P V2.0 by USB for bench testing without changing the final architecture. Manta manages machine axes and enclosure/bed I/O; EBB36 manages local toolhead functions; Eddy Duo is a separate 5 V CAN MCU/node downstream of the EBB36 passthrough; the permanent bed accelerometer connects over USB.
+The [Generation 3 architecture](../../final-build-architecture.md) freezes Klipper on CB2 with Moonraker, Mainsail, KlipperScreen and Crowsnest. CB2 is not yet purchased; until it is available, a temporary Linux PC/Raspberry Pi may run the Klipper host and connect to the Manta M8P V2.0 by USB for bench testing without changing the final architecture. Manta manages machine axes and enclosure/initial bed I/O; EBB36 manages local toolhead functions; Eddy Duo is a separate 5 V CAN MCU/node downstream of the EBB36 passthrough; the final Revival Bed Node is another CAN MCU/node on the CEB backbone. A separate USB S2DW remains the transitional bed accelerometer before the Bed Node is commissioned.
 
 Final configuration, macros and calibration data must be versioned under `firmware/`. The temporary [Generation 3 electronics bench-test pack](../../../hardware/bench-tests/generation-3-electronics/README.md) intentionally keeps its disposable acceptance-test templates beside the hardware procedure; they are not commissioned printer configuration. Any future files should identify the machine generation and actual hardware they were validated against. The architecture is a target, not evidence that this software is already deployed.
 
 ## Revival Bed Node integration
 
-The custom Bed Node is treated as an ordinary secondary Klipper MCU over USB.
+The custom Bed Node is treated as an ordinary secondary Klipper MCU with **CAN as its normal production transport through the CEB V1.0**. Its USB-C interface is retained for first flash, recovery, bench diagnostics and optional alternate USB runtime operation.
 
 Conceptual structure:
 
 ```ini
 [mcu bed]
-serial: /dev/serial/by-id/<REVIVAL_BED_NODE_ID>
+canbus_uuid: <REVIVAL_BED_NODE_CAN_UUID>
+
+# Alternate bench/service runtime, using a USB-target firmware build:
+# serial: /dev/serial/by-id/<REVIVAL_BED_NODE_ID>
 
 [heater_bed]
 heater_pin: bed:<HEATER_GATE_PIN>
@@ -53,16 +56,16 @@ make
         v
 firmware image
         |
-BOOT/DFU/UF2 recovery mode
+USB BOOT/DFU/UF2 first-flash / recovery
         |
 Revival Bed Node
         |
-USB
+        +-- production: CAN -> CEB V1.0 -> canbus_uuid
         |
-/dev/serial/by-id/<stable-id>
+        +-- alternate service runtime: USB -> /dev/serial/by-id/<stable-id>
 ```
 
-For an RP2040 implementation, the PCB should expose convenient BOOTSEL/RESET access or recovery test pads. The exact `menuconfig` selections, first-flash procedure, pin map and validated firmware hash will be versioned in the repository when the PCB is released.
+The PCB must expose convenient BOOT/RESET access or recovery test pads. The normal production Klipper build targets CAN; an alternate USB-runtime build may be maintained for bench/service use. The exact MCU, CAN transceiver, `menuconfig` selections, first-flash/CAN-bootloader procedure, pin map and validated firmware hash will be versioned in the repository when the PCB is released.
 
  Loss of the Bed Node must be treated as an MCU failure; physical thermal protection remains independent of firmware.
 
