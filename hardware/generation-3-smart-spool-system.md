@@ -74,7 +74,7 @@ The Generation 3 spool system is extended by **RASS — Revival Active Spool Sys
                            profile / warnings / learn
 ```
 
-The exact reader IC and antenna geometry remain open until the spool-holder geometry is designed. The physical RFID/NFC reader is interfaced by the **custom RASS CAN Node**, which forwards low-level observations without interpreting them. Decoder logic runs on the Linux host: **CB1 during bench/prototype work and CB2 in the final machine**. PN5180-class hardware remains a reader candidate; the exact reader IC/interface is not frozen.
+The exact reader IC and antenna geometry remain open until the spool-holder geometry is designed. The physical RFID/NFC reader is interfaced by the **custom RASS CAN Node**, which forwards low-level observations without interpreting them. Decoder logic runs on the Linux host: **CB1 during bench/prototype work and CB2 in the final machine**. The reader/interface selection must remain compatible with the frozen rule that the RASS MCU runs unmodified upstream Klipper firmware; a reader that requires private Klipper MCU commands should be replaced or bridged rather than forcing a firmware fork. PN5180-class hardware remains a reader candidate; the exact reader IC/interface is not frozen.
 
 ## Normalised Revival spool record
 
