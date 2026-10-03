@@ -33,7 +33,7 @@ See [`generation-3-bed-node.md`](generation-3-bed-node.md) for the staged heated
 | ABS/ASA target | occasional open-frame use only; no heated-chamber requirement | Frozen design intent |
 | Z / bed probe | BIGTREETECH Eddy Duo eddy-current probe for fast/dense bed scanning | Frozen architecture; 5 V CAN node after EBB36 passthrough; exact mount/harness to finalise |
 | Toolhead network | CAN bus | Frozen |
-| CAN distribution | BIGTREETECH CEB V1.0 in electronics bay | Frozen; Generation 3 CAN backbone/distribution point for EBB36/Eddy and Revival Bed Node |
+| CAN distribution | BIGTREETECH CEB V1.0 in electronics bay | Frozen; Generation 3 CAN backbone/distribution point for EBB36/Eddy, Revival Bed Node and RASS CAN Node |
 | Historical mechanical skeleton | original flat steel frame + 2× M10×350 mm longitudinal threaded rods + 4× M8×200 mm transverse threaded rods | Frozen; retained as functional final structure |
 | X guidance | 1× MGN12-class rail, long MGN12H-class carriage preferred | Frozen architecture |
 | X rail support | commercial aluminium T-slot extrusion used as the structural X beam; 2020/2040-class family to be evaluated | Frozen concept; exact section deferred |
@@ -64,6 +64,7 @@ See [`generation-3-bed-node.md`](generation-3-bed-node.md) for the staged heated
 | Spool measurement policy | stable weight readings are authoritative; dynamic printing readings are filtered/secondary | Frozen |
 | Smart spool host link | local reader/weighing controller, wired USB to CB2 preferred | Frozen architecture |
 | RASS active feed | single-spool active feeder near spool + driven-spool assistance | Frozen architecture |
+| RASS controller | Custom Klipper-compatible CAN node designed for Revival | Frozen architecture; normal runtime via CEB V1.0; exact MCU/transceiver/drivers open |
 | RASS control hierarchy | toolhead direct drive remains extrusion master; RASS follows via buffer/dancer feedback | Frozen |
 | RASS tension decoupling | intermediate buffer/dancer between upstream feeder and toolhead | Frozen architecture |
 | RASS fallback | passive/manual feed path remains possible if active feed subsystem is unavailable | Frozen design requirement |
@@ -120,7 +121,8 @@ These items must fit the frozen architecture but their exact model or rating dep
 - exact Z motor, nut and upper-support adjustment geometry;
 - exact RFID/NFC reader IC and antenna geometry;
 - exact Revival tag technology/schema and degree of OpenPrintTag interoperability;
-- exact ESP32-S3-class spool-controller implementation;
+- exact smart-spool reader/controller implementation for RFID/NFC and inventory services;
+- exact RASS CAN-node MCU, transceiver/protection, motor drivers, connectors and boot/recovery interface;
 - exact load-cell type, rating, ADC and mechanical mounting arrangement;
 - exact smart-spool database/service implementation, on-disk decoder format and UI integration;
 - exact list of additional vendor decoders after real-tag validation;
