@@ -35,65 +35,73 @@ Examples:
 
 This boundary deliberately keeps the custom PCBs useful across normal Klipper updates.
 
-## Mandatory expansion reserve
+## Full unused-pin exposure policy
 
-The final MCU and pin allocation for **each** custom board must leave the following resources unused by frozen baseline functions and physically accessible for future expansion.
+The Revival does **not** use a minimum-reserve model for its custom CAN boards.
 
-### EXP-SPI
+After all frozen production functions are assigned, **every remaining electrically usable MCU pin must be physically exposed for future use** on the Bed Node and RASS CAN Node. The objective is to avoid stranding MCU capability inside the PCB.
 
-Provide at least one spare SPI-capable expansion position with:
+This rule applies to all unused MCU pins that can safely be made available, including pins whose alternate functions can provide:
 
-- SCK;
-- MOSI;
-- MISO;
-- at least one dedicated chip-select GPIO;
-- at least one additional GPIO suitable for IRQ/READY/BUSY use;
-- 3.3 V;
-- GND.
+- SPI;
+- I2C;
+- UART/USART;
+- ADC;
+- timer/PWM;
+- external interrupt/event input;
+- ordinary digital GPIO;
+- other upstream-Klipper-compatible peripheral functions supported by the selected MCU.
 
-A dedicated unused hardware SPI controller is preferred. If MCU resource pressure makes a shared SPI bus preferable, the expansion device must still receive its own CS and IRQ-capable GPIO and the signal-integrity/loading implications must be reviewed.
+### What counts as exposed
 
-The RASS RFID reader does **not** consume the mandatory spare expansion position: an additional SPI expansion position must remain available after the production RFID interface is allocated.
+An unused pin is considered exposed only when it is reachable without PCB modification through one of:
 
-The Bed Node accelerometers do **not** consume the mandatory spare expansion position: an additional SPI expansion position must remain available after the production IMU interfaces are allocated.
+- a labelled expansion connector;
+- a labelled through-hole header position;
+- a deliberately provided, accessible solder pad/test pad intended for expansion.
 
-### EXP-I2C
+Merely routing a trace to an inaccessible via does not satisfy this rule.
 
-Provide one spare I2C expansion interface with:
+Where practical, related signals should be grouped into useful expansion headers — for example SPI + CS + IRQ + power, I2C + power, or UART + power — while still exposing any remaining individual pins that do not fit those groups.
 
-- SDA;
-- SCL;
-- 3.3 V;
-- GND;
-- optional regulated 5 V power only when the connector and board documentation make clear that the I/O logic itself remains at the correct MCU voltage.
+### Exceptions
 
-Pull-up strategy must be documented so future modules do not create excessive parallel pull-up loading.
+A pin may remain unavailable only when there is a documented hardware reason, for example:
 
-### EXP-UART
+- it is committed to CAN, USB, SWD/debug, BOOT/RESET or the selected bootloader/recovery scheme;
+- it is required by the crystal/oscillator or other mandatory clock circuitry;
+- it is tied to power, reference, regulator or other non-GPIO MCU functions;
+- exposing it would violate MCU boot-strapping requirements or create a credible electrical/safety hazard;
+- package-specific restrictions make it unusable in the selected board configuration.
 
-Reserve and expose at least one unused hardware UART-capable TX/RX pair, plus GND and an appropriate logic-power reference.
+Such pins must still appear in the resource ledger with the reason they are unavailable.
 
-If the selected MCU provides useful hardware flow-control pins without compromising the rest of the design, CTS/RTS should also be reserved or made available on test pads.
+SWD/debug, BOOT and RESET are not treated as lost resources: they must be exposed separately as service/debug access.
 
-The presence of a hardware UART reserve does not imply that upstream Klipper exposes every arbitrary UART use case as a generic host API; future use must remain compatible with the frozen upstream-firmware policy.
+### Alternate-function documentation
 
-### EXP-ANALOG
+For every exposed unused MCU pin, the released board documentation must record:
 
-Reserve at least **two unused ADC-capable MCU inputs** after all production measurements are allocated.
+- MCU pin name;
+- PCB connector/pad and pin number;
+- logic voltage;
+- ADC capability where applicable;
+- timer/PWM capability where applicable;
+- SPI/I2C/UART alternate functions that remain usable with the final pin mux;
+- boot/debug/electrical caveats;
+- any external protection, pull-up/down or filtering already attached to the pin.
 
-The external connector or test-point implementation must include appropriate protection/filtering when signals can leave the PCB or come from electrically noisy areas.
+This documentation is authoritative for future expansions.
 
-### EXP-GPIO / PWM
+### Bus-oriented expansion
 
-Reserve at least **four general-purpose GPIOs** after all production functions are allocated.
+Because future peripherals are likely to use buses, the PCB layout should still group exposed pins into convenient bus-oriented connectors whenever practical.
 
-Where the selected MCU permits practical pin assignment, at least **two of those spare GPIOs should be timer/PWM-capable**.
-
-At least one spare GPIO should be suitable for an external interrupt/event input.
+However, these grouped connectors are **in addition to**, not a substitute for, the full-unused-pin rule. If an MCU has more unused pins than are needed for the grouped SPI/I2C/UART headers, the remaining safe unused pins must still be exposed.
 
 ### Power rails
 
-Expansion headers should expose:
+Expansion areas should make nearby access available to:
 
 - GND;
 - regulated 3.3 V;
@@ -116,7 +124,7 @@ USB-C service/recovery remains strongly preferred when compatible with the selec
 
 The MCU is **not acceptable** merely because it can run Klipper and satisfy the current I/O list.
 
-After allocating all frozen production functions, it must still satisfy the mandatory expansion reserve above.
+After allocating all frozen production functions, the selected MCU/package must still permit every remaining electrically usable MCU pin to be exposed in accordance with the full unused-pin policy above.
 
 MCU selection therefore considers:
 
@@ -129,7 +137,7 @@ MCU selection therefore considers:
 - flash/RAM margin;
 - package/routing practicality;
 - availability and lifecycle;
-- ability to preserve the mandatory expansion reserve without unsafe pin multiplexing.
+- ability to expose all remaining electrically usable MCU pins without unsafe pin multiplexing or impractical routing.
 
 A larger MCU/package is preferred over consuming every peripheral at initial release.
 
@@ -154,11 +162,11 @@ Each released PCB must include a versioned resource ledger in the repository sho
 - each hardware peripheral used by baseline functions;
 - each assigned pin;
 - each expansion connector;
-- spare SPI/I2C/UART/ADC/GPIO/PWM resources still available;
+- every remaining unused MCU pin, its alternate-function capabilities and its physical expansion connector/pad;
 - boot/debug pins;
 - pins that must never be used because of boot, crystal, USB, CAN or other hardware constraints.
 
-A board is not considered design-complete until this ledger proves that the mandatory expansion reserve survived the final schematic and PCB pin assignment.
+A board is not considered design-complete until this ledger accounts for **every MCU pin** and proves that every electrically usable pin not consumed by the production design is physically exposed, with documented exceptions for pins that cannot safely be made available.
 
 ## Safety boundary
 
