@@ -87,6 +87,16 @@ Integration requirements:
 
 Mainsail remains available remotely from desktop, tablet or phone.
 
+### RASS local spool touchscreen
+
+A second, **smaller touchscreen** is mounted beside the RASS/spool assembly. It is a dedicated spool HMI rather than a second full KlipperScreen desktop.
+
+The preferred implementation is a self-rendering **serial HMI with a wired connection to the Linux host**, normally through USB-to-serial or equivalent. This avoids relying on a second CB2 graphical-display pipeline while the primary BIGTREETECH HDMI5 remains the main KlipperScreen display.
+
+The local panel shows spool identity/material/colour, remaining material, RFID/tag state, RASS/feed status, relevant warnings and nozzle readiness. It provides touch **LOAD** and **UNLOAD** requests.
+
+The local panel has no direct authority over the RASS motors. CB1 during bench development and CB2 in the final machine own the UI state and command policy. LOAD/UNLOAD controls are enabled only when the host determines that no print is active and the extrusion/RASS state is safe; every touch request is revalidated on the host immediately before the corresponding macro/action is executed.
+
 ## CAN bus
 
 CAN is a permanent internal bus in Generation 3, used where it reduces moving wiring and improves modularity.
@@ -326,6 +336,7 @@ Klipper heater checks, fan RPM monitoring, temperature limits and watchdog behav
 - Manta M8P V2.0 + CB2 + TMC2209 controller architecture; Manta and 6× TMC2209 are already purchased, CB2 pending;
 - Klipper + Moonraker + Mainsail + KlipperScreen + Crowsnest;
 - HDMI5 5-inch touchscreen with retro enclosure/theme;
+- dedicated small RASS/spool touchscreen for local material status and host-guarded filament LOAD/UNLOAD controls;
 - CAN as the permanent internal Generation 3 communications backbone;
 - CEB V1.0 CAN distribution/protection and backbone for toolhead, Bed Node and RASS CAN Node;
 - EBB36 Gen2 toolhead node;
