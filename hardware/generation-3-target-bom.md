@@ -18,7 +18,7 @@ See [`generation-3-procurement-status.md`](generation-3-procurement-status.md) f
 
 See [`generation-3-bed-node.md`](generation-3-bed-node.md) for the staged heated-bed control architecture and custom CAN-primary / USB-service Klipper MCU.
 
-See [`generation-3-custom-can-node-design-rules.md`](generation-3-custom-can-node-design-rules.md) for the frozen upstream-Klipper firmware policy and mandatory expansion reserve shared by the Revival Bed Node and RASS CAN Node.
+See [`generation-3-custom-can-node-design-rules.md`](generation-3-custom-can-node-design-rules.md) for the frozen upstream-Klipper firmware policy and the requirement to expose every remaining electrically usable MCU pin on the Revival Bed Node and RASS CAN Node.
 
 ## Frozen selections
 
@@ -68,7 +68,7 @@ See [`generation-3-custom-can-node-design-rules.md`](generation-3-custom-can-nod
 | RASS active feed | single-spool active feeder near spool + driven-spool assistance | Frozen architecture |
 | RASS controller | Custom Klipper-compatible CAN node designed for Revival | Frozen architecture; normal runtime via CEB V1.0; exact MCU/transceiver/drivers open |
 | Custom-node MCU firmware | Bed Node and RASS Node use unmodified upstream Klipper MCU firmware | Frozen; no private Revival MCU fork or custom C command in production baseline |
-| Custom-node expansion reserve | Each custom node retains spare SPI, I2C, UART, ADC and GPIO/PWM capacity after all frozen functions are allocated | Frozen; see common custom-node design rules |
+| Custom-node expansion exposure | Every electrically usable MCU pin left unassigned after frozen functions is physically exposed and documented, including available SPI/I2C/UART/ADC/GPIO/PWM alternate functions | Frozen; see common custom-node design rules |
 | RASS control hierarchy | toolhead direct drive remains extrusion master; RASS follows via buffer/dancer feedback | Frozen |
 | RASS tension decoupling | intermediate buffer/dancer between upstream feeder and toolhead | Frozen architecture |
 | RASS fallback | passive/manual feed path remains possible if active feed subsystem is unavailable | Frozen design requirement |
@@ -126,12 +126,12 @@ These items must fit the frozen architecture but their exact model or rating dep
 - exact RFID/NFC reader IC and antenna geometry;
 - exact Revival tag technology/schema and degree of OpenPrintTag interoperability;
 - exact smart-spool reader/controller implementation for RFID/NFC and inventory services;
-- exact RASS CAN-node MCU, transceiver/protection, motor drivers, connectors and boot/recovery interface, while preserving the mandatory expansion reserve;
+- exact RASS CAN-node MCU, transceiver/protection, motor drivers, connectors and boot/recovery interface, while exposing every remaining electrically usable MCU pin;
 - exact load-cell type, rating, ADC and mechanical mounting arrangement;
 - exact smart-spool database/service implementation, on-disk decoder format and UI integration;
 - exact list of additional vendor decoders after real-tag validation;
 - exact bed aluminium thickness;
-- exact Revival Bed Node MCU, accelerometer, MOSFET/gate driver, connectors, PCB layout, diagnostics and Klipper pin map, while preserving the mandatory expansion reserve;
+- exact Revival Bed Node MCU, accelerometer, MOSFET/gate driver, connectors, PCB layout, diagnostics and Klipper pin map, while exposing every remaining electrically usable MCU pin;
 - exact silicone-heater dimensions and power, after measuring the original heated-bed PCB;
 - exact PSU purchase timing after final heater-load confirmation; **Mean Well LRS-600-24 (24 V / 25 A / 600 W)** is the preferred final PSU model;
 - fan makes/models and final duct geometry;
