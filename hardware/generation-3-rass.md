@@ -274,6 +274,7 @@ Production-controller requirements:
 
 - MCU supported by upstream Klipper with a validated CAN transport;
 - dedicated CAN transceiver and suitable bus protection;
+- **two equivalent CAN connectors providing electrical passthrough (CAN IN / CAN OUT)** so the RASS Node may be inserted inline;
 - selectable 120-ohm termination so the board can be correctly placed at a physical bus end if required;
 - motor-driver interfaces sized for the spool-drive and feeder motors;
 - buffer/dancer sensor inputs;
@@ -485,7 +486,7 @@ Normal printing should not require the user to manually tune feeder speed.
 - CAN transceiver/protection implementation;
 - exact RFID/NFC reader electrical interface on the RASS PCB;
 - exact host transport/API for forwarding raw RFID/NFC observations over the CAN/Klipper path without embedding decoder logic in the MCU;
-- CAN connector family, physical bus position/stub length and termination-jumper policy;
+- CAN connector family and final physical bus position/stub length; CAN IN/OUT passthrough and termination jumper are mandatory;
 - feeder motor type/model;
 - spool-drive production motor type/model; **28BYJ-48 5 V + ULN2003 is the preferred prototype candidate**;
 - motor-driver topology;
