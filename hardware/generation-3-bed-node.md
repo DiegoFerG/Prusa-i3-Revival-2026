@@ -89,7 +89,7 @@ A **Klipper-supported MCU with a robust CAN implementation and native/accessible
 - low-cost, serviceable components with good upstream support;
 - a package/pinout that allows every remaining electrically usable MCU pin to be exposed after all frozen Bed Node functions are assigned.
 
-The CAN physical layer requires a dedicated transceiver, ESD/transient protection appropriate to the final harness, and a selectable **120-ohm termination** so the Bed Node can be used correctly at an end of the physical bus. RP2040 remains a candidate only with a validated Klipper/Katapult CAN implementation; STM32 parts with well-supported CAN peripherals are also candidates. The exact MCU, transceiver and PCB implementation are not yet frozen at component level.
+The CAN physical layer requires a dedicated transceiver, ESD/transient protection appropriate to the final harness, **two equivalent CAN connectors implementing electrical passthrough (CAN IN / CAN OUT)**, and a selectable **120-ohm termination** so the Bed Node can operate either as an intermediate node or at a physical end of the bus. RP2040 remains a candidate only with a validated Klipper/Katapult CAN implementation; STM32 parts with well-supported CAN peripherals are also candidates. The exact MCU, transceiver and connector family are not yet frozen at component level.
 
 ## Klipper integration model
 
@@ -515,7 +515,7 @@ These are diagnostic aids and do not replace physical protection.
 - exact MCU/package selection that satisfies the frozen Bed Node functions while allowing all remaining electrically usable MCU pins to be physically exposed;
 - exact LIS2DW or alternative accelerometer parts and daughterboard connector/cable choices;
 - final long-distance frame-top IMU signalling method (direct SPI at reduced speed vs buffered/differential adapter after testing);
-- CAN transceiver/protection implementation, connector family, bus-stub length and selectable 120-ohm termination;
+- CAN transceiver/protection implementation and connector family; passthrough CAN IN/OUT plus selectable 120-ohm termination are mandatory, while final physical bus position/stub length remain open;
 - USB-C connector, ESD protection and cable/strain-relief scheme;
 - 24 V connector and wire gauge;
 - MOSFET and gate-driver topology;
