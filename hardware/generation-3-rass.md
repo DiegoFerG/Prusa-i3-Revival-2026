@@ -281,7 +281,9 @@ Production-controller requirements:
 - filament-presence and optional spool-rotation feedback inputs;
 - physical exposure of **every remaining electrically usable MCU pin** under the common custom-node rules after the feeder, spool-drive, RFID reader, buffer, encoder and production sensors are allocated;
 - service/status LEDs;
-- accessible boot/recovery interface; USB-C service/recovery is preferred where the selected MCU supports it cleanly.
+- dedicated **BOOT/BOOTSEL and RESET tactile pushbuttons** where applicable to the selected MCU, following the EBB36-style service model;
+- dedicated native debug/programming access (for example SWD header/pads on STM32);
+- USB-C service/recovery preferred where the selected MCU supports it cleanly.
 
 Normal production communication is **CAN through the CEB V1.0**. Wi-Fi is not part of the production RASS control path.
 
