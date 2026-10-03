@@ -62,7 +62,7 @@ See [`generation-3-bed-node.md`](generation-3-bed-node.md) for the staged heated
 | Brand database growth | create/update local brands, products, materials, spool families and tag signatures from user-confirmed observations | Frozen architecture |
 | Spool weighing | integrated load cell under spool-holder load path; remaining mass = gross mass − tare | Frozen architecture |
 | Spool measurement policy | stable weight readings are authoritative; dynamic printing readings are filtered/secondary | Frozen |
-| Smart spool host link | local reader/weighing controller, wired USB to CB2 preferred | Frozen architecture |
+| Smart spool RFID path | RFID/NFC reader interfaced by RASS CAN Node; low-level tag observations forwarded to Linux host; CB1 decodes during bench work and CB2 in final build | Frozen architecture; exact CAN/Klipper host transport/API open |
 | RASS active feed | single-spool active feeder near spool + driven-spool assistance | Frozen architecture |
 | RASS controller | Custom Klipper-compatible CAN node designed for Revival | Frozen architecture; normal runtime via CEB V1.0; exact MCU/transceiver/drivers open |
 | RASS control hierarchy | toolhead direct drive remains extrusion master; RASS follows via buffer/dancer feedback | Frozen |
