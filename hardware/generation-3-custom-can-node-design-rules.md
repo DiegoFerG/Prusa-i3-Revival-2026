@@ -76,7 +76,7 @@ A pin may remain unavailable only when there is a documented hardware reason, fo
 
 Such pins must still appear in the resource ledger with the reason they are unavailable.
 
-SWD/debug, BOOT and RESET are not treated as lost resources: they must be exposed separately as service/debug access.
+SWD/debug, BOOT and RESET are not treated as lost resources: they must be exposed separately as service/debug access. Where the selected MCU requires manual BOOT/BOOTSEL and RESET intervention for commissioning or recovery, **dedicated tactile pushbuttons shall be fitted on the PCB**, following the serviceability model used by the EBB36.
 
 ### Alternate-function documentation
 
@@ -113,12 +113,12 @@ Available current must be specified in the released board documentation. Expansi
 
 Both custom boards must provide practical access to:
 
-- BOOT/recovery mechanism appropriate to the selected MCU;
-- RESET;
-- the MCU-native debug/programming interface where practical, for example SWD on STM32;
+- a **dedicated BOOT/BOOTSEL pushbutton** when the selected MCU/boot scheme benefits from or requires manual boot-mode entry;
+- a **dedicated RESET pushbutton** when supported/required by the selected MCU;
+- the MCU-native debug/programming interface, for example **SWDIO + SWCLK + GND + 3.3 V reference** on a keyed header or clearly labelled service pads for STM32-class designs;
 - labelled test points for CAN-H, CAN-L, main logic rails and ground.
 
-USB-C service/recovery remains strongly preferred when compatible with the selected MCU and board topology.
+SWD is a debug/programming interface, not a pushbutton function; it must remain physically accessible without dismantling or desoldering the board. USB-C service/recovery remains strongly preferred when compatible with the selected MCU and board topology.
 
 ## MCU selection rule
 
