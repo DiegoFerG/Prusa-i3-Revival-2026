@@ -413,6 +413,46 @@ During printing, the HDMI5/Mainsail interface may expose:
 - spool-drive status;
 - warnings/faults.
 
+### Local RASS Spool Panel
+
+Generation 3 also includes a **second small touchscreen mounted locally next to the RASS/spool assembly**. This is a dedicated spool-status/control HMI, not a second copy of the full KlipperScreen interface.
+
+The preferred architecture is a **small self-rendering serial HMI** connected by a wired host link (normally USB-to-serial or equivalent) to the Linux host. It does **not** consume the CB2's primary HDMI display path and is not driven by the RASS MCU.
+
+Target information shown locally:
+
+- spool manufacturer/product where known;
+- material and colour;
+- tag/identification state;
+- remaining mass and percentage, plus estimated length where available;
+- RASS state;
+- filament-present state;
+- buffer/dancer state;
+- feeder/spool-drive warnings;
+- current nozzle temperature and whether filament handling is permitted.
+
+The panel provides touch controls for at least:
+
+- **LOAD / CARGAR FILAMENTO**;
+- **UNLOAD / DESCARGAR FILAMENTO**.
+
+These controls are **requests to the Linux host**, never direct motor commands. The display may show a button as enabled only when the host says the action is currently allowed, but the host must independently re-check all interlocks when the touch event arrives.
+
+The load/unload action is permitted only when all applicable conditions are true:
+
+- Klipper is connected and in a normal ready state;
+- there is **no active print**, including no paused print that could later resume;
+- no homing, probing, calibration or other incompatible motion/action is active;
+- required extrusion/RASS MCUs and sensors are online and not reporting a fault;
+- the toolhead/extrusion path is stationary and in a known-safe state;
+- the hotend is at or above the configured safe extrusion/minimum-extrude temperature and within valid temperature limits;
+- RASS buffer/filament state is compatible with the requested direction;
+- any additional interlock introduced later by validated RASS hardware also passes.
+
+When a condition is not met, the corresponding button remains disabled and the panel should show a short reason such as **PRINT ACTIVE**, **HOTEND COLD**, **RASS FAULT**, **FILAMENT ALREADY LOADED** or **NO FILAMENT TO UNLOAD**.
+
+The host-side RASS/Spool service owns this gating policy. The HMI firmware/layout is presentation only and must not be treated as a safety boundary.
+
 Normal printing should not require the user to manually tune feeder speed.
 
 ## Frozen architectural decisions
@@ -433,6 +473,8 @@ Normal printing should not require the user to manually tune feeder speed.
 - CAN is the normal production RASS host link;
 - the RASS node acquires RFID/NFC reader data but performs **no tag/vendor/material interpretation**;
 - raw/low-level RFID/NFC observations are forwarded to the Linux host for decoding and inventory/profile logic;
+- a dedicated **local RASS Spool Panel** touchscreen is mounted beside the spool/RASS assembly for spool information and guarded LOAD/UNLOAD requests;
+- the local panel never directly actuates motors; the Linux host owns action gating and re-validates interlocks at execution time;
 - passive/manual fallback remains a design requirement;
 - after all production functions are allocated, the RASS PCB exposes **every remaining electrically usable MCU pin**, with SPI/I2C/UART/ADC/GPIO/PWM alternate functions documented and any unavailable pins justified;
 - exact MCU, CAN transceiver, motors, motor drivers, buffer geometry and spool-drive mechanism remain open until electrical/mechanical prototyping.
@@ -458,4 +500,5 @@ Normal printing should not require the user to manually tune feeder speed.
 - smart-spool reader/controller board remains a separate decision in the Smart Spool subsystem;
 - final interaction with the future toolhead filament-motion sensor;
 - calibration procedure for active tension control;
-- mechanical filtering required to keep motor activity from corrupting load-cell readings.
+- mechanical filtering required to keep motor activity from corrupting load-cell readings;
+- exact RASS Spool Panel model, size, enclosure and wired host interface; a compact serial HMI is the preferred direction.
