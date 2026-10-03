@@ -271,22 +271,24 @@ These diagnoses are advisory until validated experimentally.
 
 ## Controller and host link
 
-Preferred RASS controller:
+The **production RASS motion/sensing controller is a custom Klipper-compatible CAN node** designed specifically for the Revival and connected to the Generation 3 CAN backbone through the BIGTREETECH CEB V1.0.
 
-- ESP32-S3-class MCU;
-- local RFID/NFC interface;
-- HX711-class or better load-cell ADC;
-- motor drivers sized for spool-drive and feeder motors;
+Production-controller requirements:
+
+- MCU supported by upstream Klipper with a validated CAN transport;
+- dedicated CAN transceiver and suitable bus protection;
+- selectable 120-ohm termination so the board can be correctly placed at a physical bus end if required;
+- motor-driver interfaces sized for the spool-drive and feeder motors;
 - buffer/dancer sensor inputs;
-- encoder inputs;
+- feeder encoder/motion inputs;
+- filament-presence and optional spool-rotation feedback inputs;
+- spare GPIO/ADC/I2C/SPI for future validated RASS sensing;
 - service/status LEDs;
-- USB device connection to the CB2.
+- accessible boot/recovery interface; USB-C service/recovery is preferred where the selected MCU supports it cleanly.
 
-USB remains the preferred normal host link.
+Normal production communication is **CAN through the CEB V1.0**. Wi-Fi is not part of the production RASS control path.
 
-Wi-Fi may be used for setup, diagnostics or OTA, but normal operation must not require cloud access.
-
-RASS is not assigned to CAN by default. CAN may be reconsidered only if later wiring/topology analysis demonstrates a clear benefit.
+The higher-level smart-spool functions — RFID/NFC decoding, inventory/database logic and vendor-format interpretation — remain logically separate host/service responsibilities. The RASS CAN MCU may expose local sensors needed by motion control, but it should not require a private Klipper fork merely to implement complex RFID/NFC protocol handling.
 
 ## Motor selection philosophy
 
@@ -423,13 +425,15 @@ Normal printing should not require the user to manually tune feeder speed.
 - RASS uses sensor feedback rather than fixed feeder/spool speeds;
 - the complete spool-support mechanism remains inside the calibrated load-cell path;
 - RASS diagnostics compare multiple signals to detect feed anomalies;
-- RASS is controlled by a local MCU, with wired USB to CB2 preferred;
-- RASS is not assigned to CAN by default;
+- RASS is controlled by a **custom Klipper-compatible CAN MCU** connected through the CEB V1.0;
+- CAN is the normal production RASS host link;
 - passive/manual fallback remains a design requirement;
-- exact motors, motor drivers, buffer geometry and spool-drive mechanism remain open until mechanical prototyping.
+- exact MCU, CAN transceiver, motors, motor drivers, buffer geometry and spool-drive mechanism remain open until electrical/mechanical prototyping.
 
 ## Open component-level decisions
 
+- production RASS MCU and CAN transceiver/protection implementation;
+- CAN connector family, physical bus position/stub length and termination-jumper policy;
 - feeder motor type/model;
 - spool-drive production motor type/model; **28BYJ-48 5 V + ULN2003 is the preferred prototype candidate**;
 - motor-driver topology;
