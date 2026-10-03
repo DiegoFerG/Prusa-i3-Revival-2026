@@ -279,7 +279,7 @@ Production-controller requirements:
 - buffer/dancer sensor inputs;
 - feeder encoder/motion inputs;
 - filament-presence and optional spool-rotation feedback inputs;
-- the full mandatory expansion reserve from the common custom-node rules **after** the feeder, spool-drive, RFID reader, buffer, encoder and production sensors are allocated;
+- physical exposure of **every remaining electrically usable MCU pin** under the common custom-node rules after the feeder, spool-drive, RFID reader, buffer, encoder and production sensors are allocated;
 - service/status LEDs;
 - accessible boot/recovery interface; USB-C service/recovery is preferred where the selected MCU supports it cleanly.
 
@@ -432,12 +432,12 @@ Normal printing should not require the user to manually tune feeder speed.
 - the RASS node acquires RFID/NFC reader data but performs **no tag/vendor/material interpretation**;
 - raw/low-level RFID/NFC observations are forwarded to the Linux host for decoding and inventory/profile logic;
 - passive/manual fallback remains a design requirement;
-- after all production functions are allocated, the RASS PCB still exposes the mandatory spare SPI/I2C/UART/ADC/GPIO/PWM expansion resources defined by the common custom-node rules;
+- after all production functions are allocated, the RASS PCB exposes **every remaining electrically usable MCU pin**, with SPI/I2C/UART/ADC/GPIO/PWM alternate functions documented and any unavailable pins justified;
 - exact MCU, CAN transceiver, motors, motor drivers, buffer geometry and spool-drive mechanism remain open until electrical/mechanical prototyping.
 
 ## Open component-level decisions
 
-- production RASS MCU/package selection that satisfies both the frozen RASS functions and the mandatory expansion reserve;
+- production RASS MCU/package selection that satisfies the frozen RASS functions while allowing all remaining electrically usable MCU pins to be physically exposed;
 - CAN transceiver/protection implementation;
 - exact RFID/NFC reader electrical interface on the RASS PCB;
 - exact host transport/API for forwarding raw RFID/NFC observations over the CAN/Klipper path without embedding decoder logic in the MCU;
