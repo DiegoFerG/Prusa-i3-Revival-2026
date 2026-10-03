@@ -95,7 +95,7 @@ CAN is a permanent internal bus in Generation 3, used where it reduces moving wi
 - **BIGTREETECH CEB V1.0** is the protected CAN distribution/breakout point and physical backbone in the electronics bay.
 - **BIGTREETECH EBB36 Gen2** is the permanent toolhead CAN node.
 - The custom **Revival Bed Node** is a permanent CAN node connected through the CEB; it also retains USB-C for first flash, recovery, bench diagnostics and optional alternate USB runtime operation.
-- The custom **RASS CAN Node** is a permanent Klipper-compatible CAN node connected through the CEB for active spool/feed control and local RASS sensing.
+- The custom **RASS CAN Node** is a permanent Klipper-compatible CAN node connected through the CEB for active spool/feed control and local RASS sensing. It may interface the physical RFID/NFC reader, but forwards only low-level reader observations; tag/vendor/material decoding runs on the Linux host (CB1 during bench work, CB2 in the final machine).
 - The finished bus must have exactly two 120-ohm terminations at its physical ends; jumper positions are to be recorded during commissioning.
 - CAN uses a twisted differential pair and a documented shielding/ground strategy.
 
@@ -278,6 +278,7 @@ Klipper host on CB2
   |      +-- Revival Bed Node -> bed control / Y IMU / structural IMUs / telemetry
   |      |      +-- USB-C service/recovery/optional alternate runtime
   |      +-- RASS CAN Node -> feeder / spool assist / buffer / encoders / local feed sensing
+  |             +-- RFID/NFC reader acquisition -> raw observations -> host decoder service
   +-- USB -> BTT S2DW -> transitional Y/bed accelerometer before Bed Node
   +-- CSI preferred or USB fallback -> fixed frame camera
   +-- future USB/other link -> optional nozzle camera
