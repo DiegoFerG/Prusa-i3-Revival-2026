@@ -44,13 +44,18 @@ The Generation 3 spool system is extended by **RASS — Revival Active Spool Sys
                                 |
                        multi-protocol reader
                                 |
-                        local controller
-                      (ESP32-S3 class)
+                         RASS CAN Node
+                    acquisition / forwarding
+                                |
+                         CAN via CEB V1.0
+                                |
+                       Linux host service
+                  (CB1 bench / CB2 final)
                                 |
           +---------------------+----------------------+
           |                     |                      |
-       tag probe           decoder registry        load-cell ADC
-          |                     |                  (HX711 class)
+      raw tag data         decoder registry        load-cell data
+          |                     |                      |
           +----------+----------+----------------------+
                      |
              Revival spool service
@@ -69,7 +74,7 @@ The Generation 3 spool system is extended by **RASS — Revival Active Spool Sys
                            profile / warnings / learn
 ```
 
-The exact reader IC, antenna geometry and local-controller board are intentionally left open until the spool-holder geometry is designed. **PN5180-class reader + ESP32-S3 + HX711-class load-cell ADC** is the current preferred implementation direction.
+The exact reader IC and antenna geometry remain open until the spool-holder geometry is designed. The physical RFID/NFC reader is interfaced by the **custom RASS CAN Node**, which forwards low-level observations without interpreting them. Decoder logic runs on the Linux host: **CB1 during bench/prototype work and CB2 in the final machine**. PN5180-class hardware remains a reader candidate; the exact reader IC/interface is not frozen.
 
 ## Normalised Revival spool record
 
@@ -355,9 +360,17 @@ load cell
    |
 HX711-class ADC
    |
-ESP32-S3-class spool controller
+local acquisition electronics
    |
-USB preferred to CB2
+host data path
+
+RFID/NFC reader
+   |
+RASS CAN Node
+   |
+CAN via CEB V1.0
+   |
+CB1 bench / CB2 final
 ```
 
 Wi-Fi may be used for setup, diagnostics or OTA updates, but the installed printer should not require Wi-Fi for normal spool recognition or weighing.
@@ -517,14 +530,15 @@ Requirements:
 - automatic spool weighing is part of the target system;
 - remaining mass is calculated from measured gross mass minus tare;
 - stable load-cell measurements are authoritative; dynamic readings during printing are filtered/secondary;
-- local reader/weighing electronics are separated from motion-control electronics;
-- wired USB to the CB2 is the preferred host link for the installed subsystem;
-- exact reader IC, antenna, load-cell rating/geometry and controller PCB remain open until spool-holder mechanical design.
+- the RASS CAN Node may host the physical RFID/NFC reader interface, but **all semantic decoding remains on the Linux host**;
+- low-level RFID/NFC observations are forwarded over the machine data path to CB1 during bench/prototype work and to CB2 in the final machine;
+- load-cell acquisition remains part of the Smart Spool subsystem; its exact physical integration with or separation from the RASS PCB remains open;
+- exact reader IC, antenna, load-cell rating/geometry and acquisition electronics remain open until spool-holder mechanical design.
 
 ## Open component-level decisions
 
 - exact NFC/RFID reader IC and antenna geometry;
-- exact ESP32-S3/module/PCB implementation;
+- exact RASS-node RFID/NFC electrical interface and raw-data transport to the Linux host;
 - exact tag technology/schema for Revival Spool Tag v1;
 - exact degree of OpenPrintTag interoperability for Revival-native tags;
 - exact load-cell type, rating and mounting arrangement;
