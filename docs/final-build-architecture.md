@@ -95,6 +95,7 @@ CAN is a permanent internal bus in Generation 3, used where it reduces moving wi
 - **BIGTREETECH CEB V1.0** is the protected CAN distribution/breakout point and physical backbone in the electronics bay.
 - **BIGTREETECH EBB36 Gen2** is the permanent toolhead CAN node.
 - The custom **Revival Bed Node** is a permanent CAN node connected through the CEB; it also retains USB-C for first flash, recovery, bench diagnostics and optional alternate USB runtime operation.
+- The custom **RASS CAN Node** is a permanent Klipper-compatible CAN node connected through the CEB for active spool/feed control and local RASS sensing.
 - The finished bus must have exactly two 120-ohm terminations at its physical ends; jumper positions are to be recorded during commissioning.
 - CAN uses a twisted differential pair and a documented shielding/ground strategy.
 
@@ -275,7 +276,8 @@ Klipper host on CB2
   |      +-- EBB36 Gen2 -> extruder / hotend / fans / LEDs / X accelerometer
   |      |      +-- CAN passthrough -> Eddy Duo (separate 5 V CAN MCU/node)
   |      +-- Revival Bed Node -> bed control / Y IMU / structural IMUs / telemetry
-  |             +-- USB-C service/recovery/optional alternate runtime
+  |      |      +-- USB-C service/recovery/optional alternate runtime
+  |      +-- RASS CAN Node -> feeder / spool assist / buffer / encoders / local feed sensing
   +-- USB -> BTT S2DW -> transitional Y/bed accelerometer before Bed Node
   +-- CSI preferred or USB fallback -> fixed frame camera
   +-- future USB/other link -> optional nozzle camera
@@ -322,7 +324,7 @@ Klipper heater checks, fan RPM monitoring, temperature limits and watchdog behav
 - Klipper + Moonraker + Mainsail + KlipperScreen + Crowsnest;
 - HDMI5 5-inch touchscreen with retro enclosure/theme;
 - CAN as permanent toolhead bus;
-- CEB V1.0 CAN distribution/protection;
+- CEB V1.0 CAN distribution/protection and backbone for toolhead, Bed Node and RASS CAN Node;
 - EBB36 Gen2 toolhead node;
 - E3D Roto + Revo direct-drive extrusion stack;
 - BIGTREETECH Eddy Duo for fast/dense eddy-current bed-surface scanning as an independent 5 V CAN node downstream of the EBB36 Gen2 passthrough;
@@ -340,6 +342,7 @@ Klipper heater checks, fan RPM monitoring, temperature limits and watchdog behav
 ## Possible future upgrades
 
 - fixed toolhead/nozzle camera for nozzle-centred timelapse, likely USB/UVC but intentionally not frozen;
+- custom RASS Klipper CAN Node for deterministic active-feed/spool-assist control and local feed sensing;
 - additional CAN nodes only where they solve a demonstrated wiring/sensing problem rather than merely because CAN is available.
 
 ## Component-level selections still open
