@@ -16,7 +16,7 @@ See [`generation-3-enhancement-candidates.md`](generation-3-enhancement-candidat
 
 See [`generation-3-procurement-status.md`](generation-3-procurement-status.md) for actual purchases, pending acquisitions and bench-test status.
 
-See [`generation-3-bed-node.md`](generation-3-bed-node.md) for the staged heated-bed control architecture and custom USB Klipper MCU.
+See [`generation-3-bed-node.md`](generation-3-bed-node.md) for the staged heated-bed control architecture and custom CAN-primary / USB-service Klipper MCU.
 
 ## Frozen selections
 
@@ -33,7 +33,7 @@ See [`generation-3-bed-node.md`](generation-3-bed-node.md) for the staged heated
 | ABS/ASA target | occasional open-frame use only; no heated-chamber requirement | Frozen design intent |
 | Z / bed probe | BIGTREETECH Eddy Duo eddy-current probe for fast/dense bed scanning | Frozen architecture; 5 V CAN node after EBB36 passthrough; exact mount/harness to finalise |
 | Toolhead network | CAN bus | Frozen |
-| CAN distribution | BIGTREETECH CEB V1.0 in electronics bay | Frozen |
+| CAN distribution | BIGTREETECH CEB V1.0 in electronics bay | Frozen; Generation 3 CAN backbone/distribution point for EBB36/Eddy and Revival Bed Node |
 | Historical mechanical skeleton | original flat steel frame + 2× M10×350 mm longitudinal threaded rods + 4× M8×200 mm transverse threaded rods | Frozen; retained as functional final structure |
 | X guidance | 1× MGN12-class rail, long MGN12H-class carriage preferred | Frozen architecture |
 | X rail support | commercial aluminium T-slot extrusion used as the structural X beam; 2020/2040-class family to be evaluated | Frozen concept; exact section deferred |
@@ -47,12 +47,12 @@ See [`generation-3-bed-node.md`](generation-3-bed-node.md) for the staged heated
 | Z geometry rule | rails define Z motion; lead screws provide vertical drive only | Frozen |
 | Toolhead accelerometer | permanent LIS2DW associated with EBB36 Gen2 | Frozen |
 | Initial bed accelerometer | BIGTREETECH S2DW V1.0 (RP2040 + LIS2DW) or equivalent USB solution before Bed Node | Transitional implementation |
-| Final bed node | Custom Revival Bed Node, USB secondary Klipper MCU with integrated bed sensing/accelerometer and local heater control | Frozen architecture |
+| Final bed node | Custom Revival Bed Node, CAN-primary secondary Klipper MCU with USB-C service/fallback, integrated bed sensing/accelerometers and local heater control | Frozen architecture |
 | Final bed accelerometer | Remote LIS2DW-class IMU daughterboard on moving bed, connected to Bed Node | Frozen architecture; exact part/link open |
 | Bed Node chassis accelerometer | LIS2DW-class IMU on fixed Bed Node PCB | Frozen architecture; structural diagnostics |
 | Frame-top accelerometer | Remote LIS2DW-class IMU near top of original flat steel frame, connected to Bed Node | Frozen architecture; long-link implementation open |
 | Under-bed status lighting | 24 V RGB strip driven by Bed Node PWM/MOSFET outputs | Frozen architecture; exact strip/current/routing open |
-| Bed-node link | USB to CB2 | Frozen |
+| Bed-node link | CAN through CEB V1.0 for normal runtime; USB-C retained for first flash, recovery, bench diagnostics and optional alternate runtime | Frozen |
 | Bed Node telemetry | heater current / 24 V telemetry / secondary temperature / PCB temperature channels | Frozen capability; exact sensors open |
 | Smart spool system | Revival-native RFID/NFC identification with local inventory/profile mapping | Frozen architecture |
 | Open smart-spool interoperability | OpenPrintTag read compatibility in the target decoder layer | Frozen architecture |
