@@ -87,7 +87,7 @@ A **Klipper-supported MCU with a robust CAN implementation and native/accessible
 - ADC inputs for thermistors and diagnostics;
 - sufficient GPIO;
 - low-cost, serviceable components with good upstream support;
-- enough unused hardware resources to satisfy the mandatory expansion reserve after all frozen Bed Node functions are assigned.
+- a package/pinout that allows every remaining electrically usable MCU pin to be exposed after all frozen Bed Node functions are assigned.
 
 The CAN physical layer requires a dedicated transceiver, ESD/transient protection appropriate to the final harness, and a selectable **120-ohm termination** so the Bed Node can be used correctly at an end of the physical bus. RP2040 remains a candidate only with a validated Klipper/Katapult CAN implementation; STM32 parts with well-supported CAN peripherals are also candidates. The exact MCU, transceiver and PCB implementation are not yet frozen at component level.
 
@@ -292,19 +292,11 @@ P_heater = V * I
 
 These values are diagnostic only and do not replace electrical protection.
 
-The PCB must preserve the mandatory expansion reserve defined in [Generation 3 custom CAN node design rules](generation-3-custom-can-node-design-rules.md), **after** the bed heater, thermistors, current/voltage telemetry, RGB outputs and all production accelerometers are allocated.
+The PCB follows the [full unused-pin exposure policy](generation-3-custom-can-node-design-rules.md). **After** the bed heater, thermistors, current/voltage telemetry, RGB outputs and all production accelerometers are allocated, every remaining electrically usable MCU pin must be brought out to a labelled expansion connector, header position or accessible expansion pad.
 
-At minimum the released Bed Node must still expose:
+Where the final pin mux permits it, exposed pins should be grouped into useful SPI, I2C, UART, ADC and GPIO/PWM expansion areas, but no otherwise-usable unused pin may be hidden merely because the minimum grouped connectors already exist.
 
-- one spare SPI-capable expansion position with its own CS and event/IRQ-capable GPIO;
-- one spare I2C expansion interface;
-- one unused UART-capable TX/RX pair;
-- at least two spare ADC-capable inputs;
-- at least four spare GPIOs, preferably including two timer/PWM-capable pins;
-- regulated 3.3 V, GND and documented 5 V service power where the final regulator budget permits it;
-- BOOT/RESET and the native debug interface/test pads appropriate to the selected MCU.
-
-The production accelerometer interfaces do **not** consume this reserve. MCU selection and pin mapping must be changed if the final design cannot preserve it.
+BOOT/RESET and the native debug interface remain separately exposed as service resources. Any MCU pin that cannot be exposed must be listed in the Bed Node resource ledger with the specific hardware reason.
 
 ## Building and flashing Klipper firmware
 
@@ -507,7 +499,7 @@ These are diagnostic aids and do not replace physical protection.
 - it communicates normally as a secondary Klipper MCU over **CAN through the BIGTREETECH CEB V1.0**;
 - it retains **USB-C** for first flash, recovery, bench diagnostics and optional alternate USB runtime operation;
 - its MCU firmware is built from **unmodified upstream Klipper**; no production feature depends on a private Revival MCU firmware fork;
-- after all production functions are allocated, it still exposes the mandatory spare SPI/I2C/UART/ADC/GPIO/PWM expansion resources defined by the common custom-node rules;
+- after all production functions are allocated, it exposes **every remaining electrically usable MCU pin** for future expansion, with alternate functions documented and any exceptions justified in the resource ledger;
 - it integrates bed temperature sensing and interfaces to a **remote moving Y accelerometer daughterboard**;
 - it includes a **local chassis accelerometer** and a **remote frame-top accelerometer interface**;
 - it controls the local bed-heater power stage;
@@ -520,7 +512,7 @@ These are diagnostic aids and do not replace physical protection.
 
 ## Open decisions
 
-- exact MCU/package selection that satisfies both the frozen Bed Node functions and the mandatory expansion reserve;
+- exact MCU/package selection that satisfies the frozen Bed Node functions while allowing all remaining electrically usable MCU pins to be physically exposed;
 - exact LIS2DW or alternative accelerometer parts and daughterboard connector/cable choices;
 - final long-distance frame-top IMU signalling method (direct SPI at reduced speed vs buffered/differential adapter after testing);
 - CAN transceiver/protection implementation, connector family, bus-stub length and selectable 120-ohm termination;
