@@ -24,7 +24,7 @@ CB2 remains the frozen final host but is not yet purchased; a temporary Linux PC
 
 ## Bed-local electronics
 
-The final bed uses a custom [Revival Bed Node](../../../hardware/generation-3-bed-node.md) over USB. Initial commissioning intentionally uses separate thermistor/heater/accelerometer wiring so PCB development does not block the printer. The final fixed node integrates bed sensing and local heater-stage control, interfaces to a remote LIS2DW-class daughterboard on the moving bed, includes a local chassis accelerometer, provides a remote frame-top accelerometer port, monitors electrical/thermal telemetry and drives 24 V RGB status lighting, while retaining an independent branch fuse and thermal fuse.
+The final bed uses a custom [Revival Bed Node](../../../hardware/generation-3-bed-node.md) as a CAN node on the CEB V1.0 backbone, with USB-C retained for first flash, recovery, bench diagnostics and optional alternate runtime. Initial commissioning intentionally uses separate thermistor/heater/accelerometer wiring so PCB development does not block the printer. The final fixed node integrates bed sensing and local heater-stage control, interfaces to a remote LIS2DW-class daughterboard on the moving bed, includes a local chassis accelerometer, provides a remote frame-top accelerometer port, monitors electrical/thermal telemetry and drives 24 V RGB status lighting, while retaining an independent branch fuse and thermal fuse.
 
 ## Related work
 
