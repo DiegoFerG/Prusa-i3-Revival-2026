@@ -92,8 +92,9 @@ Mainsail remains available remotely from desktop, tablet or phone.
 CAN is a permanent internal bus in Generation 3, used where it reduces moving wiring and improves modularity.
 
 - Manta M8P V2.0 provides the primary CAN interface.
-- **BIGTREETECH CEB V1.0** is the protected CAN distribution/breakout point in the electronics bay.
+- **BIGTREETECH CEB V1.0** is the protected CAN distribution/breakout point and physical backbone in the electronics bay.
 - **BIGTREETECH EBB36 Gen2** is the permanent toolhead CAN node.
+- The custom **Revival Bed Node** is a permanent CAN node connected through the CEB; it also retains USB-C for first flash, recovery, bench diagnostics and optional alternate USB runtime operation.
 - The finished bus must have exactly two 120-ohm terminations at its physical ends; jumper positions are to be recorded during commissioning.
 - CAN uses a twisted differential pair and a documented shielding/ground strategy.
 
@@ -125,9 +126,9 @@ The final Generation 3 bed uses a custom **Revival Bed Node**, documented in [`.
 The implementation is deliberately staged:
 
 1. **Initial commissioning:** conventional separate wiring — bed thermistor to Manta, external MOSFET controlled from the main electronics, and a separate USB S2DW-class bed accelerometer.
-2. **Final architecture:** USB-connected custom bed MCU near the moving Y assembly, integrating bed thermistor acquisition, permanent bed accelerometer and local heater power-stage control.
+2. **Final architecture:** CAN-connected custom bed MCU near the moving Y assembly, integrating bed thermistor acquisition, permanent bed accelerometer and local heater power-stage control. Normal runtime communication is through the CEB; USB-C remains available for first flash, recovery, bench diagnostics and optional alternate runtime operation.
 
-The fixed/semi-fixed feed into the Bed Node is **24 V + USB**. Only the short Bed Node-to-bed harness is continuously flexed and carries heater power, thermistor and the remote moving IMU connection. USB never carries heater power.
+The fixed/semi-fixed communication feed into the Bed Node is **CAN through the CEB**, plus the required local logic supply. USB-C is an additional service/fallback interface, not the normal production data path. Only the short Bed Node-to-bed harness is continuously flexed and carries heater power, thermistor and the remote moving IMU connection. Neither CAN nor USB carries heater power; the heater retains its dedicated fused 24 V high-current path.
 
 The Bed Node is a normal secondary Klipper MCU. Beyond bed control, it is also the local acquisition hub for a moving-bed IMU, a chassis IMU on the fixed PCB and a remote frame-top IMU, plus RGB status lighting and electrical/thermal telemetry. Safety-critical bed protection remains independent of it: dedicated branch fuse and independent thermal fuse remain mandatory even after migration.
 
@@ -143,9 +144,9 @@ Use the **LIS2DW associated with the EBB36 Gen2**. It remains permanently instal
 
 During initial commissioning, use a permanent/semi-permanent **BIGTREETECH S2DW V1.0 (RP2040 + LIS2DW)** or equivalent USB accelerometer rigidly mounted to the moving bed/Y-carriage assembly. In the final architecture, the Bed Node remains fixed and a tiny LIS2DW-class IMU daughterboard remains rigidly attached to the moving bed/carriage.
 
-Connection: **USB directly to the CB2**, not another CAN toolboard. This avoids adding unnecessary mass and electronics under the moving bed while still providing an independent Klipper MCU for the Y sensor.
+During the transitional S2DW stage, connection is **USB directly to the CB2**. In the final architecture the moving-bed IMU is only a tiny sensor daughterboard; the fixed Bed Node acquires it locally and communicates with Klipper over CAN through the CEB. No CAN MCU or USB electronics are added to the moving bed.
 
-The bed sensor mount must be rigid, electrically isolated where required, clear of heater/insulation and replaceable without disturbing bed alignment. Its USB cable is part of the bed moving harness and must have proper strain relief.
+The bed sensor mount must be rigid, electrically isolated where required, clear of heater/insulation and replaceable without disturbing bed alignment. The final moving harness carries only the short remote-IMU connection and bed-local power/sensor wiring; it does not require the transitional S2DW USB cable.
 
 Klipper configuration will expose separate toolhead/X and bed/Y accelerometers so resonance tests require no sensor relocation.
 
@@ -270,9 +271,12 @@ Mainsail / Moonraker
 Klipper host on CB2
   |
   +-- Manta M8P V2 MCU -> X / Y / Z0 / Z1 / bed / enclosure I/O
-  +-- CAN -> EBB36 Gen2 -> extruder / hotend / fans / LEDs / X accelerometer
-  |            +-- CAN passthrough -> Eddy Duo (separate 5 V CAN MCU/node)
-  +-- USB -> BTT S2DW -> permanent Y/bed accelerometer
+  +-- CAN -> CEB V1.0 CAN backbone/distribution
+  |      +-- EBB36 Gen2 -> extruder / hotend / fans / LEDs / X accelerometer
+  |      |      +-- CAN passthrough -> Eddy Duo (separate 5 V CAN MCU/node)
+  |      +-- Revival Bed Node -> bed control / Y IMU / structural IMUs / telemetry
+  |             +-- USB-C service/recovery/optional alternate runtime
+  +-- USB -> BTT S2DW -> transitional Y/bed accelerometer before Bed Node
   +-- CSI preferred or USB fallback -> fixed frame camera
   +-- future USB/other link -> optional nozzle camera
 ```
@@ -323,7 +327,7 @@ Klipper heater checks, fan RPM monitoring, temperature limits and watchdog behav
 - E3D Roto + Revo direct-drive extrusion stack;
 - BIGTREETECH Eddy Duo for fast/dense eddy-current bed-surface scanning as an independent 5 V CAN node downstream of the EBB36 Gen2 passthrough;
 - permanent X/toolhead LIS2DW;
-- staged Y/bed sensing: initial USB S2DW-class accelerometer, final custom Revival Bed Node over USB;
+- staged Y/bed sensing: initial USB S2DW-class accelerometer, final custom Revival Bed Node over CAN through the CEB with USB-C retained for service/recovery and optional alternate runtime;
 - one fixed frame camera as part of the final concept, with **CSI preferred and USB permitted**; exact model/interface remains open;
 - retro CCTV/video-surveillance enclosure language for all cameras;
 - 24 V dimmable frame light and toolhead work/status light;
