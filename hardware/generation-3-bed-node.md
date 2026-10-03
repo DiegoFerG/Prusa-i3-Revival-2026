@@ -296,7 +296,7 @@ The PCB follows the [full unused-pin exposure policy](generation-3-custom-can-no
 
 Where the final pin mux permits it, exposed pins should be grouped into useful SPI, I2C, UART, ADC and GPIO/PWM expansion areas, but no otherwise-usable unused pin may be hidden merely because the minimum grouped connectors already exist.
 
-BOOT/RESET and the native debug interface remain separately exposed as service resources. Any MCU pin that cannot be exposed must be listed in the Bed Node resource ledger with the specific hardware reason.
+BOOT/RESET and the native debug interface remain separately exposed as service resources. When applicable to the selected MCU, the Bed Node shall include **dedicated BOOT/BOOTSEL and RESET tactile pushbuttons**, comparable to the service controls on the EBB36. The native debug interface (for example SWDIO/SWCLK/GND/3V3 on STM32) shall be available on a dedicated header or clearly labelled service pads. Any MCU pin that cannot be exposed must be listed in the Bed Node resource ledger with the specific hardware reason.
 
 ## Building and flashing Klipper firmware
 
@@ -314,7 +314,7 @@ For an RP2040-class design, the normal process is:
 8. Add the selected transport to the printer configuration as `[mcu bed]`.
 9. Restart Klipper and verify MCU communication before enabling any heater output.
 
-For an RP2040 reference implementation, initial flashing is expected to use the ROM USB mass-storage boot mode (BOOTSEL) or a documented equivalent. The exact boot/reset buttons or test pads will be designed into the custom PCB so recovery does not require desoldering.
+For an RP2040 reference implementation, initial flashing is expected to use the ROM USB mass-storage boot mode (BOOTSEL) or a documented equivalent. Where applicable, **BOOTSEL and RESET will be real PCB pushbuttons rather than recovery-only test pads**, so normal commissioning/recovery does not require jump wires or desoldering.
 
 Conceptually:
 
