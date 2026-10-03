@@ -29,6 +29,7 @@ See [`generation-3-custom-can-node-design-rules.md`](generation-3-custom-can-nod
 | Main stepper drivers | TMC2209 plug-in modules for Manta; base allocation X/Y/Z0/Z1 | Frozen architecture; 6× BTT TMC2209 V1.3 purchased (4 base + 2 spare) |
 | Local display | BIGTREETECH HDMI5, 5-inch capacitive touchscreen | Frozen |
 | Display integration | Custom retro/industrial ASA enclosure + KlipperScreen theme | Frozen concept |
+| RASS local display | Small dedicated touchscreen beside spool/RASS assembly; spool status plus guarded LOAD/UNLOAD controls | Frozen architecture; serial HMI / wired host link preferred, exact model/size open |
 | Toolhead MCU | BIGTREETECH EBB36 Gen2 | Frozen; purchased |
 | Generation 3 extruder/hotend | E3D Roto + Revo, 1.75 mm, direct drive | Frozen architecture; current purchase preference Roto Sensored + Revo 24 V / 40 W |
 | Primary material target | PLA, quality-first tuning | Frozen design intent |
@@ -129,6 +130,7 @@ These items must fit the frozen architecture but their exact model or rating dep
 - exact RASS CAN-node MCU, transceiver/protection, motor drivers, connectors and boot/recovery interface, while exposing every remaining electrically usable MCU pin;
 - exact load-cell type, rating, ADC and mechanical mounting arrangement;
 - exact smart-spool database/service implementation, on-disk decoder format and UI integration;
+- exact RASS local touchscreen model/size, serial/USB host interface and enclosure;
 - exact list of additional vendor decoders after real-tag validation;
 - exact bed aluminium thickness;
 - exact Revival Bed Node MCU, accelerometer, MOSFET/gate driver, connectors, PCB layout, diagnostics and Klipper pin map, while exposing every remaining electrically usable MCU pin;
