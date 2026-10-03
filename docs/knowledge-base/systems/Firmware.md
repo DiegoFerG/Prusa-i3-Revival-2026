@@ -67,7 +67,7 @@ Revival Bed Node
 
 The PCB must expose convenient BOOT/RESET access or recovery test pads. The normal production Klipper build targets CAN; an alternate USB-runtime build may be maintained for bench/service use where supported. The exact MCU, CAN transceiver, `menuconfig` selections, first-flash/CAN-bootloader procedure, pin map and validated upstream Klipper revision/hash will be versioned in the repository when the PCB is released.
 
-Both custom CAN PCBs must also publish a resource ledger proving that, after all production functions are assigned, the board still retains the frozen spare SPI/I2C/UART/ADC/GPIO/PWM expansion capacity defined in [the custom-node design rules](../../../hardware/generation-3-custom-can-node-design-rules.md).
+Both custom CAN PCBs must also publish a resource ledger accounting for **every MCU pin**. After all production functions are assigned, every remaining electrically usable pin must be physically exposed and its available SPI/I2C/UART/ADC/GPIO/PWM alternate functions documented, as defined in [the custom-node design rules](../../../hardware/generation-3-custom-can-node-design-rules.md).
 
  Loss of the Bed Node must be treated as an MCU failure; physical thermal protection remains independent of firmware.
 
