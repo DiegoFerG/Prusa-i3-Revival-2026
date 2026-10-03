@@ -28,18 +28,15 @@ The toolhead extruder remains the **master extrusion actuator**. RASS only manag
                  |                   |
             RFID/NFC reader       load cell
                  |                   |
-                 +---------+---------+
-                           |
-                    RASS controller
-                    (ESP32-S3 class)
-                           |
-          +----------------+----------------+
-          |                |                |
-   spool-drive motor   feeder motor     buffer/dancer
-          |                |                |
-          |                +--------+-------+
-          |                         |
-          +-------------------------+
+          Smart-spool reader / weighing service
+                 |
+                 +------------ host data / context ------------+
+                                                                |
+CEB V1.0 CAN -------------------------------------------- RASS CAN Node
+                                                                |
+                                              +-----------------+----------------+
+                                              |                 |                |
+                                       spool-drive motor    feeder motor    buffer/encoders
                                     |
                                PTFE path
                                     |
@@ -333,7 +330,7 @@ Why it is worth testing:
 Intended use:
 
 ```text
-ESP32-S3
+temporary bench MCU
    |
 IN1..IN4
    |
@@ -445,7 +442,7 @@ Normal printing should not require the user to manually tune feeder speed.
 - PTFE path length and routing;
 - drive-roller material and diameter;
 - freewheel/disengagement mechanism;
-- exact ESP32-S3 board or custom PCB;
+- smart-spool reader/controller board remains a separate decision in the Smart Spool subsystem;
 - final interaction with the future toolhead filament-motion sensor;
 - calibration procedure for active tension control;
 - mechanical filtering required to keep motor activity from corrupting load-cell readings.
