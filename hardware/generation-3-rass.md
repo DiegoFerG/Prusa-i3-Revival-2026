@@ -285,7 +285,11 @@ Production-controller requirements:
 
 Normal production communication is **CAN through the CEB V1.0**. Wi-Fi is not part of the production RASS control path.
 
-The higher-level smart-spool functions — RFID/NFC decoding, inventory/database logic and vendor-format interpretation — remain logically separate host/service responsibilities. The RASS CAN MCU may expose local sensors needed by motion control, but it should not require a private Klipper fork merely to implement complex RFID/NFC protocol handling.
+The RASS CAN Node may host the **physical RFID/NFC reader interface** and acquire the tag traffic needed by the Smart Spool subsystem, but it must remain **interpretation-free**. Its responsibility is to read and forward low-level tag data/events to the Linux host over the machine data path. It must not decide manufacturer, material, colour, profile, spool identity semantics or vendor format.
+
+All RFID/NFC interpretation belongs to the host service: **CB1 during bench/prototype work and CB2 in the final Generation 3 machine**. The host owns decoder plugins, vendor-format interpretation, Revival Spool Tag parsing, database/inventory logic and profile mapping.
+
+The exact upstream-compatible transport for variable RFID/NFC payloads over the RASS CAN/Klipper link remains an implementation item. Prefer a host-side service/extension and MCU response mechanism that preserves normal Klipper operation; do not move decoder logic into the MCU merely to simplify transport.
 
 ## Motor selection philosophy
 
@@ -424,12 +428,16 @@ Normal printing should not require the user to manually tune feeder speed.
 - RASS diagnostics compare multiple signals to detect feed anomalies;
 - RASS is controlled by a **custom Klipper-compatible CAN MCU** connected through the CEB V1.0;
 - CAN is the normal production RASS host link;
+- the RASS node acquires RFID/NFC reader data but performs **no tag/vendor/material interpretation**;
+- raw/low-level RFID/NFC observations are forwarded to the Linux host for decoding and inventory/profile logic;
 - passive/manual fallback remains a design requirement;
 - exact MCU, CAN transceiver, motors, motor drivers, buffer geometry and spool-drive mechanism remain open until electrical/mechanical prototyping.
 
 ## Open component-level decisions
 
 - production RASS MCU and CAN transceiver/protection implementation;
+- exact RFID/NFC reader electrical interface on the RASS PCB;
+- exact host transport/API for forwarding raw RFID/NFC observations over the CAN/Klipper path without embedding decoder logic in the MCU;
 - CAN connector family, physical bus position/stub length and termination-jumper policy;
 - feeder motor type/model;
 - spool-drive production motor type/model; **28BYJ-48 5 V + ULN2003 is the preferred prototype candidate**;
