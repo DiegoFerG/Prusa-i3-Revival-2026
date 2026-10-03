@@ -109,6 +109,21 @@ Expansion areas should make nearby access available to:
 
 Available current must be specified in the released board documentation. Expansion connectors must not be treated as an undocumented source of heater, motor or other high-current power.
 
+## Mandatory CAN physical interface
+
+Every Revival-designed CAN node covered by this specification must provide:
+
+- **two equivalent CAN connectors** forming an electrical passthrough of the same bus segment (CAN IN / CAN OUT or equivalent naming);
+- CAN-H and CAN-L continued directly between those connectors with the local transceiver attached as a node on that segment;
+- the required reference/power conductors for the selected harness architecture, documented per connector;
+- a **selectable 120-ohm termination resistor** between CAN-H and CAN-L, enabled only when the board is intentionally used at a physical end of the bus;
+- clear silkscreen marking of the termination control and its ON/OFF state;
+- CAN-H/CAN-L test points.
+
+The passthrough must remain usable regardless of whether the board's own MCU is powered/operational, except where the final protection scheme makes that physically impossible and the exception is explicitly documented.
+
+A custom node is not design-complete if it has only a single CAN connector. This requirement exists so Bed Node and RASS Node can be placed as intermediate or terminal nodes without redesigning the PCB.
+
 ## Debug and recovery reserve
 
 Both custom boards must provide practical access to:
