@@ -124,6 +124,29 @@ The passthrough must remain usable regardless of whether the board's own MCU is 
 
 A custom node is not design-complete if it has only a single CAN connector. This requirement exists so Bed Node and RASS Node can be placed as intermediate or terminal nodes without redesigning the PCB.
 
+### CEB topology rule
+
+The BIGTREETECH CEB V1.0 is treated as a **passive breakout/junction on one CAN bus**, not as an active switch, repeater or multi-port CAN hub.
+
+Therefore:
+
+- the complete Generation 3 CAN network still uses **exactly two 120-ohm terminations total**, at the two physical ends of the effective bus;
+- the CEB termination remains disabled unless the CEB itself is intentionally made a physical endpoint;
+- long machine runs should be arranged as an effective linear trunk using node passthrough connectors;
+- additional devices connected directly to spare CEB ports should use **short stubs**;
+- a multi-arm star with several long CEB-to-node branches is not an acceptable final topology merely because the CEB provides multiple connectors;
+- adding extra 120-ohm resistors to individual CEB branches is not a valid fix for a poor star topology.
+
+A preferred Revival physical pattern is to use two long directions from the CEB as the effective trunk and keep the Manta-to-CEB connection very short. For example:
+
+```text
+RASS (120R ON) <- Bed Node <- CEB -> EBB36 -> Eddy Duo (120R ON)
+                             |
+                             +-> Manta M8P V2 (very short stub)
+```
+
+Exact node order remains dependent on final physical placement and harness lengths, but the commissioning documentation must identify the two actual bus endpoints and record every 120R jumper state.
+
 ## Debug and recovery reserve
 
 Both custom boards must provide practical access to:
