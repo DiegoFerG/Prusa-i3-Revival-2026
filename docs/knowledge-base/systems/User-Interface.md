@@ -16,12 +16,16 @@ The [hardware inventory](../../../hardware/README.md) documents a RepRapDiscount
 
 ## Generation 3 target
 
-The [final-build architecture](../../final-build-architecture.md) specifies an HDMI5 five-inch touchscreen with KlipperScreen and a custom retro industrial enclosure. Mainsail provides remote access. A fixed frame camera is part of the concept, with CSI preferred and USB permitted; its actual model and final interface remain open.
+The [final-build architecture](../../final-build-architecture.md) specifies two distinct local touch interfaces. The main interface is the HDMI5 five-inch touchscreen with KlipperScreen and a custom retro industrial enclosure. A second compact **RASS Spool Panel** sits beside the spool/RASS assembly and is dedicated to material/RASS status plus guarded filament LOAD/UNLOAD requests. Mainsail provides remote access. A fixed frame camera is part of the concept, with CSI preferred and USB permitted; its actual model and final interface remain open.
 
 Camera housings follow a retro CCTV visual language. The optional nozzle camera remains a possible future upgrade and is not part of the frozen base moving harness. Lighting and status colours are defined in the same architecture.
 
 This page records the target experience; there is no claim that the new display, camera or interface is installed.
 
-The [smart-spool UI requirements](../../../hardware/generation-3-smart-spool-system.md#user-experience) add spool identity, remaining mass, profile mapping, calibration and assisted registration with manual fallback. RASS may additionally expose feeder state, buffer position, spool-drive state and feed warnings as described in the [RASS user experience](../../../hardware/generation-3-rass.md#user-experience). Exact UI integration is still open. A retro physical control panel is a separate [enhancement candidate](../../../hardware/generation-3-enhancement-candidates.md), not a frozen implemented interface.
+The [smart-spool UI requirements](../../../hardware/generation-3-smart-spool-system.md#user-experience) add spool identity, remaining mass, profile mapping, calibration and assisted registration with manual fallback. The RASS Spool Panel shows a compact subset intended for use while standing at the spool: identity/material/colour, remaining amount, tag state, feeder/buffer state, warnings and nozzle readiness.
+
+Its LOAD/UNLOAD controls are presentation/request controls only. The Linux host decides whether they are enabled and independently revalidates the action when pressed. They remain disabled during printing or pause/resume-capable print state, during incompatible machine activity, when the required MCU/sensors are unavailable, when the hotend is outside the validated filament-handling temperature window, or when the sensed filament/RASS state makes the requested action invalid.
+
+The exact local-panel hardware remains open; a small wired serial HMI is preferred so it does not depend on a second Linux framebuffer. A retro physical control panel remains a separate [enhancement candidate](../../../hardware/generation-3-enhancement-candidates.md), not a replacement for either touchscreen.
 
 [Electronics](Electronics.md) · [Firmware](Firmware.md) · [Decision log](../decisions/Decision-Log.md) · [Systems](Systems.md)
