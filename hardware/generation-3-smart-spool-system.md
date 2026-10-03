@@ -485,7 +485,7 @@ Each physical spool record should retain:
 
 RFID/NFC data must not directly and silently overwrite safety-critical settings.
 
-The smart-spool service provides identity and material context to the host. Klipper/macros and slicer integration may use that information to:
+The smart-spool service provides identity and material context to the host. Klipper/macros, the main HDMI5 UI, the local RASS Spool Panel and slicer integration may use that information to:
 
 - show the active spool;
 - check that loaded material is compatible with the queued job;
@@ -547,6 +547,7 @@ Requirements:
 - database/service implementation;
 - exact on-disk decoder/plugin schema;
 - exact KlipperScreen/Mainsail UI integration;
+- exact RASS Spool Panel model/layout/serial protocol and host-side service implementation;
 - exact method for mapping supported vendor material identifiers to Revival profiles;
 - future vendor decoders and their test fixtures;
 - optional future drying-history and environmental sensing.
