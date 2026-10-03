@@ -108,21 +108,27 @@ This permits staged verification of:
 - low-risk fan/output tests;
 - later CAN testing once a second CAN node is available.
 
-The final integrated architecture remains:
+The final integrated CAN architecture is:
 
 ```text
-CB2
- |
+CB2 / Klipper host
+       |
 Manta M8P V2.0
- |
-CAN
- |
-CEB
- |
-EBB36 Gen2
- |
-Eddy Duo
+       |
+      CAN
+       |
+BIGTREETECH CEB V1.0
+       |
+       +-- EBB36 Gen2
+       |      |
+       |      +-- CAN passthrough -> Eddy Duo
+       |
+       +-- Revival Bed Node
+              |
+              +-- USB-C service / recovery / optional alternate runtime
 ```
+
+The CEB is the Generation 3 CAN backbone/distribution point. Bed-heater power remains on its own dedicated fused 24 V high-current path and is not routed through the CEB.
 
 ## Frozen toolhead purchase direction
 
