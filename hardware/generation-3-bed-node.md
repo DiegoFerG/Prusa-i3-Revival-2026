@@ -1,6 +1,6 @@
 # Generation 3 Revival Bed Node
 
-This document defines the planned **Revival Bed Node**, a custom USB-connected Klipper MCU mounted in a printed enclosure on the **fixed rear cross-member of the historical lower frame**, close to the moving Y/bed assembly.
+This document defines the planned **Revival Bed Node**, a custom dual-interface **CAN + USB Klipper MCU** mounted in a printed enclosure on the **fixed rear cross-member of the historical lower frame**, close to the moving Y/bed assembly. Normal production communication is over the Generation 3 CAN network through the BIGTREETECH CEB V1.0; USB-C remains available for first flash, recovery, bench diagnostics and an optional alternate Klipper transport.
 
 The design follows the same distributed-control philosophy used by the EBB36 Gen2 on the toolhead, but it is intentionally optimized for the heated bed rather than reusing a toolhead board with unused functions.
 
@@ -24,31 +24,37 @@ This stage is deliberately valid and supported. The Bed Node must **not** block 
 
 ### Stage B — custom Revival Bed Node
 
-After the custom PCB is designed, assembled and validated, bed-local functions migrate to a dedicated MCU connected to the CB2 over USB. The Bed Node itself remains **fixed to the chassis**; only the short output harness from the rear cross-member to the moving bed must be highly flexible.
+After the custom PCB is designed, assembled and validated, bed-local functions migrate to a dedicated MCU connected normally to the Generation 3 CAN network through the **BIGTREETECH CEB V1.0**. A USB-C port remains on the board for first flash, recovery, bench diagnostics and optional alternate USB runtime operation. The Bed Node itself remains **fixed to the chassis**; only the short output harness from the rear cross-member to the moving bed must be highly flexible.
 
 Target topology:
 
 ```text
-electronics bay / CB2
-   |
-   +-- fixed/semi-fixed 24 V feed ------------------+
-   |                                                |
-   +-- fixed/semi-fixed USB --------------------+   |
-                                               |   |
-                                  Revival Bed Node
-                                fixed rear cross-member
-                                               |
-                     short flexible bed harness
-                     +-----------+-----------+-----------+
-                     |           |           |           |
-                  heater      thermistor   remote IMU  thermal fuse path
-                     |           |           |
-                     +-----------+-----------+----> moving bed
+Manta M8P V2 CAN
+       |
+       v
+BIGTREETECH CEB V1.0
+       |
+       +-- CAN-H / CAN-L --------------------------+
+                                                     |
+24 V logic / auxiliary feed ------------------------+----> Revival Bed Node
+                                                     |      fixed rear cross-member
+USB-C service / recovery / alternate runtime -------+             |
+                                                                   |
+24 V PSU -> dedicated bed fuse -> heater power stage --------------+
+                                                                   |
+                                                     short flexible bed harness
+                                                     +---------+---------+---------+
+                                                     |         |         |
+                                                  heater   thermistor  remote IMU
+                                                     |
+                                              independent thermal fuse path
+                                                     |
+                                                  moving bed
 ```
 
-The 24 V + USB **feed into the Bed Node does not need to be highly flexible** because the board is fixed to the rear cross-member. Only the short Bed Node-to-bed harness sees continuous Y-axis motion.
+The normal Bed Node data path is **CAN through the CEB**. The CAN/logic feed and optional USB-C service cable do not need to be highly flexible because the board is fixed to the rear cross-member. Only the short Bed Node-to-bed harness sees continuous Y-axis motion.
 
-The USB link carries **control/data only**. Heater energy remains on the dedicated 24 V high-current path.
+CAN and USB carry **control/data only**. Heater energy remains on the dedicated fused 24 V high-current path and must never be routed through the CEB or USB connector.
 
 ## Why a custom board
 
@@ -72,27 +78,37 @@ The board must not include unnecessary toolhead-specific functions such as an ex
 
 ## MCU direction
 
-A **USB-native MCU supported by Klipper** is preferred. RP2040 is the current reference direction because it provides:
+A **Klipper-supported MCU with a robust CAN implementation and native/accessible USB recovery path** is preferred. The production design must support:
 
-- native USB device support;
-- mature Klipper support;
+- normal Klipper communication over CAN;
+- USB-C first-flash and recovery access;
+- optional alternate Klipper communication over USB for bench/service use;
 - SPI for LIS2DW-class accelerometers;
 - ADC inputs for thermistors and diagnostics;
 - sufficient GPIO;
-- low cost and wide availability.
+- low-cost, serviceable components with good upstream support.
 
-The exact MCU and PCB implementation are not yet frozen at component level.
+The CAN physical layer requires a dedicated transceiver, ESD/transient protection appropriate to the final harness, and a selectable **120-ohm termination** so the Bed Node can be used correctly at an end of the physical bus. RP2040 remains a candidate only with a validated Klipper/Katapult CAN implementation; STM32 parts with well-supported CAN peripherals are also candidates. The exact MCU, transceiver and PCB implementation are not yet frozen at component level.
 
 ## Klipper integration model
 
 The Bed Node is a normal secondary Klipper MCU.
 
-Conceptual configuration:
+Production CAN configuration:
+
+```ini
+[mcu bed]
+canbus_uuid: <REVIVAL_BED_NODE_CAN_UUID>
+```
+
+Alternate USB bench/service configuration:
 
 ```ini
 [mcu bed]
 serial: /dev/serial/by-id/<REVIVAL_BED_NODE_ID>
 ```
+
+The hardware exposes both transports, but the production configuration uses **CAN as the normal runtime link**. USB is retained as a recovery/diagnostic path and may be used as an alternate runtime transport with the matching Klipper firmware build; the same physical MCU must not be configured twice as if CAN and USB were two independent MCUs.
 
 Klipper then references pins on that MCU by prefix:
 
@@ -293,11 +309,11 @@ For an RP2040-class design, the normal process is:
 1. Install/maintain the Klipper source tree on the CB2 or temporary Linux host.
 2. Run `make menuconfig`.
 3. Select the MCU family matching the Bed Node hardware, for example RP2040.
-4. Select the required communication interface, normally **USB** for the Bed Node.
+4. Select **CAN bus** as the normal production communication interface. Build a USB-runtime image only when intentionally using the alternate service mode.
 5. Build with `make`.
-6. Flash the resulting firmware using the MCU's supported bootloader/recovery method.
-7. Reconnect the board and identify its stable Linux serial path under `/dev/serial/by-id/`.
-8. Add that path to the printer configuration as `[mcu bed]`.
+6. Flash the resulting firmware using the MCU's supported USB bootloader/recovery method for first commissioning, or the validated CAN bootloader/update path once established.
+7. For CAN operation, identify the Bed Node `canbus_uuid`; for alternate USB operation, identify its stable `/dev/serial/by-id/` path.
+8. Add the selected transport to the printer configuration as `[mcu bed]`.
 9. Restart Klipper and verify MCU communication before enabling any heater output.
 
 For an RP2040 reference implementation, initial flashing is expected to use the ROM USB mass-storage boot mode (BOOTSEL) or a documented equivalent. The exact boot/reset buttons or test pads will be designed into the custom PCB so recovery does not require desoldering.
@@ -309,7 +325,9 @@ Klipper source
    |
 make menuconfig
    |
-select MCU + USB
+select MCU + CAN
+   |         \
+   |          \-> optional USB runtime/service build
    |
 make
    |
@@ -319,9 +337,13 @@ BOOT/DFU/UF2 method
    |
 Revival Bed Node
    |
-USB enumeration
+CAN UUID discovery
    |
-/dev/serial/by-id/...
+   +-- optional USB enumeration
+   |
+canbus_uuid
+   |
+   +-- optional /dev/serial/by-id/...
    |
 [mcu bed]
 ```
@@ -330,8 +352,8 @@ USB enumeration
 
 The PCB should support **two levels of recovery**:
 
-- normal in-system firmware update over the supported USB bootloader path;
-- hardware recovery using accessible BOOT/RESET controls or test pads.
+- normal in-system firmware update over a validated CAN/Katapult path where supported;
+- USB-C first-flash/service update and hardware recovery using accessible BOOT/RESET controls or test pads.
 
 The design must never require heater power to be connected merely to flash or recover the MCU.
 
@@ -344,11 +366,11 @@ The repository should eventually contain:
 - first-flash and recovery procedures;
 - firmware revision/hash used during validation.
 
-## USB behavior and failure handling
+## CAN / USB behavior and failure handling
 
 The Bed Node is a Klipper MCU, not an autonomous heater controller.
 
-If the Bed Node disconnects or stops communicating, Klipper must treat this as an MCU failure and stop the print/heating process.
+If the Bed Node disconnects from its selected runtime transport (normally CAN) or stops communicating, Klipper must treat this as an MCU failure and stop the print/heating process.
 
 The design must never depend on USB/Klipper alone for thermal safety.
 
@@ -372,7 +394,7 @@ The thermal fuse must interrupt heater energy even if:
 
 - Klipper crashes;
 - CB2 crashes;
-- USB disconnects;
+- CAN communication is lost or the alternate USB link disconnects;
 - Bed Node firmware locks;
 - MOSFET fails short.
 
@@ -398,7 +420,7 @@ The Bed Node is mounted in a **printed fixed enclosure on the rear transverse me
 
 This location is preferred because:
 
-- the incoming 24 V and USB harness can be fixed or only gently flexed;
+- the incoming CAN, logic-power and optional USB-C service harness can be fixed or only gently flexed;
 - the power stage and MCU do not add moving Y mass;
 - the board can be larger and better cooled than a bed-mounted PCB;
 - service access is easier;
@@ -429,8 +451,9 @@ CB2 USB -> S2DW
              becomes
 
 FINAL
-CB2 USB -> Revival Bed Node
-             |- bed thermistor(s)
+Manta CAN -> CEB -> Revival Bed Node
+                    |- optional USB-C service/recovery
+                    |- bed thermistor(s)
              |- remote bed IMU
              |- local chassis IMU
              |- remote frame-top IMU
@@ -475,14 +498,15 @@ These are diagnostic aids and do not replace physical protection.
 ## Frozen decisions
 
 - a custom **Revival Bed Node** will be designed for the final Generation 3 bed;
-- it communicates with CB2 by **USB** as a secondary Klipper MCU;
+- it communicates normally as a secondary Klipper MCU over **CAN through the BIGTREETECH CEB V1.0**;
+- it retains **USB-C** for first flash, recovery, bench diagnostics and optional alternate USB runtime operation;
 - it integrates bed temperature sensing and interfaces to a **remote moving Y accelerometer daughterboard**;
 - it includes a **local chassis accelerometer** and a **remote frame-top accelerometer interface**;
 - it controls the local bed-heater power stage;
 - it provides **24 V RGB under-bed/under-frame status lighting control**;
 - it reserves telemetry for heater current, 24 V rail and local thermal monitoring;
 - high-current heater power remains a separate 24 V moving pair;
-- safety-critical thermal protection remains independent of Klipper/USB;
+- safety-critical thermal protection remains independent of Klipper/CAN/USB;
 - the printer may initially operate with conventional separate bed wiring before the custom board exists;
 - the custom Bed Node must be a migration/upgrade, not a commissioning blocker.
 
@@ -491,7 +515,8 @@ These are diagnostic aids and do not replace physical protection.
 - exact MCU / RP2040 implementation;
 - exact LIS2DW or alternative accelerometer parts and daughterboard connector/cable choices;
 - final long-distance frame-top IMU signalling method (direct SPI at reduced speed vs buffered/differential adapter after testing);
-- USB connector family and cable/strain-relief scheme;
+- CAN transceiver/protection implementation, connector family, bus-stub length and selectable 120-ohm termination;
+- USB-C connector, ESD protection and cable/strain-relief scheme;
 - 24 V connector and wire gauge;
 - MOSFET and gate-driver topology;
 - PCB copper/current-path implementation;
