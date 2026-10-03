@@ -44,7 +44,7 @@ Exact pins and syntax belong to the future released PCB/configuration and must b
 
 ### Custom-board firmware build and first flash
 
-The Revival Bed Node should use an MCU supported by upstream Klipper so no private firmware fork is required.
+The Revival Bed Node **must use unmodified upstream Klipper MCU firmware**. The same rule applies to the custom RASS CAN Node. Board-specific build settings, pin maps and host-side modules are expected; patched Klipper MCU C code or private MCU protocol commands are not part of the production baseline.
 
 Reference workflow:
 
@@ -65,7 +65,9 @@ Revival Bed Node
         +-- alternate service runtime: USB -> /dev/serial/by-id/<stable-id>
 ```
 
-The PCB must expose convenient BOOT/RESET access or recovery test pads. The normal production Klipper build targets CAN; an alternate USB-runtime build may be maintained for bench/service use. The exact MCU, CAN transceiver, `menuconfig` selections, first-flash/CAN-bootloader procedure, pin map and validated firmware hash will be versioned in the repository when the PCB is released.
+The PCB must expose convenient BOOT/RESET access or recovery test pads. The normal production Klipper build targets CAN; an alternate USB-runtime build may be maintained for bench/service use where supported. The exact MCU, CAN transceiver, `menuconfig` selections, first-flash/CAN-bootloader procedure, pin map and validated upstream Klipper revision/hash will be versioned in the repository when the PCB is released.
+
+Both custom CAN PCBs must also publish a resource ledger proving that, after all production functions are assigned, the board still retains the frozen spare SPI/I2C/UART/ADC/GPIO/PWM expansion capacity defined in [the custom-node design rules](../../../hardware/generation-3-custom-can-node-design-rules.md).
 
  Loss of the Bed Node must be treated as an MCU failure; physical thermal protection remains independent of firmware.
 
@@ -73,7 +75,7 @@ During the initial non-Bed-Node stage, the Manta remains responsible for bed tem
 
 ## Dependencies
 
-The [smart-spool architecture](../../../hardware/generation-3-smart-spool-system.md) adds a target local service, decoder registry, assisted unknown-tag learning and mappings to calibrated Revival profiles. The [RASS architecture](../../../hardware/generation-3-rass.md) adds a custom Klipper-compatible CAN controller on the CEB backbone whose upstream feeder follows toolhead demand through buffer/dancer feedback; exact MCU, drivers, control implementation and calibration remain future work. Real-tag validation is required before claiming decoder support. The [Revival Intelligence & Diagnostics subsystem](../../../hardware/generation-3-revival-intelligence-diagnostics.md) defines the CB2 supervisory boundary and the [RID candidate backlog](../../../hardware/generation-3-enhancement-candidates.md) prioritises software-only work that can reuse the frozen baseline: pre-flight checks, service history, subsystem-health checks, notifications, job/event reports, thermal-response trends, resonance/belt trends, fixed-camera failure detection, first-layer vision, health scoring and later sensor fusion. Candidate status does not imply implementation, and automatic safety actions remain bounded by the independent hardware-safety architecture.
+The [smart-spool architecture](../../../hardware/generation-3-smart-spool-system.md) adds a target local service, decoder registry, assisted unknown-tag learning and mappings to calibrated Revival profiles. The [RASS architecture](../../../hardware/generation-3-rass.md) adds a custom Klipper-compatible CAN controller on the CEB backbone whose upstream feeder follows toolhead demand through buffer/dancer feedback; it also follows the frozen upstream-firmware/no-fork rule. Exact MCU, drivers, host-side control implementation and calibration remain future work. Real-tag validation is required before claiming decoder support. The [Revival Intelligence & Diagnostics subsystem](../../../hardware/generation-3-revival-intelligence-diagnostics.md) defines the CB2 supervisory boundary and the [RID candidate backlog](../../../hardware/generation-3-enhancement-candidates.md) prioritises software-only work that can reuse the frozen baseline: pre-flight checks, service history, subsystem-health checks, notifications, job/event reports, thermal-response trends, resonance/belt trends, fixed-camera failure detection, first-layer vision, health scoring and later sensor fusion. Candidate status does not imply implementation, and automatic safety actions remain bounded by the independent hardware-safety architecture.
 
 - [Electronics](Electronics.md) — controller, drivers, sensors and wiring.
 - [Mechanics](Mechanics.md) — alignment before software compensation.
