@@ -96,6 +96,8 @@ CAN is a permanent internal bus in Generation 3, used where it reduces moving wi
 - **BIGTREETECH EBB36 Gen2** is the permanent toolhead CAN node.
 - The custom **Revival Bed Node** is a permanent CAN node connected through the CEB; it also retains USB-C for first flash, recovery, bench diagnostics and optional alternate USB runtime operation.
 - The custom **RASS CAN Node** is a permanent Klipper-compatible CAN node connected through the CEB for active spool/feed control and local RASS sensing. It may interface the physical RFID/NFC reader, but forwards only low-level reader observations; tag/vendor/material decoding runs on the Linux host (CB1 during bench work, CB2 in the final machine).
+- Both Revival-designed CAN nodes — Bed Node and RASS Node — run **unmodified upstream Klipper MCU firmware**. Revival-specific semantics remain in normal configuration/macros or Linux-host software; private MCU firmware forks are not part of the production architecture.
+- Both custom nodes must preserve a documented expansion reserve after baseline functions are assigned: spare SPI, I2C, UART, ADC and GPIO/PWM resources, plus service/debug access, as defined in the common custom-node design rules.
 - The finished bus must have exactly two 120-ohm terminations at its physical ends; jumper positions are to be recorded during commissioning.
 - CAN uses a twisted differential pair and a documented shielding/ground strategy.
 
@@ -331,6 +333,7 @@ Klipper heater checks, fan RPM monitoring, temperature limits and watchdog behav
 - BIGTREETECH Eddy Duo for fast/dense eddy-current bed-surface scanning as an independent 5 V CAN node downstream of the EBB36 Gen2 passthrough;
 - permanent X/toolhead LIS2DW;
 - staged Y/bed sensing: initial USB S2DW-class accelerometer, final custom Revival Bed Node over CAN through the CEB with USB-C retained for service/recovery and optional alternate runtime;
+- Bed Node and RASS Node use unmodified upstream Klipper MCU firmware and retain the mandatory spare SPI/I2C/UART/ADC/GPIO/PWM expansion resources after final pin allocation;
 - one fixed frame camera as part of the final concept, with **CSI preferred and USB permitted**; exact model/interface remains open;
 - retro CCTV/video-surveillance enclosure language for all cameras;
 - 24 V dimmable frame light and toolhead work/status light;
