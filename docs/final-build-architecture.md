@@ -326,7 +326,7 @@ Klipper heater checks, fan RPM monitoring, temperature limits and watchdog behav
 - Manta M8P V2.0 + CB2 + TMC2209 controller architecture; Manta and 6× TMC2209 are already purchased, CB2 pending;
 - Klipper + Moonraker + Mainsail + KlipperScreen + Crowsnest;
 - HDMI5 5-inch touchscreen with retro enclosure/theme;
-- CAN as permanent toolhead bus;
+- CAN as the permanent internal Generation 3 communications backbone;
 - CEB V1.0 CAN distribution/protection and backbone for toolhead, Bed Node and RASS CAN Node;
 - EBB36 Gen2 toolhead node;
 - E3D Roto + Revo direct-drive extrusion stack;
@@ -346,7 +346,6 @@ Klipper heater checks, fan RPM monitoring, temperature limits and watchdog behav
 ## Possible future upgrades
 
 - fixed toolhead/nozzle camera for nozzle-centred timelapse, likely USB/UVC but intentionally not frozen;
-- custom RASS Klipper CAN Node for deterministic active-feed/spool-assist control and local feed sensing;
 - additional CAN nodes only where they solve a demonstrated wiring/sensing problem rather than merely because CAN is available.
 
 ## Component-level selections still open
