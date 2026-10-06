@@ -184,18 +184,19 @@ The Manta controls the bed but the high-current heater path uses a **dedicated e
 
 ## Camera architecture
 
-Camera integration is part of the Generation 3 concept, but the **camera model and physical data interface are deliberately not frozen yet**. Optical framing and clean mechanical integration take priority over forcing a particular interface.
+Camera integration is part of the Generation 3 concept. The primary camera selection is now frozen as the **Innomaker U30CAM-4K-S1**, using a Sony IMX415 STARVIS sensor and USB/UVC. The earlier CSI-first/model-open direction is obsolete for the main frame camera. Optical framing and clean mechanical integration remain to be validated on the rebuilt printer. See [`../hardware/generation-3-main-camera.md`](../hardware/generation-3-main-camera.md).
 
 ### Main frame camera
 
 The baseline requirement is one **fixed camera mounted to the printer frame**, never to the moving bed or toolhead.
 
-Preferred implementation order:
+Frozen implementation:
 
-1. **CSI/MIPI camera to the CB2** if a practical ribbon length and routing can reach the selected frame position cleanly;
-2. migrate to a **USB UVC camera** if CSI ribbon routing proves too restrictive, fragile or visually intrusive.
+- **Innomaker U30CAM-4K-S1 over USB/UVC** is the primary frame camera;
+- it is intended to work first with the CB1 bench host and remain the same camera through the future CB2 or CM4 host migration;
+- advertised headline modes are 3840 × 2160 at 30 fps and 1920 × 1080 at 60 fps; delivered-unit V4L2 modes and sustainable host performance must be bench-verified.
 
-Requirements common to either interface:
+Requirements:
 
 - fixed, stable view of the bed/nozzle work area;
 - wide enough field of view to remain inside the original printer envelope where practical;
@@ -204,7 +205,7 @@ Requirements common to either interface:
 - custom ASA enclosure inspired by **late-1980s/1990s industrial CCTV/video-surveillance cameras**;
 - no exposed modern camera PCB and no generic consumer-webcam appearance.
 
-The final sensor, lens/FOV, CSI cable length or USB camera are selected only after physical framing mock-ups on the rebuilt printer.
+The sensor and interface are frozen. Final mount position, focus, framing and normal operating mode are selected after physical tests with the delivered U30CAM-4K-S1.
 
 ### Possible future upgrade — fixed nozzle camera
 
@@ -345,7 +346,7 @@ Klipper heater checks, fan RPM monitoring, temperature limits and watchdog behav
 - permanent X/toolhead LIS2DW;
 - staged Y/bed sensing: initial USB S2DW-class accelerometer, final custom Revival Bed Node over CAN through the CEB with USB-C retained for service/recovery and optional alternate runtime;
 - Bed Node and RASS Node use unmodified upstream Klipper MCU firmware and expose every remaining electrically usable MCU pin after final pin allocation, with alternate peripheral capabilities documented;
-- one fixed frame camera as part of the final concept, with **CSI preferred and USB permitted**; exact model/interface remains open;
+- one fixed **Innomaker U30CAM-4K-S1 Sony IMX415 USB/UVC** frame camera as the frozen primary imaging device;
 - retro CCTV/video-surveillance enclosure language for all cameras;
 - 24 V dimmable frame light and toolhead work/status light;
 - tachometer-monitored hotend cooling architecture;
@@ -372,7 +373,7 @@ These selections do not change the architecture and will be frozen after their m
 - final silicone-heater dimensions/wattage after measuring the original bed PCB;
 - exact PSU wattage;
 - connector families, wire gauges and harness routing;
-- frame-camera sensor/lens/FOV and final CSI-versus-USB choice;
+- U30CAM-4K-S1 frame-camera mount position, framing/focus and validated normal runtime mode;
 - optional nozzle-camera implementation, if the future upgrade is adopted.
 
 
