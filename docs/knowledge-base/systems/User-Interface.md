@@ -5,7 +5,7 @@ status: planned
 phase: stage-05
 priority: normal
 generation: generation-3
-updated: 2026-09-19
+updated: 2026-10-06
 ---
 
 # User interface
@@ -16,7 +16,7 @@ The [hardware inventory](../../../hardware/README.md) documents a RepRapDiscount
 
 ## Generation 3 target
 
-The [final-build architecture](../../final-build-architecture.md) specifies two distinct local touch interfaces. The main interface is the HDMI5 five-inch touchscreen with KlipperScreen and a custom retro industrial enclosure. A second compact **RASS Spool Panel** sits beside the spool/RASS assembly and is dedicated to material/RASS status plus guarded filament LOAD/UNLOAD requests. Mainsail provides remote access. A fixed frame camera is part of the concept, with CSI preferred and USB permitted; its actual model and final interface remain open.
+The [final-build architecture](../../final-build-architecture.md) specifies two distinct local touch interfaces. The main interface is the HDMI5 five-inch touchscreen with KlipperScreen and a custom retro industrial enclosure. A second compact **RASS Spool Panel** sits beside the spool/RASS assembly and is dedicated to material/RASS status plus guarded filament LOAD/UNLOAD requests. Mainsail provides remote access. A fixed **Innomaker U30CAM-4K-S1 (Sony IMX415) USB/UVC** frame camera is the frozen primary camera. The earlier CSI-preferred/model-open statement is obsolete; final mount/framing and validated operating mode remain open until bench and machine tests.
 
 Camera housings follow a retro CCTV visual language. The optional nozzle camera remains a possible future upgrade and is not part of the frozen base moving harness. Lighting and status colours are defined in the same architecture.
 
