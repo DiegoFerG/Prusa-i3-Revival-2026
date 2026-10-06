@@ -12,6 +12,8 @@ See [`generation-3-rass.md`](generation-3-rass.md) for the RASS active single-sp
 
 See [`generation-3-extrusion-toolhead.md`](generation-3-extrusion-toolhead.md) for the preferred Roto + Revo Generation 3 extrusion/toolhead direction and material-use priorities.
 
+See [`generation-3-main-camera.md`](generation-3-main-camera.md) for the frozen Innomaker U30CAM-4K-S1 USB/UVC main frame-camera selection and bench-validation plan.
+
 See [`generation-3-enhancement-candidates.md`](generation-3-enhancement-candidates.md) for remaining fault-detection, cleaning, safety-control, maintenance and electrical-monitoring candidates, plus the recorded promotion of Eddy Duo probing into the frozen architecture.
 
 See [`generation-3-procurement-status.md`](generation-3-procurement-status.md) for actual purchases, pending acquisitions and bench-test status.
@@ -73,7 +75,7 @@ See [`generation-3-custom-can-node-design-rules.md`](generation-3-custom-can-nod
 | RASS control hierarchy | toolhead direct drive remains extrusion master; RASS follows via buffer/dancer feedback | Frozen |
 | RASS tension decoupling | intermediate buffer/dancer between upstream feeder and toolhead | Frozen architecture |
 | RASS fallback | passive/manual feed path remains possible if active feed subsystem is unavailable | Frozen design requirement |
-| Main camera concept | fixed frame-mounted camera, CSI preferred and USB UVC permitted | Frozen architecture, model/interface open |
+| Main frame camera | Innomaker U30CAM-4K-S1, Sony IMX415 STARVIS, USB 3.0 UVC; advertised 4K30 / 1080p60 | Frozen selection; purchase/receipt and CB1 bench validation pending |
 | Camera styling | custom retro late-1980s/1990s CCTV/video-surveillance enclosure | Frozen concept |
 | Main DC voltage | 24 V | Frozen |
 | Final PSU target | Mean Well LRS-600-24, 24 V / 25 A / 600 W | Preferred final model; future purchase |
@@ -140,7 +142,7 @@ These items must fit the frozen architecture but their exact model or rating dep
 - frame-light strip/diffuser;
 - connector families and wire gauges;
 - final electronics enclosure and airflow geometry;
-- main frame-camera sensor, lens/FOV and final CSI-versus-USB choice;
+- main frame-camera physical mount position, framing, focus and validated runtime mode after U30CAM-4K-S1 bench tests;
 - optional nozzle-camera hardware/interface if that future upgrade is adopted;
 - exact emergency-stop power-cut topology and physical controls;
 - exact electrical-monitoring sensor topology;
