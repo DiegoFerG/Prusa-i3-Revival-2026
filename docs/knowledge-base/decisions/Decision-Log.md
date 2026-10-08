@@ -2,7 +2,7 @@
 type: decision-log
 area: project
 status: active
-updated: 2026-09-30
+updated: 2026-10-08
 ---
 
 # Decision Log
@@ -57,3 +57,5 @@ A later documentation edit also temporarily reused DEC-028 for the RID ML/LLM po
 ## Recording the next decision
 
 Update the authoritative architecture, inventory or test document first. Add a stable decision ID here with the decision date, status, rationale and source link. For a revision, link the superseding decision and preserve the previous outcome. Reflect affected system/build pages, [Current State](../project/Current-State.md), [Roadmap](../project/Roadmap.md) and [Open Issues](../project/Open-Issues.md).
+
+| DEC-PSU-20261008 | Separate enclosed 230 V to 24 V PSU with two-pole master isolation, seven individually protected XT60E outlet provisions, independent bed heater power feed, and XT30(2+2) four-wire CAN/power harness connections | Generation 3 topology agreed 8 October 2026; exact connectors, wire sizing, fusing and mains assembly pending engineering signoff; not built or tested | [Power distribution and cable specification](../../../hardware/generation-3-power-distribution.md) |
