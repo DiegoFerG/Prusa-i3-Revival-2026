@@ -4,14 +4,14 @@ area: project
 status: in-progress
 phase: stage-02
 priority: high
-updated: 2026-09-23
+updated: 2026-10-08
 ---
 
 # Current State
 
 [Home](../Home.md) · [Roadmap](Roadmap.md) · [Open Issues](Open-Issues.md)
 
-This snapshot was checked against the published repository on 21 September 2026. Its latest reassembly batch is dated 21 September 2026; it does not imply a new physical inspection on the review date.
+Repository documentation reviewed on 8 October 2026. The latest recorded original-reassembly photo batch remains 21 September 2026. This documentation review is not a new physical inspection or electronics acceptance test.
 
 | Scope | Documented state | Evidence / next gate |
 | --- | --- | --- |
@@ -19,7 +19,8 @@ This snapshot was checked against the published repository on 21 September 2026.
 | Stage 01 — Teardown, cleaning and inventory | Complete, closed 13 September | [Roadmap](../../ROADMAP.md), [teardown inventory](../../../photos/02-teardown/INDEX.md) |
 | Stage 02 — Original mechanical reassembly | In progress; photo evidence covers manual Stages A–H, with the latest batch documenting the geared-extruder subassembly | [Photo index](../../../photos/03-reassembly/INDEX.md), [21 September batch](../../../photos/03-reassembly/BATCH-20260921.md) |
 | Remaining original reassembly and validation | Stage H assembly is reported complete; its mounting/acceptance evidence, manual I–J completion and the final mechanical gate remain unrecorded | [Build sequence](../build/Build.md), [manual](../../02-reassembly/original-reassembly-manual.md) |
-| Generation 3 | Architecture frozen; historical steel frame and M8/M10 threaded base retained, MGN12 guidance uses X/Y T-slot extrusion supports and the direct/plate/profile Z hierarchy; first electronics acquired and a bench-test pack is prepared, but no purchased Generation 3 electronics are yet recorded as tested/commissioned | [Architecture](../../final-build-architecture.md), [linear motion](../../../hardware/generation-3-linear-motion.md), [target BOM](../../../hardware/generation-3-target-bom.md), [procurement status](../../../hardware/generation-3-procurement-status.md), [electronics bench-test pack](../../../hardware/bench-tests/generation-3-electronics/README.md) |
+| Generation 3 | Architecture frozen; historical steel frame and M8/M10 threaded base retained, MGN12 guidance uses X/Y T-slot extrusion supports and the direct/plate/profile Z hierarchy; first electronics acquired and a bench-test pack is prepared, but no newly reviewed formal Generation 3 PASS/commissioning evidence was established by this documentation-only audit | [Architecture](../../final-build-architecture.md), [linear motion](../../../hardware/generation-3-linear-motion.md), [target BOM](../../../hardware/generation-3-target-bom.md), [procurement status](../../../hardware/generation-3-procurement-status.md), [electronics bench-test pack](../../../hardware/bench-tests/generation-3-electronics/README.md) |
+| Generation 3 power architecture | Separate protected 24 V PSU enclosure with seven proposed XT60E outputs and XT30(2+2) CAN/logic harnesses documented; heater power remains a separate branch. Actual fuse sizes, wire gauges, connector compatibility and mains-enclosure compliance are still open; not built or tested | [Power distribution](../../../hardware/generation-3-power-distribution.md), [Electronics](../systems/Electronics.md) |
 | Generation 3 smart spools | Identification, assisted tag learning and weighing architecture frozen; RASS extends it with single-spool active feed, driven-spool assistance and buffer/dancer control; exact implementation and decoder support require validation | [Smart-spool architecture](../../../hardware/generation-3-smart-spool-system.md), [RASS](../../../hardware/generation-3-rass.md), [Filament System](../systems/Filament-System.md) |
 | Generation 3 extrusion/probing | E3D Roto + Revo + BTT Eddy Duo is the frozen 1.75 mm direct-drive / bed-scan direction; PLA quality is primary and ABS/ASA is occasional open-frame use only | [Toolhead target](../../../hardware/generation-3-extrusion-toolhead.md), [Extrusion](../systems/Extrusion.md) |
 | Revival Intelligence & Diagnostics | RID is the Generation 3 umbrella for CB2-hosted supervisory intelligence, vision, condition monitoring, maintenance history and diagnostic sensor fusion. Practical S/H candidates remain prioritised by value/complexity; a separate M01–M15 Moonshot tier records extreme concepts at production score 1/5 without placing them on the production path | [RID concept](../../../hardware/generation-3-revival-intelligence-diagnostics.md), [RID backlog and Moonshots](../../../hardware/generation-3-enhancement-candidates.md), [Decision Log](../decisions/Decision-Log.md) |
