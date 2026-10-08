@@ -11,7 +11,7 @@ Validate the purchased Generation 3 electronics while return/warranty windows ar
 - 6 × BIGTREETECH TMC2209 V1.3
 - 1 × BIGTREETECH EBB36 Gen2 kit including the Gen2 adapter/protection board
 
-A Raspberry Pi 2 is used only as a **temporary Klipper bench host**. This does not change CB2 as the frozen final Generation 3 host.
+The original pack proposed a Raspberry Pi 2 as a temporary host. The active 8 October 2026 bench uses **CB1 mounted on Manta**, as recorded below. This does not change CB2 as the frozen final Generation 3 host.
 
 ## Acceptance rule
 
@@ -52,3 +52,7 @@ Before CAD, use the [bench-fixture dimensional survey](bench-fixture-dimensional
 - [Sources](SOURCES.md)
 
 Future evidence should be added with clear dates and component IDs. Photographs remain evidence, not proof of a passed test unless linked to a recorded result.
+
+## Active bench — 8 October 2026
+
+See the [USB Eddy and camera session record](records/2026-10-08-usb-eddy-camera.md) for the current wiring, cable correction, MCU/configuration snapshot, measurements, failures and recovery. USB direct baseline capture passed; USB through EBB communicates and camera video/reboot/cold start worked. Joint 30-minute stability remains pending. Next transport order is **USB → direct CAN without CEB → CAN through CEB**. CEB remains to order. This does not close motor/heater/full-board acceptance.

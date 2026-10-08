@@ -88,3 +88,9 @@ The following previous assumptions are explicitly obsolete for the **main frame 
 - deferring the main sensor/lens/interface selection entirely until later framing tests.
 
 Physical mount position and final framing remain open until the delivered U30CAM-4K-S1 is tested on the machine.
+
+## Delivered-unit bench results — 8 October 2026
+
+The [session record](bench-tests/generation-3-electronics/records/2026-10-08-usb-eddy-camera.md) confirms receipt, UVC detection (0bda:5883), real MJPEG/YUYV mode queries and visible Crowsnest/Mainsail video on CB1. Initial validation was deliberately lowered to **640x480**, not the previously planned 1080p baseline. A 30-second MJPEG copy test acquired 30 fps; Mainsail later displayed 15 FPS with max_fps:15. Higher modes remain untested. Focus controls produced UVC non-compliance errors; physical focus/framing remains open.
+
+Use /webcam/?action=stream and /webcam/?action=snapshot through the Mainsail web proxy. Port 8080 listens on loopback only. Initial camera hot-plug disconnected the EBB/Eddy USB branch; firmware restart recovered Klipper. Later warm reboot and PSU cold start worked with the camera attached. Cause of the initial disruption remains unproven; prolonged concurrent validation is pending.

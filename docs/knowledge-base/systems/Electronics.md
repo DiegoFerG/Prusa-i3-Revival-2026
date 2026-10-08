@@ -36,3 +36,7 @@ The [procurement status](../../../hardware/generation-3-procurement-status.md) i
 - [User interface](User-Interface.md) — original LCD and final touchscreen.
 
 [Systems](Systems.md) · [Parts](../indexes/Parts.md)
+
+## USB bench update — 8 October 2026
+
+[Canonical session record](../../../hardware/bench-tests/generation-3-electronics/records/2026-10-08-usb-eddy-camera.md): CB1 is mounted on the replacement Manta; EBB36 Gen2 and Eddy Duo communicate over USB, including the corrected short expansion cable. Direct-USB 30-minute sensor acquisition passed. Main-camera UVC modes were queried and video is visible in Mainsail via /webcam/; warm reboot and PSU cold start worked. Full-board/print commissioning is not claimed. Joint prolonged USB testing and distance calibration remain pending, followed by direct CAN and later CEB CAN. Final CB2 architecture is unchanged.

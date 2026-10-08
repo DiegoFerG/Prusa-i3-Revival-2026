@@ -56,3 +56,7 @@ ACCELEROMETER_QUERY
 ```
 
 PASS requires stable USB, working integrated TMC2209, motor movement in both directions, plausible LIS2DW response, plausible onboard temperature and no abnormal heating.
+
+## Tested Eddy USB expansion cable — 8 October 2026
+
+The [session record](records/2026-10-08-usb-eddy-camera.md) supersedes any assumed wire-colour mapping for the delivered Eddy Duo short cable. Starting at the EBB expansion pin nearest the large electrolytic capacitor: **red, green, yellow, black**. Red–yellow–green–black powered the LED but did not enumerate; swapping the data wires restored enumeration and LDC communication. Apply only to this recorded cable in USB mode, not CAN. The actual host is CB1 on Manta. Full EBB motor/accelerometer acceptance remains pending.

@@ -4,7 +4,7 @@ area: firmware
 status: planned
 phase: stage-07
 priority: normal
-updated: 2026-09-30
+updated: 2026-10-08
 ---
 
 # Firmware
@@ -109,3 +109,7 @@ Optional LLM responsibilities:
 The LLM may be a service on the local network or an external provider. Provider choice is configuration, not firmware architecture.
 
 No machine safety authority is delegated to the LLM.
+
+## USB bench update — 8 October 2026
+
+[Canonical session record](../../../hardware/bench-tests/generation-3-electronics/records/2026-10-08-usb-eddy-camera.md): CB1 is mounted on the replacement Manta; EBB36 Gen2 and Eddy Duo communicate over USB, including the corrected short expansion cable. Direct-USB 30-minute sensor acquisition passed. Main-camera UVC modes were queried and video is visible in Mainsail via /webcam/; warm reboot and PSU cold start worked. Full-board/print commissioning is not claimed. Joint prolonged USB testing and distance calibration remain pending, followed by direct CAN and later CEB CAN. Final CB2 architecture is unchanged.

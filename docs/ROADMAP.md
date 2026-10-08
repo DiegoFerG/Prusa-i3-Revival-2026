@@ -69,3 +69,7 @@ Document reliability, print quality, noise, realistic speed limits, lessons lear
 
 ## Continuous workstream · Bilingual blog
 The Spanish and English blog is maintained throughout the project. Repository evidence remains the technical source of truth; each completed stage should generate or update its corresponding article rather than postponing the narrative until the final build.
+
+## Generation 3 parallel bench update — 8 October 2026
+
+The [USB session record](../hardware/bench-tests/generation-3-electronics/records/2026-10-08-usb-eddy-camera.md) documents partial communication, Eddy sensor and camera results on CB1/Manta/EBB. Next: joint 30-minute USB acquisition with video, spacer checks, then direct CAN and later CEB CAN. Original machine stages and final CB2 architecture remain unchanged.

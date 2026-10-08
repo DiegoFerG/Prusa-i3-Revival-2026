@@ -5,7 +5,7 @@ status: planned
 phase: stage-05
 priority: normal
 generation: generation-3
-updated: 2026-10-06
+updated: 2026-10-08
 ---
 
 # User interface
@@ -20,7 +20,7 @@ The [final-build architecture](../../final-build-architecture.md) specifies two 
 
 Camera housings follow a retro CCTV visual language. The optional nozzle camera remains a possible future upgrade and is not part of the frozen base moving harness. Lighting and status colours are defined in the same architecture.
 
-This page records the target experience; there is no claim that the new display, camera or interface is installed.
+This page records the target experience; the display and final on-printer camera mount remain uninstalled; temporary camera/Mainsail bench integration was tested on 8 October.
 
 The [smart-spool UI requirements](../../../hardware/generation-3-smart-spool-system.md#user-experience) add spool identity, remaining mass, profile mapping, calibration and assisted registration with manual fallback. The RASS Spool Panel shows a compact subset intended for use while standing at the spool: identity/material/colour, remaining amount, tag state, feeder/buffer state, warnings and nozzle readiness.
 
@@ -29,3 +29,7 @@ Its LOAD/UNLOAD controls are presentation/request controls only. The Linux host 
 The exact local-panel hardware remains open; a small wired serial HMI is preferred so it does not depend on a second Linux framebuffer. A retro physical control panel remains a separate [enhancement candidate](../../../hardware/generation-3-enhancement-candidates.md), not a replacement for either touchscreen.
 
 [Electronics](Electronics.md) · [Firmware](Firmware.md) · [Decision log](../decisions/Decision-Log.md) · [Systems](Systems.md)
+
+## USB bench update — 8 October 2026
+
+[Canonical session record](../../../hardware/bench-tests/generation-3-electronics/records/2026-10-08-usb-eddy-camera.md): CB1 is mounted on the replacement Manta; EBB36 Gen2 and Eddy Duo communicate over USB, including the corrected short expansion cable. Direct-USB 30-minute sensor acquisition passed. Main-camera UVC modes were queried and video is visible in Mainsail via /webcam/; warm reboot and PSU cold start worked. Full-board/print commissioning is not claimed. Joint prolonged USB testing and distance calibration remain pending, followed by direct CAN and later CEB CAN. Final CB2 architecture is unchanged.

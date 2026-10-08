@@ -4,7 +4,7 @@ This document tracks **actual Generation 3 purchases and near-term acquisition d
 
 It must not be used as evidence that a purchased component has been electrically tested, installed or commissioned.
 
-Last reviewed: **27 September 2026**.
+Last reviewed: **8 October 2026**.
 
 ## Purchased
 
@@ -13,6 +13,9 @@ Last reviewed: **27 September 2026**.
 | BIGTREETECH Manta M8P V2.0 | 1 | Purchased | Main motion/control MCU board |
 | BIGTREETECH EBB36 Gen2 | 1 kit | Purchased | CAN toolhead MCU/driver board; kit includes its Gen2 adapter/protection board |
 | BIGTREETECH TMC2209 V1.3 | 6 | Purchased | Manta axis drivers plus spares |
+| BIGTREETECH CB1 | 1 | Received; active temporary bench host | Mounted on Manta; final CB2 target unchanged |
+| BIGTREETECH Eddy Duo | 1 | Received; USB communication and raw sensor acquisition tested | Probe/scanner; final mount/calibration/CAN pending |
+| Innomaker U30CAM-4K-S1 | 1 | Received; UVC and Mainsail video tested | Main frame camera; sustained/higher-mode testing pending |
 
 ### TMC2209 allocation
 
@@ -51,7 +54,6 @@ These parts are **not** frozen production selections and are **not** candidates 
 |---|---|---|
 | BIGTREETECH CB2 | Frozen host choice | Wait for a reasonable price/availability; do not buy a CM4 merely because CB2 is temporarily harder to source |
 | E3D Roto + Revo | Frozen extrusion architecture | Current purchase preference is **Roto Sensored + Revo 24 V / 40 W**; exact retail bundle/SKU to confirm at purchase |
-| BIGTREETECH Eddy Duo | Frozen probe/scanner | Buy when a good offer is found; final mount/routing remains future CAD work |
 | BIGTREETECH CEB V1.0 | Frozen CAN backbone/distribution for EBB36/Eddy, Revival Bed Node and RASS CAN Node | Not yet purchased |
 | Custom Revival RASS CAN Node | Frozen production controller architecture | Custom PCB to design; Klipper-compatible CAN MCU, exact MCU/transceiver/drivers open |
 | BIGTREETECH HDMI5 | Frozen local display | Not yet purchased |
@@ -192,3 +194,7 @@ Minimum process:
 7. only then mark the component as **tested**.
 
 Purchased is not the same as tested, and tested is not the same as commissioned.
+
+## Partial test evidence — 8 October 2026
+
+[USB bench session](bench-tests/generation-3-electronics/records/2026-10-08-usb-eddy-camera.md) records current replacement Manta, CB1, EBB36 Gen2, Eddy Duo and camera. Earlier faulty Manta was returned. Communication and limited sensor/video results are now recorded, but no blanket full-board PASS, motion/heater commissioning or CAN acceptance is claimed. CEB remains to order.

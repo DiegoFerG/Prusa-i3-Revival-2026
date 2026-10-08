@@ -40,3 +40,7 @@ CAN UUID:
 ## Observations
 
 Add dated observations here and link retained logs or photographs.
+
+## 8 October 2026 — active CB1 USB bench
+
+[Detailed session record](2026-10-08-usb-eddy-camera.md): Manta/CB1/EBB/Eddy communication, corrected Eddy short cable, direct-USB 30-minute baseline, camera/Crowsnest/Mainsail, initial USB disruption and successful later restart/cold start. Joint prolonged test and CAN remain pending.

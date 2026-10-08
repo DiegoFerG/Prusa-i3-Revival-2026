@@ -4,7 +4,7 @@ area: build
 status: in-progress
 phase: stage-02
 priority: high
-updated: 2026-09-21
+updated: 2026-10-08
 ---
 
 # Build
@@ -38,3 +38,7 @@ The [photo index](../../../photos/03-reassembly/INDEX.md) now records evidence t
 [Generation 3](../../final-build-architecture.md) means the final machine configuration, not Roadmap Stage 03. Its frozen design targets remain deferred while the original and transitional generations are documented and tested.
 
 [Home](../Home.md) · [Current state](../project/Current-State.md) · [Roadmap](../project/Roadmap.md) · [Systems](../systems/Systems.md)
+
+## Active Generation 3 bench — 8 October 2026
+
+CB1, Eddy Duo and the Innomaker main camera are now received and used on the USB bench with Manta and EBB36 Gen2. See the [dated evidence](../../../hardware/bench-tests/generation-3-electronics/records/2026-10-08-usb-eddy-camera.md) and [procurement record](../../../hardware/generation-3-procurement-status.md). Partial communication/sensor/video results do not close original mechanical stages, driver/heater acceptance or final commissioning. Joint prolonged USB test → direct CAN → later CEB CAN remains the next sequence.

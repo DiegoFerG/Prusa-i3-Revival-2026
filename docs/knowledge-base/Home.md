@@ -48,3 +48,7 @@ The project repository is also this Obsidian vault. Start here to find the curre
 4. Review the repository changes before committing. Obsidian saves to this same folder; it does not commit, push or pull Git changes for you.
 
 The vault uses English Markdown notes and relative Markdown links. No community plugins are required. See [Maintenance](Maintenance.md) for property meanings, configuration and the update checklist.
+
+## USB bench update — 8 October 2026
+
+[Canonical session record](../../hardware/bench-tests/generation-3-electronics/records/2026-10-08-usb-eddy-camera.md): CB1 is mounted on the replacement Manta; EBB36 Gen2 and Eddy Duo communicate over USB, including the corrected short expansion cable. Direct-USB 30-minute sensor acquisition passed. Main-camera UVC modes were queried and video is visible in Mainsail via /webcam/; warm reboot and PSU cold start worked. Full-board/print commissioning is not claimed. Joint prolonged USB testing and distance calibration remain pending, followed by direct CAN and later CEB CAN. Final CB2 architecture is unchanged.

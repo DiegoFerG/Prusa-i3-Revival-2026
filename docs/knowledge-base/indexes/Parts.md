@@ -31,3 +31,7 @@ Use the existing inventories below for quantities, measurements, identification 
 ## Updating a component
 
 Update its existing source record with the evidence, measurement or test result. Keep installed hardware, recovered spare stock and target hardware distinct. Apply the baseline's `REUSE`, `RESTORE`, `REPLACE`, `REDESIGN` or `ARCHIVE` disposition only when supported. Link relevant evidence through [Photos](Photos.md), and carry unresolved questions into [Open issues](../project/Open-Issues.md).
+
+## Active Generation 3 bench — 8 October 2026
+
+CB1, Eddy Duo and the Innomaker main camera are now received and used on the USB bench with Manta and EBB36 Gen2. See the [dated evidence](../../../hardware/bench-tests/generation-3-electronics/records/2026-10-08-usb-eddy-camera.md) and [procurement record](../../../hardware/generation-3-procurement-status.md). Partial communication/sensor/video results do not close original mechanical stages, driver/heater acceptance or final commissioning. Joint prolonged USB test → direct CAN → later CEB CAN remains the next sequence.

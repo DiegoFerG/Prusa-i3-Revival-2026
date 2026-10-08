@@ -32,3 +32,7 @@ The knowledge base connects these canonical documents. Detailed inventories, pro
 ## Reading evidence correctly
 
 Use dated observations and their provenance when sources differ. Frozen architecture records a decision; it does not establish installation or commissioning. Preserve historical observations and place later findings in their appropriate stage or current source. Track unresolved conflicts in [Open issues](../project/Open-Issues.md).
+
+## USB bench update — 8 October 2026
+
+[Canonical session record](../../../hardware/bench-tests/generation-3-electronics/records/2026-10-08-usb-eddy-camera.md): CB1 is mounted on the replacement Manta; EBB36 Gen2 and Eddy Duo communicate over USB, including the corrected short expansion cable. Direct-USB 30-minute sensor acquisition passed. Main-camera UVC modes were queried and video is visible in Mainsail via /webcam/; warm reboot and PSU cold start worked. Full-board/print commissioning is not claimed. Joint prolonged USB testing and distance calibration remain pending, followed by direct CAN and later CEB CAN. Final CB2 architecture is unchanged.
