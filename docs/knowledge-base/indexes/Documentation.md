@@ -2,7 +2,7 @@
 type: index
 area: documentation
 status: active
-updated: 2026-09-30
+updated: 2026-10-08
 ---
 
 # Documentation
@@ -20,6 +20,7 @@ The knowledge base connects these canonical documents. Detailed inventories, pro
 | Original mechanical reassembly | [Stage 02 scope](../../02-reassembly/README.md), [reassembly manual](../../02-reassembly/original-reassembly-manual.md) | [Historical references](../../02-reassembly/historical-references.md), [local source material](../../02-reassembly/historical-manuals/README.md), [latest photo index](../../../photos/03-reassembly/INDEX.md) |
 | Legacy filament | [Filament archive rules](../../01-filaments/README.md) | [Inventory and qualification work](../../01-filaments/01-inventory.md) |
 | Generation 3 vendor references | [BIGTREETECH local reference archive](../../../hardware/reference/bigtreetech/README.md) | Pinned upstream manuals, pinouts, schematics, connection diagrams, wiki snapshots and reference configs for Manta M8P V2.0, EBB36 Gen2 / USB adapter and TMC2209 V1.3; provenance and hashes are retained locally. |
+| Generation 3 PSU and connector distribution | [Power-distribution specification](../../../hardware/generation-3-power-distribution.md) | Separate mains/PSU enclosure, individually protected XT60E branches, XT30(2+2) CAN/logic cabling, dedicated bed heater supply and engineering release gates |
 | Generation 3 bed electronics | [Revival Bed Node architecture](../../../hardware/generation-3-bed-node.md) | Staged conventional-to-CAN-node migration, upstream Klipper integration, heater safety boundaries and open PCB decisions |
 | Generation 3 design | [Frozen architecture](../../final-build-architecture.md) | [Procurement status](../../../hardware/generation-3-procurement-status.md), [electronics bench-test pack](../../../hardware/bench-tests/generation-3-electronics/README.md), [bench-fixture dimensional survey](../../../hardware/bench-tests/generation-3-electronics/bench-fixture-dimensional-survey.md), [Target BOM](../../../hardware/generation-3-target-bom.md), [custom CAN-node design rules](../../../hardware/generation-3-custom-can-node-design-rules.md), [linear-motion architecture](../../../hardware/generation-3-linear-motion.md), [Roto + Revo + Eddy extrusion/toolhead target](../../../hardware/generation-3-extrusion-toolhead.md) |
 | Generation 3 smart spools | [Identification, learning and weighing architecture](../../../hardware/generation-3-smart-spool-system.md) | [RASS active-feed architecture](../../../hardware/generation-3-rass.md), [Filament System](../systems/Filament-System.md), [target BOM](../../../hardware/generation-3-target-bom.md) |
