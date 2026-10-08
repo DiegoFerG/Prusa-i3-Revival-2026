@@ -97,6 +97,14 @@ The local panel shows spool identity/material/colour, remaining material, RFID/t
 
 The local panel has no direct authority over the RASS motors. CB1 during bench development and CB2 in the final machine own the UI state and command policy. LOAD/UNLOAD controls are enabled only when the host determines that no print is active and the extrusion/RASS state is safe; every touch request is revalidated on the host immediately before the corresponding macro/action is executed.
 
+## Separate PSU enclosure and protected DC distribution
+
+The final 24 V system has a **dedicated PSU enclosure** distinct from the Manta electronics enclosure. A suitably rated 230 V IEC inlet, two-pole main isolation switch, safety-compliant mains compartment, protective earth and a covered, individually fused 24 V DC distribution feed seven proposed **XT60E panel outlets**: controller logic, motor-driver supply, bed heater power stage, EBB/toolhead power, CAN low-power electronics, accessories and a capped reserve.
+
+The toolhead and Bed Node use four-contact **XT30(2+2)** CAN-plus-logic/power connectors (vertical PCB and mating inline cable types). Bed heater current remains in its own higher-current two-conductor branch, **never** through the CAN/Bed Node logic feed. The existing 150–200 W heated-bed design target and LRS-600-24 preferred PSU remain unchanged; the final source, connector drawings, fuse sizing, conductor selection and Manta power domain separation require engineering validation before any wiring is energized.
+
+For canonical pinout, wiring, interface safety, design gates and outlet IDs see [Generation 3 power distribution](../hardware/generation-3-power-distribution.md).
+
 ## CAN bus
 
 CAN is a permanent internal bus in Generation 3, used where it reduces moving wiring and improves modularity.
