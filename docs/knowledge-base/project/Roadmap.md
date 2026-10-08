@@ -3,7 +3,7 @@ type: project
 area: build
 status: active
 phase: stage-02
-updated: 2026-09-21
+updated: 2026-10-08
 ---
 
 # Roadmap
@@ -19,7 +19,7 @@ The authoritative plan remains [docs/ROADMAP.md](../../ROADMAP.md). This page ro
 | 02 | Original mechanical reassembly | [Build](../build/Build.md), [Mechanics](../systems/Mechanics.md) |
 | 03 | Revival Z axis | [Mechanics](../systems/Mechanics.md), [linear-motion target](../../../hardware/generation-3-linear-motion.md) |
 | 04 | Printed parts | [Parts](../indexes/Parts.md), [printed-parts scope](../../../printed-parts/README.md) |
-| 05 | Electronics, power and new wiring | [Electronics](../systems/Electronics.md), [Safety](../systems/Safety.md) |
+| 05 | Electronics, power and new wiring | [Electronics](../systems/Electronics.md), [Safety](../systems/Safety.md), [PSU distribution](../../../hardware/generation-3-power-distribution.md) |
 | 06 | Legacy 3 mm / 2.85 mm extrusion | [Extrusion](../systems/Extrusion.md) |
 | 07 | Firmware and commissioning | [Firmware](../systems/Firmware.md), [Safety](../systems/Safety.md) |
 | 08 | Legacy Filament Lab | [Filament System](../systems/Filament-System.md) |
