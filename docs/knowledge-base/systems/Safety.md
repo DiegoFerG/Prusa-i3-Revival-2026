@@ -4,7 +4,7 @@ area: safety
 status: active
 phase: stage-02
 priority: high
-updated: 2026-09-19
+updated: 2026-10-08
 ---
 
 # Safety
@@ -18,6 +18,8 @@ The [hardware baseline](../../../hardware/README.md) explicitly requires separat
 ## Generation 3 requirements
 
 The [final-build architecture](../../final-build-architecture.md) requires new wiring and protections that remain effective independently of Linux, Klipper or CAN, including mains protection and protective earth, suitable conductors/connectors and branch protection, an independent bed thermal fuse and strain relief. Its software heater checks and watchdogs are supplementary protections.
+
+The [dedicated PSU and DC distribution specification](../../../hardware/generation-3-power-distribution.md) proposes a separated, isolated/protected mains inlet and independently protected DC outputs. A 3D-printed housing must not be assumed fire-safe or electrically compliant based only on its filament choice. Protective-earth bonds, finger-safe energized connectors, thermal cutoff and inspection before energizing remain mandatory design gates. No mains or heater electrical approval is implied.
 
 Detailed ratings, wiring diagrams and commissioning records belong in the canonical hardware and firmware documentation as they are developed. This page is an index to existing project requirements, not a commissioning approval.
 
