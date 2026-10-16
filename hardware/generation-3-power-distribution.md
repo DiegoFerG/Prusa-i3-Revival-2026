@@ -1,6 +1,6 @@
 # Generation 3 — PSU enclosure and 24 V power distribution
 
-Status: **agreed topology / engineering specification; not manufactured, purchased or electrically validated**. Updated: 2026-10-08.
+Status: **agreed topology / engineering specification; not manufactured, purchased or electrically validated**. Updated: 2026-10-16.
 
 This document is the canonical design baseline for the separate Generation 3 power-supply enclosure, panel outlets and CAN power harness. It supplements [final architecture](../docs/final-build-architecture.md), [Bed Node](generation-3-bed-node.md) and [custom CAN node rules](generation-3-custom-can-node-design-rules.md).
 
@@ -44,8 +44,10 @@ IEC 230 Vac (L/N/PE) -> rated 2-pole switch + mains protection
                                        |-- F06 -> XT60 PWR-06 -> auxiliary loads
                                        '-- F07 -> XT60 PWR-07 -> isolated spare
 
-Manta CAN -> CEB/passive linear CAN bus -> EBB36 and Bed Node/RASS
-Bed Node logic: XT30(2+2) CAN + separately fused low-power 24 V segment*
+Manta M8P CAN -> short stub -> CEB V1.0 -> one CAN network with two downstream arms:
+  Arm A: CEB -> EBB36 Gen2 -> CAN passthrough -> Eddy Duo
+  Arm B: CEB -> Revival Bed Node CAN passthrough -> RASS CAN Node
+Bed Node/RASS logic: XT30(2+2) CAN + separately fused low-power 24 V segment*
 Bed heater: independent PWR-03 high-current +24 V/0 V -> external
             MOSFET switching stage -> short flexible moving-bed heater cable;
             independent thermal fuse physically on bed
@@ -63,7 +65,11 @@ Bed heater: independent PWR-03 high-current +24 V/0 V -> external
 - **Cable candidates only:** LAPP UNITRONIC BUS CAN FD P 2x2x0.5 mm² (manufacturer part 2170279), or chainflex-grade equivalent; 0.5 mm² for low-current Bed Node logic/CAN may be adequate after load/length checks. For moving EBB seek 2x0.75–1.0 mm² power + twisted 2x0.25–0.34 mm² CAN as an alternative if connector terminals and cable dynamic rating permit. Neither is automatically approved.
 - Bed heater branch: consider **2x1.5–2.5 mm² flexible wire**, final selection based on actual 150–200 W heater, round-trip length, ambient temperature, routing, voltage drop, motion, fuse trip and connector rating. 0.5/0.75 mm² CAN cable **must not** be used to supply the bed heating element.
 - Shielding/drain termination, reference ground strategy, conductor colours, crimp/solder specifications, heatshrink, strain relief, pin-to-pin continuity tests and service loops will be recorded in a separate **versioned harness drawing**. The simplified pairing CAN-H/L + PSU+/- is **not** a verified connector pin assignment.
-- The CEB is a passive junction, not an active multiport hub. Maintain a CAN trunk with short stubs and **exactly two 120-ohm terminations at physical endpoints**. Custom Bed Node/RASS each provide two CAN passthrough connectors and switchable 120-ohm termination per [node rules](generation-3-custom-can-node-design-rules.md).
+- **Agreed physical arrangement (16 October 2026):** one CAN network from the Manta M8P to the CEB V1.0, with the Manta connection kept as a very short stub. Use two downstream directions from the CEB: (A) CEB → EBB36 Gen2 → its CAN passthrough → Eddy Duo; and (B) CEB → fixed Revival Bed Node → its CAN passthrough → RASS CAN Node. The custom nodes must provide electrical passthrough as specified in the [node rules](generation-3-custom-can-node-design-rules.md).
+- The CEB is a passive CAN distribution board, not an active switch or repeater; its connectors do not create independent CAN channels. The manufacturer manual lists five 2-pin XH CAN ports, an XT30 interface, an RJ11 interface and a selectable 120R terminator. Confirm the exact port/power pinout and jumper states against the manual and the received board before making cables: [BIGTREETECH CEB repository and manual](https://github.com/bigtreetech/CEB).
+- Design the harness as two main arms with only short taps; do not create several long CEB-to-node branches. Keep the Manta stub around **5–10 cm**, with **15 cm as a provisional maximum** pending final routing, CAN bitrate and bench validation. Actual arm lengths remain open.
+- The complete bus uses **exactly two 120-ohm terminations total**, at the effective physical ends of the two arms. The CEB termination is off for this arrangement, and the Manta stub is not terminated. The RASS board will provide selectable termination. BIGTREETECH documents a selectable 120R resistor on the EBB36 Gen2; use it only if the final passthrough arrangement makes it the effective toolhead-arm endpoint. Do not assume the Eddy Duo contains a terminator without checking its manual/PCB. Verify the final two termination locations and bus resistance on the assembled harness before Klipper CAN acceptance.
+- Separate CAN routing from heater power. Where a 4-core XT30(2+2) feed is used, its large contacts carry the designated +24 V/0 V supply and its small contacts CAN-H/CAN-L; the exact pin assignment and one-source power injection are release gates, not yet a finished harness drawing.
 
 ## Release gates / outstanding engineering
 
@@ -72,7 +78,7 @@ Bed heater: independent PWR-03 high-current +24 V/0 V -> external
 3. Confirm original AMASS manufacturer drawings, XT60E safe panel gender and XT30(2+2) board/cable mated geometry, pin numbering, thermal/current ratings and panel footprints.
 4. Specify DC fuse sizes/type/power breaking ratings according to selected wiring, heater, PSU short circuit capability and connector ratings (no invented amperage).
 5. Define documented single-source power injection for EBB, CEB and each custom CAN node; prevent backfeed between PWR-04/PWR-05.
-6. Finalize wire gauge/length, harness routing, shield bonds, protective earth, movement, mechanical restraint and bed safety cutoff behavior.
+6. Finalize CAN arm/stub lengths, the EBB36/Eddy Duo termination placement, wire gauge, harness routing, shield bonds, protective earth, movement, mechanical restraint and bed safety cutoff behavior.
 7. Have the mains assembly designed/inspected by a competent person before energization; bench validate each DC branch disconnected from sensitive electronics, then test short circuit/fault protection and heat rise under controlled conditions.
 
 ## Procurement status

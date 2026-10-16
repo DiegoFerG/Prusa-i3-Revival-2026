@@ -73,3 +73,8 @@ The Spanish and English blog is maintained throughout the project. Repository ev
 ## Generation 3 parallel bench update — 8 October 2026
 
 The [USB session record](../hardware/bench-tests/generation-3-electronics/records/2026-10-08-usb-eddy-camera.md) documents partial communication, Eddy sensor and camera results on CB1/Manta/EBB. Next: joint 30-minute USB acquisition with video, spacer checks, then direct CAN and later CEB CAN. Original machine stages and final CB2 architecture remain unchanged.
+
+
+## Generation 3 host and CAN procurement update — 16 October 2026
+
+A Raspberry Pi CM4 CM4102016 (2 GB RAM / 16 GB eMMC, Wi-Fi/BT) and BIGTREETECH CEB V1.0 were ordered for the next Manta commissioning bench; neither is recorded as received or tested. Raspberry Pi OS Lite 64-bit is the provisional initial CM4 OS, with Ethernet preferred and a USB SSD planned. Acceptance must cover host boot and storage, Ethernet/USB/Klipper/camera/Eddy/EBB, then the CEB CAN network. See the [procurement status](../hardware/generation-3-procurement-status.md), [Current State](knowledge-base/project/Current-State.md) and [Decision Log](knowledge-base/decisions/Decision-Log.md). The frozen CB2 final-host architecture remains a separate baseline until CM4 acceptance and a superseding architecture decision.

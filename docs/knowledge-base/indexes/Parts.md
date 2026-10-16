@@ -2,7 +2,7 @@
 type: index
 area: hardware
 status: active
-updated: 2026-10-08
+updated: 2026-10-16
 ---
 
 # Parts
@@ -21,6 +21,7 @@ Use the existing inventories below for quantities, measurements, identification 
 | Final PSU | [Target BOM](../../../hardware/generation-3-target-bom.md), [procurement status](../../../hardware/generation-3-procurement-status.md) | Preferred final model: Mean Well LRS-600-24, 24 V / 25 A / 600 W; future purchase. Existing NUOFUWEI S-24-600 is prototype-only after validation. |
 | Generation 3 power connectors and harness candidates | [PSU/XT60E/XT30(2+2) specification](../../../hardware/generation-3-power-distribution.md) | Seven proposed protected XT60E panel outlets; vertical PCB XT30(2+2) and mating cable plugs, flexible four-core CAN/logic harness and independent bed heater power. Candidate specifications only, not confirmed purchases or completed electrical design. |
 | Generation 3 acquired stock | [Procurement status](../../../hardware/generation-3-procurement-status.md) | Manta M8P V2.0, EBB36 Gen2 kit and 6× TMC2209 V1.3 are purchased; purchased does not mean tested or commissioned. |
+| Generation 3 host and CAN hardware on order | [Procurement status](../../../hardware/generation-3-procurement-status.md#host-procurement-and-operating-system--16-october-2026) | CM4 CM4102016 and CEB V1.0 were ordered 16 October 2026; awaiting receipt and acceptance. |
 | RASS prototype stock | [RASS architecture](../../../hardware/generation-3-rass.md), [procurement status](../../../hardware/generation-3-procurement-status.md) | Existing 28BYJ-48 5 V + ULN2003 set is the preferred spool-drive prototype candidate; not frozen production hardware and not suitable as the precision feeder. |
 | Smart-spool holder, reader and weighing hardware | [Smart-spool system](../../../hardware/generation-3-smart-spool-system.md) | Frozen architecture; exact components and mechanical integration remain open. |
 | Potential Generation 3 additions | [Enhancement candidates](../../../hardware/generation-3-enhancement-candidates.md) | Evaluation and promotion register; Eddy Duo has moved into the frozen target BOM. Remaining proposals are not purchased or installed hardware. |
@@ -32,6 +33,6 @@ Use the existing inventories below for quantities, measurements, identification 
 
 Update its existing source record with the evidence, measurement or test result. Keep installed hardware, recovered spare stock and target hardware distinct. Apply the baseline's `REUSE`, `RESTORE`, `REPLACE`, `REDESIGN` or `ARCHIVE` disposition only when supported. Link relevant evidence through [Photos](Photos.md), and carry unresolved questions into [Open issues](../project/Open-Issues.md).
 
-## Active Generation 3 bench — 8 October 2026
+## Active Generation 3 bench — updated 16 October 2026
 
-CB1, Eddy Duo and the Innomaker main camera are now received and used on the USB bench with Manta and EBB36 Gen2. See the [dated evidence](../../../hardware/bench-tests/generation-3-electronics/records/2026-10-08-usb-eddy-camera.md) and [procurement record](../../../hardware/generation-3-procurement-status.md). Partial communication/sensor/video results do not close original mechanical stages, driver/heater acceptance or final commissioning. Joint prolonged USB test → direct CAN → later CEB CAN remains the next sequence.
+CB1, Eddy Duo and the Innomaker main camera are now received and used on the USB bench with Manta and EBB36 Gen2. See the [dated evidence](../../../hardware/bench-tests/generation-3-electronics/records/2026-10-08-usb-eddy-camera.md) and [procurement record](../../../hardware/generation-3-procurement-status.md). Partial communication/sensor/video results do not close original mechanical stages, driver/heater acceptance or final commissioning. The CM4 and CEB V1.0 were ordered 16 October and await receipt; the CM4 is planned for the next commissioning-host acceptance sequence. Joint prolonged USB test → direct CAN → CEB CAN remains pending.

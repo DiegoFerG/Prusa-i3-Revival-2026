@@ -4,14 +4,14 @@ area: project
 status: active
 phase: stage-02
 priority: high
-updated: 2026-10-08
+updated: 2026-10-16
 ---
 
 # Prusa i3 Revival 2026
 
 The project repository is also this Obsidian vault. Start here to find the current work, its evidence and the decisions that constrain the next steps.
 
-**Current work:** original mechanical reassembly, Roadmap Stage 02. The latest [Stage H batch](../../photos/03-reassembly/BATCH-20260921.md) records the geared-extruder assembly, bringing the archive to 116 photographs. Review the remaining checks in [Phase H](build/Phase-H.md), then continue to [Phase I — Endstops](build/Phase-I.md). Photographs do not close the mechanical acceptance checks. The Generation 3 power-distribution design now specifies a separate PSU enclosure, seven XT60E outlets and XT30(2+2) CAN/power harness candidates; fabrication and electrical validation are pending. Generation 3 architecture is frozen and initial electronics stock has now been purchased; see [Current State](project/Current-State.md) and the [procurement status](../../hardware/generation-3-procurement-status.md).
+**Current work:** original mechanical reassembly, Roadmap Stage 02. The latest [Stage H batch](../../photos/03-reassembly/BATCH-20260921.md) records the geared-extruder assembly, bringing the archive to 116 photographs. Review the remaining checks in [Phase H](build/Phase-H.md), then continue to [Phase I — Endstops](build/Phase-I.md). Photographs do not close the mechanical acceptance checks. The Generation 3 power-distribution design now specifies a separate PSU enclosure, seven XT60E outlets and XT30(2+2) CAN/power harness candidates; fabrication and electrical validation are pending. The Manta/CB2 architecture remains the frozen final-host baseline; CM4 CM4102016 and CEB V1.0 were ordered 16 October for commissioning tests and await receipt. Raspberry Pi OS Lite 64-bit is the provisional initial CM4 OS. See [Current State](project/Current-State.md), [Decision Log](decisions/Decision-Log.md) and the [procurement status](../../hardware/generation-3-procurement-status.md).
 
 ## Project desk
 
@@ -52,3 +52,8 @@ The vault uses English Markdown notes and relative Markdown links. No community 
 ## USB bench update — 8 October 2026
 
 [Canonical session record](../../hardware/bench-tests/generation-3-electronics/records/2026-10-08-usb-eddy-camera.md): CB1 is mounted on the replacement Manta; EBB36 Gen2 and Eddy Duo communicate over USB, including the corrected short expansion cable. Direct-USB 30-minute sensor acquisition passed. Main-camera UVC modes were queried and video is visible in Mainsail via /webcam/; warm reboot and PSU cold start worked. Full-board/print commissioning is not claimed. Joint prolonged USB testing and distance calibration remain pending, followed by direct CAN and later CEB CAN. Final CB2 architecture is unchanged.
+
+
+## Generation 3 CAN topology — 16 October 2026
+
+Agreed one-network routing: Manta M8P → short stub → CEB V1.0; Arm A: EBB36 Gen2 passthrough → Eddy Duo; Arm B: Revival Bed Node passthrough → RASS CAN Node. Exact harness lengths, connector/power pinout and endpoint termination implementation remain unverified. Track release evidence in [Open Issues](project/Open-Issues.md) and [Decision Log](decisions/Decision-Log.md).

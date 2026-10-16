@@ -30,15 +30,16 @@ Target topology:
 
 ```text
 Manta M8P V2 CAN
-       |
+       | short stub (5–10 cm target; 15 cm provisional max)
        v
 BIGTREETECH CEB V1.0
        |
-       +-- CAN-H / CAN-L --------------------------+
-                                                     |
-24 V logic / auxiliary feed ------------------------+----> Revival Bed Node
-                                                     |      fixed rear cross-member
-USB-C service / recovery / alternate runtime -------+             |
+       +-- Arm A: EBB36 Gen2 -> CAN passthrough -> Eddy Duo
+       |
+       +-- Arm B: Revival Bed Node -> CAN passthrough -> RASS CAN Node
+                 | fixed rear cross-member
+24 V logic / auxiliary feed -------------------------+
+USB-C service / recovery / alternate runtime -------+
                                                                    |
 24 V PSU -> dedicated bed fuse -> heater power stage --------------+
                                                                    |
@@ -52,7 +53,7 @@ USB-C service / recovery / alternate runtime -------+             |
                                                   moving bed
 ```
 
-The normal Bed Node data path is **CAN through the CEB**. The CAN/logic feed and optional USB-C service cable do not need to be highly flexible because the board is fixed to the rear cross-member. Only the short Bed Node-to-bed harness sees continuous Y-axis motion.
+The normal Bed Node data path is **CAN through the CEB on Arm B, inline between the CEB and RASS CAN Node**. The Manta-to-CEB connection is a short stub; the CEB provides distribution, not separate CAN channels. The agreed arrangement and still-open harness/termination details are specified in [power distribution](generation-3-power-distribution.md#can-connectors-and-cable-manufacturing). The CAN/logic feed and optional USB-C service cable do not need to be highly flexible because the board is fixed to the rear cross-member. Only the short Bed Node-to-bed harness sees continuous Y-axis motion.
 
 CAN and USB carry **control/data only**. Heater energy remains on the dedicated fused 24 V high-current path and must never be routed through the CEB or USB connector.
 
@@ -449,12 +450,14 @@ CB2 USB -> S2DW
              becomes
 
 FINAL
-Manta CAN -> CEB -> Revival Bed Node
-                    |- optional USB-C service/recovery
-                    |- bed thermistor(s)
-             |- remote bed IMU
-             |- local chassis IMU
-             |- remote frame-top IMU
+Manta CAN -> short stub -> CEB
+                            |- Arm A: EBB36 -> Eddy Duo
+                            |- Arm B: Bed Node -> CAN passthrough -> RASS
+                                      |- optional USB-C service/recovery
+                                      |- bed thermistor(s)
+                                      |- remote bed IMU
+                                      |- local chassis IMU
+                                      |- remote frame-top IMU
              |- local MOSFET control
              |- voltage/current/temperature telemetry
              |- RGB status lighting

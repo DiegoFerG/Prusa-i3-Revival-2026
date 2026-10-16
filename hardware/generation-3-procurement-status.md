@@ -110,31 +110,25 @@ This permits staged verification of:
 - low-risk fan/output tests;
 - later CAN testing once a second CAN node is available.
 
-The final integrated CAN architecture is:
+The agreed physical CAN arrangement is one network, pending harness fabrication and acceptance:
 
 ```text
 CM4 / Klipper host (after acceptance)
        |
 Manta M8P V2.0
-       |
-      CAN
-       |
+       | short CAN stub
 BIGTREETECH CEB V1.0
        |
-       +-- EBB36 Gen2
-       |      |
-       |      +-- CAN passthrough -> Eddy Duo
+       +-- Arm A: EBB36 Gen2 -> CAN passthrough -> Eddy Duo
        |
-       +-- Revival Bed Node
-       |      |
-       |      +-- USB-C service / recovery / optional alternate runtime
-       |
-       +-- Custom RASS CAN Node
+       +-- Arm B: Revival Bed Node -> CAN passthrough -> Custom RASS CAN Node
               |
-              +-- feeder / spool assist / buffer / encoder sensing
+              +-- USB-C service / recovery / optional alternate runtime (Bed Node)
 ```
 
 The CEB is the Generation 3 CAN backbone/distribution point. Bed-heater power remains on its own dedicated fused 24 V high-current path and is not routed through the CEB.
+
+The two arms and short Manta stub are the agreed routing proposal; cable lengths, exact termination implementation and electrical acceptance remain open in the [power-distribution and harness specification](generation-3-power-distribution.md#can-connectors-and-cable-manufacturing).
 
 ## Frozen toolhead purchase direction
 
@@ -175,7 +169,7 @@ Key rules:
 - Eddy Duo must **not** be fed with 24 V.
 - Eddy Duo is supplied at **5 V** and is treated as its own CAN MCU/node.
 - Eddy Duo is not configured as an I2C peripheral of the EBB36; that topology applies to an Eddy Coil-class sensor, not the Duo.
-- If Eddy Duo is the physical end of the CAN bus, termination is enabled at the bus ends only; the intermediate EBB36 termination must remain disabled.
+- In the agreed routing, Eddy Duo is downstream of the EBB36 passthrough on Arm A. Use a terminator only at the effective physical end of that arm: the EBB36 selectable 120R must remain disabled if the bus continues through it to Eddy. Verify whether the received Eddy Duo/adapter arrangement provides the endpoint termination; do not assume it does. The other bus endpoint is the RASS Node, and the complete bus still uses exactly two terminations total.
 - Exact connector pinout and harness implementation must be verified against the hardware revision in hand before wiring.
 
 ## Receiving inspection rule

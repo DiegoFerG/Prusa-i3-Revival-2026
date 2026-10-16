@@ -32,7 +32,11 @@ The toolhead extruder remains the **master extrusion actuator**. RASS only manag
                  |
                  +------------ host data / context ------------+
                                                                 |
-CEB V1.0 CAN -------------------------------------------- RASS CAN Node
+Manta M8P CAN -- short stub --> CEB V1.0
+                                      |
+                                      +-- Arm A: EBB36 Gen2 --> Eddy Duo
+                                      |
+                                      +-- Arm B: Bed Node CAN passthrough --> RASS CAN Node
                                                                 |
                                               +-----------------+----------------+
                                               |                 |                |

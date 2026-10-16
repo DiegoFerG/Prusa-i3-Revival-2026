@@ -5,10 +5,13 @@ status: documented
 phase: stage-02
 priority: high
 generation: original
-updated: 2026-10-08
+updated: 2026-10-16
 ---
 
 # Electronics
+
+Generation 3 CAN routing agreed 16 October 2026: Manta short stub to CEB, then two arms (EBB36 passthrough → Eddy Duo; Bed Node passthrough → RASS). The CEB is a distribution board, not an active switch. Exactly two endpoint terminations are required; final cable lengths, connector pinout and EBB36/Eddy termination placement remain subject to harness validation. See [DEC-034](../decisions/Decision-Log.md) and [power-distribution specification](../../../hardware/generation-3-power-distribution.md#can-connectors-and-cable-manufacturing).
+
 
 ## Recovered baseline
 

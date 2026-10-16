@@ -112,10 +112,11 @@ For canonical pinout, wiring, interface safety, design gates and outlet IDs see 
 CAN is a permanent internal bus in Generation 3, used where it reduces moving wiring and improves modularity.
 
 - Manta M8P V2.0 provides the primary CAN interface.
-- **BIGTREETECH CEB V1.0** is the protected CAN distribution/breakout point and physical backbone in the electronics bay.
-- **BIGTREETECH EBB36 Gen2** is the permanent toolhead CAN node.
-- The custom **Revival Bed Node** is a permanent CAN node connected through the CEB; it also retains USB-C for first flash, recovery, bench diagnostics and optional alternate USB runtime operation.
-- The custom **RASS CAN Node** is a permanent Klipper-compatible CAN node connected through the CEB for active spool/feed control and local RASS sensing. It may interface the physical RFID/NFC reader, but forwards only low-level reader observations; tag/vendor/material decoding runs on the Linux host (CB1 during bench work, CB2 in the final machine).
+- **BIGTREETECH CEB V1.0** is the CAN distribution/breakout point in the electronics bay; it is not an active switch, repeater or set of independent CAN channels. The Manta connects to it by a short stub, with two downstream arms.
+- Arm A runs from the CEB through **BIGTREETECH EBB36 Gen2**, its CAN passthrough and **Eddy Duo**.
+- Arm B runs from the CEB through the custom **Revival Bed Node**, its CAN passthrough and the **RASS CAN Node**. The Bed Node also retains USB-C for first flash, recovery, bench diagnostics and optional alternate USB runtime operation.
+- The custom **RASS CAN Node** is a permanent Klipper-compatible CAN node at the end of Arm B for active spool/feed control and local RASS sensing. It may interface the physical RFID/NFC reader, but forwards only low-level reader observations; tag/vendor/material decoding runs on the Linux host (CB1 during bench work, CB2 in the final machine).
+- The provisional Manta-to-CEB stub target is 5–10 cm (15 cm maximum pending layout and testing). The complete bus requires exactly two 120-ohm terminations at its effective physical ends; final EBB36/Eddy termination placement remains subject to board/harness verification. See [CAN harness requirements](../hardware/generation-3-power-distribution.md#can-connectors-and-cable-manufacturing).
 - Both Revival-designed CAN nodes — Bed Node and RASS Node — run **unmodified upstream Klipper MCU firmware**. Revival-specific semantics remain in normal configuration/macros or Linux-host software; private MCU firmware forks are not part of the production architecture.
 - Both custom nodes must physically expose **every remaining electrically usable MCU pin** after baseline functions are assigned. Alternate SPI/I2C/UART/ADC/GPIO/PWM capabilities are documented per pin; BOOT/RESET/debug remain separately accessible; only pins with a documented hardware reason may remain unavailable.
 - The finished bus must have exactly two 120-ohm terminations at its physical ends; jumper positions are to be recorded during commissioning.

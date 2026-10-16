@@ -137,15 +137,17 @@ Therefore:
 - a multi-arm star with several long CEB-to-node branches is not an acceptable final topology merely because the CEB provides multiple connectors;
 - adding extra 120-ohm resistors to individual CEB branches is not a valid fix for a poor star topology.
 
-A preferred Revival physical pattern is to use two long directions from the CEB as the effective trunk and keep the Manta-to-CEB connection very short. For example:
+The agreed Generation 3 harness arrangement (16 October 2026) uses two downstream arms from the CEB and a short Manta connection:
 
 ```text
-RASS (120R ON) <- Bed Node <- CEB -> EBB36 -> Eddy Duo (120R ON)
-                             |
-                             +-> Manta M8P V2 (very short stub)
+                          +-> EBB36 Gen2 -> CAN passthrough -> Eddy Duo
+Manta M8P V2 -> short stub -> CEB V1.0
+                          +-> Revival Bed Node -> CAN passthrough -> RASS CAN Node
 ```
 
-Exact node order remains dependent on final physical placement and harness lengths, but the commissioning documentation must identify the two actual bus endpoints and record every 120R jumper state.
+This is one logical CAN network. The two arms should form the long directions; do not use spare CEB connectors to create additional long branches. The Manta-to-CEB connection is a stub, provisionally 5–10 cm target and 15 cm maximum pending physical layout and CAN testing. Actual harness lengths remain unmeasured.
+
+Exactly two 120-ohm terminations are required at the effective physical ends of the two arms. The Manta stub is not terminated, and the CEB's selectable termination is off in this arrangement. The RASS Node provides its own selectable endpoint termination. The EBB36 Gen2 has an optional 120R resistor; its use and position relative to the downstream Eddy Duo passthrough must be verified against the actual board/cable arrangement. Do not assume the Eddy Duo itself has a termination resistor. Record both final termination locations and all CEB/EBB/RASS jumper states, then verify the assembled bus before CAN acceptance. See the [official CEB manual](https://github.com/bigtreetech/CEB) and [EBB36 Gen2 documentation](https://github.com/bigtreetech/docs/blob/master/docs/EBB36_GEN2.md).
 
 ## Debug and recovery reserve
 
