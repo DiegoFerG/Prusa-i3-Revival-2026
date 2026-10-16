@@ -2,6 +2,8 @@
 
 > Frozen architectural baseline for the **Revival 2026 final build**. Agreed 13 September 2026. Implementation remains deferred until the original and transitional generations have been documented and tested.
 
+> **Implementation update, 16 October 2026:** Raspberry Pi CM4 CM4102016 (2 GB/16 GB eMMC) and BIGTREETECH CEB V1.0 have been **ordered, not yet received or commissioned**. CM4 is the next intended integrated host for acceptance tests in place of the current CB1; the older CB2 references below describe the September baseline and do not mean that a CB2 has been purchased. **Raspberry Pi OS Lite 64-bit is the initial installation choice, not a permanent OS restriction**. DietPi, Gentoo and other compatible distributions remain available for later evaluation; SSD USB is planned. See the [current procurement decision](../hardware/generation-3-procurement-status.md#host-procurement-and-operating-system--16-october-2026).
+
 ## Scope and generation model
 
 This document defines the target control, electrical, thermal, sensing, user-interface and internal-network architecture for the final machine.
