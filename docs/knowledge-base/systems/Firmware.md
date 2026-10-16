@@ -4,7 +4,7 @@ area: firmware
 status: planned
 phase: stage-07
 priority: normal
-updated: 2026-10-08
+updated: 2026-10-16
 ---
 
 # Firmware
@@ -14,6 +14,12 @@ The current [firmware directory](../../../firmware/README.md) is a placeholder f
 [Roadmap Stage 07](../../ROADMAP.md) covers configuration, electrical checks, motion and endstop tests, heater safety, PID tuning, calibration and first controlled prints. The current Stage 02 reconstruction is unpowered.
 
 ## Future software architecture
+
+### Initial CM4 operating system choice — 16 October 2026
+
+The **Raspberry Pi CM4 CM4102016 (2 GB RAM / 16 GB eMMC)** is **ordered, not yet received**. **Raspberry Pi OS Lite ARM64** is the chosen **initial** system for CM4 bring-up on Manta M8P V2.0, with Ethernet as the primary link. This does **not** freeze the future OS: DietPi, minimal Debian, Ubuntu Server, Gentoo, Alpine, Buildroot and LFS/custom builds remain possible research alternatives, subject to demonstrated USB host, CAN, camera, Klipper and HDMI5/KlipperScreen support.
+
+When hardware arrives: preserve and back up CB1 Klipper/Moonraker/Crowsnest configuration, use rpiboot to image the CM4 eMMC, configure SSH/Ethernet, verify the Manta USB host/device-tree setting, then migrate Klipper and validate MCU/camera/Eddy/EBB before inserting the **ordered, not yet tested CEB**. Keep the OS and printer services on eMMC; plan a USB SSD for large media and histories. Record actual RAM/eMMC consumption and device stability before considering a leaner distribution. This dated choice supersedes older CB2 procurement assumptions for the immediate bench, without treating CM4 acceptance as complete.
 
 The [Generation 3 architecture](../../final-build-architecture.md) freezes Klipper on CB2 with Moonraker, Mainsail, KlipperScreen and Crowsnest. CB2 is not yet purchased; until it is available, a temporary Linux PC/Raspberry Pi may run the Klipper host and connect to the Manta M8P V2.0 by USB for bench testing without changing the final architecture. Manta manages machine axes and enclosure/initial bed I/O; EBB36 manages local toolhead functions; Eddy Duo is a separate 5 V CAN MCU/node downstream of the EBB36 passthrough; the final Revival Bed Node and the custom RASS controller are additional Klipper CAN MCU/nodes on the CEB backbone. A separate USB S2DW remains the transitional bed accelerometer before the Bed Node is commissioned.
 
