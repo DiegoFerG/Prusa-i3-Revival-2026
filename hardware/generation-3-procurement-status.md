@@ -4,7 +4,7 @@ This document tracks **actual Generation 3 purchases and near-term acquisition d
 
 It must not be used as evidence that a purchased component has been electrically tested, installed or commissioned.
 
-Last reviewed: **8 October 2026**.
+Last reviewed: **16 October 2026**.
 
 ## Purchased
 
@@ -13,7 +13,9 @@ Last reviewed: **8 October 2026**.
 | BIGTREETECH Manta M8P V2.0 | 1 | Purchased | Main motion/control MCU board |
 | BIGTREETECH EBB36 Gen2 | 1 kit | Purchased | CAN toolhead MCU/driver board; kit includes its Gen2 adapter/protection board |
 | BIGTREETECH TMC2209 V1.3 | 6 | Purchased | Manta axis drivers plus spares |
-| BIGTREETECH CB1 | 1 | Received; active temporary bench host | Mounted on Manta; final CB2 target unchanged |
+| BIGTREETECH CB1 | 1 | Received; active temporary bench host | Retain for baseline comparison until CM4 is commissioned |
+| Raspberry Pi CM4 CM4102016 (2 GB RAM / 16 GB eMMC, Wi-Fi/BT) | 1 | **Ordered 16 October 2026; not yet received/tested** | New intended Manta Linux host; Ethernet preferred; Raspberry Pi OS Lite 64-bit initial OS; SSD USB planned |
+| BIGTREETECH CEB V1.0 | 1 | **Ordered 16 October 2026; not yet received/tested** | CAN distribution/backbone for EBB36/Eddy Duo and future Bed/RASS nodes |
 | BIGTREETECH Eddy Duo | 1 | Received; USB communication and raw sensor acquisition tested | Probe/scanner; final mount/calibration/CAN pending |
 | Innomaker U30CAM-4K-S1 | 1 | Received; UVC and Mainsail video tested | Main frame camera; sustained/higher-mode testing pending |
 
@@ -48,13 +50,12 @@ Additional Manta drivers should only be purchased if a later subsystem actually 
 
 These parts are **not** frozen production selections and are **not** candidates for the precision filament feeder. They are retained as the preferred no-cost prototype for active spool rotation and must be tested with a full spool and the final load-cell/roller concept.
 
-## Frozen but not yet purchased
+## Planned, alternative or not yet purchased
 
 | Component | State | Procurement note |
 |---|---|---|
-| BIGTREETECH CB2 | Frozen host choice | Wait for a reasonable price/availability; do not buy a CM4 merely because CB2 is temporarily harder to source |
+| BIGTREETECH CB2 | Previous final host choice; unpurchased fallback | CM4 now ordered for evaluation; CB2 remains an option if acceptance or later requirements justify reconsideration |
 | E3D Roto + Revo | Frozen extrusion architecture | Current purchase preference is **Roto Sensored + Revo 24 V / 40 W**; exact retail bundle/SKU to confirm at purchase |
-| BIGTREETECH CEB V1.0 | Frozen CAN backbone/distribution for EBB36/Eddy, Revival Bed Node and RASS CAN Node | Not yet purchased |
 | Custom Revival RASS CAN Node | Frozen production controller architecture | Custom PCB to design; Klipper-compatible CAN MCU, exact MCU/transceiver/drivers open |
 | BIGTREETECH HDMI5 | Frozen local display | Not yet purchased |
 | BIGTREETECH S2DW V1.0 | Transitional USB bed accelerometer for commissioning/bench work before the custom Bed Node | Not yet purchased |
@@ -66,17 +67,15 @@ An existing **NUOFUWEI S-24-600, 24 V / 25 A / 600 W** supply can be recovered f
 
 It is **not** the preferred final PSU. The final-machine target is the Mean Well LRS-600-24 above.
 
-## Host decision: CB2 versus CM4
+## Host procurement and operating system — 16 October 2026
 
-The frozen final host remains **BIGTREETECH CB2**.
+A **Raspberry Pi Compute Module 4 CM4102016 (2 GB LPDDR4, 16 GB eMMC, Wi-Fi/BT)** has been **ordered** for the Manta M8P V2.0. It is the **selected next host for commissioning**, replacing the CB1 used in the bench. Ethernet is preferred; onboard Wi-Fi is an available fallback. The previous CB2 target is **not a purchase commitment** and remains a possible alternative if testing shows a reason to revisit host selection.
 
-A Raspberry Pi CM4 is technically viable on the Manta M8P V2.0 and remains a fallback/alternative, but the project will not pay a large premium solely for current Amazon availability.
+**Initial operating system: Raspberry Pi OS Lite 64-bit (ARM64)** installed on eMMC. This is a **provisional, reversible deployment choice**, not a permanent operating-system freeze. DietPi, minimal Debian, Gentoo, Alpine, Buildroot or custom LFS-style builds remain future research options, to be evaluated only after the core Klipper/USB/Ethernet/CAN/camera functions work reliably. Ubuntu Server is viable but not selected for initial bring-up.
 
-Current procurement rule:
+The 16 GB eMMC is reserved primarily for the OS and printer services. A **separate USB SSD is planned** for larger G-code archives, media/timelapses, diagnostics and backups. Do not assume the carrier microSD slot is available as additional CM4 storage when the CM4 has eMMC.
 
-> Wait for a sensibly priced CB2 unless a later engineering reason justifies switching the frozen host architecture.
-
-CM5 is not the target host.
+The ordered CM4 and CEB are **not marked received, installed, validated or commissioned** until the corresponding acceptance records exist. The canonical frozen architecture documents may contain historical CB2 wording; this dated procurement decision governs the next bench build and must be reconciled after host acceptance.
 
 ## Bench-test pack
 
@@ -86,9 +85,9 @@ The pack defines receiving inspection, Raspberry Pi 2 temporary-host setup, cons
 
 **The existence of the test pack does not change any component to Tested.** That status requires reviewed evidence and a recorded PASS.
 
-## Manta bench testing before CB2 purchase
+## Manta bench testing and CM4 handover
 
-The Manta M8P V2.0 can be checked before the CB2 arrives.
+The Manta M8P V2.0 has been checked with the existing CB1; continue bench tests before and after installing the ordered CM4.
 
 A temporary Linux host can run Klipper and communicate with the Manta over USB:
 
@@ -114,7 +113,7 @@ This permits staged verification of:
 The final integrated CAN architecture is:
 
 ```text
-CB2 / Klipper host
+CM4 / Klipper host (after acceptance)
        |
 Manta M8P V2.0
        |
@@ -197,4 +196,4 @@ Purchased is not the same as tested, and tested is not the same as commissioned.
 
 ## Partial test evidence — 8 October 2026
 
-[USB bench session](bench-tests/generation-3-electronics/records/2026-10-08-usb-eddy-camera.md) records current replacement Manta, CB1, EBB36 Gen2, Eddy Duo and camera. Earlier faulty Manta was returned. Communication and limited sensor/video results are now recorded, but no blanket full-board PASS, motion/heater commissioning or CAN acceptance is claimed. CEB remains to order.
+[USB bench session](bench-tests/generation-3-electronics/records/2026-10-08-usb-eddy-camera.md) records current replacement Manta, CB1, EBB36 Gen2, Eddy Duo and camera. Earlier faulty Manta was returned. Communication and limited sensor/video results are now recorded, but no blanket full-board PASS, motion/heater commissioning or CAN acceptance is claimed. CEB ordered 16 October 2026; awaiting receipt, inspection and CAN bench acceptance.
