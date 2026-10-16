@@ -4,14 +4,14 @@ area: project
 status: in-progress
 phase: stage-02
 priority: high
-updated: 2026-10-08
+updated: 2026-10-16
 ---
 
 # Current State
 
 [Home](../Home.md) · [Roadmap](Roadmap.md) · [Open Issues](Open-Issues.md)
 
-Repository documentation reviewed on 8 October 2026. The latest recorded original-reassembly photo batch remains 21 September 2026. The separate evening USB bench results are recorded below; they do not close full electronics acceptance.
+Procurement and the provisional CM4 OS plan refreshed on 16 October 2026. The latest recorded original-reassembly photo batch remains 21 September 2026. The separate 8 October USB bench results are recorded below; they do not close full electronics acceptance.
 
 | Scope | Documented state | Evidence / next gate |
 | --- | --- | --- |
@@ -20,6 +20,7 @@ Repository documentation reviewed on 8 October 2026. The latest recorded origina
 | Stage 02 — Original mechanical reassembly | In progress; photo evidence covers manual Stages A–H, with the latest batch documenting the geared-extruder subassembly | [Photo index](../../../photos/03-reassembly/INDEX.md), [21 September batch](../../../photos/03-reassembly/BATCH-20260921.md) |
 | Remaining original reassembly and validation | Stage H assembly is reported complete; its mounting/acceptance evidence, manual I–J completion and the final mechanical gate remain unrecorded | [Build sequence](../build/Build.md), [manual](../../02-reassembly/original-reassembly-manual.md) |
 | Generation 3 | Architecture frozen; historical steel frame and M8/M10 threaded base retained, MGN12 guidance uses X/Y T-slot extrusion supports and the direct/plate/profile Z hierarchy; first electronics acquired and a bench-test pack is prepared, with partial USB bench evidence now recorded on 8 October; full-board acceptance and commissioning remain pending | [Architecture](../../final-build-architecture.md), [linear motion](../../../hardware/generation-3-linear-motion.md), [target BOM](../../../hardware/generation-3-target-bom.md), [procurement status](../../../hardware/generation-3-procurement-status.md), [electronics bench-test pack](../../../hardware/bench-tests/generation-3-electronics/README.md) |
+| Generation 3 compute host and CAN distributor (16 Oct) | Raspberry Pi CM4 CM4102016 (2 GB RAM, 16 GB eMMC, Wi-Fi/BT) and BTT CEB V1.0 **ordered, not yet received/tested**. Existing CB1 remains bench host until handover. **Raspberry Pi OS Lite 64-bit chosen only for initial CM4 bring-up**; future DietPi/Gentoo/other OS evaluation remains open. USB SSD planned; verify Ethernet/USB/Klipper/camera/CAN before cutover. | [Procurement and OS plan](../../../hardware/generation-3-procurement-status.md#host-procurement-and-operating-system--16-october-2026), [Firmware OS guidance](../systems/Firmware.md#initial-cm4-operating-system-choice--16-october-2026) |
 | Generation 3 power architecture | Separate protected 24 V PSU enclosure with seven proposed XT60E outputs and XT30(2+2) CAN/logic harnesses documented; heater power remains a separate branch. Actual fuse sizes, wire gauges, connector compatibility and mains-enclosure compliance are still open; not built or tested | [Power distribution](../../../hardware/generation-3-power-distribution.md), [Electronics](../systems/Electronics.md) |
 | Generation 3 smart spools | Identification, assisted tag learning and weighing architecture frozen; RASS extends it with single-spool active feed, driven-spool assistance and buffer/dancer control; exact implementation and decoder support require validation | [Smart-spool architecture](../../../hardware/generation-3-smart-spool-system.md), [RASS](../../../hardware/generation-3-rass.md), [Filament System](../systems/Filament-System.md) |
 | Generation 3 extrusion/probing | E3D Roto + Revo + BTT Eddy Duo is the frozen 1.75 mm direct-drive / bed-scan direction; PLA quality is primary and ABS/ASA is occasional open-frame use only | [Toolhead target](../../../hardware/generation-3-extrusion-toolhead.md), [Extrusion](../systems/Extrusion.md) |
