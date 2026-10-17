@@ -2,19 +2,20 @@
 
 ## Required equipment
 
-- Raspberry Pi 2 and microSD card
-- separate power supply for the Raspberry Pi 2
-- Ethernet for the Pi, preferred for the bench
+- CB1 mounted on the Manta M8P V2.0 with Klipper/Mainsail available over USB, or another already verified Klipper host
+- separate host supply if using a temporary Raspberry Pi host
 - 24 V DC bench supply with current limiting, or a correctly protected 24 V supply
 - multimeter
 - one known-good unloaded NEMA17 stepper motor
+- multimeter with continuity/resistance mode for identifying the motor's coil pairs
+- labels/marker for TMC-A through TMC-F and a way to record each result
 - one known-good 100K NTC thermistor, optional
 - one small 24 V fan, optional
 - USB-A ↔ USB-C **data** cable for Manta
 - short twisted pair for CAN-H/CAN-L plus common ground
 - small microSD card for Manta MCU firmware update if that method is used
 
-For the first board-only/motor tests, a current-limited 24 V supply in the low-amp range is sufficient. Do not size this bench supply from the final printer load.
+For the first board-only/motor tests, a current-limited 24 V supply with sufficient headroom for the board and unloaded motor is sufficient. Do not size this bench supply from the final printer load. Check its output polarity and voltage before connecting it to the Manta `POWER` input.
 
 ## Bench rules
 
@@ -25,6 +26,10 @@ For the first board-only/motor tests, a current-limited 24 V supply in the low-a
 - Do not install DIAG jumpers for these acceptance tests.
 - Use UART mode for TMC2209 modules.
 - Keep heaters and the bed disconnected during firmware flashing and initial tests.
+- For TMC2209 tests, select **VBB** at the driver socket; leave **HV** and `BED POWER` unused. Confirm the jumper and connector labels against the exact Manta M8P V2.0 board revision before applying power.
+- Identify the motor's two coil pairs with a meter. Connect one pair to A+/A− and the other to B+/B−; do not rely only on wire colours.
+- Secure the motor with its shaft unloaded and free to turn. Keep hands and tools away while energized; never hold the shaft to brake it.
+- Use the supplied 0.30 A RMS TMC configuration only for these unloaded tests. It is not the final printer motor current.
 - EBB36 Gen2 USB is for communication; the board still requires its intended 24 V supply path through the supplied adapter/protection hardware.
 - Do not bypass the EBB36 adapter/protection board.
 - Do not connect EBB36 USB and CAN simultaneously during these tests.

@@ -4,7 +4,7 @@ area: project
 status: in-progress
 phase: stage-02
 priority: high
-updated: 2026-10-16
+updated: 2026-10-17
 ---
 
 # Current State
@@ -27,6 +27,8 @@ Procurement and the provisional CM4 OS plan refreshed on 16 October 2026. The la
 | Revival Intelligence & Diagnostics | RID is the Generation 3 umbrella for CB2-hosted supervisory intelligence, vision, condition monitoring, maintenance history and diagnostic sensor fusion. Practical S/H candidates remain prioritised by value/complexity; a separate M01–M15 Moonshot tier records extreme concepts at production score 1/5 without placing them on the production path | [RID concept](../../../hardware/generation-3-revival-intelligence-diagnostics.md), [RID backlog and Moonshots](../../../hardware/generation-3-enhancement-candidates.md), [Decision Log](../decisions/Decision-Log.md) |
 | Firmware and print profiles | Repository areas reserved for configuration/profile records; successful commissioning is not established here | [Firmware](../../../firmware/README.md), [profiles](../../../profiles/README.md) |
 | Original printable designs | Historical single-frame and Greg/Wade files archived locally; leading gear/idler candidates identified visually, exact fit and accessory coverage still open | [Catalogue](../../../printed-parts/original-designs/Original-Printed-Parts.md), [small gear](../../../printed-parts/original-designs/Small-Extruder-Gear.md), [provenance](../../../printed-parts/original-designs/Provenance.md) |
+
+The printable [TMC2209/M8P bench guide](../../../hardware/bench-tests/generation-3-electronics/Guia_Banco_Pruebas_TMC2209_M8P.pdf) and editable [six-driver](../../../hardware/bench-tests/generation-3-electronics/04-test-six-tmc2209.md) / [eight-socket](../../../hardware/bench-tests/generation-3-electronics/05-test-eight-manta-sockets.md) procedures are prepared. No result is recorded yet; do not mark a driver or socket as tested until the acceptance sheet and evidence are completed.
 
 ## Current evidence boundary
 

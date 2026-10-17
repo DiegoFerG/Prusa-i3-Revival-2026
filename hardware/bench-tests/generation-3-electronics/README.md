@@ -2,6 +2,7 @@
 
 Version: **1.0**  
 Prepared: **22 September 2026**
+Last updated: **17 October 2026**
 
 ## Purpose
 
@@ -11,7 +12,7 @@ Validate the purchased Generation 3 electronics while return/warranty windows ar
 - 6 × BIGTREETECH TMC2209 V1.3
 - 1 × BIGTREETECH EBB36 Gen2 kit including the Gen2 adapter/protection board
 
-The original pack proposed a Raspberry Pi 2 as a temporary host. The active 8 October 2026 bench uses **CB1 mounted on Manta**, as recorded below. This does not change CB2 as the frozen final Generation 3 host.
+The original pack proposed a Raspberry Pi 2 as a temporary host. The active bench host is **CB1 mounted on the Manta**; a temporary verified Klipper host is also acceptable for isolated tests. This does not change CB2 as the frozen final Generation 3 host.
 
 ## Acceptance rule
 
@@ -40,6 +41,10 @@ A component may be marked **TESTED / PASS** only after:
 10. [Closeout and evidence](09-closeout-and-evidence.md)
 
 Bench configurations are intentionally conservative and are **not final printer settings**.
+
+## Printable TMC2209/M8P procedure
+
+Use [Guia_Banco_Pruebas_TMC2209_M8P.pdf](Guia_Banco_Pruebas_TMC2209_M8P.pdf) as the print-ready bench worksheet. It covers the six-driver M1 isolation test followed by the eight-socket M1–M8 sweep. The detailed editable procedures remain [step 04](04-test-six-tmc2209.md) and [step 05](05-test-eight-manta-sockets.md); their Klipper slot files and the record sheets below remain the source for updates. The guide is a procedure, not evidence that any module or socket has passed.
 
 ## Bench fixture
 

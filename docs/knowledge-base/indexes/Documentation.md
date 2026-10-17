@@ -2,7 +2,7 @@
 type: index
 area: documentation
 status: active
-updated: 2026-10-16
+updated: 2026-10-17
 ---
 
 # Documentation
@@ -23,6 +23,7 @@ The knowledge base connects these canonical documents. Detailed inventories, pro
 | Generation 3 PSU and connector distribution | [Power-distribution specification](../../../hardware/generation-3-power-distribution.md) | Separate mains/PSU enclosure, individually protected XT60E branches, agreed two-arm CAN routing and XT30(2+2) CAN/logic cabling, dedicated bed heater supply and engineering release gates |
 | Generation 3 bed electronics | [Revival Bed Node architecture](../../../hardware/generation-3-bed-node.md) | Staged conventional-to-CAN-node migration, upstream Klipper integration, heater safety boundaries and open PCB decisions |
 | Generation 3 design | [Frozen architecture](../../final-build-architecture.md) | [Procurement status and provisional CM4 OS plan](../../../hardware/generation-3-procurement-status.md#host-procurement-and-operating-system--16-october-2026), [electronics bench-test pack](../../../hardware/bench-tests/generation-3-electronics/README.md), [bench-fixture dimensional survey](../../../hardware/bench-tests/generation-3-electronics/bench-fixture-dimensional-survey.md), [Target BOM](../../../hardware/generation-3-target-bom.md), [custom CAN-node design rules](../../../hardware/generation-3-custom-can-node-design-rules.md), [linear-motion architecture](../../../hardware/generation-3-linear-motion.md), [Roto + Revo + Eddy extrusion/toolhead target](../../../hardware/generation-3-extrusion-toolhead.md) |
+| Generation 3 TMC2209 and Manta bench validation | [Editable six-driver procedure](../../../hardware/bench-tests/generation-3-electronics/04-test-six-tmc2209.md), [eight-socket procedure](../../../hardware/bench-tests/generation-3-electronics/05-test-eight-manta-sockets.md) | [Printable TMC2209/M8P guide](../../../hardware/bench-tests/generation-3-electronics/Guia_Banco_Pruebas_TMC2209_M8P.pdf), [per-socket Klipper configs](../../../hardware/bench-tests/generation-3-electronics/configs/manta-slots/M1.cfg), [test record](../../../hardware/bench-tests/generation-3-electronics/records/test-notes.md) |
 | Generation 3 smart spools | [Identification, learning and weighing architecture](../../../hardware/generation-3-smart-spool-system.md) | [RASS active-feed architecture](../../../hardware/generation-3-rass.md), [Filament System](../systems/Filament-System.md), [target BOM](../../../hardware/generation-3-target-bom.md) |
 | Revival Intelligence & Diagnostics | [RID subsystem concept](../../../hardware/generation-3-revival-intelligence-diagnostics.md) | CB2 supervisory role, four diagnostic domains, sensor fusion, machine baseline/history and ML-first/LLM-assisted architecture |
 | RID candidates and promotions | [RID candidate backlog](../../../hardware/generation-3-enhancement-candidates.md) | Prioritised software-only and minimal-hardware/high-impact studies; unpromoted candidates remain separate from requirements |
