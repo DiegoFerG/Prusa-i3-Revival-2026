@@ -13,6 +13,7 @@ These pages connect the recovered machine, current reconstruction and future arc
 |---|---|---|
 | Mechanics | Reconstruct original geometry before modernization | [Mechanics](Mechanics.md) |
 | Electronics | Preserve the recovered inventory and separate it from the final controller target | [Electronics](Electronics.md) |
+| Electronics bench platform | Organise test electronics on a printable modular base | [Bench platform CAD](../../../hardware/cad/generation-3/electronics-bench-platform/README.md) |
 | Firmware | Keep configuration work tied to commissioning and the correct generation | [Firmware](Firmware.md) |
 | Extrusion | Rebuild the legacy geared assembly mechanically | [Extrusion](Extrusion.md) |
 | Filament system | Qualify the recovered stock before later conversion | [Filament system](Filament-System.md) |
@@ -21,6 +22,6 @@ These pages connect the recovered machine, current reconstruction and future arc
 | Revival Intelligence & Diagnostics | Plan CB2-hosted supervisory intelligence, vision, condition monitoring and diagnostics without replacing deterministic control or independent safety | [Revival Intelligence & Diagnostics](Revival-Intelligence-Diagnostics.md) |
 | Safety | Apply the current unpowered boundary and future independent protection requirements | [Safety](Safety.md) |
 
-The workflow is defined by [Roadmap stages 00–10](../../ROADMAP.md). The [Generation 3 architecture](../../final-build-architecture.md) describes a future machine configuration; Generation 3 does not mean Roadmap Stage 03.
+The workflow is defined by [Roadmap stages 00â€“10](../../ROADMAP.md). The [Generation 3 architecture](../../final-build-architecture.md) describes a future machine configuration; Generation 3 does not mean Roadmap Stage 03.
 
-[Home](../Home.md) · [Build](../build/Build.md) · [Current state](../project/Current-State.md) · [Parts](../indexes/Parts.md)
+[Home](../Home.md) Â· [Build](../build/Build.md) Â· [Current state](../project/Current-State.md) Â· [Parts](../indexes/Parts.md)
